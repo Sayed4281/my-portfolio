@@ -3,21 +3,12 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail, MessageCircle, Code, Smartphone, Search } from 'lucide-react';
 
 const Hero = () => {
-  const handleContactRedirect = () => {
-    // Scroll to contact section instead of downloading resume
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Professional Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-950 to-purple-950"></div>
-        
-        {/* Sophisticated Floating Elements */}
+
         {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
@@ -40,7 +31,6 @@ const Hero = () => {
           />
         ))}
 
-        {/* Professional Geometric Patterns */}
         <motion.div
           className="absolute top-20 left-20 w-32 h-32 border-2 border-emerald-400/15 rounded-2xl"
           animate={{ rotate: 360 }}
@@ -60,7 +50,6 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto"
         >
-          {/* Professional Profile */}
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
@@ -75,8 +64,7 @@ const Hero = () => {
                 className="w-full h-full object-cover relative z-10"
               />
             </div>
-            
-            {/* Professional Tech Icons Orbit */}
+
             <motion.div
               className="absolute inset-0 w-48 h-48 mx-auto"
               animate={{ rotate: 360 }}
@@ -94,7 +82,6 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Professional Name */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -106,7 +93,6 @@ const Hero = () => {
             </span>
           </motion.h1>
 
-          {/* Professional Titles */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -114,18 +100,14 @@ const Hero = () => {
             className="text-xl md:text-2xl text-gray-300 mb-8 space-y-3"
           >
             <motion.div
-              animate={{ 
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
+              animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
               transition={{ duration: 4, repeat: Infinity }}
               className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-400 bg-300% bg-clip-text text-transparent font-bold text-2xl md:text-3xl"
             >
               Full Stack Developer • Frontend Lead
             </motion.div>
             <motion.div
-              animate={{ 
-                backgroundPosition: ["100% 50%", "0% 50%", "100% 50%"],
-              }}
+              animate={{ backgroundPosition: ["100% 50%", "0% 50%", "100% 50%"] }}
               transition={{ duration: 4, repeat: Infinity, delay: 2 }}
               className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-300% bg-clip-text text-transparent font-semibold text-xl md:text-2xl"
             >
@@ -133,7 +115,6 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Professional Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -157,17 +138,13 @@ const Hero = () => {
               { icon: Linkedin, href: 'https://linkedin.com/in/sayedshahloobp', label: 'LinkedIn', color: 'from-blue-600 to-blue-800' },
               { icon: Mail, href: 'mailto:sayedshahloobp@gmail.com', label: 'Email', color: 'from-emerald-600 to-cyan-800' },
               { icon: MessageCircle, href: 'https://wa.me/919567220971', label: 'WhatsApp', color: 'from-green-600 to-green-800' },
-            ].map((social, index) => (
+            ].map((social) => (
               <motion.a
                 key={social.label}
                 href={social.href}
-                target={social.href.startsWith('http') ? '_blank' : '_self'}
-                rel={social.href.startsWith('http') ? 'noopener noreferrer' : ''}
-                whileHover={{ 
-                  scale: 1.2, 
-                  y: -8,
-                  rotate: [0, -5, 5, 0]
-                }}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2, y: -8, rotate: [0, -5, 5, 0] }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 className={`w-12 h-12 bg-gradient-to-r ${social.color} rounded-lg flex items-center justify-center text-white shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group`}
@@ -192,10 +169,7 @@ const Hero = () => {
           >
             <motion.a
               href="#projects"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 40px rgba(16, 185, 129, 0.5)"
-              }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(16, 185, 129, 0.5)" }}
               whileTap={{ scale: 0.95 }}
               className="px-10 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white rounded-lg font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-emerald-500/25 relative overflow-hidden group"
             >
@@ -207,25 +181,24 @@ const Hero = () => {
                 transition={{ duration: 0.3 }}
               />
             </motion.a>
-            
-            <motion.button
-              onClick={handleContactRedirect}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 40px rgba(6, 182, 212, 0.5)"
-              }}
+
+            {/* Download Resume Button */}
+            <motion.a
+              href="/sayed_shahloob_p.pdf"
+              download
+              whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(6, 182, 212, 0.5)" }}
               whileTap={{ scale: 0.95 }}
               className="px-10 py-3 border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white rounded-lg font-bold text-lg transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden"
             >
               <MessageCircle size={20} className="group-hover:animate-pulse relative z-10" />
-              <span className="relative z-10">Get In Touch</span>
+              <span className="relative z-10">Download Resume</span>
               <motion.div
                 className="absolute inset-0 bg-cyan-500"
                 initial={{ scale: 0 }}
                 whileHover={{ scale: 1 }}
                 transition={{ duration: 0.3 }}
               />
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
 
@@ -237,10 +210,7 @@ const Hero = () => {
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
-            animate={{ 
-              y: [0, 10, 0],
-              opacity: [0.5, 1, 0.5]
-            }}
+            animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="text-emerald-400"
           >
@@ -253,3 +223,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
