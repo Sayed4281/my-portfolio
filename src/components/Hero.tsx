@@ -59,7 +59,7 @@ const Hero = () => {
             <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-gradient-to-r from-emerald-400 to-cyan-500 shadow-2xl relative">
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 to-cyan-500/10 rounded-full animate-pulse"></div>
               <img
-                src="/IMG_20250629_195227.jpg"
+                src="/sayed.png"
                 alt="SAYED SHAHLOOB P"
                 className="w-full h-full object-cover relative z-10"
               />
