@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
+import Dropdown from './Dropdown';
 import { motion, useInView } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Calendar } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.2 });
+  const isInView = useInView(ref, { once: true });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -312,19 +313,12 @@ const Contact = () => {
                     <label htmlFor="project" className="block text-white font-medium mb-2">
                       Project Type *
                     </label>
-                    <select
-                      id="project"
-                      name="project"
+                    <Dropdown
+                      options={projectTypes}
                       value={formData.project}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition-all duration-200"
-                    >
-                      <option value="">Select Project Type</option>
-                      {projectTypes.map((type) => (
-                        <option key={type} value={type}>{type}</option>
-                      ))}
-                    </select>
+                      onChange={(val) => setFormData({ ...formData, project: val })}
+                      placeholder="Select Project Type"
+                    />
                   </motion.div>
                 </div>
 

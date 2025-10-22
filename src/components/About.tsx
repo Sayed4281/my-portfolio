@@ -6,7 +6,7 @@ import { GraduationCap, Code, Smartphone, Award, Users, Target, Trophy, BookOpen
 
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.2 });
+  const isInView = useInView(ref, { once: true });
 
   const achievements = [
     {
