@@ -42,7 +42,7 @@ const Header = () => {
             className="text-2xl font-bold relative"
           >
             <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              SAYED
+              SAYED SHAHLOOB P
             </span>
             <motion.div
               animate={{ rotate: 360 }}

@@ -4,7 +4,7 @@ import { ExternalLink, Github, Smartphone, Database, Users, Heart, DollarSign, C
 
 const Projects = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.2 });
+  const isInView = useInView(ref, { once: true });
 
   const projects = [
     {
@@ -27,8 +27,7 @@ const Projects = () => {
       gradient: 'from-orange-400 to-yellow-500',
       status: 'In Development',
       links: {
-        github: '#',
-        live: '#'
+        
       }
     },
     {
@@ -50,10 +49,7 @@ const Projects = () => {
       icon: Database,
       gradient: 'from-emerald-400 to-cyan-500',
       status: 'In Development',
-      links: {
-        github: 'https://github.com/Sayed4281/CRMPRO26',
-        live: '#'
-      }
+      
     },
     {
       title: 'NeuVitX - Health Monitoring App',
@@ -74,10 +70,8 @@ const Projects = () => {
       icon: Heart,
       gradient: 'from-red-400 to-pink-500',
       status: 'Published Research',
-      links: {
-        github: 'https://github.com/Sayed4281/NEUVITX_AUTOMATIC-GLUCOSE-AND-VITAL-SIGN-MONITORING-SYSTEM',
-        live: '#'
-      }
+      
+      
     },
     {
       title: 'ShopSmart - Expense Tracker',
@@ -98,10 +92,7 @@ const Projects = () => {
       icon: DollarSign,
       gradient: 'from-green-400 to-emerald-500',
       status: 'Completed',
-      links: {
-        github: 'https://github.com/Sayed4281/ShopSmart-An-Intelligent-Expense-Reduction-App-for-Household-Budget',
-        live: '#'
-      }
+      
     },
     {
       title: 'WeatherNow - 5-Day Forecast App',
@@ -122,10 +113,7 @@ const Projects = () => {
       icon: Cloud,
       gradient: 'from-blue-400 to-indigo-500',
       status: 'Completed',
-      links: {
-        github: 'https://github.com/Sayed4281/weather_app',
-        live: '#'
-      }
+      
     },
     {
       title: 'Student Management System',
@@ -146,10 +134,7 @@ const Projects = () => {
       icon: Users,
       gradient: 'from-purple-400 to-pink-500',
       status: 'Completed',
-      links: {
-        github: '#',
-        live: '#'
-      }
+      
     }
   ];
 
@@ -266,27 +251,10 @@ const Projects = () => {
                   {project.status}
                 </motion.div>
                 
-                {/* Project Links */}
-                <div className="absolute bottom-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <motion.a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, rotate: 360 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 bg-slate-900/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-emerald-500/50 transition-colors duration-200"
-                  >
-                    <Github size={18} />
-                  </motion.a>
-                  <motion.a
-                    href={project.links.live}
-                    whileHover={{ scale: 1.2, rotate: -360 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 bg-slate-900/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-cyan-500/50 transition-colors duration-200"
-                  >
-                    <ExternalLink size={18} />
-                  </motion.a>
-                </div>
+               
+                
+
+
               </div>
 
               {/* Project Content */}

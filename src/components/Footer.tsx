@@ -46,7 +46,7 @@ const Footer = () => {
               className="text-3xl font-black mb-4"
             >
               <span className="bg-gradient-to-r from-emerald-400 via-cyan-500 to-indigo-500 bg-clip-text text-transparent">
-                SAYED
+                SAYED SHAHLOOB P
               </span>
               <span className="text-white">.</span>
             </motion.div>
