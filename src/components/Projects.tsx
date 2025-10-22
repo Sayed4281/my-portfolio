@@ -8,6 +8,30 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'Restaurant Management System',
+      description: 'The Restaurant Management System is a modern, web-based application designed to streamline restaurant operations through a centralized digital platform. Built using React, TypeScript, and Firebase, it efficiently manages core activities such as order processing, menu updates, table management, and role-based task assignment for admins, waiters, and kitchen staff.',
+      detailedFeatures: [
+        'Order processing with real-time updates for kitchen and wait staff',
+        'Dynamic menu management with instant updates',
+        'Table management and reservation system',
+        'Role-based dashboards for admins, waiters, and kitchen staff',
+        'Live communication using Firestore’s real-time database',
+        'Secure authentication and user management',
+        'Scalable architecture for multi-branch restaurants',
+        'Analytics dashboard for sales and operations insights'
+      ],
+      image: 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['React', 'TypeScript', 'Firebase', 'Firestore', 'Role-based Auth', 'Real-time Updates'],
+      type: 'Web Application',
+      icon: Smartphone,
+      gradient: 'from-orange-400 to-yellow-500',
+      status: 'In Development',
+      links: {
+        github: '#',
+        live: '#'
+      }
+    },
+    {
       title: 'Enterprise CRM Management System',
       description: 'Currently developing a comprehensive Customer Relationship Management system. This full-stack solution features advanced customer data management, sales pipeline tracking, automated reporting, and real-time analytics with role-based access control.',
       detailedFeatures: [
