@@ -16,7 +16,7 @@ function App() {
       {/* Global Background Effects */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/20 via-slate-900/40 to-indigo-900/60"></div>
-        
+
         {/* Animated Grid */}
         <motion.div
           className="absolute inset-0 opacity-10"

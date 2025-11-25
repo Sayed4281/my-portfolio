@@ -28,11 +28,10 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-slate-800/50'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-slate-800/50'
+        : 'bg-transparent'
+        }`}
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -62,7 +61,7 @@ const Header = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.1,
                   y: -2
                 }}
@@ -96,7 +95,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         <motion.div
           initial={{ opacity: 0, height: 0 }}
-          animate={{ 
+          animate={{
             opacity: isMobileMenuOpen ? 1 : 0,
             height: isMobileMenuOpen ? 'auto' : 0
           }}
@@ -109,7 +108,7 @@ const Header = () => {
                 key={item.name}
                 href={item.href}
                 initial={{ opacity: 0, x: -20 }}
-                animate={{ 
+                animate={{
                   opacity: isMobileMenuOpen ? 1 : 0,
                   x: isMobileMenuOpen ? 0 : -20
                 }}
