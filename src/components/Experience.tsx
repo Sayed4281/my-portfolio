@@ -29,13 +29,13 @@ const Experience = () => {
       gradient: 'from-cyan-500 to-indigo-500',
     },
     {
-      title: 'Jr. Frontend Developer',
+      title: 'Frontend Engineer',
       company: 'Pro26 LLP',
       location: 'Remote',
       period: 'May 2024 - Present',
       type: 'Part-time',
-      description: 'Developing cross-platform mobile applications using Flutter and Dart with Firebase integration.',
-      skills: ['Flutter', 'Dart', 'Firebase', 'Mobile Development'],
+      description: 'Developing cross-platform mobile applications using Flutter and modern web implementations using React.js.',
+      skills: ['Flutter', 'React.js', 'Dart', 'Firebase', 'Web & Mobile'],
       gradient: 'from-indigo-500 to-blue-600',
     },
     {
