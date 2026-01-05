@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayed Shahloob P - Resume</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #000;
+            margin-bottom: 5px;
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: #000;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .header-contact {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .header-contact a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .job-title {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .company-name {
+            font-weight: bold;
+        }
+
+        .job-header,
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            font-style: italic;
+        }
+
+        ul {
+            margin: 5px 0 15px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        .skills-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .project-tech {
+            font-style: italic;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+
+            body {
+                padding: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+        }
+
+        .download-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="javascript:window.print()" class="download-btn no-print">Download PDF</a>
+
+    <header>
+        <h1>Sayed Shahloob P</h1>
+        <div class="header-contact">
+            <strong>Frontend Engineer & Full Stack Developer</strong><br>
+            <a href="mailto:sayedshahloobp@gmail.com">sayedshahloobp@gmail.com</a> |
+            <a href="tel:+919567220971">+91 9567220971</a> |
+            <a href="https://linkedin.com/in/sayed-shahloob-p">linkedin.com/in/sayed-shahloob-p</a> |
+            Malappuram, Kerala
+        </div>
+    </header>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <p>
+            Results-driven Frontend Engineer and Full Stack Developer with expertise in React.js, Flutter, and Node.js.
+            Proven ability to deliver high-quality enterprise solutions, from CRM systems to research-based health
+            monitoring applications.
+            Strong focus on scalable architecture, SEO optimization, and creating responsive, user-centric interfaces.
+        </p>
+    </section>
+
+    <section>
+        <h2>Work Experience</h2>
+
+        <div class="job-header">
+            <div>
+                <span class="job-title">Jr. Software Developer</span> | <span class="company-name">Hirush Global
+                    LLP</span>
+            </div>
+            <span class="date">Nov 2024 - Present</span>
+        </div>
+        <ul>
+            <li>Spearheaded web development for multiple client projects including Brookvalley Resort, achieving a 40%
+                improvement in page load speeds.</li>
+            <li>Integrated AI/ML solutions to enhance user experience and operational efficiency.</li>
+            <li>Collaborated with design teams to translate requirements into responsive, high-performance web
+                applications.</li>
+        </ul>
+
+        <div class="job-header">
+            <div>
+                <span class="job-title">Frontend Engineer</span> | <span class="company-name">Pro26 LLP</span>
+            </div>
+            <span class="date">May 2024 - Present</span>
+        </div>
+        <ul>
+            <li>Building cross-platform mobile applications using Flutter for Android and iOS.</li>
+            <li>Building modern, dynamic web interfaces using React.js and integrating with backend APIs.</li>
+            <li>Managing state and data flow using Redux and Firebase for real-time application updates.</li>
+        </ul>
+
+        <div class="job-header">
+            <div>
+                <span class="job-title">SEO Analyst</span> | <span class="company-name">Hirush Global LLP</span>
+            </div>
+            <span class="date">Feb 2024 - Present</span>
+        </div>
+        <ul>
+            <li>Conducting technical SEO audits that resulted in a 25% increase in site performance and higher search
+                engine rankings.
+            </li>
+            <li>Executing on-page and off-page SEO strategies to drive organic traffic and engagement.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Key Projects</h2>
+
+        <div class="project-header">
+            <span class="job-title">Restaurant Management System (RMS)</span>
+        </div>
+        <div class="project-tech">React.js, Node.js, PostgreSQL, REST APIs</div>
+        <ul>
+            <li>Created a modern web application to streamline restaurant operations including order taking and table
+                management.</li>
+            <li>Utilized Node.js and PostgreSQL for handling complex data relationships and transactions.</li>
+        </ul>
+
+        <div class="project-header">
+            <span class="job-title">Brookvalley Resort Platform</span>
+        </div>
+        <div class="project-tech">React.js, Tailwind CSS, Framer Motion</div>
+        <ul>
+            <li>Architected and built a premium resort booking website with immersive visual galleries.</li>
+            <li>Applied smooth animations and a responsive layout to enhance user engagement.</li>
+        </ul>
+
+        <div class="project-header">
+            <span class="job-title">Enterprise CRM System</span>
+        </div>
+        <div class="project-tech">React.js, Node.js, PostgreSQL, REST APIs</div>
+        <ul>
+            <li>Engineered a comprehensive Customer Relationship Management system for managing sales pipelines and
+                client data.</li>
+            <li>Deployed real-time analytics dashboards and automated reporting features using PostgreSQL.</li>
+            <li>Optimized database queries for handling large volumes of customer interactions efficiently.</li>
+        </ul>
+
+        <div class="project-header">
+            <span class="job-title">Attendance Management System (AMS)</span>
+        </div>
+        <div class="project-tech">React.js, Node.js, PWA, Firebase, GPS API</div>
+        <ul>
+            <li>Built a Progressive Web App (PWA) for employee attendance tracking with offline capabilities.</li>
+            <li>Integrated geolocation services (GPS) for accurate location-based check-ins and check-outs.</li>
+            <li>Created a dual-module architecture for admin supervision and employee self-service.</li>
+        </ul>
+
+        <div class="project-header">
+            <span class="job-title">NeuVitX - Health Monitoring</span>
+        </div>
+        <div class="project-tech">Variables: Flutter, IoT Hardware, Firebase</div>
+        <ul>
+            <li>Research project presented at ICETI4T 2025: Integrated IoT hardware with a Flutter mobile app.</li>
+            <li>Established real-time monitoring of glucose levels and vital signs with instant alerts.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-section">
+            <ul>
+                <li><strong>Languages:</strong> JavaScript, TypeScript, Dart, HTML5, CSS3</li>
+                <li><strong>Frontend:</strong> React.js, Next.js, Flutter, Tailwind CSS</li>
+            </ul>
+            <ul>
+                <li><strong>Backend:</strong> Node.js, Express, Firebase, MongoDB</li>
+                <li><strong>Tools:</strong> Git, GitHub, VS Code, Postman, SEO Tools</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <div class="job-header">
+            <span class="job-title">B.Tech in Computer Science Engineering</span>
+            <span class="date">Graduated</span>
+        </div>
+        <div>MEA Engineering College | CGPA: 8.08</div>
+    </section>
+</body>
+
+</html>

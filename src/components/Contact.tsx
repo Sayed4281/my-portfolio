@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -102,6 +103,14 @@ const Contact = () => {
                   className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-cyan-600 transition-all duration-300"
                 >
                   <Linkedin size={24} className="text-white" />
+                </a>
+                <a
+                  href="https://wa.me/919567220971"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-600 transition-all duration-300"
+                >
+                  <WhatsAppIcon size={24} className="text-white" />
                 </a>
               </div>
             </div>
