@@ -11,33 +11,6 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Brookvalley Resort',
-      description: 'Premium resort website developed for Brookvalley Wayanad at Hirush Global. Features immersive gallery, booking integration, and smooth animations.',
-      image: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React.js', 'Tailwind CSS', 'Framer Motion'],
-      status: 'Completed',
-      gradient: 'from-emerald-500 to-teal-600',
-      category: 'Web Development',
-    },
-    {
-      title: '1001 Nights Shawarma',
-      description: 'Dynamic restaurant website built at Hirush Global. Showcasing the menu, ambiance, and special offers with a modern user interface.',
-      image: 'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React.js', 'Tailwind CSS', 'Responsive Design'],
-      status: 'Completed',
-      gradient: 'from-orange-500 to-red-600',
-      category: 'Web Development',
-    },
-    {
-      title: 'Gueston Travels',
-      description: 'Travel and tourism web platform developed at Hirush Global. Facilitating tour packages, destination exploration, and customer inquiries.',
-      image: 'https://images.pexels.com/photos/2108845/pexels-photo-2108845.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React.js', 'Next.js', 'Tailwind CSS'],
-      status: 'Completed',
-      gradient: 'from-blue-500 to-indigo-600',
-      category: 'Web Development',
-    },
-    {
       title: 'Attendance Management System',
       description: 'Comprehensive PWA (Progressive Web App) for attendance management with dual-module architecture. Features location-based check-in, real-time tracking, and leave management.',
       image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -91,6 +64,26 @@ const Projects = () => {
       gradient: 'from-indigo-500 to-blue-600',
       category: 'Mobile Apps',
     },
+    {
+      title: 'SEO Strategist Portfolio',
+      description: 'High-performance portfolio website designed for an SEO specialist. Features advanced schema markup, optimized core web vitals, and content-rich structure for maximum search visibility.',
+      image: '/haron.png',
+      technologies: ['Next.js', 'Technical SEO', 'Schema Markup', 'Analytics'],
+      status: 'Completed',
+      gradient: 'from-green-500 to-emerald-600',
+      category: 'Web Development',
+      link: 'https://haronsaeed.vercel.app/',
+    },
+    {
+      title: 'Multimedia Visual Specialist',
+      description: 'Immersive portfolio for a multimedia specialist showcasing video, 3D assets, and high-resolution imagery with a focus on visual storytelling and interactive performance.',
+      image: '/dilshad.png',
+      technologies: ['React.js', 'Three.js', 'WebGL', 'GSAP'],
+      status: 'Completed',
+      gradient: 'from-purple-500 to-pink-600',
+      category: 'Web Development',
+      link: 'https://muhammed-dilshad-p.vercel.app/',
+    },
   ];
 
   const filteredProjects = activeCategory === 'All'
@@ -139,65 +132,71 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              layout
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-blue-600/50 transition-all duration-300 group h-full flex flex-col"
-            >
-              {/* Project Image */}
-              <div className="relative h-48 overflow-hidden shrink-0">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+          {filteredProjects.map((project, index) => {
+            const Card = (project as any).link ? motion.a : motion.div;
+            return (
+              <Card
+                href={(project as any).link}
+                target={(project as any).link ? "_blank" : undefined}
+                rel={(project as any).link ? "noopener noreferrer" : undefined}
+                layout
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-blue-600/50 transition-all duration-300 group h-full flex flex-col"
+              >
+                {/* Project Image */}
+                <div className="relative h-48 overflow-hidden shrink-0">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
 
-                {/* Status Badge */}
-                <div className={`absolute top-4 right-4 px-4 py-1.5 rounded-full text-xs font-bold backdrop-blur-md shadow-lg border ${project.status === 'Published Research'
-                  ? 'bg-yellow-500/10 text-yellow-200 border-yellow-500/50 shadow-yellow-500/20'
-                  : 'bg-emerald-500/10 text-emerald-200 border-emerald-500/50 shadow-emerald-500/20'
-                  }`}
-                >
-                  {project.status}
+                  {/* Status Badge */}
+                  <div className={`absolute top-4 right-4 px-4 py-1.5 rounded-full text-xs font-bold backdrop-blur-md shadow-lg border ${project.status === 'Published Research'
+                    ? 'bg-yellow-500/10 text-yellow-200 border-yellow-500/50 shadow-yellow-500/20'
+                    : 'bg-emerald-500/10 text-emerald-200 border-emerald-500/50 shadow-emerald-500/20'
+                    }`}
+                  >
+                    {project.status}
+                  </div>
                 </div>
-              </div>
 
-              {/* Project Content */}
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-cyan-500 transition-all duration-300">
-                  {project.title}
-                </h3>
+                {/* Project Content */}
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-cyan-500 transition-all duration-300">
+                    {project.title}
+                  </h3>
 
-                <p className="text-gray-400 text-sm mb-4 line-clamp-3 flex-grow">
-                  {project.description}
-                </p>
+                  <p className="text-gray-400 text-sm mb-4 line-clamp-3 flex-grow">
+                    {project.description}
+                  </p>
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.technologies.slice(0, 3).map((tech, i) => (
-                    <span
-                      key={i}
-                      className={`px-2 py-1 bg-gradient-to-r ${project.gradient} bg-opacity-10 text-white text-xs rounded-full border border-white/20`}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <span className="px-2 py-1 bg-white/5 text-gray-400 text-xs rounded-full">
-                      +{project.technologies.length - 3}
-                    </span>
-                  )}
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.technologies.slice(0, 3).map((tech, i) => (
+                      <span
+                        key={i}
+                        className={`px-2 py-1 bg-gradient-to-r ${project.gradient} bg-opacity-10 text-white text-xs rounded-full border border-white/20`}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="px-2 py-1 bg-white/5 text-gray-400 text-xs rounded-full">
+                        +{project.technologies.length - 3}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </Card>
+            );
+          })}
         </div>
 
         {/* CTA */}
