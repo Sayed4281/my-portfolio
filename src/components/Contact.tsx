@@ -181,6 +181,20 @@ const Contact = () => {
                 />
               </div>
               <div>
+                <label className="block text-gray-300 mb-2">Subject *</label>
+                <select
+                  name="subject"
+                  required
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none transition-all duration-300 [&>option]:bg-slate-900"
+                >
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="Custom Software Development">Custom Software Development</option>
+                  <option value="Website Design/Redesign">Website Design/Redesign</option>
+                  <option value="SEO Audit & Optimization">SEO Audit & Optimization</option>
+                  <option value="Portfolio Building for Professionals">Portfolio Building for Professionals</option>
+                </select>
+              </div>
+              <div>
                 <label className="block text-gray-300 mb-2">Message *</label>
                 <textarea
                   name="message"
