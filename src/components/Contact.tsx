@@ -26,6 +26,9 @@ const Contact = () => {
         () => {
           setFeedback({ type: 'success', message: 'Message sent successfully!' });
           if (formRef.current) formRef.current.reset();
+          setTimeout(() => {
+            setFeedback({ type: null, message: '' });
+          }, 5000);
         },
         (error) => {
           console.error('FAILED...', error.text);
