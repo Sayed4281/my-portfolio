@@ -65,7 +65,7 @@ const Hero = () => {
                   { Icon: Github, href: "https://github.com/Sayed4281", color: "hover:text-white" },
                   { Icon: Linkedin, href: "https://linkedin.com/in/sayed-shahloob-p", color: "hover:text-blue-400" },
                   { Icon: WhatsAppIcon, href: "https://wa.me/919567220971", color: "hover:text-green-400" },
-                  { Icon: Mail, href: "mailto:sayedshahloobp@gmail.com", color: "hover:text-cyan-400" }
+                  { Icon: Mail, href: "mailto:sayedshahloobpofficial@gmail.com", color: "hover:text-cyan-400" }
                 ].map(({ Icon, href, color }, index) => (
                   <a
                     key={index}
