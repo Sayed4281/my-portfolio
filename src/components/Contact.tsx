@@ -1,19 +1,51 @@
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const ref = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSending, setIsSending] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
   const isInView = useInView(ref, { once: true });
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSending(true);
+    setFeedback({ type: null, message: '' });
+
+    // REPLACE 'YOUR_PUBLIC_KEY' WITH YOUR ACTUAL PUBLIC KEY FROM EMAILJS DASHBOARD
+    emailjs
+      .sendForm('service_d41lcvh', 'template_ulk7ogm', formRef.current!, {
+        publicKey: 'Fg3N5vAQJxjsFNjRp',
+      })
+      .then(
+        () => {
+          setFeedback({ type: 'success', message: 'Message sent successfully!' });
+          if (formRef.current) formRef.current.reset();
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          setFeedback({
+            type: 'error',
+            message: `Failed to send: ${error.text || JSON.stringify(error) || 'Unknown error'}`
+          });
+        }
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
+  };
 
   const contactInfo = [
     {
       icon: Mail,
       title: 'Email',
-      value: 'sayedshahloobp@gmail.com',
-      link: 'mailto:sayedshahloobp@gmail.com',
+      value: 'sayedshahloobpofficial@gmail.com',
+      link: 'mailto:sayedshahloobpofficial@gmail.com',
       gradient: 'from-blue-600 to-cyan-500'
     },
     {
@@ -124,11 +156,13 @@ const Contact = () => {
             className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
           >
             <h3 className="text-3xl font-bold text-white mb-6">Send Message</h3>
-            <form className="space-y-4">
+            <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
               <div>
                 <label className="block text-gray-300 mb-2">Your Name *</label>
                 <input
                   type="text"
+                  name="name"
+                  required
                   placeholder="John Doe"
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none transition-all duration-300"
                 />
@@ -137,6 +171,8 @@ const Contact = () => {
                 <label className="block text-gray-300 mb-2">Email Address *</label>
                 <input
                   type="email"
+                  name="email"
+                  required
                   placeholder="john@example.com"
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none transition-all duration-300"
                 />
@@ -144,17 +180,39 @@ const Contact = () => {
               <div>
                 <label className="block text-gray-300 mb-2">Message *</label>
                 <textarea
+                  name="message"
+                  required
                   rows={5}
                   placeholder="Your message here..."
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-purple-500 focus:outline-none transition-all duration-300 resize-none"
                 ></textarea>
               </div>
+
+              {feedback.message && (
+                <div
+                  className={`p-3 rounded-lg text-sm ${feedback.type === 'success'
+                    ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                    : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                    }`}
+                >
+                  {feedback.message}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-bold hover:shadow-lg hover:shadow-blue-600/50 transition-all duration-300 flex items-center justify-center gap-2"
+                disabled={isSending}
+                className={`w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-bold hover:shadow-lg hover:shadow-blue-600/50 transition-all duration-300 flex items-center justify-center gap-2 ${isSending ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
               >
-                <Send size={20} />
-                Send Message
+                {isSending ? (
+                  <>Sending...</>
+                ) : (
+                  <>
+                    <Send size={20} />
+                    Send Message
+                  </>
+                )}
               </button>
             </form>
           </motion.div>

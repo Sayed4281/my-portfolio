@@ -128,11 +128,11 @@ const Footer = () => {
                         <h3 className="text-white font-bold mb-4 text-lg">Get In Touch</h3>
                         <div className="space-y-3 text-gray-400">
                             <motion.a
-                                href="mailto:sayedshahloobp@gmail.com"
+                                href="mailto:sayedshahloobpofficial@gmail.com"
                                 whileHover={{ x: 5, color: "#10b981" }}
                                 className="block transition-all duration-300 cursor-pointer"
                             >
-                                sayedshahloobp@gmail.com
+                                sayedshahloobpofficial@gmail.com
                             </motion.a>
                             <motion.a
                                 href="tel:+919567220971"
