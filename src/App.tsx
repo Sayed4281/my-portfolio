@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,18 +11,20 @@ import AIChatBot from './components/AIChatBot';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* Dynamic Background */}
+    <div className="min-h-screen bg-[#050505] text-neutral-200">
+      {/* Subtle ambient glow */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000"></div>
-        <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-5"></div>
+        <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-violet-500/[0.04] rounded-full blur-[120px] animate-glow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-violet-500/[0.03] rounded-full blur-[100px] animate-glow animation-delay-2000"></div>
+        {/* Grid pattern */}
+        <div className="absolute inset-0 grid-pattern opacity-50"></div>
+        {/* Noise */}
+        <div className="absolute inset-0 noise-overlay"></div>
       </div>
 
       <Header />
 
-      <main className="relative z-10 space-y-24 pb-24">
+      <main className="relative z-10">
         <Hero />
         <About />
         <Experience />

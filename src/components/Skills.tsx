@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code, Database, Smartphone, Search, GitBranch, Settings } from 'lucide-react';
+import { Code, Database, Search, Settings } from 'lucide-react';
 
 const Skills = () => {
   const ref = useRef(null);
@@ -11,7 +11,6 @@ const Skills = () => {
     {
       title: 'Frontend Development',
       icon: Code,
-      gradient: 'from-blue-600 to-cyan-500',
       skills: [
         { name: 'React & Next.js', level: 90 },
         { name: 'TypeScript/JavaScript', level: 88 },
@@ -23,7 +22,6 @@ const Skills = () => {
     {
       title: 'Backend & Database',
       icon: Database,
-      gradient: 'from-cyan-500 to-indigo-500',
       skills: [
         { name: 'Node.js & Express', level: 85 },
         { name: 'MongoDB', level: 88 },
@@ -33,9 +31,8 @@ const Skills = () => {
       ]
     },
     {
-      title: 'SEO & Digital Marketing',
+      title: 'SEO Executive',
       icon: Search,
-      gradient: 'from-indigo-500 to-blue-600',
       skills: [
         { name: 'Technical SEO', level: 88 },
         { name: 'Google Analytics', level: 85 },
@@ -47,7 +44,6 @@ const Skills = () => {
     {
       title: 'Tools & Management',
       icon: Settings,
-      gradient: 'from-blue-600 to-cyan-500',
       skills: [
         { name: 'Git & GitHub', level: 90 },
         { name: 'Project Management', level: 85 },
@@ -59,7 +55,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
+    <section id="skills" className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -67,46 +63,45 @@ const Skills = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-4">
-            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-500 bg-clip-text text-transparent">
-              Technical Skills
-            </span>
+          <span className="text-violet-500 text-xs font-medium tracking-[0.3em] uppercase mb-4 block">Expertise</span>
+          <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-4">
+            Technical Skills
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full"></div>
+          <div className="section-line"></div>
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl">
           {skillCategories.map((category, catIndex) => (
             <motion.div
               key={catIndex}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-blue-600/50 transition-all duration-300"
+              className="bg-white/[0.02] rounded-xl p-6 border border-white/[0.06] hover:border-violet-500/20 transition-all duration-500 group"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className={`w-12 h-12 bg-gradient-to-r ${category.gradient} rounded-lg flex items-center justify-center`}>
-                  <category.icon className="text-white" size={24} />
+                <div className="w-10 h-10 bg-violet-500/10 rounded-lg flex items-center justify-center group-hover:bg-violet-500/20 transition-colors duration-300">
+                  <category.icon className="text-violet-400" size={20} />
                 </div>
-                <h3 className="text-2xl font-bold text-white">{category.title}</h3>
+                <h3 className="text-lg font-bold text-white">{category.title}</h3>
               </div>
 
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-300 font-medium">{skill.name}</span>
-                      <span className="text-blue-600 font-bold">{skill.level}%</span>
+                    <div className="flex justify-between mb-1.5">
+                      <span className="text-neutral-400 text-sm">{skill.name}</span>
+                      <span className="text-violet-400 text-xs font-medium">{skill.level}%</span>
                     </div>
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-1 bg-white/[0.04] rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={isInView ? { width: `${skill.level}%` } : {}}
-                        transition={{ duration: 1, delay: catIndex * 0.1 + skillIndex * 0.1 }}
-                        className={`h-full bg-gradient-to-r ${category.gradient} rounded-full`}
+                        transition={{ duration: 1.2, delay: catIndex * 0.1 + skillIndex * 0.08, ease: "easeOut" }}
+                        className="h-full bg-gradient-to-r from-violet-500 to-violet-400/50 rounded-full"
                       />
                     </div>
                   </div>
