@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { ExternalLink, ArrowRight, Github } from 'lucide-react';
+import { ArrowRight, Github } from 'lucide-react';
 
 const Projects = () => {
   const ref = useRef(null);
@@ -71,7 +71,7 @@ const Projects = () => {
     },
     {
       title: 'Multimedia Visual Specialist',
-      description: 'Immersive portfolio for a multimedia specialist showcasing video, 3D assets, and high-resolution imagery with a focus on visual storytelling and interactive performance. This includes dynamic data and content management system features.',
+      description: 'Immersive portfolio for a multimedia specialist showcasing video, 3D assets, and high-resolution imagery with a focus on visual storytelling and interactive performance.',
       image: '/dilshad.png',
       technologies: ['React.js', 'Tailwind CSS', 'Framer Motion', 'Firebase'],
       status: 'Completed',
@@ -85,37 +85,31 @@ const Projects = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden" ref={ref}>
-      {/* Background Elements */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
+    <section id="projects" className="py-32 relative overflow-hidden" ref={ref}>
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="mb-16 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display tracking-tight">
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                Featured Work
-              </span>
-            </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full mb-6" />
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              A collection of projects that demonstrate my passion for building innovative scheduling, management, and research solutions.
-            </p>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <span className="text-violet-500 text-xs font-medium tracking-[0.3em] uppercase mb-4 block">Portfolio</span>
+          <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-4">
+            Featured Work
+          </h2>
+          <div className="section-line mb-6"></div>
+          <p className="text-neutral-500 max-w-2xl text-base">
+            A collection of projects that demonstrate my passion for building innovative scheduling, management, and research solutions.
+          </p>
+        </motion.div>
 
         {/* Categories */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex overflow-x-auto md:flex-wrap md:justify-center gap-3 mb-12 pb-4 md:pb-0 scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0"
+          className="flex overflow-x-auto md:flex-wrap gap-2 mb-12 pb-4 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0"
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none'
@@ -126,14 +120,13 @@ const Projects = () => {
               key={category}
               onClick={() => setActiveCategory(category)}
               className={`
-                whitespace-nowrap flex-shrink-0 px-5 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300 relative overflow-hidden group
+                whitespace-nowrap flex-shrink-0 px-4 py-2 rounded-lg text-xs font-medium transition-all duration-300
                 ${activeCategory === category
-                  ? 'text-white shadow-lg shadow-cyan-500/25'
-                  : 'text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-slate-600'}
+                  ? 'text-black bg-violet-500'
+                  : 'text-neutral-500 hover:text-neutral-300 bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.1]'}
               `}
             >
-              <div className={`absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 transition-opacity duration-300 ${activeCategory === category ? 'opacity-100' : 'opacity-0'}`} />
-              <span className="relative z-10">{category}</span>
+              {category}
             </button>
           ))}
         </motion.div>
@@ -141,79 +134,79 @@ const Projects = () => {
         {/* Projects Grid */}
         <motion.div
           layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode='popLayout'>
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <motion.div
                 layout
                 key={project.title}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
                 className="group relative h-full"
                 onMouseEnter={() => setHoveredProject(project.title)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur"></div>
-
-                <div className="relative h-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col">
+                <div className="relative h-full bg-[#0a0a0a] border border-white/[0.06] rounded-xl overflow-hidden hover:border-violet-500/20 transition-all duration-500 flex flex-col">
                   {/* Image Container */}
-                  <div className="relative h-56 overflow-hidden">
+                  <div className="relative h-52 overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent opacity-80" />
 
                     {/* Status Badge */}
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute top-3 left-3">
                       <span className={`
-                        inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md border
+                        inline-flex items-center px-2.5 py-1 rounded-md text-[10px] font-medium border
                         ${project.status === 'Published Research'
-                          ? 'bg-amber-500/10 text-amber-300 border-amber-500/20'
-                          : 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20'}
+                          ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                          : 'bg-violet-500/10 text-violet-400 border-violet-500/20'}
                       `}>
                         {project.status}
                       </span>
                     </div>
 
-                    {/* External Link Overlay */}
-                    <div className={`absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] flex items-center justify-center opacity-0 transition-opacity duration-300 ${hoveredProject === project.title ? 'opacity-100' : ''}`}>
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 px-6 py-3 bg-white text-slate-900 rounded-full font-bold flex items-center gap-2 hover:scale-105"
-                      >
-                        View Project <ArrowRight size={18} />
-                      </a>
-                    </div>
+                    {/* Hover Overlay */}
+                    {'link' in project && project.link && (
+                      <div className={`absolute inset-0 bg-[#050505]/70 backdrop-blur-[2px] flex items-center justify-center opacity-0 transition-opacity duration-300 ${hoveredProject === project.title ? 'opacity-100' : ''}`}>
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-5 py-2.5 bg-violet-500 text-black text-sm font-semibold rounded-lg flex items-center gap-2 hover:bg-violet-400 transition-colors duration-300"
+                        >
+                          View Project <ArrowRight size={16} />
+                        </a>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="text-base font-bold text-white mb-2 group-hover:text-violet-400 transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <p className="text-slate-400 text-sm mb-6 line-clamp-3">
+                    <p className="text-neutral-500 text-xs mb-5 line-clamp-3 leading-relaxed">
                       {project.description}
                     </p>
 
                     <div className="mt-auto">
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5">
                         {project.technologies.slice(0, 3).map((tech) => (
                           <span
                             key={tech}
-                            className="px-2.5 py-1 text-xs font-medium text-cyan-300 bg-cyan-950/50 border border-cyan-500/20 rounded-md"
+                            className="px-2 py-0.5 text-[10px] font-medium text-neutral-400 bg-white/[0.03] border border-white/[0.06] rounded"
                           >
                             {tech}
                           </span>
                         ))}
                         {project.technologies.length > 3 && (
-                          <span className="px-2.5 py-1 text-xs font-medium text-slate-400 bg-slate-800/50 border border-slate-700 rounded-md">
+                          <span className="px-2 py-0.5 text-[10px] font-medium text-neutral-500 bg-white/[0.02] border border-white/[0.04] rounded">
                             +{project.technologies.length - 3}
                           </span>
                         )}
@@ -231,15 +224,15 @@ const Projects = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6 }}
-          className="mt-16 text-center"
+          className="mt-16"
         >
           <a
             href="https://github.com/Sayed4281"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold transition-all hover:scale-105 border border-slate-700"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/[0.03] text-neutral-400 hover:text-violet-400 rounded-lg text-sm font-medium transition-all duration-300 border border-white/[0.06] hover:border-violet-500/20"
           >
-            <Github size={20} />
+            <Github size={18} />
             View More on GitHub
           </a>
         </motion.div>

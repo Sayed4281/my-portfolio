@@ -36,7 +36,6 @@ const AIChatBot = () => {
         const userMessage = { type: 'user', text: input };
         setMessages(prev => [...prev, userMessage]);
 
-        // Simple keyword-based responses
         const lowerInput = input.toLowerCase();
         let response = quickResponses.default;
 
@@ -72,17 +71,9 @@ const AIChatBot = () => {
             {/* Floating Chat Button */}
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-2xl flex items-center justify-center hover:shadow-purple-500/50 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                animate={isOpen ? {} : {
-                    boxShadow: [
-                        '0 0 20px rgba(168, 85, 247, 0.5)',
-                        '0 0 40px rgba(168, 85, 247, 0.8)',
-                        '0 0 20px rgba(168, 85, 247, 0.5)',
-                    ]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
+                className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-violet-500 rounded-xl shadow-2xl shadow-violet-500/20 flex items-center justify-center hover:bg-violet-400 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
             >
                 <AnimatePresence mode="wait">
                     {isOpen ? (
@@ -92,7 +83,7 @@ const AIChatBot = () => {
                             animate={{ rotate: 0, opacity: 1 }}
                             exit={{ rotate: 90, opacity: 0 }}
                         >
-                            <X className="text-white" size={28} />
+                            <X className="text-black" size={22} />
                         </motion.div>
                     ) : (
                         <motion.div
@@ -102,11 +93,11 @@ const AIChatBot = () => {
                             exit={{ rotate: 90, opacity: 0 }}
                             className="relative"
                         >
-                            <MessageCircle className="text-white" size={28} />
+                            <MessageCircle className="text-black" size={22} />
                             <motion.div
-                                className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 rounded-full"
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{ duration: 1, repeat: Infinity }}
+                                className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-white rounded-full"
+                                animate={{ scale: [1, 1.3, 1] }}
+                                transition={{ duration: 1.5, repeat: Infinity }}
                             />
                         </motion.div>
                     )}
@@ -117,43 +108,40 @@ const AIChatBot = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: 100, scale: 0.8 }}
+                        initial={{ opacity: 0, y: 100, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 100, scale: 0.8 }}
+                        exit={{ opacity: 0, y: 100, scale: 0.9 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                        className="fixed bottom-28 right-8 z-50 w-96 h-[500px] bg-gradient-to-br from-slate-900/95 to-purple-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/20 overflow-hidden"
+                        className="fixed bottom-28 right-8 z-50 w-[360px] h-[480px] bg-[#0a0a0a] backdrop-blur-xl rounded-xl shadow-2xl border border-white/[0.06] overflow-hidden"
                     >
                         {/* Header */}
-                        <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 flex items-center gap-3">
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-                            >
-                                <Sparkles className="text-white" size={24} />
-                            </motion.div>
+                        <div className="bg-[#111111] border-b border-white/[0.06] p-4 flex items-center gap-3">
+                            <div className="w-8 h-8 bg-violet-500/10 rounded-lg flex items-center justify-center">
+                                <Sparkles className="text-violet-400" size={16} />
+                            </div>
                             <div>
-                                <h3 className="text-white font-bold text-lg">AI Assistant</h3>
-                                <p className="text-white/80 text-xs">Ask me anything!</p>
+                                <h3 className="text-white font-semibold text-sm">AI Assistant</h3>
+                                <p className="text-neutral-500 text-[10px]">Ask me anything</p>
                             </div>
                         </div>
 
                         {/* Messages */}
-                        <div className="h-[340px] overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-purple-500/50 scrollbar-track-slate-800">
+                        <div className="h-[330px] overflow-y-auto p-4 space-y-3">
                             {messages.map((message, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 }}
+                                    transition={{ delay: index * 0.05 }}
                                     className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div
-                                        className={`max-w-[80%] p-3 rounded-2xl ${message.type === 'user'
-                                            ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
-                                            : 'bg-slate-700/50 text-gray-200 border border-slate-600/30'
+                                        className={`max-w-[80%] p-3 rounded-xl ${message.type === 'user'
+                                            ? 'bg-violet-500 text-black'
+                                            : 'bg-white/[0.04] text-neutral-300 border border-white/[0.06]'
                                             }`}
                                     >
-                                        <p className="text-sm">{message.text}</p>
+                                        <p className="text-xs leading-relaxed">{message.text}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -161,7 +149,7 @@ const AIChatBot = () => {
                         </div>
 
                         {/* Input */}
-                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-slate-800/50 backdrop-blur-sm border-t border-slate-700/50">
+                        <div className="absolute bottom-0 left-0 right-0 p-3 bg-[#0a0a0a] border-t border-white/[0.06]">
                             <div className="flex gap-2">
                                 <input
                                     type="text"
@@ -169,15 +157,15 @@ const AIChatBot = () => {
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyPress={handleKeyPress}
                                     placeholder="Type your message..."
-                                    className="flex-1 bg-slate-700/50 text-white px-4 py-2 rounded-xl border border-slate-600/30 focus:outline-none focus:border-purple-500/50 transition-colors"
+                                    className="flex-1 bg-white/[0.04] text-white text-xs px-3 py-2.5 rounded-lg border border-white/[0.06] focus:outline-none focus:border-violet-500/30 transition-colors placeholder-neutral-600"
                                 />
                                 <motion.button
                                     onClick={handleSend}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-gradient-to-r from-purple-500 to-pink-500 p-2 rounded-xl hover:shadow-lg hover:shadow-purple-500/50 transition-all"
+                                    className="bg-violet-500 p-2.5 rounded-lg hover:bg-violet-400 transition-colors"
                                 >
-                                    <Send className="text-white" size={20} />
+                                    <Send className="text-black" size={14} />
                                 </motion.button>
                             </div>
                         </div>

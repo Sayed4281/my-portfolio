@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,9 +26,10 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'bg-slate-900/80 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3'
-          : 'bg-transparent py-5'
+        ? 'bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.06] py-3'
+        : 'bg-transparent py-5'
         }`}
     >
       <nav className="container mx-auto px-6">
@@ -36,26 +37,20 @@ const Header = () => {
           {/* Logo */}
           <motion.a
             href="#home"
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-2 group"
+            whileHover={{ scale: 1.02 }}
+            className="flex items-center gap-3 group"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative bg-slate-900 p-2 rounded-lg border border-white/10">
-                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 text-xl">
+              <div className="absolute inset-0 bg-violet-500/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-[#111111] p-2.5 rounded-lg border border-white/[0.06] group-hover:border-violet-500/30 transition-colors duration-300">
+                <span className="font-bold text-violet-400 text-lg font-display">
                   S
                 </span>
               </div>
             </div>
-            <span className="font-bold text-lg tracking-wide group-hover:text-cyan-400 transition-colors">
-              SAYED SHAHLOOB
+            <span className="font-semibold text-sm tracking-[0.2em] uppercase text-neutral-400 group-hover:text-neutral-200 transition-colors duration-300">
+              Sayed Shahloob
             </span>
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="text-purple-400" size={16} />
-            </motion.div>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -67,11 +62,10 @@ const Header = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="relative px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors rounded-full group overflow-hidden"
+                className="relative px-4 py-2 text-sm text-neutral-500 hover:text-neutral-200 transition-colors duration-300 group"
               >
                 <span className="relative z-10">{item.name}</span>
-                <span className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></span>
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-1/2 transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-violet-500 group-hover:w-full transition-all duration-300"></span>
               </motion.a>
             ))}
 
@@ -82,7 +76,7 @@ const Header = () => {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 text-white text-sm font-bold rounded-full shadow-lg hover:shadow-cyan-500/25 transition-all"
+              className="ml-6 px-5 py-2 bg-violet-500/10 text-violet-400 text-sm font-medium rounded-lg border border-violet-500/20 hover:bg-violet-500/20 hover:border-violet-500/40 transition-all duration-300"
             >
               Resume
             </motion.a>
@@ -90,10 +84,9 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-white p-2 relative group"
+            className="lg:hidden text-neutral-400 hover:text-white p-2 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <div className="absolute inset-0 bg-white/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -105,15 +98,15 @@ const Header = () => {
               initial={{ opacity: 0, height: 0, marginTop: 0 }}
               animate={{ opacity: 1, height: 'auto', marginTop: 16 }}
               exit={{ opacity: 0, height: 0, marginTop: 0 }}
-              className="lg:hidden overflow-hidden bg-slate-900/90 backdrop-blur-xl rounded-2xl border border-white/10"
+              className="lg:hidden overflow-hidden bg-[#0a0a0a]/95 backdrop-blur-xl rounded-xl border border-white/[0.06]"
             >
-              <div className="p-4 space-y-2">
+              <div className="p-4 space-y-1">
                 {navItems.map((item) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all border border-transparent hover:border-white/5"
+                    className="block px-4 py-3 text-neutral-400 hover:text-white hover:bg-white/[0.03] rounded-lg transition-all duration-300"
                   >
                     {item.name}
                   </motion.a>
@@ -121,7 +114,7 @@ const Header = () => {
                 <a
                   href="/cv.html"
                   target="_blank"
-                  className="block px-4 py-3 mt-4 text-center bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold rounded-lg"
+                  className="block px-4 py-3 mt-3 text-center bg-violet-500/10 text-violet-400 font-medium rounded-lg border border-violet-500/20"
                 >
                   View Resume
                 </a>
