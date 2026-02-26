@@ -19,7 +19,6 @@ const Projects = () => {
       technologies: ['React.js', 'Node.js', 'PWA', 'Firebase', 'GPS API'],
       status: 'Completed',
       category: 'Enterprise Solutions',
-      link: '#',
     },
     {
       title: 'Restaurant Management System',
@@ -28,7 +27,6 @@ const Projects = () => {
       technologies: ['React.js', 'Node.js', 'PostgreSQL', 'REST APIs'],
       status: 'Completed',
       category: 'Enterprise Solutions',
-      link: '#',
     },
     {
       title: 'Enterprise CRM System',
@@ -37,7 +35,6 @@ const Projects = () => {
       technologies: ['React.js', 'Node.js', 'PostgreSQL', 'REST APIs'],
       status: 'Completed',
       category: 'Enterprise Solutions',
-      link: '#',
     },
     {
       title: 'NeuVitX - Health Monitoring',
@@ -46,7 +43,6 @@ const Projects = () => {
       technologies: ['Flutter', 'IoT Hardware', 'Firebase', 'Sensors'],
       status: 'Published Research',
       category: 'AI & Research',
-      link: '#',
     },
     {
       title: 'ShopSmart - Expense Tracker',
@@ -55,7 +51,6 @@ const Projects = () => {
       technologies: ['Flutter', 'Firebase', 'Machine Learning', 'Charts'],
       status: 'Completed',
       category: 'Mobile Apps',
-      link: '#',
     },
     {
       title: 'Student Management System',
@@ -64,7 +59,6 @@ const Projects = () => {
       technologies: ['Flutter', 'SQL Database', 'QR Code', 'PDF Generation'],
       status: 'Completed',
       category: 'Mobile Apps',
-      link: '#',
     },
     {
       title: 'SEO Strategist Portfolio',

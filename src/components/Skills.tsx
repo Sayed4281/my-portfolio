@@ -33,7 +33,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'SEO & Digital Marketing',
+      title: 'SEO Executive',
       icon: Search,
       gradient: 'from-indigo-500 to-blue-600',
       skills: [

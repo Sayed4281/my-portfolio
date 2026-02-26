@@ -16,7 +16,7 @@ const About = () => {
     },
     {
       icon: Search,
-      title: 'SEO & Digital Marketing',
+      title: 'SEO Executive',
       description: 'Technical SEO & Analytics',
       gradient: 'from-cyan-500 to-indigo-500'
     },
