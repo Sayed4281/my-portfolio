@@ -24,7 +24,7 @@ const AIChatBot = () => {
     const quickResponses: Record<string, string> = {
         skills: "Sayed is proficient in React.js, Next.js, TypeScript, Flutter, Node.js, MongoDB, and SEO. He also has experience with AI/ML integration and project management.",
         experience: "Sayed currently works as a Jr. Software Developer at Hirush Global LLP (React development), Frontend Engineer at Pro26 LLP (Flutter & React), and SEO Analyst at Hirush Global. He previously coordinated software projects at Edutalim International LLP.",
-        projects: "Sayed has led web development for clients like Brookvalley Resort, 1001 Nights Shawarma, and Gueston Travels at Hirush Global. He also builds CRM systems and mobile apps.",
+        projects: "Sayed has led web development for clients like 1001 Nights Shawarma and Gueston Travels at Hirush Global. He also builds CRM systems and mobile apps.",
         contact: "You can reach Sayed via email, LinkedIn, GitHub, or directly on WhatsApp! Scroll down to the Contact section for all the links.",
         education: "Sayed is pursuing his education with a focus on software development and has completed various technical certifications.",
         default: "That's a great question! Feel free to explore the portfolio to learn more about Sayed's work, or ask me about his skills, experience, projects, or how to contact him."
