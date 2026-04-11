@@ -98,8 +98,8 @@ const Experience = () => {
                     {/* Left Content (Text or Decoration) */}
                     <div className={`order-2 ${isEven ? 'md:order-1 md:text-right' : 'md:order-1'}`}>
                       {!isEven && (
-                        <div className="hidden md:flex justify-start opacity-30 blur-2xl">
-                           <div className="w-48 h-12 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-pulse" />
+                        <div className="hidden md:flex justify-start opacity-20 blur-3xl">
+                           <div className="w-64 h-8 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full animate-pulse" />
                         </div>
                       )}
                       {isEven && (
@@ -113,8 +113,8 @@ const Experience = () => {
                         <ExperienceCard exp={exp} index={index} align="left" />
                       )}
                       {isEven && (
-                        <div className="hidden md:flex justify-end opacity-30 blur-2xl">
-                           <div className="w-48 h-12 bg-gradient-to-r from-green-400 via-blue-500 to-indigo-500 rounded-full animate-pulse" />
+                        <div className="hidden md:flex justify-end opacity-20 blur-3xl">
+                           <div className="w-64 h-8 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full animate-pulse" />
                         </div>
                       )}
                     </div>

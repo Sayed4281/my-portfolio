@@ -42,9 +42,9 @@ const Contact = () => {
           
           {/* Header */}
           <div className="mb-16">
-            <span className="text-violet-600 text-xs font-bold tracking-widest uppercase mb-4 block">CONTACT</span>
+            <span className="text-white/50 text-xs font-black tracking-widest uppercase mb-4 block">CONTACT</span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Get In Touch</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-violet-600 to-transparent mb-8" />
+            <div className="w-20 h-1 bg-gradient-to-r from-white/40 to-transparent mb-8" />
             <p className="text-neutral-500 text-lg max-w-xl">
               I'm currently available for exciting opportunities. Let's discuss how we can work together!
             </p>
@@ -59,8 +59,8 @@ const Contact = () => {
                   key={i}
                   className="flex items-center gap-6 p-6 bg-white/[0.03] border border-white/[0.05] rounded-2xl group transition-all hover:bg-white/[0.05]"
                 >
-                  <div className="w-12 h-12 bg-violet-600/10 rounded-xl flex items-center justify-center">
-                    <item.icon size={20} className="text-violet-500" />
+                  <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+                    <item.icon size={20} className="text-white/60" />
                   </div>
                   <div>
                     <p className="text-[10px] font-bold text-neutral-500 tracking-wider uppercase mb-1">{item.label}</p>
@@ -101,7 +101,7 @@ const Contact = () => {
                     name="name"
                     required
                     placeholder="John Doe"
-                    className="w-full bg-[#111] border border-white/[0.05] rounded-xl px-6 py-4 text-white focus:outline-none focus:border-violet-600 transition-all placeholder:text-neutral-700"
+                    className="w-full bg-[#111] border border-white/[0.05] rounded-xl px-6 py-4 text-white focus:outline-none focus:border-white/20 transition-all placeholder:text-neutral-700"
                   />
                 </div>
 
@@ -112,7 +112,7 @@ const Contact = () => {
                     required
                     type="email"
                     placeholder="john@example.com"
-                    className="w-full bg-[#111] border border-white/[0.05] rounded-xl px-6 py-4 text-white focus:outline-none focus:border-violet-600 transition-all placeholder:text-neutral-700"
+                    className="w-full bg-[#111] border border-white/[0.05] rounded-xl px-6 py-4 text-white focus:outline-none focus:border-white/20 transition-all placeholder:text-neutral-700"
                   />
                 </div>
 
@@ -121,10 +121,11 @@ const Contact = () => {
                   <select
                     name="subject"
                     required
-                    className="w-full bg-[#111] border border-white/[0.05] rounded-xl px-6 py-4 text-neutral-400 focus:outline-none focus:border-violet-600 transition-all appearance-none"
+                    defaultValue=""
+                    className="w-full bg-[#111] border border-white/[0.05] rounded-xl px-6 py-4 text-neutral-400 focus:outline-none focus:border-white/20 transition-all appearance-none"
                     style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'rgba(255,255,255,0.3)\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\' /%3E%3C/svg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1.5rem center', backgroundSize: '1.2rem' }}
                   >
-                    <option value="" disabled selected>Select a subject</option>
+                    <option value="" disabled>Select a subject</option>
                     <option value="Project">Project Collaboration</option>
                     <option value="Freelance">Freelance Inquiry</option>
                     <option value="Hiring">Job Opportunity</option>
@@ -139,19 +140,19 @@ const Contact = () => {
                     required
                     rows={4}
                     placeholder="Your message here..."
-                    className="w-full bg-[#111] border border-white/[0.05] rounded-xl px-6 py-4 text-white focus:outline-none focus:border-violet-600 transition-all resize-none placeholder:text-neutral-700"
+                    className="w-full bg-[#111] border border-white/[0.05] rounded-xl px-6 py-4 text-white focus:outline-none focus:border-white/20 transition-all resize-none placeholder:text-neutral-700"
                   />
                 </div>
 
                 {feedback.message && (
-                  <div className={`text-xs font-bold p-4 rounded-xl ${feedback.type === 'success' ? 'bg-violet-600/10 text-violet-400' : 'bg-red-500/10 text-red-400'}`}>
+                  <div className={`text-xs font-bold p-4 rounded-xl ${feedback.type === 'success' ? 'bg-white/10 text-white' : 'bg-red-500/10 text-red-400'}`}>
                     {feedback.message}
                   </div>
                 )}
 
                 <button
                   disabled={isSending}
-                  className="w-full py-4 bg-violet-600 hover:bg-violet-500 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] disabled:opacity-50"
+                  className="w-full py-4 bg-white text-black hover:bg-neutral-200 rounded-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] disabled:opacity-50"
                 >
                   <Send size={18} />
                   {isSending ? 'Sending...' : 'Send Message'}

@@ -27,7 +27,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, value, onChange, placehold
     <div className="relative" ref={ref}>
       <button
         type="button"
-        className="w-full flex justify-between items-center px-4 py-3 bg-white/[0.03] border border-white/[0.06] rounded-lg text-white text-sm focus:border-violet-500/40 focus:outline-none focus:ring-1 focus:ring-violet-500/20 transition-all duration-300"
+        className="w-full flex justify-between items-center px-4 py-3 bg-white/[0.03] border border-white/[0.06] rounded-lg text-white text-sm focus:border-white/20 focus:outline-none focus:ring-1 focus:ring-white/10 transition-all duration-300"
         onClick={() => setOpen((o) => !o)}
       >
         <span className={value ? 'text-white' : 'text-neutral-600'}>{value || placeholder || 'Select an option'}</span>
@@ -46,7 +46,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, value, onChange, placehold
             {options.map((option) => (
               <li
                 key={option}
-                className={`px-4 py-3 cursor-pointer text-sm hover:bg-violet-500/10 hover:text-violet-400 text-neutral-400 transition-all duration-200 ${option === value ? 'bg-violet-500/10 text-violet-400 font-medium' : ''}`}
+                className={`px-4 py-3 cursor-pointer text-sm hover:bg-white/5 hover:text-white text-neutral-400 transition-all duration-200 ${option === value ? 'bg-white/10 text-white font-medium' : ''}`}
                 onClick={() => {
                   onChange(option);
                   setOpen(false);

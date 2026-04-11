@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, forwardRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Github, ExternalLink, Sparkles } from 'lucide-react';
 
@@ -12,7 +12,7 @@ interface Project {
   link?: string;
 }
 
-const ProjectCard = ({ project, index }: { project: Project, index: number }) => {
+const ProjectCard = forwardRef<HTMLDivElement, { project: Project, index: number }>(({ project, index }, ref) => {
   const cardRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -23,7 +23,7 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
 
   return (
     <motion.div
-      ref={cardRef}
+      ref={ref}
       layout
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
       transition={{ duration: 0.8, delay: index * 0.1 }}
       className="group relative h-full"
     >
-      <div className="relative h-full bg-[#0a0a0a] border border-white/[0.06] rounded-[2rem] overflow-hidden hover:border-violet-500/30 transition-all duration-700 flex flex-col">
+      <div ref={cardRef} className="relative h-full bg-[#0a0a0a] border border-white/[0.06] rounded-[2rem] overflow-hidden hover:border-white/30 transition-all duration-700 flex flex-col">
         {/* Image Container */}
         <div className="relative h-64 overflow-hidden">
           <motion.img
@@ -48,7 +48,7 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
               inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border backdrop-blur-md
               ${project.status === 'Published Research'
                 ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
-                : 'bg-violet-500/10 text-violet-400 border-violet-500/20'}
+                : 'bg-white/10 text-white border-white/20'}
             `}>
               {project.status}
             </span>
@@ -64,7 +64,7 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
 
         {/* Content */}
         <div className="p-8 flex flex-col flex-1 relative">
-          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-violet-400 transition-colors duration-300 font-display">
+          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-neutral-200 transition-colors duration-300 font-display">
             {project.title}
           </h3>
           <p className="text-neutral-500 text-sm mb-6 line-clamp-3 leading-relaxed">
@@ -88,7 +88,7 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-bold text-violet-400 hover:text-violet-300 transition-colors group/link"
+                className="flex items-center gap-2 text-sm font-bold text-neutral-400 hover:text-white transition-colors group/link"
               >
                 Live Demo 
                 <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
@@ -99,7 +99,7 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
             
             <motion.div 
               whileHover={{ rotate: 45 }}
-              className="p-2 bg-white/5 rounded-full border border-white/10 text-white/50 hover:text-white hover:bg-violet-500 transition-all cursor-pointer"
+              className="p-2 bg-white/5 rounded-full border border-white/10 text-white/50 hover:text-white hover:bg-white/20 transition-all cursor-pointer"
             >
               <ArrowRight size={18} />
             </motion.div>
@@ -108,7 +108,7 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
       </div>
     </motion.div>
   );
-};
+});
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -182,7 +182,7 @@ const Projects = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="flex items-center gap-2 text-violet-500 text-xs font-bold tracking-[0.4em] uppercase mb-4">
+            <span className="flex items-center gap-2 text-white/50 text-xs font-bold tracking-[0.4em] uppercase mb-4">
               <Sparkles size={14} />
               Portfolio
             </span>
@@ -219,7 +219,7 @@ const Projects = () => {
         {/* Projects Grid */}
         <motion.div
           layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative"
         >
           <AnimatePresence mode='popLayout'>
             {filteredProjects.map((project, index) => (
@@ -240,7 +240,7 @@ const Projects = () => {
             href="https://github.com/Sayed4281"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-4 px-8 py-4 bg-white/[0.02] border border-white/[0.08] rounded-full text-white text-sm font-bold hover:bg-violet-500 hover:border-violet-500 hover:text-black transition-all duration-500"
+            className="group flex items-center gap-4 px-8 py-4 bg-white/[0.02] border border-white/[0.08] rounded-full text-white text-sm font-bold hover:bg-white hover:border-white hover:text-black transition-all duration-500"
           >
             <Github size={20} />
             SEE ALL PROJECTS
