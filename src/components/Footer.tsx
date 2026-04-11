@@ -13,7 +13,7 @@ const Footer = () => {
                 {[...Array(12)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute w-[2px] h-[2px] bg-violet-400/20 rounded-full"
+                        className="absolute w-[2px] h-[2px] bg-white/20 rounded-full"
                         style={{
                             left: `${Math.random() * 100}%`,
                             top: `${Math.random() * 100}%`,
@@ -39,7 +39,7 @@ const Footer = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <h3 className="text-xl font-bold text-white mb-3 font-display">
-                            SAYED SHAHLOOB P<span className="text-violet-400">.</span>
+                            SAYED SHAHLOOB P<span className="text-white/40">.</span>
                         </h3>
                         <p className="text-neutral-500 text-sm leading-relaxed mb-5">
                             Full Stack Developer, Frontend Lead, and SEO Analyst with expertise in Flutter, React,
@@ -73,7 +73,7 @@ const Footer = () => {
                                 <a
                                     key={link}
                                     href={`#${link.toLowerCase()}`}
-                                    className="block text-neutral-600 hover:text-violet-400 transition-colors duration-300 text-sm"
+                                    className="block text-neutral-600 hover:text-white transition-colors duration-300 text-sm"
                                 >
                                     {link}
                                 </a>
@@ -91,13 +91,13 @@ const Footer = () => {
                         <div className="space-y-2.5 text-sm">
                             <a
                                 href="mailto:sayedshahloobpofficial@gmail.com"
-                                className="block text-neutral-600 hover:text-violet-400 transition-colors duration-300"
+                                className="block text-neutral-600 hover:text-white transition-colors duration-300"
                             >
                                 sayedshahloobpofficial@gmail.com
                             </a>
                             <a
                                 href="tel:+919567220971"
-                                className="block text-neutral-600 hover:text-violet-400 transition-colors duration-300"
+                                className="block text-neutral-600 hover:text-white transition-colors duration-300"
                             >
                                 +91 9567220971
                             </a>
@@ -117,10 +117,10 @@ const Footer = () => {
                             transition={{ duration: 2, repeat: Infinity }}
                             className="mx-1.5"
                         >
-                            <Heart className="text-violet-500" size={12} />
+                            <Heart className="text-white/40" size={12} />
                         </motion.div>
                         <span>by</span>
-                        <span className="ml-1.5 text-violet-400 font-medium">
+                        <span className="ml-1.5 text-white/60 font-medium">
                             Sayed Shahloob P
                         </span>
                     </div>
@@ -134,7 +134,7 @@ const Footer = () => {
                             onClick={scrollToTop}
                             whileHover={{ y: -3 }}
                             whileTap={{ scale: 0.9 }}
-                            className="w-9 h-9 bg-white/[0.03] border border-white/[0.06] rounded-lg flex items-center justify-center text-neutral-500 hover:text-violet-400 hover:border-violet-500/20 transition-all duration-300"
+                            className="w-9 h-9 bg-white/[0.03] border border-white/[0.06] rounded-lg flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/20 transition-all duration-300"
                         >
                             <ArrowUp size={14} />
                         </motion.button>

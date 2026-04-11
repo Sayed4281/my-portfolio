@@ -48,7 +48,7 @@ const Hero = () => {
               repeat: Infinity, 
               delay: i * 0.5 
             }}
-            className="absolute bg-violet-400/20 w-1 h-1 rounded-full"
+            className="absolute bg-white/20 w-1 h-1 rounded-full"
             style={{
               top: `${20 + i * 15}%`,
               left: `${10 + (i * 17) % 80}%`,

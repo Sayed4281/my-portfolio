@@ -15,7 +15,7 @@
   }
 
   ::selection {
-    @apply bg-violet-500/30 text-violet-200;
+    @apply bg-white/20 text-white;
   }
 
   /* Custom scrollbar */
@@ -28,11 +28,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-violet-500/30 rounded-full;
+    @apply bg-white/10 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-violet-500/50;
+    @apply bg-white/20;
   }
 }
 
@@ -43,14 +43,14 @@
     @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] shadow-2xl;
   }
 
-  /* Text gradient - violet accent */
+  /* Text gradient - monochromatic accent */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-violet-300;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neutral-200 to-white;
   }
 
   /* Section divider line */
   .section-line {
-    @apply w-16 h-[2px] bg-gradient-to-r from-violet-500 to-transparent;
+    @apply w-16 h-[2px] bg-gradient-to-r from-white/30 to-transparent;
   }
 
   /* Subtle grid pattern overlay */

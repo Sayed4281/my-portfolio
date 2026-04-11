@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { 
   Code, Database, Search, Settings, 
   Users, Target, MessageSquare, Lightbulb, 
-  Layout, Zap, Brain, Repeat, Presentation
+  Zap, Brain, Presentation, Compass
 } from 'lucide-react';
 
 const Skills = () => {
@@ -55,19 +55,19 @@ const Skills = () => {
   ];
 
   const softSkills = [
-    { name: 'Leadership', icon: Target, size: 'large', color: 'bg-violet-500/10 text-violet-400' },
+    { name: 'Leadership', icon: Target, size: 'medium', color: 'bg-white/[0.03] text-neutral-400' },
     { name: 'Team Management', icon: Users, size: 'medium', color: 'bg-white/[0.03] text-neutral-400' },
     { name: 'Communication', icon: MessageSquare, size: 'medium', color: 'bg-white/[0.03] text-neutral-400' },
-    { name: 'Problem Solving', icon: Brain, size: 'large', color: 'bg-violet-500/10 text-violet-400' },
-    { name: 'Project Management', icon: Layout, size: 'medium', color: 'bg-white/[0.03] text-neutral-400' },
-    { name: 'Agile/Scrum', icon: Zap, size: 'small', color: 'bg-white/[0.03] text-neutral-400' },
+    { name: 'Problem Solving', icon: Brain, size: 'medium', color: 'bg-white/[0.03] text-neutral-400' },
+    { name: 'Time Management', icon: Zap, size: 'small', color: 'bg-white/[0.03] text-neutral-400' },
     { name: 'Critical Thinking', icon: Lightbulb, size: 'medium', color: 'bg-white/[0.03] text-neutral-400' },
-    { name: 'Adaptability', icon: Repeat, size: 'small', color: 'bg-white/[0.03] text-neutral-400' },
-    { name: 'Mentoring', icon: Presentation, size: 'medium', color: 'bg-white/[0.03] text-neutral-400' }
+    
+    { name: 'Mentoring', icon: Presentation, size: 'medium', color: 'bg-white/[0.03] text-neutral-400' },
+    { name: 'Decision Making', icon: Compass, size: 'medium', color: 'bg-white/[0.03] text-neutral-400' }
   ];
 
   return (
-    <section id="skills" className="py-32 relative overflow-hidden bg-[#000000]">
+    <section id="skills" className="py-20 md:py-32 relative overflow-hidden bg-[#000000]">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -78,7 +78,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-20 text-center"
+          className="mb-16 md:mb-20 text-center"
         >
           <span className="text-white/50 text-xs font-black tracking-[0.6em] uppercase mb-4 block">Capacities</span>
           <h2 className="text-4xl md:text-6xl font-black font-display text-white mb-6">
@@ -87,8 +87,8 @@ const Skills = () => {
           <div className="w-24 h-1 bg-white mx-auto rounded-full" />
         </motion.div>
 
-        {/* Technical Skills Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto mb-32">
+        {/* Technical Skills Grid - Column Wise on Mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-7xl mx-auto mb-20 md:mb-32">
           {skillCategories.map((category, catIndex) => (
             <motion.div
               key={catIndex}
@@ -96,23 +96,23 @@ const Skills = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-              className="bg-white/[0.02] rounded-[2rem] p-8 border border-white/[0.06] hover:border-violet-500/20 transition-all duration-500 group relative overflow-hidden"
+              className="bg-white/[0.02] rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 border border-white/[0.06] hover:border-white/20 transition-all duration-500 group relative overflow-hidden"
             >
               {/* Subtle inner glow */}
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-              <div className="flex items-center gap-4 mb-10">
-                <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
-                  <category.icon size={22} className="group-hover:scale-110 transition-transform" />
+              <div className="flex items-center gap-4 mb-8 md:mb-10">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+                  <category.icon size={20} className="md:size-[22px] group-hover:scale-110 transition-transform" />
                 </div>
-                <h3 className="text-xl font-black text-white uppercase tracking-tight">{category.title}</h3>
+                <h3 className="text-lg md:text-xl font-black text-white uppercase tracking-tight">{category.title}</h3>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-5 md:space-y-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="relative">
                     <div className="flex justify-between mb-2">
-                      <span className="text-neutral-400 text-sm font-medium">{skill.name}</span>
+                      <span className="text-neutral-400 text-xs md:text-sm font-medium">{skill.name}</span>
                       <span className="text-white text-xs font-black tracking-widest">{skill.level}%</span>
                     </div>
                     <div className="h-[2px] bg-white/[0.04] rounded-full overflow-hidden">
@@ -137,13 +137,13 @@ const Skills = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h3 className="text-2xl font-black text-white uppercase tracking-[0.2em] mb-4">Interpersonal Excellence</h3>
+            <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-[0.2em] mb-4">Interpersonal Excellence</h3>
             <p className="text-neutral-500 text-sm">Orchestrating teams and projects with strategic coordination.</p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 px-2">
             {softSkills.map((skill, index) => (
               <motion.div
                 key={skill.name}
@@ -152,10 +152,10 @@ const Skills = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * index }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className={`flex items-center gap-3 px-8 py-4 ${skill.name === 'Leadership' || skill.name === 'Problem Solving' ? 'bg-white/10 text-white' : 'bg-white/[0.03] text-neutral-400'} border border-white/5 rounded-2xl transition-all duration-500 hover:border-white/30 group cursor-default`}
+                className={`flex items-center gap-2 md:gap-3 px-4 md:px-8 py-3 md:py-4 ${skill.color} border border-white/5 rounded-xl md:rounded-2xl transition-all duration-500 hover:border-white/30 group cursor-default`}
               >
-                <skill.icon size={18} className="group-hover:rotate-12 transition-transform" />
-                <span className={`font-black text-[10px] uppercase tracking-widest ${skill.size === 'large' ? 'opacity-100' : 'opacity-60'} group-hover:opacity-100 transition-opacity`}>
+                <skill.icon size={16} className="md:size-[18px] group-hover:rotate-12 transition-transform" />
+                <span className={`font-black text-[9px] md:text-[10px] uppercase tracking-widest ${skill.size === 'large' ? 'opacity-100' : 'opacity-60'} group-hover:opacity-100 transition-opacity`}>
                   {skill.name}
                 </span>
               </motion.div>

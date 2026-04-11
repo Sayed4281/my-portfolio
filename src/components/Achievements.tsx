@@ -44,7 +44,7 @@ const Achievements = () => {
           transition={{ duration: 0.8 }}
           className="mb-24 flex flex-col items-center text-center"
         >
-          <span className="flex items-center gap-2 text-violet-500 text-xs font-bold tracking-[0.4em] uppercase mb-6">
+          <span className="flex items-center gap-2 text-white/50 text-xs font-black tracking-[0.4em] uppercase mb-6">
             <Sparkles size={14} />
             Milestones
           </span>
@@ -54,7 +54,7 @@ const Achievements = () => {
         </motion.div>
 
         {/* Achievements Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {achievements.map((item, index) => (
             <motion.div
               key={index}
@@ -63,16 +63,16 @@ const Achievements = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="relative group p-8 bg-white/[0.02] rounded-[2.5rem] border border-white/5 hover:border-violet-500/30 transition-all duration-500 cursor-default"
+              className="relative group p-8 bg-white/[0.02] rounded-[2.5rem] border border-white/5 hover:border-white/20 transition-all duration-500 cursor-default"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-600/5 to-transparent rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity" />
               
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-violet-500 group-hover:text-black group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                  <item.icon className="text-violet-400 group-hover:text-black" size={28} />
+                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white group-hover:text-black group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <item.icon className="text-white/60 group-hover:text-black" size={28} />
                 </div>
                 
-                <h3 className="text-xl font-black text-white mb-3 font-display leading-tight group-hover:text-violet-400 transition-colors">
+                <h3 className="text-xl font-black text-white mb-3 font-display leading-tight group-hover:text-white transition-colors">
                   {item.title}
                 </h3>
                 
@@ -81,7 +81,7 @@ const Achievements = () => {
                 </p>
                 
                 <div className="pt-6 border-t border-white/5">
-                  <span className="text-violet-500 text-sm font-black tracking-widest uppercase">
+                  <span className="text-white text-sm font-black tracking-widest uppercase">
                     {item.detail}
                   </span>
                 </div>

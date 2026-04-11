@@ -65,7 +65,7 @@ const Header = () => {
                 className="relative px-4 py-2 text-sm text-neutral-500 hover:text-neutral-200 transition-colors duration-300 group"
               >
                 <span className="relative z-10">{item.name}</span>
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-violet-500 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-white group-hover:w-full transition-all duration-300"></span>
               </motion.a>
             ))}
 
@@ -76,7 +76,7 @@ const Header = () => {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-6 px-5 py-2 bg-violet-500/10 text-violet-400 text-sm font-medium rounded-lg border border-violet-500/20 hover:bg-violet-500/20 hover:border-violet-500/40 transition-all duration-300"
+              className="ml-6 px-5 py-2 bg-white/10 text-white text-sm font-medium rounded-lg border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300"
             >
               Resume
             </motion.a>
@@ -114,7 +114,7 @@ const Header = () => {
                 <a
                   href="/cv.html"
                   target="_blank"
-                  className="block px-4 py-3 mt-3 text-center bg-violet-500/10 text-violet-400 font-medium rounded-lg border border-violet-500/20"
+                  className="block px-4 py-3 mt-3 text-center bg-white/10 text-white font-medium rounded-lg border border-white/20"
                 >
                   View Resume
                 </a>
