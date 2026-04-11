@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Sparkles } from 'lucide-react';
+import { X, Send, Sparkles, MessageSquare } from 'lucide-react';
 
 const AIChatBot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
         {
             type: 'bot',
-            text: "Hi! I'm Sayed's AI assistant. Ask me anything about his skills, experience, or projects!"
+            text: "Initializing Neural Interface... I am Sayed's Virtual Assistant. Experience, skills, or projects—how can I assist your inquiry today?"
         }
     ]);
     const [input, setInput] = useState('');
@@ -27,7 +27,7 @@ const AIChatBot = () => {
         projects: "Sayed has led web development for clients like 1001 Nights Shawarma and Gueston Travels at Hirush Global. He also builds CRM systems and mobile apps.",
         contact: "You can reach Sayed via email, LinkedIn, GitHub, or directly on WhatsApp! Scroll down to the Contact section for all the links.",
         education: "Sayed is pursuing his education with a focus on software development and has completed various technical certifications.",
-        default: "That's a great question! Feel free to explore the portfolio to learn more about Sayed's work, or ask me about his skills, experience, projects, or how to contact him."
+        default: "Request received. Analyzing... Feel free to explore the portfolio to learn more about Sayed's work, or ask me about his skills, experience, projects, or how to contact him."
     };
 
     const handleSend = () => {
@@ -68,13 +68,26 @@ const AIChatBot = () => {
 
     return (
         <>
-            {/* Floating Chat Button */}
+            {/* Liquid-Metal Floating Bot Button */}
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-violet-500 rounded-xl shadow-2xl shadow-violet-500/20 flex items-center justify-center hover:bg-violet-400 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="fixed bottom-8 right-8 z-50 w-20 h-20 flex items-center justify-center group"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ type: 'spring', delay: 2 }}
             >
+                {/* Orbital Ring */}
+                <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 border border-white/10 rounded-full border-dashed"
+                />
+
+                {/* Main Sphere */}
+                <div className="absolute inset-2 bg-gradient-to-br from-white/20 to-black backdrop-blur-md rounded-full border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all duration-500 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent animate-shimmer" />
+                </div>
+
                 <AnimatePresence mode="wait">
                     {isOpen ? (
                         <motion.div
@@ -82,90 +95,90 @@ const AIChatBot = () => {
                             initial={{ rotate: -90, opacity: 0 }}
                             animate={{ rotate: 0, opacity: 1 }}
                             exit={{ rotate: 90, opacity: 0 }}
+                            className="relative z-10"
                         >
-                            <X className="text-black" size={22} />
+                            <X className="text-white" size={24} />
                         </motion.div>
                     ) : (
                         <motion.div
                             key="chat"
-                            initial={{ rotate: -90, opacity: 0 }}
-                            animate={{ rotate: 0, opacity: 1 }}
-                            exit={{ rotate: 90, opacity: 0 }}
-                            className="relative"
+                            initial={{ scale: 0.5, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.5, opacity: 0 }}
+                            className="relative z-10 flex flex-col items-center"
                         >
-                            <MessageCircle className="text-black" size={22} />
-                            <motion.div
-                                className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-white rounded-full"
-                                animate={{ scale: [1, 1.3, 1] }}
-                                transition={{ duration: 1.5, repeat: Infinity }}
-                            />
+                            <MessageSquare className="text-white fill-white/10" size={24} />
+                            <div className="absolute -bottom-1 w-1 h-1 bg-white rounded-full animate-pulse shadow-[0_0_10px_white]" />
                         </motion.div>
                     )}
                 </AnimatePresence>
             </motion.button>
 
-            {/* Chat Window */}
+            {/* Tactical Chat Interface */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: 100, scale: 0.9 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 100, scale: 0.9 }}
-                        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                        className="fixed bottom-28 right-8 z-50 w-[360px] h-[480px] bg-[#0a0a0a] backdrop-blur-xl rounded-xl shadow-2xl border border-white/[0.06] overflow-hidden"
+                        initial={{ opacity: 0, scale: 0.9, y: 20, x: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, y: 20, x: 20 }}
+                        className="fixed bottom-32 right-8 z-50 w-[380px] h-[550px] bg-black border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden backdrop-blur-2xl"
                     >
-                        {/* Header */}
-                        <div className="bg-[#111111] border-b border-white/[0.06] p-4 flex items-center gap-3">
-                            <div className="w-8 h-8 bg-violet-500/10 rounded-lg flex items-center justify-center">
-                                <Sparkles className="text-violet-400" size={16} />
-                            </div>
-                            <div>
-                                <h3 className="text-white font-semibold text-sm">AI Assistant</h3>
-                                <p className="text-neutral-500 text-[10px]">Ask me anything</p>
+                        {/* Status Header */}
+                        <div className="p-6 bg-white/[0.02] border-b border-white/5 flex items-center justify-between">
+                            <div className="flex items-center gap-4">
+                                <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                                    <Sparkles size={18} className="text-white" />
+                                </div>
+                                <div>
+                                    <h3 className="text-sm font-black text-white uppercase tracking-widest">Neural Lynx</h3>
+                                    <div className="flex items-center gap-1.5">
+                                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                                        <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-tighter">Secure Connection</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Messages */}
-                        <div className="h-[330px] overflow-y-auto p-4 space-y-3">
+                        {/* Neural Messages */}
+                        <div className="h-[360px] overflow-y-auto p-6 space-y-6 scrollbar-hide">
                             {messages.map((message, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.05 }}
+                                    initial={{ opacity: 0, x: message.type === 'user' ? 20 : -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
                                     className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div
-                                        className={`max-w-[80%] p-3 rounded-xl ${message.type === 'user'
-                                            ? 'bg-violet-500 text-black'
-                                            : 'bg-white/[0.04] text-neutral-300 border border-white/[0.06]'
+                                        className={`max-w-[85%] p-4 rounded-2xl text-[11px] leading-relaxed tracking-wide font-medium ${message.type === 'user'
+                                            ? 'bg-white text-black font-black'
+                                            : 'bg-white/5 text-neutral-400 border border-white/5'
                                             }`}
                                     >
-                                        <p className="text-xs leading-relaxed">{message.text}</p>
+                                        {message.text}
                                     </div>
                                 </motion.div>
                             ))}
                             <div ref={messagesEndRef} />
                         </div>
 
-                        {/* Input */}
-                        <div className="absolute bottom-0 left-0 right-0 p-3 bg-[#0a0a0a] border-t border-white/[0.06]">
-                            <div className="flex gap-2">
+                        {/* Input Core */}
+                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-black">
+                            <div className="relative flex items-center">
                                 <input
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyPress={handleKeyPress}
-                                    placeholder="Type your message..."
-                                    className="flex-1 bg-white/[0.04] text-white text-xs px-3 py-2.5 rounded-lg border border-white/[0.06] focus:outline-none focus:border-violet-500/30 transition-colors placeholder-neutral-600"
+                                    placeholder="Input signal..."
+                                    className="w-full bg-white/5 border border-white/10 text-white text-[11px] px-5 py-4 rounded-2xl focus:outline-none focus:border-white/30 transition-all placeholder-neutral-600"
                                 />
                                 <motion.button
                                     onClick={handleSend}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="bg-violet-500 p-2.5 rounded-lg hover:bg-violet-400 transition-colors"
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    className="absolute right-3 p-2 bg-white rounded-xl text-black hover:bg-neutral-200 transition-colors"
                                 >
-                                    <Send className="text-black" size={14} />
+                                    <Send size={14} />
                                 </motion.button>
                             </div>
                         </div>
