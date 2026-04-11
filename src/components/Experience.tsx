@@ -1,21 +1,29 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, MapPin, Calendar } from 'lucide-react';
+import { MapPin } from 'lucide-react';
+
+interface WorkExperience {
+    title: string;
+    company: string;
+    location: string;
+    period: string;
+    type: string;
+    description: string;
+    skills: string[];
+}
 
 const Experience = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+    const containerRef = useRef(null);
 
-  const experiences = [
+    const experiences: WorkExperience[] = [
     {
       title: 'Jr. Software Developer',
       company: 'Hirush Global LLP',
       location: 'Malappuram, Kerala',
       period: 'Nov 2024 - Present',
       type: 'Full-time',
-      description: 'Leading React.js and Next.js development projects with focus on AI/ML integration and modern web technologies.',
-      skills: ['React.js', 'Next.js', 'TypeScript', 'Redux', 'Node.js', 'MongoDB', 'AI/ML Integration'],
+      description: 'Developing high-performance React.js and Next.js applications with a focus on AI/ML integration and scalable frontend architecture.',
+      skills: ['React.js', 'Next.js', 'TypeScript', 'Node.js', 'AI Integration'],
     },
     {
       title: 'Software Coordinator',
@@ -23,8 +31,8 @@ const Experience = () => {
       location: 'Manjeri, Kerala',
       period: 'Aug 2024 - Nov 2024',
       type: 'Full-time',
-      description: 'Managed software projects and coordinated between development teams and other branch teams using Agile methodology.',
-      skills: ['Project Management', 'Team Coordination', 'Agile', 'Software Management'],
+      description: 'Led agile development cycles and bridged the gap between engineering teams and stakeholders for complex software deployments.',
+      skills: ['Agile', 'Project Management', 'Team Leadership', 'SDLC'],
     },
     {
       title: 'Frontend Engineer',
@@ -32,8 +40,8 @@ const Experience = () => {
       location: 'Remote',
       period: 'May 2024 - Present',
       type: 'Part-time',
-      description: 'Developing cross-platform mobile applications using Flutter and modern web implementations using React.js.',
-      skills: ['Flutter', 'React.js', 'Dart', 'Firebase', 'Web & Mobile'],
+      description: 'Crafting cross-platform mobile experiences using Flutter and optimizing React web interfaces for maximum performance.',
+      skills: ['Flutter', 'React.js', 'Dart', 'Firebase'],
     },
     {
       title: 'SEO Analyst',
@@ -41,100 +49,121 @@ const Experience = () => {
       location: 'Malappuram, Kerala',
       period: 'Feb 2024 - Present',
       type: 'Part-time',
-      description: 'Optimizing website performance and search rankings using advanced SEO tools and analytics.',
-      skills: ['SEO Tools', 'Google Analytics', 'Keyword Research', 'Technical SEO'],
+      description: 'Driving growth through technical SEO audits, keyword strategy, and data-driven performance optimization.',
+      skills: ['Technical SEO', 'Analytics', 'Keyword Strategy'],
     },
   ];
 
   return (
-    <section id="experience" className="py-32 relative overflow-hidden">
+    <section id="experience" className="py-32 relative bg-[#000000] overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <span className="text-violet-500 text-xs font-medium tracking-[0.3em] uppercase mb-4 block">Career</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-4">
-            Professional Experience
-          </h2>
-          <div className="section-line"></div>
-        </motion.div>
+        
+        {/* Header */}
+        <div className="text-center mb-32">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-black text-white font-display tracking-tighter uppercase"
+          >
+            Our Work <span className="text-neutral-500">Journey</span>
+          </motion.h2>
+        </div>
 
-        {/* Timeline */}
-        <div className="max-w-4xl relative">
-          {/* Vertical line */}
-          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-[1px] bg-gradient-to-b from-violet-500/30 via-violet-500/10 to-transparent"></div>
+        {/* Vertical Timeline Wrapper */}
+        <div ref={containerRef} className="max-w-6xl mx-auto relative">
+          
+          {/* Central Vertical Line */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2 hidden md:block" />
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="relative pl-14 md:pl-20"
-              >
-                {/* Dot */}
-                <div className="absolute left-2.5 md:left-4.5 top-6 w-3 h-3 bg-violet-500 rounded-full border-4 border-[#050505] z-10">
-                  <div className="absolute inset-0 bg-violet-500 rounded-full animate-ping opacity-20"></div>
+          {/* Experience Items */}
+          <div className="space-y-24 md:space-y-0">
+            {experiences.map((exp, index) => {
+              const isEven = index % 2 === 0;
+              return (
+                <div key={index} className="relative md:h-[350px]">
+                  
+                  {/* Central Node */}
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    className="absolute left-4 md:left-1/2 top-0 md:top-1/2 w-4 h-4 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.5)]"
+                  >
+                    <div className="w-1.5 h-1.5 bg-black rounded-full" />
+                  </motion.div>
+
+                  {/* Content Container */}
+                  <div className={`grid md:grid-cols-2 gap-8 md:gap-24 h-full items-center ${isEven ? 'text-left' : 'md:text-left'}`}>
+                    
+                    {/* Left Content (Text or Decoration) */}
+                    <div className={`order-2 ${isEven ? 'md:order-1 md:text-right' : 'md:order-1'}`}>
+                      {!isEven && (
+                        <div className="hidden md:flex justify-start opacity-30 blur-2xl">
+                           <div className="w-48 h-12 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-pulse" />
+                        </div>
+                      )}
+                      {isEven && (
+                        <ExperienceCard exp={exp} index={index} align="right" />
+                      )}
+                    </div>
+
+                    {/* Right Content (Text or Decoration) */}
+                    <div className={`order-3 ${isEven ? 'md:order-2' : 'md:order-2'}`}>
+                      {!isEven && (
+                        <ExperienceCard exp={exp} index={index} align="left" />
+                      )}
+                      {isEven && (
+                        <div className="hidden md:flex justify-end opacity-30 blur-2xl">
+                           <div className="w-48 h-12 bg-gradient-to-r from-green-400 via-blue-500 to-indigo-500 rounded-full animate-pulse" />
+                        </div>
+                      )}
+                    </div>
+
+                  </div>
                 </div>
-
-                <motion.div
-                  whileHover={{ x: 4 }}
-                  className="bg-white/[0.02] rounded-xl p-6 border border-white/[0.06] hover:border-violet-500/20 transition-all duration-500 group"
-                >
-                  <div className="flex flex-col gap-3 mb-4">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <h3 className="text-xl font-bold text-white group-hover:text-violet-400 transition-colors duration-300">
-                        {exp.title}
-                      </h3>
-                      <span className="px-2.5 py-0.5 bg-violet-500/10 text-violet-400 text-[10px] font-medium rounded-full border border-violet-500/20 uppercase tracking-wider">
-                        {exp.type}
-                      </span>
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-500">
-                      <div className="flex items-center gap-1.5">
-                        <Briefcase size={14} className="text-neutral-600" />
-                        <span>{exp.company}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <MapPin size={14} className="text-neutral-600" />
-                        <span>{exp.location}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Calendar size={14} className="text-neutral-600" />
-                        <span>{exp.period}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-neutral-400 mb-5 text-sm leading-relaxed">
-                    {exp.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {exp.skills.map((skill, i) => (
-                      <span
-                        key={i}
-                        className="px-2.5 py-1 text-[11px] font-medium text-neutral-400 bg-white/[0.03] rounded-md border border-white/[0.06]"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
     </section>
   );
 };
+
+const ExperienceCard = ({ exp, index, align }: { exp: WorkExperience, index: number, align: string }) => (
+  <motion.div
+    initial={{ opacity: 0, x: align === 'left' ? 30 : -30 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className="flex flex-col gap-4"
+  >
+    <div className={`flex items-center gap-3 ${align === 'right' ? 'md:justify-end' : ''}`}>
+      <span className="px-3 py-1 bg-white text-black text-[10px] font-black uppercase tracking-wider rounded-sm">
+        Exp {index + 1}
+      </span>
+    </div>
+    <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter leading-none">
+      {exp.title}
+    </h3>
+    <div className={`flex flex-col gap-1 ${align === 'right' ? 'md:items-end' : ''}`}>
+       <span className="text-sm font-bold text-neutral-400 uppercase tracking-widest">{exp.company}</span>
+       <div className="flex items-center gap-2 text-[10px] text-neutral-600 font-bold uppercase tracking-widest">
+         <MapPin size={10} />
+         {exp.location} | {exp.period}
+       </div>
+    </div>
+    <p className={`text-neutral-500 text-sm leading-relaxed max-w-sm ${align === 'right' ? 'md:ml-auto' : ''}`}>
+      {exp.description}
+    </p>
+    <div className={`flex flex-wrap gap-2 ${align === 'right' ? 'md:justify-end' : ''}`}>
+      {exp.skills.map((skill: string) => (
+        <span key={skill} className="text-[9px] font-black text-neutral-600 uppercase tracking-widest border-b border-white/5 pb-1">
+          {skill}
+        </span>
+      ))}
+    </div>
+  </motion.div>
+);
 
 export default Experience;

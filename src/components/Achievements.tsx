@@ -1,11 +1,10 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award, Trophy, Star, Target } from 'lucide-react';
+import { Award, Trophy, Star, Target, Sparkles } from 'lucide-react';
 
 const Achievements = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const achievements = [
     {
@@ -18,7 +17,7 @@ const Achievements = () => {
       icon: Award,
       title: 'Research Publication',
       description: 'ICETI4T 2025 Conference',
-      detail: 'NeuVitX Health Monitoring System',
+      detail: 'NeuVitX Health System',
     },
     {
       icon: Star,
@@ -29,7 +28,7 @@ const Achievements = () => {
     {
       icon: Target,
       title: 'Professional Growth',
-      description: 'Multiple Roles & Responsibilities',
+      description: 'Active Strategic Roles',
       detail: '4 Active Positions',
     },
   ];
@@ -42,39 +41,51 @@ const Achievements = () => {
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
+          transition={{ duration: 0.8 }}
+          className="mb-24 flex flex-col items-center text-center"
         >
-          <span className="text-violet-500 text-xs font-medium tracking-[0.3em] uppercase mb-4 block">Milestones</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-4">
-            Achievements
+          <span className="flex items-center gap-2 text-violet-500 text-xs font-bold tracking-[0.4em] uppercase mb-6">
+            <Sparkles size={14} />
+            Milestones
+          </span>
+          <h2 className="text-4xl md:text-6xl font-black font-display text-white tracking-tight">
+            Major Achievements
           </h2>
-          <div className="section-line"></div>
         </motion.div>
 
         {/* Achievements Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl">
-          {achievements.map((achievement, index) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          {achievements.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="bg-white/[0.02] rounded-xl p-6 border border-white/[0.06] hover:border-violet-500/20 transition-all duration-500 group"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="relative group p-8 bg-white/[0.02] rounded-[2.5rem] border border-white/5 hover:border-violet-500/30 transition-all duration-500 cursor-default"
             >
-              <div className="w-12 h-12 bg-violet-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-violet-500/20 transition-colors duration-300">
-                <achievement.icon className="text-violet-400" size={24} />
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-600/5 to-transparent rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity" />
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-violet-500 group-hover:text-black group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <item.icon className="text-violet-400 group-hover:text-black" size={28} />
+                </div>
+                
+                <h3 className="text-xl font-black text-white mb-3 font-display leading-tight group-hover:text-violet-400 transition-colors">
+                  {item.title}
+                </h3>
+                
+                <p className="text-neutral-500 text-xs mb-6 font-medium leading-relaxed">
+                  {item.description}
+                </p>
+                
+                <div className="pt-6 border-t border-white/5">
+                  <span className="text-violet-500 text-sm font-black tracking-widest uppercase">
+                    {item.detail}
+                  </span>
+                </div>
               </div>
-              <h3 className="text-white font-semibold text-base mb-1.5 group-hover:text-violet-400 transition-colors duration-300">
-                {achievement.title}
-              </h3>
-              <p className="text-neutral-500 text-xs mb-3 leading-relaxed">
-                {achievement.description}
-              </p>
-              <p className="text-violet-400 text-sm font-semibold">
-                {achievement.detail}
-              </p>
             </motion.div>
           ))}
         </div>

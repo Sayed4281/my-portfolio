@@ -15,11 +15,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/#home' },
+    { name: 'About', href: '/#about' },
+    { name: 'Experience', href: '/#experience' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -28,7 +28,7 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-        ? 'bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.06] py-3'
+        ? 'bg-[#000000]/80 backdrop-blur-xl border-b border-white/[0.06] py-3'
         : 'bg-transparent py-5'
         }`}
     >
@@ -36,20 +36,20 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.a
-            href="#home"
+            href="/#home"
             whileHover={{ scale: 1.02 }}
             className="flex items-center gap-3 group"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-violet-500/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative bg-[#111111] p-2.5 rounded-lg border border-white/[0.06] group-hover:border-violet-500/30 transition-colors duration-300">
-                <span className="font-bold text-violet-400 text-lg font-display">
+              <div className="absolute inset-0 bg-white/10 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-[#111111] p-2.5 rounded-lg border border-white/[0.06] group-hover:border-white/30 transition-colors duration-300">
+                <span className="font-bold text-white text-lg font-display">
                   S
                 </span>
               </div>
             </div>
             <span className="font-semibold text-sm tracking-[0.2em] uppercase text-neutral-400 group-hover:text-neutral-200 transition-colors duration-300">
-              Sayed Shahloob
+              Sayed Shahloob P
             </span>
           </motion.a>
 

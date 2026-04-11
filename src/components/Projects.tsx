@@ -1,14 +1,117 @@
 import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { ArrowRight, Github } from 'lucide-react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Github, ExternalLink, Sparkles } from 'lucide-react';
+
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  status: string;
+  category: string;
+  link?: string;
+}
+
+const ProjectCard = ({ project, index }: { project: Project, index: number }) => {
+  const cardRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      layout
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: index * 0.1 }}
+      className="group relative h-full"
+    >
+      <div className="relative h-full bg-[#0a0a0a] border border-white/[0.06] rounded-[2rem] overflow-hidden hover:border-violet-500/30 transition-all duration-700 flex flex-col">
+        {/* Image Container */}
+        <div className="relative h-64 overflow-hidden">
+          <motion.img
+            src={project.image}
+            alt={project.title}
+            style={{ scale: 1.2, y }}
+            className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-90" />
+
+          {/* Status Badge */}
+          <div className="absolute top-6 left-6">
+            <span className={`
+              inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border backdrop-blur-md
+              ${project.status === 'Published Research'
+                ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                : 'bg-violet-500/10 text-violet-400 border-violet-500/20'}
+            `}>
+              {project.status}
+            </span>
+          </div>
+
+          {/* Category Badge */}
+          <div className="absolute top-6 right-6">
+            <span className="px-3 py-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-[10px] text-white/50 font-bold uppercase tracking-wider">
+              {project.category}
+            </span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-8 flex flex-col flex-1 relative">
+          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-violet-400 transition-colors duration-300 font-display">
+            {project.title}
+          </h3>
+          <p className="text-neutral-500 text-sm mb-6 line-clamp-3 leading-relaxed">
+            {project.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-8">
+            {project.technologies.map((tech: string) => (
+              <span
+                key={tech}
+                className="px-3 py-1 text-[10px] font-bold text-neutral-400 bg-white/[0.03] border border-white/[0.06] rounded-full uppercase tracking-tight"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-auto pt-6 border-t border-white/[0.04] flex items-center justify-between">
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm font-bold text-violet-400 hover:text-violet-300 transition-colors group/link"
+              >
+                Live Demo 
+                <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+              </a>
+            ) : (
+              <span className="text-xs text-neutral-600 font-medium italic">Internal Project</span>
+            )}
+            
+            <motion.div 
+              whileHover={{ rotate: 45 }}
+              className="p-2 bg-white/5 rounded-full border border-white/10 text-white/50 hover:text-white hover:bg-violet-500 transition-all cursor-pointer"
+            >
+              <ArrowRight size={18} />
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const Projects = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [activeCategory, setActiveCategory] = useState('All');
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
-
   const categories = ['All', 'Web Development', 'Mobile Apps', 'Enterprise Solutions', 'AI & Research'];
 
   const projects = [
@@ -16,68 +119,52 @@ const Projects = () => {
       title: 'Attendance Management System',
       description: 'Comprehensive PWA (Progressive Web App) for attendance management with dual-module architecture. Features location-based check-in, real-time tracking, and leave management.',
       image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React.js', 'Node.js', 'PWA', 'Firebase', 'GPS API'],
+      technologies: ['React.js', 'Node.js', 'Firebase', 'GPS API'],
       status: 'Completed',
       category: 'Enterprise Solutions',
     },
     {
-      title: 'Restaurant Management System',
-      description: 'Modern web-based application designed to streamline restaurant operations. Built using React, TypeScript, and Firebase for order processing, menu updates, and table management.',
+      title: 'Restaurant Order Flow',
+      description: 'Modern web-based application designed to streamline restaurant operations. Built using React, TypeScript, and Firebase for real-time order processing.',
       image: 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React.js', 'Node.js', 'PostgreSQL', 'REST APIs'],
+      technologies: ['React.js', 'TypeScript', 'PostgreSQL', 'Redux'],
       status: 'Completed',
       category: 'Enterprise Solutions',
     },
     {
-      title: 'Enterprise CRM System',
-      description: 'Advanced Customer Relationship Management software built with React and Node.js. Features data management, sales pipeline tracking, and real-time analytics.',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React.js', 'Node.js', 'PostgreSQL', 'REST APIs'],
-      status: 'Completed',
-      category: 'Enterprise Solutions',
-    },
-    {
-      title: 'NeuVitX - Health Monitoring',
-      description: 'Integrated hardware-software system presented at ICETI4T 2025. Features custom hardware for monitoring glucose and vitals, connected to a Flutter app for real-time analysis.',
+      title: 'NeuVitX - Health AI',
+      description: 'Integrated hardware-software system presented at ICETI4T 2025. Features custom hardware for monitoring glucose and vitals with AI analysis.',
       image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Flutter', 'IoT Hardware', 'Firebase', 'Sensors'],
+      technologies: ['Flutter', 'IoT Hardware', 'Firebase', 'AI/ML'],
       status: 'Published Research',
       category: 'AI & Research',
     },
     {
-      title: 'ShopSmart - Expense Tracker',
-      description: 'Comprehensive expense tracking application with advanced budget forecasting, intelligent categorization, and spending analytics.',
-      image: 'https://images.pexels.com/photos/3584994/pexels-photo-3584994.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Flutter', 'Firebase', 'Machine Learning', 'Charts'],
-      status: 'Completed',
-      category: 'Mobile Apps',
+        title: 'SEO Strategist Portal',
+        description: 'High-performance portfolio website designed for an SEO specialist. Features advanced schema markup and optimized core web vitals.',
+        image: '/haron.png',
+        technologies: ['React.js', 'Tailwind CSS', 'SEO', 'Vite'],
+        status: 'Completed',
+        category: 'Web Development',
+        link: 'https://haronsaeed.vercel.app/',
     },
     {
-      title: 'Student Management System',
-      description: 'Comprehensive system built with Flutter and SQL database. Features student records, attendance tracking, and grade management.',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Flutter', 'SQL Database', 'QR Code', 'PDF Generation'],
-      status: 'Completed',
-      category: 'Mobile Apps',
-    },
-    {
-      title: 'SEO Strategist Portfolio',
-      description: 'High-performance portfolio website designed for an SEO specialist. Features advanced schema markup, optimized core web vitals, and content-rich structure for maximum search visibility.',
-      image: '/haron.png',
-      technologies: ['React.js', 'Tailwind CSS', 'Technical SEO', 'Schema Markup'],
-      status: 'Completed',
-      category: 'Web Development',
-      link: 'https://haronsaeed.vercel.app/',
-    },
-    {
-      title: 'Multimedia Visual Specialist',
-      description: 'Immersive portfolio for a multimedia specialist showcasing video, 3D assets, and high-resolution imagery with a focus on visual storytelling and interactive performance.',
+      title: 'Visual Specialist Portfolio',
+      description: 'Immersive portfolio for a multimedia specialist showcasing video and 3D assets with a focus on visual storytelling.',
       image: '/dilshad.png',
-      technologies: ['React.js', 'Tailwind CSS', 'Framer Motion', 'Firebase'],
+      technologies: ['React.js', 'Framer Motion', 'Tailwind', 'GSAP'],
       status: 'Completed',
       category: 'Web Development',
       link: 'https://muhammed-dilshad-p.vercel.app/',
     },
+    {
+      title: 'ShopSmart Analytics',
+      description: 'Comprehensive expense tracking application with advanced budget forecasting and intelligent categorization.',
+      image: 'https://images.pexels.com/photos/3584994/pexels-photo-3584994.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['Flutter', 'Firebase', 'Machine Learning'],
+      status: 'Completed',
+      category: 'Mobile Apps',
+    }
   ];
 
   const filteredProjects = activeCategory === 'All'
@@ -85,155 +172,79 @@ const Projects = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-32 relative overflow-hidden" ref={ref}>
+    <section id="projects" className="py-32 relative overflow-hidden bg-[#000000]">
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <span className="text-violet-500 text-xs font-medium tracking-[0.3em] uppercase mb-4 block">Portfolio</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-4">
-            Featured Work
-          </h2>
-          <div className="section-line mb-6"></div>
-          <p className="text-neutral-500 max-w-2xl text-base">
-            A collection of projects that demonstrate my passion for building innovative scheduling, management, and research solutions.
-          </p>
-        </motion.div>
+        <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="flex items-center gap-2 text-violet-500 text-xs font-bold tracking-[0.4em] uppercase mb-4">
+              <Sparkles size={14} />
+              Portfolio
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black font-display text-white tracking-tight">
+              Selected Showcase
+            </h2>
+          </motion.div>
 
-        {/* Categories */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex overflow-x-auto md:flex-wrap gap-2 mb-12 pb-4 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0"
-          style={{
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none'
-          }}
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`
-                whitespace-nowrap flex-shrink-0 px-4 py-2 rounded-lg text-xs font-medium transition-all duration-300
-                ${activeCategory === category
-                  ? 'text-black bg-violet-500'
-                  : 'text-neutral-500 hover:text-neutral-300 bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.1]'}
-              `}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
+          {/* Categories */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-wrap gap-2"
+          >
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`
+                  px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-500 border
+                  ${activeCategory === category
+                    ? 'text-black bg-white border-white'
+                    : 'text-neutral-500 hover:text-white bg-white/5 border-white/10 hover:border-white/20'}
+                `}
+              >
+                {category}
+              </button>
+            ))}
+          </motion.div>
+        </div>
 
         {/* Projects Grid */}
         <motion.div
           layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode='popLayout'>
-            {filteredProjects.map((project) => (
-              <motion.div
-                layout
-                key={project.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className="group relative h-full"
-                onMouseEnter={() => setHoveredProject(project.title)}
-                onMouseLeave={() => setHoveredProject(null)}
-              >
-                <div className="relative h-full bg-[#0a0a0a] border border-white/[0.06] rounded-xl overflow-hidden hover:border-violet-500/20 transition-all duration-500 flex flex-col">
-                  {/* Image Container */}
-                  <div className="relative h-52 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent opacity-80" />
-
-                    {/* Status Badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className={`
-                        inline-flex items-center px-2.5 py-1 rounded-md text-[10px] font-medium border
-                        ${project.status === 'Published Research'
-                          ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
-                          : 'bg-violet-500/10 text-violet-400 border-violet-500/20'}
-                      `}>
-                        {project.status}
-                      </span>
-                    </div>
-
-                    {/* Hover Overlay */}
-                    {'link' in project && project.link && (
-                      <div className={`absolute inset-0 bg-[#050505]/70 backdrop-blur-[2px] flex items-center justify-center opacity-0 transition-opacity duration-300 ${hoveredProject === project.title ? 'opacity-100' : ''}`}>
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-5 py-2.5 bg-violet-500 text-black text-sm font-semibold rounded-lg flex items-center gap-2 hover:bg-violet-400 transition-colors duration-300"
-                        >
-                          View Project <ArrowRight size={16} />
-                        </a>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-5 flex flex-col flex-1">
-                    <h3 className="text-base font-bold text-white mb-2 group-hover:text-violet-400 transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="text-neutral-500 text-xs mb-5 line-clamp-3 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    <div className="mt-auto">
-                      <div className="flex flex-wrap gap-1.5">
-                        {project.technologies.slice(0, 3).map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2 py-0.5 text-[10px] font-medium text-neutral-400 bg-white/[0.03] border border-white/[0.06] rounded"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.technologies.length > 3 && (
-                          <span className="px-2 py-0.5 text-[10px] font-medium text-neutral-500 bg-white/[0.02] border border-white/[0.04] rounded">
-                            +{project.technologies.length - 3}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+            {filteredProjects.map((project, index) => (
+              <ProjectCard key={project.title} project={project} index={index} />
             ))}
           </AnimatePresence>
         </motion.div>
 
-        {/* View All Button */}
+        {/* View All */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.6 }}
-          className="mt-16"
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-20 flex justify-center"
         >
           <a
             href="https://github.com/Sayed4281"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/[0.03] text-neutral-400 hover:text-violet-400 rounded-lg text-sm font-medium transition-all duration-300 border border-white/[0.06] hover:border-violet-500/20"
+            className="group flex items-center gap-4 px-8 py-4 bg-white/[0.02] border border-white/[0.08] rounded-full text-white text-sm font-bold hover:bg-violet-500 hover:border-violet-500 hover:text-black transition-all duration-500"
           >
-            <Github size={18} />
-            View More on GitHub
+            <Github size={20} />
+            SEE ALL PROJECTS
+            <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
           </a>
         </motion.div>
       </div>
