@@ -164,6 +164,15 @@ const Projects = () => {
       technologies: ['Flutter', 'Firebase', 'Machine Learning'],
       status: 'Completed',
       category: 'Mobile Apps',
+    },
+    {
+      title: 'Smart EMI Calculator',
+      description: 'A modern and responsive EMI Calculator featuring real-time calculation, amortization schedule, and interactive loan distribution charts.',
+      image: 'https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Chart.js'],
+      status: 'Completed',
+      category: 'Web Development',
+      link: 'https://smart-emi-calculator-theta.vercel.app/',
     }
   ];
 
