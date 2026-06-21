@@ -94,7 +94,7 @@ const ProjectCard = forwardRef<HTMLDivElement, { project: Project, index: number
                 <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
               </a>
             ) : (
-              <span className="text-xs text-neutral-600 font-medium italic">Internal Project</span>
+              <div />
             )}
             
             <motion.div 
@@ -173,6 +173,14 @@ const Projects = () => {
       status: 'Completed',
       category: 'Web Development',
       link: 'https://smart-emi-calculator-theta.vercel.app/',
+    },
+    {
+      title: 'ERP System',
+      description: 'A unified web application optimized for corporate resources, location-aware time-tracking, sales pipelines, accounting ledgers, and automated payroll operations.',
+      image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['Next.js 15', 'React', 'Zustand', 'Prisma', 'PostgreSQL'],
+      status: 'Completed',
+      category: 'Enterprise Solutions',
     }
   ];
 
