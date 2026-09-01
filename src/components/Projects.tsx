@@ -124,7 +124,7 @@ const Projects = () => {
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         
         {/* Section Header */}
-        <div className="mb-8 sm:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8">
+        <div className="mb-8 sm:mb-12 flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8">
 
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -141,13 +141,13 @@ const Projects = () => {
             </h2>
           </motion.div>
 
-          {/* Categories Pill Bar - Scrollable on mobile */}
+          {/* Categories Pill Bar - Fully responsive wrapping */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex items-center gap-2 overflow-x-auto no-scrollbar max-w-full pb-2 -mx-4 px-4 sm:mx-0 sm:px-0"
+            className="flex items-center flex-wrap gap-2 max-w-full"
           >
             {categories.map((category) => (
               <button
@@ -165,6 +165,7 @@ const Projects = () => {
             ))}
           </motion.div>
         </div>
+
 
         {/* Projects Grid */}
         <motion.div
