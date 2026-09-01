@@ -7,7 +7,7 @@ const AIChatBot = () => {
     const [messages, setMessages] = useState([
         {
             type: 'bot',
-            text: "Initializing Neural Interface... I am Sayed's Virtual Assistant. Experience, skills, or projects—how can I assist your inquiry today?"
+            text: "Welcome! I am Sayed's Virtual Assistant. Experience, skills, or ERP projects—how can I assist your inquiry today?"
         }
     ]);
     const [input, setInput] = useState('');
@@ -22,12 +22,12 @@ const AIChatBot = () => {
     }, [messages]);
 
     const quickResponses: Record<string, string> = {
-        skills: "Sayed is proficient in React.js, Next.js, TypeScript, Flutter, Node.js, MongoDB, and SEO. He also has experience with AI/ML integration and project management.",
-        experience: "Sayed currently works as a Jr. Software Developer at Hirush Global LLP (React development), Frontend Engineer at Pro26 LLP (Flutter & React), and SEO Analyst at Hirush Global. He previously coordinated software projects at Edutalim International LLP.",
-        projects: "Sayed has led web development for clients like 1001 Nights Shawarma and Gueston Travels at Hirush Global. He also builds CRM systems and mobile apps.",
-        contact: "You can reach Sayed via email, LinkedIn, GitHub, or directly on WhatsApp! Scroll down to the Contact section for all the links.",
-        education: "Sayed is pursuing his education with a focus on software development and has completed various technical certifications.",
-        default: "Request received. Analyzing... Feel free to explore the portfolio to learn more about Sayed's work, or ask me about his skills, experience, projects, or how to contact him."
+        skills: "Sayed is proficient in Project Management (Agile, Jira, Scope), Business Analysis, React.js, Next.js, TypeScript, Flutter, Node.js, PostgreSQL, RBAC, and QA Testing.",
+        experience: "Sayed works as Software Developer & Technical Lead at Hirush Global LLP, Frontend Engineer at Pro26 LLP, and previously Application Manager at Eduthalim International.",
+        projects: "Sayed's primary showcase is Hirush ERP (HRMS, CRM, Finance, Payroll, Attendance, RBAC). He also built Resort Booking Management Systems and Attendance PWAs.",
+        contact: "You can reach Sayed via email, LinkedIn, WhatsApp, or download his CV! Scroll down to the Contact section for all links.",
+        education: "Sayed holds a B.Tech in Computer Science Engineering (8.08 CGPA) and has published research at ICETI4T 2025.",
+        default: "Request received. Feel free to explore the portfolio to learn more about Sayed's work, or ask me about his skills, experience, projects, or how to contact him."
     };
 
     const handleSend = () => {
@@ -43,7 +43,7 @@ const AIChatBot = () => {
             response = quickResponses.skills;
         } else if (lowerInput.includes('experience') || lowerInput.includes('work') || lowerInput.includes('job')) {
             response = quickResponses.experience;
-        } else if (lowerInput.includes('project')) {
+        } else if (lowerInput.includes('project') || lowerInput.includes('erp')) {
             response = quickResponses.projects;
         } else if (lowerInput.includes('contact') || lowerInput.includes('email') || lowerInput.includes('reach')) {
             response = quickResponses.contact;
@@ -54,7 +54,7 @@ const AIChatBot = () => {
         setTimeout(() => {
             const botMessage = { type: 'bot', text: response };
             setMessages(prev => [...prev, botMessage]);
-        }, 500);
+        }, 400);
 
         setInput('');
     };
@@ -68,90 +68,77 @@ const AIChatBot = () => {
 
     return (
         <>
-            {/* Liquid-Metal Floating Bot Button */}
+            {/* Corporate Floating Bot Button */}
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-8 right-8 z-50 w-20 h-20 flex items-center justify-center group"
+                className="fixed bottom-8 right-8 z-50 w-16 h-16 flex items-center justify-center group"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ type: 'spring', delay: 2 }}
+                transition={{ type: 'spring', delay: 1 }}
             >
-                {/* Orbital Ring */}
-                <motion.div 
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 border border-white/10 rounded-full border-dashed"
-                />
-
-                {/* Main Sphere */}
-                <div className="absolute inset-2 bg-gradient-to-br from-white/20 to-black backdrop-blur-md rounded-full border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all duration-500 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent animate-shimmer" />
+                <div className="absolute inset-0 bg-blue-600 rounded-full shadow-lg shadow-blue-500/30 group-hover:bg-blue-500 transition-all duration-300 flex items-center justify-center border border-blue-400/30">
+                    <AnimatePresence mode="wait">
+                        {isOpen ? (
+                            <motion.div
+                                key="close"
+                                initial={{ rotate: -90, opacity: 0 }}
+                                animate={{ rotate: 0, opacity: 1 }}
+                                exit={{ rotate: 90, opacity: 0 }}
+                            >
+                                <X className="text-white" size={22} />
+                            </motion.div>
+                        ) : (
+                            <motion.div
+                                key="chat"
+                                initial={{ scale: 0.5, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.5, opacity: 0 }}
+                            >
+                                <MessageSquare className="text-white" size={22} />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
-
-                <AnimatePresence mode="wait">
-                    {isOpen ? (
-                        <motion.div
-                            key="close"
-                            initial={{ rotate: -90, opacity: 0 }}
-                            animate={{ rotate: 0, opacity: 1 }}
-                            exit={{ rotate: 90, opacity: 0 }}
-                            className="relative z-10"
-                        >
-                            <X className="text-white" size={24} />
-                        </motion.div>
-                    ) : (
-                        <motion.div
-                            key="chat"
-                            initial={{ scale: 0.5, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.5, opacity: 0 }}
-                            className="relative z-10 flex flex-col items-center"
-                        >
-                            <MessageSquare className="text-white fill-white/10" size={24} />
-                            <div className="absolute -bottom-1 w-1 h-1 bg-white rounded-full animate-pulse shadow-[0_0_10px_white]" />
-                        </motion.div>
-                    )}
-                </AnimatePresence>
             </motion.button>
 
-            {/* Tactical Chat Interface */}
+            {/* Corporate Chat Interface */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9, y: 20, x: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20, x: 20 }}
-                        className="fixed bottom-32 right-8 z-50 w-[380px] h-[550px] bg-black border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden backdrop-blur-2xl"
+                        className="fixed bottom-28 right-8 z-50 w-[360px] h-[500px] bg-[#172033] border border-[#263449] rounded-[2rem] shadow-2xl overflow-hidden backdrop-blur-2xl flex flex-col justify-between"
                     >
-                        {/* Status Header */}
-                        <div className="p-6 bg-white/[0.02] border-b border-white/5 flex items-center justify-between">
-                            <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                                    <Sparkles size={18} className="text-white" />
+                        {/* Header */}
+                        <div className="p-5 bg-[#0B1220] border-b border-[#263449] flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-cyan-300">
+                                    <Sparkles size={16} />
                                 </div>
                                 <div>
-                                    <h3 className="text-sm font-black text-white uppercase tracking-widest">Neural Lynx</h3>
+                                    <h3 className="text-xs font-black text-white uppercase tracking-wider">Assistant</h3>
                                     <div className="flex items-center gap-1.5">
-                                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                                        <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-tighter">Secure Connection</span>
+                                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
+                                        <span className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-tighter">Online</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Neural Messages */}
-                        <div className="h-[360px] overflow-y-auto p-6 space-y-6 scrollbar-hide">
+                        {/* Messages */}
+                        <div className="flex-1 overflow-y-auto p-5 space-y-4">
                             {messages.map((message, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, x: message.type === 'user' ? 20 : -20 }}
+                                    initial={{ opacity: 0, x: message.type === 'user' ? 15 : -15 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div
-                                        className={`max-w-[85%] p-4 rounded-2xl text-[11px] leading-relaxed tracking-wide font-medium ${message.type === 'user'
-                                            ? 'bg-white text-black font-black'
-                                            : 'bg-white/5 text-neutral-400 border border-white/5'
+                                        className={`max-w-[85%] p-3.5 rounded-2xl text-xs leading-relaxed font-medium ${message.type === 'user'
+                                            ? 'bg-blue-600 text-white font-semibold'
+                                            : 'bg-[#0B1220] text-[#94A3B8] border border-[#263449]'
                                             }`}
                                     >
                                         {message.text}
@@ -162,23 +149,23 @@ const AIChatBot = () => {
                         </div>
 
                         {/* Input Core */}
-                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-black">
+                        <div className="p-4 bg-[#0B1220] border-t border-[#263449]">
                             <div className="relative flex items-center">
                                 <input
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyPress={handleKeyPress}
-                                    placeholder="Input signal..."
-                                    className="w-full bg-white/5 border border-white/10 text-white text-[11px] px-5 py-4 rounded-2xl focus:outline-none focus:border-white/30 transition-all placeholder-neutral-600"
+                                    placeholder="Type your question..."
+                                    className="w-full bg-[#172033] border border-[#263449] text-white text-xs px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500 transition-all placeholder:text-[#94A3B8]/50 pr-10"
                                 />
                                 <motion.button
                                     onClick={handleSend}
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className="absolute right-3 p-2 bg-white rounded-xl text-black hover:bg-neutral-200 transition-colors"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="absolute right-2 p-2 bg-blue-600 rounded-lg text-white hover:bg-blue-500 transition-colors"
                                 >
-                                    <Send size={14} />
+                                    <Send size={12} />
                                 </motion.button>
                             </div>
                         </div>
