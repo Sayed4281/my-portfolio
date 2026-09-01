@@ -114,14 +114,7 @@ const Footer = () => {
                             >
                                 +91 9567220971
                             </a>
-                            <a
-                                href="https://www.instagram.com/_sayed_4281_?utm_source=qr&igsi=MTA2dW5nZDhyeHN1Yg=="
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block text-[#94A3B8] hover:text-[#F8FAFC] transition-colors duration-300"
-                            >
-                                Instagram: @_sayed_4281_
-                            </a>
+                     
                             <p className="text-[#94A3B8] text-xs leading-relaxed pt-2">
                                 📍 Angadipuram, Malappuram, Kerala, India
                             </p>
