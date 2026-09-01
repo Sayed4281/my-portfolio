@@ -1,13 +1,13 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
+import About from './components/About';
 import WhatIDo from './components/WhatIDo';
 import HowIWork from './components/HowIWork';
+import Projects from './components/Projects';
+import Experience from './components/Experience';
+import Skills from './components/Skills';
 import ProjectLifecycle from './components/ProjectLifecycle';
 import LeadershipManagement from './components/LeadershipManagement';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import About from './components/About';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -33,14 +33,14 @@ function App() {
 
       <main className="relative z-10 bg-[#0B1220]">
         <Hero />
-         <About />
+        <About />
         <WhatIDo />
         <HowIWork />
+        <Projects />
+        <Experience />
+        <Skills />
         <ProjectLifecycle />
         <LeadershipManagement />
-        <Projects />
-        <Skills />
-        <Experience />
         <Achievements />
         <Contact />
       </main>
