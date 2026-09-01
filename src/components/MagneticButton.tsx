@@ -47,13 +47,15 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
     y.set(0);
   };
 
+  const isFullWidth = className.includes('w-full');
+
   if (href) {
     return (
       <div
         ref={ref}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="inline-block"
+        className={isFullWidth ? 'w-full block' : 'inline-block'}
       >
         <motion.a
           href={href}
@@ -74,7 +76,7 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="inline-block"
+      className={isFullWidth ? 'w-full block' : 'inline-block'}
     >
       <motion.div
         onClick={onClick}
@@ -86,5 +88,6 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
     </div>
   );
 };
+
 
 export default MagneticButton;
