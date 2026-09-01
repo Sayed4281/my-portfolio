@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
@@ -11,6 +12,12 @@ const CustomCursor = () => {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    // Detect touch device
+    const checkTouch = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    checkTouch();
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -40,10 +47,12 @@ const CustomCursor = () => {
     };
   }, [cursorX, cursorY]);
 
+  if (isTouchDevice) return null;
+
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-7 h-7 rounded-full border border-blue-400/40 pointer-events-none z-[9999] hidden md:block"
+        className="fixed top-0 left-0 w-7 h-7 rounded-full border border-cyan-400/50 pointer-events-none z-[9999] hidden lg:block"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -51,14 +60,14 @@ const CustomCursor = () => {
           translateY: '-50%',
         }}
         animate={{
-          scale: isHovering ? 2 : 1,
-          backgroundColor: isHovering ? 'rgba(59, 130, 246, 0.1)' : 'rgba(59, 130, 246, 0)',
-          borderColor: isHovering ? 'rgba(6, 182, 212, 0.6)' : 'rgba(59, 130, 246, 0.3)',
+          scale: isHovering ? 2.2 : 1,
+          backgroundColor: isHovering ? 'rgba(6, 182, 212, 0.15)' : 'rgba(59, 130, 246, 0)',
+          borderColor: isHovering ? 'rgba(6, 182, 212, 0.8)' : 'rgba(59, 130, 246, 0.4)',
         }}
         transition={{ type: 'spring', damping: 20, stiffness: 250 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-cyan-400 rounded-full pointer-events-none z-[9999] hidden md:block shadow-[0_0_8px_rgba(6,182,212,0.8)]"
+        className="fixed top-0 left-0 w-2 h-2 bg-cyan-300 rounded-full pointer-events-none z-[9999] hidden lg:block shadow-[0_0_12px_rgba(6,182,212,0.9)]"
         style={{
           x: cursorX,
           y: cursorY,
@@ -71,3 +80,4 @@ const CustomCursor = () => {
 };
 
 export default CustomCursor;
+

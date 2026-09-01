@@ -25,69 +25,62 @@ const ProjectLifecycle = () => {
   ];
 
   return (
-    <section id="lifecycle" className="py-28 relative bg-[#0E1726] overflow-hidden">
+    <section id="lifecycle" className="py-12 sm:py-16 md:py-20 relative bg-[#0E1726] overflow-hidden">
       {/* Subtle Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/[0.03] rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-cyan-400 text-xs font-black tracking-[0.5em] uppercase mb-4 block">
+            <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">
               End-to-End Execution
             </span>
-            <h2 className="text-4xl md:text-6xl font-black font-display text-white mb-6 uppercase tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
               Project <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Lifecycle</span>
             </h2>
-            <p className="text-[#94A3B8] text-base md:text-lg leading-relaxed">
-              How I guide software projects from early client engagement and requirements gathering to successful deployment and ongoing support.
+            <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
+              How I guide software projects from early client engagement to successful deployment and ongoing support.
             </p>
           </motion.div>
         </div>
 
-        {/* Workflow Grid / Pipeline */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 max-w-7xl mx-auto relative">
+        {/* Workflow Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 relative">
           {steps.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <motion.div
                 key={item.step}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="relative bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-2xl p-6 transition-all duration-500 group"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="relative bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-2xl p-5 sm:p-6 transition-all duration-300 group"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-black font-display text-[#94A3B8]/30 group-hover:text-blue-400 transition-colors">
+                <div className="flex items-center justify-between mb-3.5">
+                  <span className="text-xl sm:text-2xl font-black font-display text-[#94A3B8]/30 group-hover:text-blue-400 transition-colors">
                     {item.step}
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
                     <Icon size={18} />
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-2 font-display">
+                <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 font-display">
                   {item.title}
                 </h3>
 
                 <p className="text-xs text-[#94A3B8] leading-relaxed">
                   {item.desc}
                 </p>
-
-                {/* Connecting arrow indicator for desktop grid */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-cyan-400/40 group-hover:text-cyan-300 transition-colors pointer-events-none">
-                    →
-                  </div>
-                )}
               </motion.div>
             );
           })}
@@ -99,3 +92,4 @@ const ProjectLifecycle = () => {
 };
 
 export default ProjectLifecycle;
+

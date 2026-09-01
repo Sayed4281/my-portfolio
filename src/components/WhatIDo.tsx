@@ -47,34 +47,34 @@ const WhatIDo = () => {
   ];
 
   return (
-    <section id="what-i-do" className="py-28 relative bg-[#0E1726] overflow-hidden">
+    <section id="what-i-do" className="py-12 sm:py-16 md:py-20 relative bg-[#0E1726] overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-blue-600/[0.03] rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-cyan-400 text-xs font-black tracking-[0.5em] uppercase mb-4 block">
+            <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">
               Core Capabilities
             </span>
-            <h2 className="text-4xl md:text-6xl font-black font-display text-white mb-6 uppercase tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
               What I <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Do</span>
             </h2>
-            <p className="text-[#94A3B8] text-base md:text-lg leading-relaxed">
+            <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
               Bridging business objectives and software execution through structured management, functional analysis, and full-stack engineering.
             </p>
           </motion.div>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((item, index) => {
             const Icon = item.icon;
             const isFeatured = index === 2; // ERP Card visually highlighted
@@ -82,12 +82,12 @@ const WhatIDo = () => {
             return (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className={`group relative rounded-[2rem] p-8 border transition-all duration-500 flex flex-col justify-between ${
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                whileHover={{ y: -6 }}
+                className={`group relative rounded-[2rem] p-6 sm:p-8 border transition-all duration-500 flex flex-col justify-between ${
                   isFeatured 
                     ? 'bg-gradient-to-b from-blue-600/15 via-[#172033] to-[#172033] border-blue-500/40 shadow-2xl shadow-blue-500/10' 
                     : 'bg-[#172033] border-[#263449] hover:border-blue-500/40'
@@ -95,26 +95,26 @@ const WhatIDo = () => {
               >
                 <div>
                   {/* Top Bar inside Card */}
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 text-cyan-300">
-                      <Icon size={26} className="transition-transform group-hover:scale-110" />
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 text-cyan-300">
+                      <Icon size={24} className="transition-transform group-hover:scale-110" />
                     </div>
                     <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-[10px] text-cyan-300 font-bold uppercase tracking-wider">
                       {item.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-black text-white mb-4 font-display">
+                  <h3 className="text-xl sm:text-2xl font-black text-white mb-3 font-display">
                     {item.title}
                   </h3>
 
-                  <p className="text-[#94A3B8] text-sm leading-relaxed mb-6">
+                  <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed mb-6">
                     {item.description}
                   </p>
                 </div>
 
                 {/* Bullet Highlights */}
-                <div className="pt-6 border-t border-[#263449]">
+                <div className="pt-5 border-t border-[#263449]">
                   <ul className="space-y-2">
                     {item.bullets.map((bullet, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-xs font-semibold text-[#94A3B8]">
@@ -134,3 +134,4 @@ const WhatIDo = () => {
 };
 
 export default WhatIDo;
+

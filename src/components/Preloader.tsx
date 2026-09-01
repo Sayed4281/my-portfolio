@@ -7,7 +7,7 @@ const Preloader = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 2200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -23,7 +23,7 @@ const Preloader = () => {
            }}
            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0B1220] overflow-hidden"
         >
-          {/* Fragmented Background Grid */}
+          {/* Fragmented Ambient Background Grid */}
           <div className="absolute inset-0 grid grid-cols-5 grid-rows-4 opacity-10">
             {gridItems.map((_, i) => (
               <motion.div
@@ -41,50 +41,51 @@ const Preloader = () => {
             ))}
           </div>
 
-          <div className="relative z-10 flex flex-col items-center">
-            {/* Logo Initial */}
+          <div className="relative z-10 flex flex-col items-center px-4 text-center">
+            {/* Profile Photo Avatar with Animated Glowing Rings */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="mb-8 relative"
             >
-              <div className="w-20 h-20 border border-[#263449] rounded-2xl flex items-center justify-center bg-[#172033] backdrop-blur-sm shadow-xl shadow-blue-500/10">
-                <motion.span 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-4xl font-display font-black text-white"
-                >
-                  S
-                </motion.span>
+              <div className="w-24 h-24 sm:w-28 sm:h-28 border-2 border-[#263449] rounded-full p-1.5 bg-[#172033] shadow-2xl shadow-blue-500/20 relative z-10 overflow-hidden">
+                <motion.img 
+                  src="/sayed.png"
+                  alt="Sayed Shahloob P"
+                  initial={{ scale: 1.1, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
-              {/* Spinning borders */}
+
+              {/* Spinning Glowing Ambient Rings */}
               <motion.div 
                 animate={{ rotate: 360 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-4 border border-blue-500/20 rounded-3xl"
+                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                className="absolute -inset-3 border border-blue-500/30 rounded-full border-t-cyan-400 border-r-transparent"
               />
               <motion.div 
                 animate={{ rotate: -360 }}
-                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-2 border border-cyan-500/10 rounded-2xl"
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                className="absolute -inset-5 border border-cyan-500/20 rounded-full border-b-blue-400 border-l-transparent"
               />
             </motion.div>
 
-            {/* Name */}
-            <div className="flex gap-[0.2em] mb-4">
+            {/* Name Typography Animation */}
+            <div className="flex gap-[0.15em] sm:gap-[0.2em] mb-3 flex-wrap justify-center">
               {"SAYED SHAHLOOB P".split("").map((char, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ 
-                    delay: 0.4 + (i * 0.04),
+                    delay: 0.3 + (i * 0.04),
                     duration: 0.4,
                     ease: "easeOut"
                   }}
-                  className={`text-sm md:text-base font-black tracking-widest text-white ${char === " " ? "w-3" : ""}`}
+                  className={`text-sm sm:text-base md:text-lg font-black tracking-widest text-white uppercase ${char === " " ? "w-2 sm:w-3" : ""}`}
                 >
                   {char}
                 </motion.span>
@@ -95,18 +96,18 @@ const Preloader = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.0 }}
-              className="text-[10px] font-bold text-cyan-400 tracking-[0.4em] uppercase mb-6"
+              transition={{ delay: 0.9 }}
+              className="text-[10px] sm:text-xs font-bold text-cyan-400 tracking-[0.35em] uppercase mb-5"
             >
-              Software Developer | Technical Lead | Business Analyst
+              Software Developer • Tech Lead • Business Analyst
             </motion.div>
 
-            {/* Tactical Line */}
+            {/* Tactical Gradient Progress Line */}
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
-              transition={{ duration: 1.2, ease: "easeInOut", delay: 0.6 }}
-              className="h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent w-64 mt-2"
+              transition={{ duration: 1.2, ease: "easeInOut", delay: 0.5 }}
+              className="h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent w-64 max-w-full"
             />
           </div>
         </motion.div>
@@ -116,3 +117,4 @@ const Preloader = () => {
 };
 
 export default Preloader;
+

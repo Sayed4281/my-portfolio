@@ -43,31 +43,31 @@ const LeadershipManagement = () => {
   ];
 
   return (
-    <section id="leadership" className="py-28 relative bg-[#0B1220] overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="leadership" className="py-12 sm:py-16 md:py-20 relative bg-[#0B1220] overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-cyan-400 text-xs font-black tracking-[0.5em] uppercase mb-4 block">
+            <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">
               Cross-Functional Operations
             </span>
-            <h2 className="text-4xl md:text-6xl font-black font-display text-white mb-6 uppercase tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
               Leadership & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Management</span>
             </h2>
-            <p className="text-[#94A3B8] text-base md:text-lg leading-relaxed">
+            <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
               Combining technical depth with operational management—driving team productivity, client alignment, and project execution.
             </p>
           </motion.div>
         </div>
 
         {/* Highlights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {highlights.map((item, index) => {
             const Icon = item.icon;
 
@@ -77,18 +77,18 @@ const LeadershipManagement = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-[2rem] p-8 transition-all duration-500 group"
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-[2rem] p-6 sm:p-8 transition-all duration-500 group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                  <Icon size={24} />
+                <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-5 text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <Icon size={22} className="sm:size-[24px]" />
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-3 font-display">
+                <h3 className="text-xl font-bold text-white mb-2.5 font-display">
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-[#94A3B8] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
@@ -102,3 +102,4 @@ const LeadershipManagement = () => {
 };
 
 export default LeadershipManagement;
+

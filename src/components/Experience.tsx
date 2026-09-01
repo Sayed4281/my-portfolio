@@ -73,18 +73,19 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 sm:py-28 relative bg-[#0E1726] overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+    <section id="experience" className="py-12 sm:py-16 md:py-20 relative bg-[#0E1726] overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-cyan-400 text-xs font-black tracking-[0.4em] sm:tracking-[0.5em] uppercase mb-4 block">
+            <span className="text-cyan-400 text-xs font-black tracking-[0.4em] sm:tracking-[0.5em] uppercase mb-3 sm:mb-4 block">
               Professional Path
             </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white font-display uppercase tracking-tight">
@@ -93,39 +94,39 @@ const Experience = () => {
           </motion.div>
         </div>
 
-        {/* Timeline */}
+        {/* Timeline Container */}
         <div ref={containerRef} className="max-w-5xl mx-auto relative">
           
-          {/* Central Line */}
-          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-[#263449] -translate-x-1/2" />
+          {/* Vertical Line: Left-aligned on mobile, Centered on md+ */}
+          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[1.5px] bg-gradient-to-b from-blue-500 via-[#263449] to-transparent -translate-x-1/2" />
 
-          <div className="space-y-12 sm:space-y-16">
+          <div className="space-y-10 sm:space-y-16">
             {experiences.map((exp, index) => {
               const isEven = index % 2 === 0;
               return (
-                <div key={index} className="relative flex flex-col md:flex-row items-center">
+                <div key={index} className="relative flex flex-col md:flex-row items-start md:items-center">
                   
-                  {/* Timeline Dot */}
+                  {/* Timeline Dot Node */}
                   <motion.div 
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
-                    className="absolute left-4 sm:left-6 md:left-1/2 top-7 sm:top-8 w-4 sm:w-5 h-4 sm:h-5 bg-blue-500 rounded-full -translate-x-1/2 z-20 flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.6)]"
+                    className="absolute left-4 sm:left-6 md:left-1/2 top-7 sm:top-8 w-4 sm:w-5 h-4 sm:h-5 bg-blue-500 rounded-full -translate-x-1/2 z-20 flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.8)] border-2 border-[#0E1726]"
                   >
                     <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full" />
                   </motion.div>
 
-                  {/* Card Content */}
+                  {/* Card Content Wrapper */}
                   <div className={`w-full md:w-1/2 pl-10 sm:pl-14 md:pl-0 ${isEven ? 'md:pr-10 lg:pr-12 md:text-right' : 'md:pl-10 lg:pl-12 md:ml-auto'}`}>
                     <motion.div
-                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                      initial={{ opacity: 0, x: isEven ? -25 : 25 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.7 }}
-                      className="bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 transition-all group"
+                      transition={{ duration: 0.6 }}
+                      className="bg-[#172033] border border-[#263449] hover:border-blue-500/50 rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 transition-all duration-300 group shadow-xl"
                     >
-                      <div className={`flex flex-wrap items-center gap-2 sm:gap-3 mb-3 ${isEven ? 'md:justify-end' : ''}`}>
-                        <span className="px-2.5 sm:px-3 py-1 bg-blue-600 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest rounded-full shadow-md shadow-blue-500/20">
+                      <div className={`flex flex-wrap items-center gap-2 sm:gap-3 mb-3 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
+                        <span className="px-2.5 sm:px-3 py-1 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest rounded-full shadow-md shadow-blue-500/20">
                           {exp.period}
                         </span>
                         <span className="px-2.5 sm:px-3 py-1 bg-blue-500/10 text-cyan-300 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider rounded-full border border-blue-500/20">
@@ -133,11 +134,11 @@ const Experience = () => {
                         </span>
                       </div>
 
-                      <h3 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight mb-1 font-display">
+                      <h3 className="text-lg sm:text-2xl font-black text-white uppercase tracking-tight mb-1.5 font-display">
                         {exp.title}
                       </h3>
 
-                      <div className={`flex flex-wrap items-center gap-2 text-xs font-bold text-[#94A3B8] mb-4 ${isEven ? 'md:justify-end' : ''}`}>
+                      <div className={`flex flex-wrap items-center gap-2 text-xs font-bold text-[#94A3B8] mb-3.5 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
                         <span className="inline-flex items-center gap-1">
                           <Briefcase size={13} className="text-cyan-400 shrink-0" />
                           {exp.company}
@@ -153,10 +154,10 @@ const Experience = () => {
                         {exp.description}
                       </p>
 
-                      {/* Highlights */}
+                      {/* Bullet Highlights */}
                       <ul className="space-y-1.5 mb-5 sm:mb-6 text-xs text-[#F8FAFC]">
                         {exp.highlights.map((h, i) => (
-                          <li key={i} className={`flex items-start gap-2 ${isEven ? 'md:flex-row-reverse md:text-right' : ''}`}>
+                          <li key={i} className={`flex items-start gap-2 text-left ${isEven ? 'md:flex-row-reverse md:text-right' : ''}`}>
                             <span className="text-cyan-400 font-bold shrink-0">•</span>
                             <span>{h}</span>
                           </li>
@@ -164,7 +165,7 @@ const Experience = () => {
                       </ul>
 
                       {/* Skill Chips */}
-                      <div className={`flex flex-wrap gap-1.5 ${isEven ? 'md:justify-end' : ''}`}>
+                      <div className={`flex flex-wrap gap-1.5 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
                         {exp.skills.map((skill) => (
                           <span key={skill} className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[9px] font-bold text-cyan-300 bg-blue-500/10 border border-blue-500/20 rounded-md uppercase tracking-tight">
                             {skill}
@@ -186,3 +187,4 @@ const Experience = () => {
 };
 
 export default Experience;
+

@@ -78,30 +78,30 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 sm:py-28 relative overflow-hidden bg-[#0B1220]">
+    <section id="skills" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-[#0B1220]">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-blue-600/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-14 sm:mb-20 text-center max-w-3xl mx-auto"
+          className="mb-8 sm:mb-12 text-center max-w-3xl mx-auto"
         >
-          <span className="text-cyan-400 text-xs font-black tracking-[0.4em] sm:tracking-[0.5em] uppercase mb-3 sm:mb-4 block">Competencies</span>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-black font-display text-white mb-4 sm:mb-6 uppercase tracking-tight">
+          <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">Competencies</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
             Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Capabilities</span>
           </h2>
-          <p className="text-[#94A3B8] text-sm sm:text-base md:text-lg leading-relaxed">
+          <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
             Structured skills directly matching project management, functional business analysis, full-stack software development, QA, and security.
           </p>
         </motion.div>
 
         {/* Technical Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto mb-16 sm:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto mb-12 sm:mb-16">
           {skillCategories.map((category, catIndex) => {
             const Icon = category.icon;
 
@@ -144,13 +144,13 @@ const Skills = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mb-8 sm:mb-12"
+            className="text-center mb-6 sm:mb-8"
           >
-            <h3 className="text-lg sm:text-xl md:text-2xl font-black text-white uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-2 sm:mb-3">Management & Leadership Competencies</h3>
+            <h3 className="text-base sm:text-lg md:text-xl font-black text-white uppercase tracking-[0.15em] mb-2">Management & Leadership Competencies</h3>
             <p className="text-[#94A3B8] text-xs sm:text-sm">Key soft skills enabling smooth project delivery and cross-team alignment.</p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
             {leadershipQualities.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -160,10 +160,10 @@ const Skills = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.05 * index }}
-                  whileHover={{ y: -4 }}
-                  className="flex items-center gap-2.5 sm:gap-3 px-4 sm:px-6 py-3 sm:py-3.5 bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-xl sm:rounded-2xl transition-all group"
+                  whileHover={{ y: -3 }}
+                  className="flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-5 py-2.5 sm:py-3 bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-xl sm:rounded-2xl transition-all group"
                 >
-                  <Icon size={16} className="sm:size-[18px] text-cyan-400 group-hover:text-blue-300 transition-colors shrink-0" />
+                  <Icon size={16} className="text-cyan-400 group-hover:text-blue-300 transition-colors shrink-0" />
                   <span className="font-bold text-[10px] sm:text-xs uppercase tracking-wider text-[#F8FAFC] group-hover:text-white transition-colors">
                     {item.name}
                   </span>
