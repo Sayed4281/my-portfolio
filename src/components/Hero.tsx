@@ -1,5 +1,8 @@
+'use client';
+
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Github, Linkedin, Mail, FileText, Instagram, ArrowRight, Sparkles } from 'lucide-react';
+
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { useRef } from 'react';
 

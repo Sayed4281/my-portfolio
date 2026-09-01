@@ -1,7 +1,9 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import TiltCard from './TiltCard';
 
 const About = () => {
-
   return (
     <section id="about" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-[#0B1220]">
       {/* Background Decorative Element */}
@@ -18,27 +20,23 @@ const About = () => {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] max-w-[260px] sm:max-w-[340px] md:max-w-[380px] mx-auto group">
-              {/* Animated Floating Glow */}
-              <div className="absolute -inset-6 bg-gradient-to-tr from-blue-500/10 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              
-              <div className="absolute inset-0 border border-[#263449] rounded-[2.5rem] p-3 transition-transform duration-700 group-hover:scale-[1.02]">
-                <div className="w-full h-full rounded-[2rem] overflow-hidden relative bg-[#172033]">
-                  <img 
-                    src="/sayed.png" 
-                    alt="Sayed Shahloob P" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent opacity-80" />
-                </div>
+            <TiltCard className="relative aspect-[4/5] max-w-[260px] sm:max-w-[340px] md:max-w-[380px] mx-auto group rounded-[2.5rem] overflow-hidden border border-[#263449] p-3 bg-[#172033]">
+              <div className="w-full h-full rounded-[2rem] overflow-hidden relative bg-[#172033]">
+                <img 
+                  src="/sayed.png" 
+                  alt="Sayed Shahloob P" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent opacity-80" />
               </div>
 
               {/* Stats Overlay - Premium Glass */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.7 }}
-                className="absolute -bottom-5 sm:-bottom-6 -right-3 sm:-right-6 p-4 sm:p-5 backdrop-blur-2xl bg-[#172033]/95 border border-[#263449] rounded-[1.5rem] shadow-2xl"
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.7 }}
+                className="absolute bottom-4 right-4 p-4 sm:p-5 backdrop-blur-2xl bg-[#172033]/95 border border-[#263449] rounded-[1.5rem] shadow-2xl z-20"
               >
                 <div className="flex items-center gap-4 sm:gap-6">
                   <div>
@@ -52,7 +50,7 @@ const About = () => {
                   </div>
                 </div>
               </motion.div>
-            </div>
+            </TiltCard>
           </motion.div>
 
           {/* Right Side: Narrative Content */}
@@ -89,10 +87,17 @@ const About = () => {
 
               {/* Core Philosophy Badges */}
               <div className="flex flex-wrap gap-2 pl-4">
-                {['Business Analysis', 'ERP/HRMS Architecture', 'Team Coordination', 'Agile Delivery'].map((tag) => (
-                  <span key={tag} className="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full text-[10px] sm:text-xs font-bold text-cyan-300 uppercase tracking-wider">
+                {['Business Analysis', 'ERP/HRMS Architecture', 'Team Coordination', 'Agile Delivery'].map((tag, idx) => (
+                  <motion.span 
+                    key={tag}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.1 * idx }}
+                    className="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full text-[10px] sm:text-xs font-bold text-cyan-300 uppercase tracking-wider"
+                  >
                     {tag}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.div>

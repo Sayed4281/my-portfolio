@@ -1,21 +1,21 @@
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import WhatIDo from './components/WhatIDo';
-import HowIWork from './components/HowIWork';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Skills from './components/Skills';
-import ProjectLifecycle from './components/ProjectLifecycle';
-import LeadershipManagement from './components/LeadershipManagement';
-import Achievements from './components/Achievements';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import AIChatBot from './components/AIChatBot';
-import Preloader from './components/Preloader';
-import CustomCursor from './components/CustomCursor';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import WhatIDo from '@/components/WhatIDo';
+import HowIWork from '@/components/HowIWork';
+import Projects from '@/components/Projects';
+import Experience from '@/components/Experience';
+import Skills from '@/components/Skills';
+import ProjectLifecycle from '@/components/ProjectLifecycle';
+import LeadershipManagement from '@/components/LeadershipManagement';
+import Achievements from '@/components/Achievements';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
+import AIChatBot from '@/components/AIChatBot';
+import Preloader from '@/components/Preloader';
+import CustomCursor from '@/components/CustomCursor';
 
-function App() {
+export default function Home() {
   return (
     <div className="min-h-screen bg-[#0B1220] text-[#F8FAFC] selection:bg-blue-500/30 selection:text-white font-sans antialiased">
       <Preloader />
@@ -50,5 +50,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

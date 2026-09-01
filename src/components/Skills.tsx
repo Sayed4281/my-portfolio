@@ -1,4 +1,8 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import TiltCard from './TiltCard';
+
 import { 
   FolderKanban, 
   Code2, 
@@ -14,6 +18,7 @@ import {
   Lightbulb,
   Compass
 } from 'lucide-react';
+
 
 const Skills = () => {
 
@@ -112,31 +117,34 @@ const Skills = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: catIndex * 0.08 }}
-                className="bg-[#172033] rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 border border-[#263449] hover:border-blue-500/40 transition-all duration-500 group relative overflow-hidden flex flex-col justify-between"
+                className="h-full flex"
               >
-                <div>
-                  <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
-                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shrink-0">
-                      <Icon size={20} className="sm:size-[22px]" />
+                <TiltCard className="bg-[#172033] rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 border border-[#263449] hover:border-blue-500/40 transition-all duration-500 group relative overflow-hidden flex flex-col justify-between w-full">
+                  <div>
+                    <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
+                      <div className="w-10 sm:w-12 h-10 sm:h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shrink-0">
+                        <Icon size={20} className="sm:size-[22px]" />
+                      </div>
+                      <h3 className="text-sm sm:text-base font-black text-white uppercase tracking-tight">{category.title}</h3>
                     </div>
-                    <h3 className="text-sm sm:text-base font-black text-white uppercase tracking-tight">{category.title}</h3>
-                  </div>
 
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
-                    {category.skills.map((skill) => (
-                      <span 
-                        key={skill}
-                        className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-[#0B1220]/60 border border-[#263449] hover:border-blue-500/40 rounded-lg text-[11px] sm:text-xs font-semibold text-[#94A3B8] hover:text-white transition-colors"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
+                      {category.skills.map((skill) => (
+                        <span 
+                          key={skill}
+                          className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-[#0B1220]/60 border border-[#263449] hover:border-blue-500/40 rounded-lg text-[11px] sm:text-xs font-semibold text-[#94A3B8] hover:text-white transition-colors"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </TiltCard>
               </motion.div>
             );
           })}
         </div>
+
 
         {/* Leadership & Operational Competencies */}
         <div className="max-w-5xl mx-auto">

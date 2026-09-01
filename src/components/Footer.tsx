@@ -1,4 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
+
 import { Heart, ArrowUp, Github, Linkedin, Instagram, Mail } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 

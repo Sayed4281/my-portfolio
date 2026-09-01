@@ -1,5 +1,9 @@
+'use client';
+
 import { useState, useRef, forwardRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import TiltCard from './TiltCard';
+
 import { ArrowRight, Github, ExternalLink, Sparkles, Layers, X, CheckCircle2 } from 'lucide-react';
 
 interface Project {
@@ -14,137 +18,6 @@ interface Project {
   link?: string;
   isFeatured?: boolean;
 }
-
-const ProjectCard = forwardRef<HTMLDivElement, { project: Project, index: number, onSelect: (p: Project) => void }>(({ project, index, onSelect }, ref) => {
-  const cardRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ["start end", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, -20]);
-
-  return (
-    <motion.div
-      ref={ref}
-      layout
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.06 }}
-      onClick={() => onSelect(project)}
-      className={`group relative h-full cursor-pointer ${project.isFeatured ? 'md:col-span-2 lg:col-span-3' : ''}`}
-    >
-      <div 
-        ref={cardRef} 
-        className={`relative h-full border rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden transition-all duration-500 flex flex-col ${
-          project.isFeatured 
-            ? 'bg-gradient-to-b from-blue-600/20 via-[#172033] to-[#172033] border-blue-500/40 hover:border-blue-400/70 shadow-2xl shadow-blue-500/10' 
-            : 'bg-[#172033] border-[#263449] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5'
-        }`}
-      >
-        {/* Featured Layout vs Normal Card */}
-        <div className={`${project.isFeatured ? 'grid lg:grid-cols-12 gap-6 lg:gap-8 items-center p-6 sm:p-8' : 'flex flex-col h-full'}`}>
-
-          {/* Image Container */}
-          <div className={`relative overflow-hidden rounded-2xl ${project.isFeatured ? 'lg:col-span-6 h-56 sm:h-72 lg:h-96' : 'h-48 sm:h-60'}`}>
-            <motion.img
-              src={project.image}
-              alt={project.title}
-              style={{ scale: 1.1, y }}
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#172033] via-transparent to-transparent opacity-85" />
-
-            {/* Status Badge */}
-            <div className="absolute top-4 left-4 sm:top-5 sm:left-5">
-              <span className={`
-                inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-widest border backdrop-blur-md
-                ${project.isFeatured 
-                  ? 'bg-blue-500/30 text-cyan-300 border-cyan-400/40 shadow-lg' 
-                  : 'bg-[#0B1220]/80 text-[#F8FAFC] border-[#263449]'}
-              `}>
-                {project.status}
-              </span>
-            </div>
-
-            {/* Category Badge */}
-            <div className="absolute top-4 right-4 sm:top-5 sm:right-5">
-              <span className="px-2.5 sm:px-3 py-1 bg-[#0B1220]/80 backdrop-blur-md border border-[#263449] rounded-full text-[9px] sm:text-[10px] text-[#94A3B8] font-bold uppercase tracking-wider">
-                {project.category}
-              </span>
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className={`${project.isFeatured ? 'lg:col-span-6 flex flex-col justify-between' : 'p-5 sm:p-7 flex flex-col flex-1'}`}>
-            <div>
-              {project.isFeatured && (
-                <div className="flex items-center gap-2 text-[10px] sm:text-xs font-black uppercase tracking-widest text-cyan-400 mb-2 sm:mb-3">
-                  <Layers size={14} className="sm:size-[16px]" />
-                  Flagship Enterprise Platform (#1 Showcase)
-                </div>
-              )}
-
-              <h3 className={`${project.isFeatured ? 'text-2xl sm:text-3xl lg:text-4xl' : 'text-lg sm:text-2xl'} font-bold text-white mb-2.5 sm:mb-4 group-hover:text-cyan-300 transition-colors font-display line-clamp-2`}>
-                {project.title}
-              </h3>
-
-              <p className="text-[#94A3B8] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed line-clamp-3">
-                {project.description}
-              </p>
-
-              {/* ERP Module Badges if present */}
-              {project.modules && project.modules.length > 0 && (
-                <div className="mb-4 sm:mb-6">
-                  <span className="text-[9px] sm:text-[10px] uppercase font-bold text-[#94A3B8] tracking-widest block mb-2">Integrated Modules:</span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.modules.map((mod) => (
-                      <span
-                        key={mod}
-                        className="px-2 sm:px-2.5 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-black text-cyan-300 bg-blue-500/10 border border-blue-500/20 rounded-md uppercase tracking-tight"
-                      >
-                        {mod}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Technologies */}
-              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-5 sm:mb-6">
-                {project.technologies.slice(0, 5).map((tech: string) => (
-                  <span
-                    key={tech}
-                    className="px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-bold text-[#94A3B8] bg-[#0B1220]/60 border border-[#263449] rounded-full uppercase tracking-tight"
-                  >
-                    {tech}
-                  </span>
-                ))}
-                {project.technologies.length > 5 && (
-                  <span className="px-2 sm:px-2.5 py-1 text-[9px] font-bold text-cyan-400 bg-blue-500/10 rounded-full">
-                    +{project.technologies.length - 5} more
-                  </span>
-                )}
-              </div>
-            </div>
-
-            <div className="mt-auto pt-4 border-t border-[#263449] flex items-center justify-between">
-              <span className="text-[11px] sm:text-xs font-bold text-cyan-400 group-hover:text-white transition-colors uppercase tracking-wider flex items-center gap-1">
-                View Project Details
-              </span>
-              
-              <div className="p-2 sm:p-2.5 bg-blue-500/10 rounded-full border border-blue-500/20 text-cyan-300 group-hover:text-white group-hover:bg-blue-600 transition-all">
-                <ArrowRight size={16} className="sm:size-[18px] group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </motion.div>
-  );
-});
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -300,13 +173,96 @@ const Projects = () => {
         >
           <AnimatePresence mode='popLayout'>
             {filteredProjects.map((project, index) => (
-              <ProjectCard 
-                key={project.title} 
-                project={project} 
-                index={index} 
-                onSelect={(p) => setSelectedProject(p)} 
-              />
+              <motion.div
+                key={project.title}
+                layout
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.06 }}
+                onClick={() => setSelectedProject(project)}
+                className={`group relative h-full cursor-pointer ${project.isFeatured ? 'md:col-span-2 lg:col-span-3' : ''}`}
+              >
+                <TiltCard 
+                  className={`relative h-full border rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden transition-all duration-500 flex flex-col ${
+                    project.isFeatured 
+                      ? 'bg-gradient-to-b from-blue-600/20 via-[#172033] to-[#172033] border-blue-500/40 hover:border-blue-400/70 shadow-2xl shadow-blue-500/10' 
+                      : 'bg-[#172033] border-[#263449] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5'
+                  }`}
+                >
+                  <div className={`${project.isFeatured ? 'grid lg:grid-cols-12 gap-6 lg:gap-8 items-center p-6 sm:p-8' : 'flex flex-col h-full'}`}>
+                    <div className={`relative overflow-hidden rounded-2xl ${project.isFeatured ? 'lg:col-span-6 h-56 sm:h-72 lg:h-96' : 'h-48 sm:h-60'}`}>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#172033] via-transparent to-transparent opacity-85" />
+                      <div className="absolute top-4 left-4 sm:top-5 sm:left-5">
+                        <span className={`inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-widest border backdrop-blur-md ${project.isFeatured ? 'bg-blue-500/30 text-cyan-300 border-cyan-400/40 shadow-lg' : 'bg-[#0B1220]/80 text-[#F8FAFC] border-[#263449]'}`}>
+                          {project.status}
+                        </span>
+                      </div>
+                      <div className="absolute top-4 right-4 sm:top-5 sm:right-5">
+                        <span className="px-2.5 sm:px-3 py-1 bg-[#0B1220]/80 backdrop-blur-md border border-[#263449] rounded-full text-[9px] sm:text-[10px] text-[#94A3B8] font-bold uppercase tracking-wider">
+                          {project.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className={`${project.isFeatured ? 'lg:col-span-6 flex flex-col justify-between' : 'p-5 sm:p-7 flex flex-col flex-1'}`}>
+                      <div>
+                        {project.isFeatured && (
+                          <div className="flex items-center gap-2 text-[10px] sm:text-xs font-black uppercase tracking-widest text-cyan-400 mb-2 sm:mb-3">
+                            <Layers size={14} className="sm:size-[16px]" />
+                            Flagship Enterprise Platform (#1 Showcase)
+                          </div>
+                        )}
+                        <h3 className={`${project.isFeatured ? 'text-2xl sm:text-3xl lg:text-4xl' : 'text-lg sm:text-2xl'} font-bold text-white mb-2.5 sm:mb-4 group-hover:text-cyan-300 transition-colors font-display line-clamp-2`}>
+                          {project.title}
+                        </h3>
+                        <p className="text-[#94A3B8] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed line-clamp-3">
+                          {project.description}
+                        </p>
+                        {project.modules && project.modules.length > 0 && (
+                          <div className="mb-4 sm:mb-6">
+                            <span className="text-[9px] sm:text-[10px] uppercase font-bold text-[#94A3B8] tracking-widest block mb-2">Integrated Modules:</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {project.modules.map((mod) => (
+                                <span key={mod} className="px-2 sm:px-2.5 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-black text-cyan-300 bg-blue-500/10 border border-blue-500/20 rounded-md uppercase tracking-tight">
+                                  {mod}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-5 sm:mb-6">
+                          {project.technologies.slice(0, 5).map((tech: string) => (
+                            <span key={tech} className="px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-bold text-[#94A3B8] bg-[#0B1220]/60 border border-[#263449] rounded-full uppercase tracking-tight">
+                              {tech}
+                            </span>
+                          ))}
+                          {project.technologies.length > 5 && (
+                            <span className="px-2 sm:px-2.5 py-1 text-[9px] font-bold text-cyan-400 bg-blue-500/10 rounded-full">
+                              +{project.technologies.length - 5} more
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="mt-auto pt-4 border-t border-[#263449] flex items-center justify-between">
+                        <span className="text-[11px] sm:text-xs font-bold text-cyan-400 group-hover:text-white transition-colors uppercase tracking-wider flex items-center gap-1">
+                          View Project Details
+                        </span>
+                        <div className="p-2 sm:p-2.5 bg-blue-500/10 rounded-full border border-blue-500/20 text-cyan-300 group-hover:text-white group-hover:bg-blue-600 transition-all">
+                          <ArrowRight size={16} className="sm:size-[18px] group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </TiltCard>
+              </motion.div>
             ))}
+
           </AnimatePresence>
         </motion.div>
 

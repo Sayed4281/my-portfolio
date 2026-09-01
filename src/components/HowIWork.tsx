@@ -1,4 +1,8 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import TiltCard from './TiltCard';
+
 import { 
   Lightbulb, 
   Workflow, 
@@ -7,6 +11,7 @@ import {
   CheckSquare2, 
   Rocket 
 } from 'lucide-react';
+
 
 const HowIWork = () => {
   const steps = [
@@ -84,28 +89,33 @@ const HowIWork = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.07 }}
-                className="bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-[2rem] p-6 sm:p-8 transition-all duration-500 group"
+                className="h-full flex"
               >
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-2xl sm:text-3xl font-black font-display text-[#94A3B8]/30 group-hover:text-blue-400 transition-colors">
-                    {item.num}
-                  </span>
-                  <div className="w-11 sm:w-12 h-11 sm:h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
-                    <Icon size={20} className="sm:size-[22px]" />
+                <TiltCard className="bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-[2rem] p-6 sm:p-8 transition-all duration-500 group w-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="text-2xl sm:text-3xl font-black font-display text-[#94A3B8]/30 group-hover:text-blue-400 transition-colors">
+                        {item.num}
+                      </span>
+                      <div className="w-11 sm:w-12 h-11 sm:h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                        <Icon size={20} className="sm:size-[22px]" />
+                      </div>
+                    </div>
+
+                    <h3 className="text-xl sm:text-2xl font-black text-white mb-2.5 font-display">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
-                </div>
-
-                <h3 className="text-xl sm:text-2xl font-black text-white mb-2.5 font-display">
-                  {item.title}
-                </h3>
-
-                <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed">
-                  {item.desc}
-                </p>
+                </TiltCard>
               </motion.div>
             );
           })}
         </div>
+
 
       </div>
     </section>

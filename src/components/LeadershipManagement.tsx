@@ -1,4 +1,8 @@
+'use client';
+
 import { motion } from 'framer-motion';
+import TiltCard from './TiltCard';
+
 import { 
   Users2, 
   SearchCheck, 
@@ -78,19 +82,23 @@ const LeadershipManagement = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-[2rem] p-6 sm:p-8 transition-all duration-500 group"
+                className="h-full flex"
               >
-                <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-5 text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                  <Icon size={22} className="sm:size-[24px]" />
-                </div>
+                <TiltCard className="bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-[2rem] p-6 sm:p-8 transition-all duration-500 group w-full flex flex-col justify-between">
+                  <div>
+                    <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-5 text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                      <Icon size={22} className="sm:size-[24px]" />
+                    </div>
 
-                <h3 className="text-xl font-bold text-white mb-2.5 font-display">
-                  {item.title}
-                </h3>
+                    <h3 className="text-xl font-bold text-white mb-2.5 font-display">
+                      {item.title}
+                    </h3>
 
-                <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
-                  {item.description}
-                </p>
+                    <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </TiltCard>
               </motion.div>
             );
           })}
@@ -102,4 +110,5 @@ const LeadershipManagement = () => {
 };
 
 export default LeadershipManagement;
+
 
