@@ -1,9 +1,8 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-
 import { useRef } from 'react';
-import { Award, Trophy, Star, Target, Sparkles } from 'lucide-react';
+import { Award, Trophy, Star, Target, Sparkles, CheckCircle2 } from 'lucide-react';
 
 const Achievements = () => {
   const ref = useRef(null);
@@ -13,31 +12,35 @@ const Achievements = () => {
     {
       icon: Trophy,
       title: 'Academic Excellence',
-      description: 'B.Tech in Computer Science Engineering',
+      description: 'B.Tech in Computer Science & Engineering',
       detail: '8.08 CGPA',
+      meta: 'Calicut University',
     },
     {
       icon: Award,
       title: 'Research Publication',
-      description: 'ICETI4T 2025 Conference',
-      detail: 'NeuVitX Health System',
+      description: 'NeuVitX Health System Presentation',
+      detail: 'ICETI4T 2025',
+      meta: 'Peer-Reviewed Conference',
     },
     {
       icon: Star,
-      title: 'NSS Leadership',
-      description: 'Dream House Project Coordinator',
-      detail: '5 Houses Completed',
+      title: 'NSS Social Leadership',
+      description: 'Dream House Humanitarian Coordinator',
+      detail: '5 Houses Built',
+      meta: 'Community Impact',
     },
     {
       icon: Target,
-      title: 'Professional Growth',
-      description: 'Active Strategic Roles',
-      detail: '4 Active Positions',
+      title: 'Enterprise Architecture',
+      description: 'Hirush ERP & Full-Stack Systems',
+      detail: 'Modular Architecture',
+      meta: 'Production Verified',
     },
   ];
 
   return (
-    <section id="achievements" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-[#0B1220]">
+    <section id="achievements" className="py-16 sm:py-20 md:py-24 relative overflow-hidden bg-[#FAFAFB] border-t border-slate-200/80">
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         {/* Section Header */}
         <motion.div
@@ -45,47 +48,55 @@ const Achievements = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-8 sm:mb-12 flex flex-col items-center text-center"
+          className="mb-12 sm:mb-16 flex flex-col items-center text-center max-w-2xl mx-auto"
         >
-          <span className="flex items-center gap-2 text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2">
-            <Sparkles size={14} />
-            Milestones
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white tracking-tight uppercase">
-            Major <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Achievements</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-slate-200 rounded-full shadow-xs mb-4">
+            <Sparkles size={13} className="text-blue-600" />
+            <span className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">
+              Verified Milestones
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-950 tracking-tight mb-3">
+            Academic & Professional Impact
           </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl">
+            A track record of disciplined engineering execution, academic rigor, peer-reviewed research, and community leadership.
+          </p>
         </motion.div>
 
-        {/* Achievements Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        {/* Achievements Grid: Perfectly balanced 4-column grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {achievements.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ y: -6 }}
-              className="relative group p-6 sm:p-8 bg-[#172033] rounded-[2rem] border border-[#263449] hover:border-blue-500/40 transition-all duration-500 cursor-default"
+              whileHover={{ y: -4 }}
+              className="relative group p-6 sm:p-7 bg-white rounded-2xl border border-slate-200/90 shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="relative z-10">
-                <div className="w-14 h-14 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center mb-6 text-cyan-300 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                  <item.icon size={26} />
+              <div>
+                <div className="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 group-hover:bg-blue-600 transition-all duration-300 shadow-sm">
+                  <item.icon size={22} />
                 </div>
                 
-                <h3 className="text-lg sm:text-xl font-black text-white mb-2 font-display leading-tight group-hover:text-cyan-300 transition-colors">
+                <h3 className="text-base sm:text-lg font-bold text-slate-950 mb-1.5 tracking-tight group-hover:text-blue-600 transition-colors">
                   {item.title}
                 </h3>
                 
-                <p className="text-[#94A3B8] text-xs mb-5 font-medium leading-relaxed">
+                <p className="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
                   {item.description}
                 </p>
-                
-                <div className="pt-4 border-t border-[#263449]">
-                  <span className="text-cyan-300 text-xs sm:text-sm font-black tracking-widest uppercase">
-                    {item.detail}
-                  </span>
-                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-slate-950 font-extrabold text-xs sm:text-sm tracking-wide bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200/70">
+                  {item.detail}
+                </span>
+                <span className="text-[11px] font-semibold text-slate-500">
+                  {item.meta}
+                </span>
               </div>
             </motion.div>
           ))}

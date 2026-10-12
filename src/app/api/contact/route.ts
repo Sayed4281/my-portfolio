@@ -5,9 +5,17 @@ export async function POST(req: Request) {
   try {
     const { name, email, phone, subject, message } = await req.json();
 
-    if (!name || !email || !phone || !message) {
+    if (!name || !email || !message) {
       return NextResponse.json(
-        { error: 'Name, email, phone, and message are required fields.' },
+        { error: 'Name, email, and message are required fields.' },
+        { status: 400 }
+      );
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Please provide a valid email address.' },
         { status: 400 }
       );
     }

@@ -87,26 +87,26 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-12 sm:py-16 md:py-20 relative bg-[#0E1726] overflow-hidden">
-      {/* Ambient background light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[140px] pointer-events-none" />
-
+    <section id="experience" className="py-16 sm:py-20 md:py-28 relative bg-[#FAFAFB] overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-cyan-400 text-xs font-black tracking-[0.4em] sm:tracking-[0.5em] uppercase mb-3 sm:mb-4 block">
-              Professional Path
+            <span className="text-slate-500 text-xs font-mono font-semibold tracking-[0.25em] uppercase mb-3 block">
+              Track Record
             </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white font-display uppercase tracking-tight">
-              Career <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Journey</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-950 font-display tracking-tight mb-4">
+              Career History &amp; Leadership Roles
             </h2>
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+              Demonstrated leadership spanning modular ERP architectures, cross-functional squad management, and scalable frontend delivery.
+            </p>
           </motion.div>
         </div>
 
@@ -114,84 +114,84 @@ const Experience = () => {
         <div ref={containerRef} className="max-w-5xl mx-auto relative">
           
           {/* Static Background Line Track */}
-          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-[#1E293B] -translate-x-1/2" />
+          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-200 -translate-x-1/2" />
 
           {/* Dynamic Scroll Progress Line Fill */}
           <motion.div
             style={{ scaleY, transformOrigin: 'top' }}
-            className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-500 via-cyan-400 to-blue-600 -translate-x-1/2 shadow-[0_0_15px_rgba(6,182,212,0.9)] z-10"
+            className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-900 -translate-x-1/2 z-10"
           />
 
-          <div className="space-y-12 sm:space-y-20">
+          <div className="space-y-12 sm:space-y-16">
             {experiences.map((exp, index) => {
               const isEven = index % 2 === 0;
               return (
                 <div key={index} className="relative flex flex-col md:flex-row items-start md:items-center">
                   
-                  {/* Glowing Animated Timeline Node */}
+                  {/* Clean Timeline Node */}
                   <motion.div 
                     initial={{ scale: 0.6, opacity: 0.5 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: false, amount: 0.8 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute left-4 sm:left-6 md:left-1/2 top-7 sm:top-8 w-5 sm:w-6 h-5 sm:h-6 bg-[#0E1726] rounded-full -translate-x-1/2 z-20 flex items-center justify-center border-2 border-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.9)]"
+                    transition={{ duration: 0.3 }}
+                    className="absolute left-4 sm:left-6 md:left-1/2 top-7 sm:top-8 w-4 h-4 bg-white rounded-full -translate-x-1/2 z-20 flex items-center justify-center border-2 border-slate-900 shadow-sm"
                   >
-                    <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 bg-cyan-300 rounded-full animate-pulse" />
+                    <div className="w-1.5 h-1.5 bg-slate-900 rounded-full" />
                   </motion.div>
 
                   {/* Card Content Wrapper */}
-                  <div className={`w-full md:w-1/2 pl-10 sm:pl-14 md:pl-0 ${isEven ? 'md:pr-10 lg:pr-12 md:text-right' : 'md:pl-10 lg:pl-12 md:ml-auto'}`}>
+                  <div className={`w-full md:w-1/2 pl-10 sm:pl-14 md:pl-0 ${isEven ? 'md:pr-10 lg:pr-12' : 'md:pl-10 lg:pl-12 md:ml-auto'}`}>
                     <motion.div
-                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                      initial={{ opacity: 0, x: isEven ? -25 : 25 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.1 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
                       className="h-full"
                     >
-                      <TiltCard className="bg-[#172033] border border-[#263449] hover:border-blue-500/50 rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 transition-all duration-300 group shadow-xl">
-                        <div className={`flex flex-wrap items-center gap-2 sm:gap-3 mb-3 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
-                          <span className="px-2.5 sm:px-3 py-1 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest rounded-full shadow-md shadow-blue-500/20">
+                      <TiltCard className="bg-white border border-slate-200/90 hover:border-slate-300 hover:shadow-xl rounded-2xl p-6 sm:p-7 transition-all duration-300 group shadow-sm text-left">
+                        <div className="flex flex-wrap items-center gap-2 mb-3.5">
+                          <span className="px-3 py-1 bg-slate-900 text-white text-[10px] font-mono font-medium rounded-md shadow-xs">
                             {exp.period}
                           </span>
-                          <span className="px-2.5 sm:px-3 py-1 bg-blue-500/10 text-cyan-300 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider rounded-full border border-blue-500/20">
+                          <span className="px-2.5 py-1 bg-slate-100 text-slate-700 text-[10px] font-medium rounded-md border border-slate-200">
                             {exp.type}
                           </span>
                         </div>
 
-                        <h3 className="text-lg sm:text-2xl font-black text-white uppercase tracking-tight mb-1.5 font-display">
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-950 mb-1 font-display">
                           {exp.title}
                         </h3>
 
-                        <div className={`flex flex-wrap items-center gap-2 text-xs font-bold text-[#94A3B8] mb-3.5 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
-                          <span className="inline-flex items-center gap-1">
-                            <Briefcase size={13} className="text-cyan-400 shrink-0" />
+                        <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-500 mb-3.5">
+                          <span className="inline-flex items-center gap-1 text-slate-700 font-semibold">
+                            <Briefcase size={13} className="text-slate-400 shrink-0" />
                             {exp.company}
                           </span>
                           <span>•</span>
                           <span className="inline-flex items-center gap-1">
-                            <MapPin size={13} className="text-cyan-400 shrink-0" />
+                            <MapPin size={13} className="text-slate-400 shrink-0" />
                             {exp.location}
                           </span>
                         </div>
 
-                        <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 font-normal">
                           {exp.description}
                         </p>
 
                         {/* Bullet Highlights */}
-                        <ul className="space-y-1.5 mb-5 sm:mb-6 text-xs text-[#F8FAFC]">
+                        <ul className="space-y-2 mb-5 text-xs text-slate-700 font-normal">
                           {exp.highlights.map((h, i) => (
-                            <li key={i} className={`flex items-start gap-2 text-left ${isEven ? 'md:flex-row-reverse md:text-right' : ''}`}>
-                              <span className="text-cyan-400 font-bold shrink-0">•</span>
+                            <li key={i} className="flex items-start gap-2.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0 mt-1.5" />
                               <span>{h}</span>
                             </li>
                           ))}
                         </ul>
 
                         {/* Skill Chips */}
-                        <div className={`flex flex-wrap gap-1.5 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
+                        <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
                           {exp.skills.map((skill) => (
-                            <span key={skill} className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[9px] font-bold text-cyan-300 bg-blue-500/10 border border-blue-500/20 rounded-md uppercase tracking-tight">
+                            <span key={skill} className="px-2.5 py-1 text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200 rounded-md">
                               {skill}
                             </span>
                           ))}

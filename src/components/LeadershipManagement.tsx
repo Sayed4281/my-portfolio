@@ -47,30 +47,30 @@ const LeadershipManagement = () => {
   ];
 
   return (
-    <section id="leadership" className="py-12 sm:py-16 md:py-20 relative bg-[#0B1220] overflow-hidden">
+    <section id="leadership" className="py-16 sm:py-20 md:py-28 relative bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">
+            <span className="text-slate-500 text-xs font-mono font-semibold tracking-[0.25em] uppercase mb-3 block">
               Cross-Functional Operations
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
-              Leadership & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Management</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-slate-950 mb-4 tracking-tight">
+              Leadership &amp; Management
             </h2>
-            <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
-              Combining technical depth with operational management—driving team productivity, client alignment, and project execution.
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+              Combining technical depth with operational management—driving squad velocity, client alignment, and predictable delivery.
             </p>
           </motion.div>
         </div>
 
-        {/* Highlights Grid */}
+        {/* Highlights Grid (Balanced 6 Cards: 3 cols x 2 rows, Zero Gaps) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {highlights.map((item, index) => {
             const Icon = item.icon;
@@ -78,23 +78,23 @@ const LeadershipManagement = () => {
             return (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
                 className="h-full flex"
               >
-                <TiltCard className="bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-[2rem] p-6 sm:p-8 transition-all duration-500 group w-full flex flex-col justify-between">
+                <TiltCard className="bg-white border border-slate-200/90 hover:border-slate-300 hover:shadow-xl rounded-2xl p-6 sm:p-7 transition-all duration-300 group w-full flex flex-col justify-between shadow-sm">
                   <div>
-                    <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-5 text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                      <Icon size={22} className="sm:size-[24px]" />
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center mb-5 text-slate-800 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300">
+                      <Icon size={22} />
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-2.5 font-display">
+                    <h3 className="text-lg font-bold text-slate-950 mb-2 font-display">
                       {item.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>

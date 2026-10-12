@@ -91,13 +91,13 @@ const AIChatBot = () => {
             {/* Corporate Floating Bot Trigger Button */}
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-6 right-5 sm:bottom-8 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center group min-h-[56px] min-w-[56px]"
+                className="fixed bottom-6 right-5 sm:bottom-8 sm:right-8 z-50 w-13 h-13 sm:w-14 sm:h-14 flex items-center justify-center group min-h-[52px] min-w-[52px]"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ type: 'spring', delay: 1 }}
                 aria-label="Toggle AI Virtual Assistant"
             >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full shadow-xl shadow-blue-500/30 group-hover:scale-105 transition-all duration-300 flex items-center justify-center border border-cyan-400/40">
+                <div className="w-full h-full bg-slate-900 hover:bg-slate-800 text-white rounded-2xl shadow-xl shadow-slate-950/20 group-hover:scale-105 transition-all duration-200 flex items-center justify-center border border-slate-700">
                     <AnimatePresence mode="wait">
                         {isOpen ? (
                             <motion.div
@@ -106,7 +106,7 @@ const AIChatBot = () => {
                                 animate={{ rotate: 0, opacity: 1 }}
                                 exit={{ rotate: 90, opacity: 0 }}
                             >
-                                <X className="text-white" size={22} />
+                                <X className="text-white" size={20} />
                             </motion.div>
                         ) : (
                             <motion.div
@@ -115,7 +115,7 @@ const AIChatBot = () => {
                                 animate={{ scale: 1, opacity: 1 }}
                                 exit={{ scale: 0.5, opacity: 0 }}
                             >
-                                <MessageSquare className="text-white" size={22} />
+                                <MessageSquare className="text-white" size={20} />
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -126,47 +126,47 @@ const AIChatBot = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        initial={{ opacity: 0, scale: 0.95, y: 15 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        className="fixed bottom-24 right-4 sm:right-8 z-50 w-[calc(100vw-2rem)] sm:w-[380px] h-[520px] max-h-[80vh] bg-[#172033] border border-[#263449] rounded-[2rem] shadow-2xl overflow-hidden backdrop-blur-2xl flex flex-col justify-between"
+                        exit={{ opacity: 0, scale: 0.95, y: 15 }}
+                        className="fixed bottom-24 right-4 sm:right-8 z-50 w-[calc(100vw-2rem)] sm:w-[380px] h-[520px] max-h-[80vh] bg-white border border-slate-200/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col justify-between"
                     >
                         {/* Header */}
-                        <div className="p-4 sm:p-5 bg-[#0B1220] border-b border-[#263449] flex items-center justify-between">
+                        <div className="p-4 sm:p-4.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                                <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-cyan-300">
-                                    <Sparkles size={16} />
+                                <div className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center shadow-xs">
+                                    <Sparkles size={15} />
                                 </div>
                                 <div>
-                                    <h3 className="text-xs font-black text-white uppercase tracking-wider">AI Portfolio Assistant</h3>
+                                    <h3 className="text-xs font-bold text-slate-950 tracking-tight">Portfolio Assistant</h3>
                                     <div className="flex items-center gap-1.5">
-                                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
-                                        <span className="text-[10px] font-bold text-[#94A3B8] uppercase tracking-tighter">Instant Support</span>
+                                        <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
+                                        <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Online • Instant Response</span>
                                     </div>
                                 </div>
                             </div>
                             <button 
                                 onClick={() => setIsOpen(false)}
-                                className="p-1.5 text-[#94A3B8] hover:text-white rounded-lg hover:bg-[#172033] transition-colors"
+                                className="p-1.5 text-slate-400 hover:text-slate-950 rounded-lg hover:bg-slate-200/60 transition-colors"
                             >
-                                <X size={18} />
+                                <X size={17} />
                             </button>
                         </div>
 
                         {/* Messages Body */}
-                        <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3.5">
+                        <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3 bg-[#FAFAFB]">
                             {messages.map((message, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, x: message.type === 'user' ? 15 : -15 }}
+                                    initial={{ opacity: 0, x: message.type === 'user' ? 12 : -12 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div
-                                        className={`max-w-[85%] p-3.5 rounded-2xl text-xs leading-relaxed font-medium ${
+                                        className={`max-w-[85%] p-3.5 rounded-2xl text-xs leading-relaxed font-normal ${
                                             message.type === 'user'
-                                            ? 'bg-blue-600 text-white font-semibold shadow-md'
-                                            : 'bg-[#0B1220] text-[#94A3B8] border border-[#263449]'
+                                            ? 'bg-slate-900 text-white font-medium shadow-xs'
+                                            : 'bg-white text-slate-800 border border-slate-200/90 shadow-2xs'
                                         }`}
                                     >
                                         {message.text}
@@ -177,35 +177,35 @@ const AIChatBot = () => {
                         </div>
 
                         {/* Suggestion Chips */}
-                        <div className="px-4 py-2 bg-[#0B1220]/60 border-t border-[#263449]/50 overflow-x-auto no-scrollbar flex items-center gap-1.5">
+                        <div className="px-3.5 py-2.5 bg-white border-t border-slate-200/80 overflow-x-auto no-scrollbar flex items-center gap-1.5">
                             {suggestionChips.map((chip, idx) => (
                                 <button
                                     key={idx}
                                     onClick={() => sendQuery(chip)}
-                                    className="px-2.5 py-1 text-[10px] font-bold text-cyan-300 bg-[#172033] border border-[#263449] hover:border-blue-400 rounded-full whitespace-nowrap transition-all shrink-0 flex items-center gap-1"
+                                    className="px-2.5 py-1 text-[11px] font-medium text-slate-700 bg-slate-50 border border-slate-200 hover:bg-slate-100 hover:border-slate-300 rounded-full whitespace-nowrap transition-all shrink-0 flex items-center gap-1"
                                 >
                                     <span>{chip}</span>
-                                    <ChevronRight size={12} className="text-cyan-400" />
+                                    <ChevronRight size={11} className="text-slate-400" />
                                 </button>
                             ))}
                         </div>
 
                         {/* Input Core */}
-                        <div className="p-3.5 sm:p-4 bg-[#0B1220] border-t border-[#263449]">
+                        <div className="p-3.5 sm:p-4 bg-white border-t border-slate-200">
                             <div className="relative flex items-center">
                                 <input
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyPress={handleKeyPress}
-                                    placeholder="Type your question..."
-                                    className="w-full bg-[#172033] border border-[#263449] text-white text-xs px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500 transition-all placeholder:text-[#94A3B8]/50 pr-10"
+                                    placeholder="Ask about projects, ERP, skills..."
+                                    className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xs px-3.5 py-2.5 rounded-xl focus:outline-none focus:border-slate-900 focus:bg-white transition-all placeholder:text-slate-400 pr-10"
                                 />
                                 <motion.button
                                     onClick={handleSend}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="absolute right-2 p-2 bg-blue-600 rounded-lg text-white hover:bg-blue-500 transition-colors"
+                                    className="absolute right-1.5 p-2 bg-slate-900 rounded-lg text-white hover:bg-slate-800 transition-colors shadow-2xs"
                                 >
                                     <Send size={12} />
                                 </motion.button>

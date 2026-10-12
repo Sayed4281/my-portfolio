@@ -28,28 +28,25 @@ const ProjectLifecycle = () => {
   ];
 
   return (
-    <section id="lifecycle" className="py-12 sm:py-16 md:py-20 relative bg-[#0E1726] overflow-hidden">
-      {/* Subtle Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/[0.03] rounded-full blur-[150px] pointer-events-none" />
-
+    <section id="lifecycle" className="py-16 sm:py-20 md:py-28 relative bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">
-              End-to-End Execution
+            <span className="text-slate-500 text-xs font-mono font-semibold tracking-[0.25em] uppercase mb-3 block">
+              End-to-End Governance
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
-              Project <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Lifecycle</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-slate-950 mb-4 tracking-tight">
+              Project Lifecycle
             </h2>
-            <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
-              How I guide software projects from early client engagement to successful deployment and ongoing support.
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+              Guiding enterprise software initiatives from discovery and architecture through delivery and warranty support.
             </p>
           </motion.div>
         </div>
@@ -65,23 +62,23 @@ const ProjectLifecycle = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="relative bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-2xl p-5 sm:p-6 transition-all duration-300 group"
+                transition={{ duration: 0.4, delay: index * 0.04 }}
+                className="relative bg-white border border-slate-200/90 hover:border-slate-300 hover:shadow-md rounded-2xl p-5 sm:p-6 transition-all duration-300 group shadow-xs"
               >
                 <div className="flex items-center justify-between mb-3.5">
-                  <span className="text-xl sm:text-2xl font-black font-display text-[#94A3B8]/30 group-hover:text-blue-400 transition-colors">
+                  <span className="text-xl font-mono font-bold text-slate-300 group-hover:text-slate-950 transition-colors">
                     {item.step}
                   </span>
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300">
                     <Icon size={18} />
                   </div>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 font-display">
+                <h3 className="text-base font-bold text-slate-950 mb-1.5 font-display">
                   {item.title}
                 </h3>
 
-                <p className="text-xs text-[#94A3B8] leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   {item.desc}
                 </p>
               </motion.div>

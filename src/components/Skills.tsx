@@ -1,143 +1,221 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import TiltCard from './TiltCard';
-
 import { 
   FolderKanban, 
+  Boxes, 
   Code2, 
   Database, 
+  Server, 
   ShieldCheck, 
-  CheckCircle,
-  SearchCheck,
-  Target,
-  Users,
-  MessageSquare,
-  Brain,
-  Zap,
-  Lightbulb,
-  Compass
+  Users, 
+  Target, 
+  Zap, 
+  Briefcase,
+  Layers,
+  Cpu,
+  GitBranch,
+  Terminal,
+  Sparkles
 } from 'lucide-react';
 
+interface SkillCategory {
+  title: string;
+  subtitle: string;
+  icon: any;
+  accent: string;
+  skills: { name: string; level: string; featured?: boolean }[];
+}
 
 const Skills = () => {
+  const [selectedDomain, setSelectedDomain] = useState<'All' | 'Architecture' | 'Engineering' | 'Leadership'>('All');
 
-  const skillCategories = [
+  const categories: SkillCategory[] = [
     {
-      title: 'Project Management & Business Analysis',
-      icon: FolderKanban,
+      title: 'Enterprise Applications',
+      subtitle: 'ERP, HRMS, CRM, and automated workflow systems',
+      icon: Boxes,
+      accent: 'blue',
       skills: [
-        'Jira', 'Trello', 'Agile/Scrum', 'Requirements Analysis', 
-        'Business Process Analysis', 'Sprint Planning', 'UAT', 'Documentation', 'Client Coordination'
+        { name: 'Modular ERP Architecture', level: 'Production', featured: true },
+        { name: 'HRMS & Shift Rostering', level: 'Production', featured: true },
+        { name: 'CRM & Client Pipelines', level: 'Production', featured: true },
+        { name: 'Geofenced GPS Attendance', level: 'Production', featured: true },
+        { name: 'Automated Compensation Rules', level: 'Production' },
+        { name: 'Double-Entry Ledger Modeling', level: 'Production' },
+        { name: 'Audit Logging & Compliance', level: 'Production' }
       ]
     },
     {
-      title: 'Software Development',
+      title: 'Frontend & Mobile Engineering',
+      subtitle: 'React, Next.js, TypeScript, and cross-platform mobile',
       icon: Code2,
+      accent: 'indigo',
       skills: [
-        'Next.js', 'React', 'TypeScript', 'JavaScript', 
-        'Node.js', 'Flutter', 'Dart', 'Tailwind CSS'
+        { name: 'Next.js (App Router)', level: 'Production', featured: true },
+        { name: 'React.js', level: 'Production', featured: true },
+        { name: 'TypeScript', level: 'Production', featured: true },
+        { name: 'Tailwind CSS', level: 'Production', featured: true },
+        { name: 'Flutter & Dart (Mobile)', level: 'Production' },
+        { name: 'State Management (Zustand/Redux)', level: 'Production' },
+        { name: 'Progressive Web Apps (PWA)', level: 'Production' }
       ]
     },
     {
-      title: 'Backend & Database Systems',
+      title: 'Backend Systems & APIs',
+      subtitle: 'Node.js, REST APIs, and authentication pipelines',
+      icon: Server,
+      accent: 'purple',
+      skills: [
+        { name: 'Node.js & Express', level: 'Production', featured: true },
+        { name: 'RESTful API Engineering', level: 'Production', featured: true },
+        { name: 'JWT Authentication & Sessions', level: 'Production', featured: true },
+        { name: 'Next.js Server Actions', level: 'Production' },
+        { name: 'Python (FastAPI / ML Services)', level: 'Applied Research' },
+        { name: 'API Rate Limiting & Webhooks', level: 'Production' }
+      ]
+    },
+    {
+      title: 'Databases & Infrastructure',
+      subtitle: 'PostgreSQL, Prisma, Firebase, and Supabase',
       icon: Database,
+      accent: 'amber',
       skills: [
-        'REST APIs', 'PostgreSQL', 'MySQL', 'Prisma', 
-        'Supabase', 'Firebase', 'MongoDB'
+        { name: 'PostgreSQL', level: 'Production', featured: true },
+        { name: 'Prisma ORM', level: 'Production', featured: true },
+        { name: 'Firebase Cloud & Firestore', level: 'Production', featured: true },
+        { name: 'Supabase BaaS', level: 'Production' },
+        { name: 'Relational Schema Design', level: 'Production' },
+        { name: 'Data Migrations & Indexing', level: 'Production' }
       ]
     },
     {
-      title: 'Security & Access Governance',
+      title: 'Security & Access Control',
+      subtitle: 'RBAC, permissions, and secure API design',
       icon: ShieldCheck,
+      accent: 'cyan',
       skills: [
-        'JWT', 'RBAC', 'Authentication', 'Authorization'
+        { name: 'Role-Based Access Control (RBAC)', level: 'Production', featured: true },
+        { name: 'Multi-Tenant Permission Scoping', level: 'Production', featured: true },
+        { name: 'Secure Session & Token Verification', level: 'Production', featured: true },
+        { name: 'Input Validation & Sanitization', level: 'Production' },
+        { name: 'API Route Guards & Middleware', level: 'Production' }
       ]
     },
     {
-      title: 'Testing & QA',
-      icon: CheckCircle,
+      title: 'Delivery & Quality Assurance',
+      subtitle: 'Requirements, Git, testing, UAT, and deployment',
+      icon: FolderKanban,
+      accent: 'emerald',
       skills: [
-        'Functional Testing', 'Regression Testing', 'UAT', 
-        'API Testing', 'Postman', 'Bug Tracking', 'Test Reports'
-      ]
-    },
-    {
-      title: 'SEO & Performance Optimization',
-      icon: SearchCheck,
-      skills: [
-        'Technical SEO', 'Core Web Vitals', 'Schema Markup', 
-        'XML Sitemap', 'Google Search Console', 'Google Analytics'
+        { name: 'Functional BRD Documentation', level: 'Production', featured: true },
+        { name: 'Sprint Planning & Backlog Management', level: 'Production', featured: true },
+        { name: 'User Acceptance Testing (UAT)', level: 'Production', featured: true },
+        { name: 'Git & GitHub Version Control', level: 'Production', featured: true },
+        { name: 'API Contract Testing (Postman)', level: 'Production' },
+        { name: 'Vercel Deployment & Production Support', level: 'Production' }
       ]
     }
   ];
 
-  const leadershipQualities = [
-    { name: 'Cross-Functional Team Leadership', icon: Target },
-    { name: 'Client Relationship Management', icon: Users },
-    { name: 'Stakeholder Communication', icon: MessageSquare },
-    { name: 'Strategic Problem Solving', icon: Brain },
-    { name: 'Sprint Velocity & Tracking', icon: Zap },
-    { name: 'Solution Planning & Execution', icon: Lightbulb },
-    { name: 'Resource Allocation', icon: Compass }
+  const leadershipPrinciples = [
+    { title: 'Cross-Functional Squad Leadership', desc: 'Guiding dev, design, and QA to deliver releases on schedule.', icon: Users },
+    { title: 'BRD to Engineering Translation', desc: 'Turning ambiguous business needs into concrete technical tasks.', icon: Target },
+    { title: 'Predictable Sprint Velocity', desc: 'Disciplined backlog grooming, timebox control, and risk reduction.', icon: Zap },
+    { title: 'Enterprise Delivery Governance', desc: 'Rigorous UAT signoffs, change controls, and production readiness.', icon: Briefcase }
   ];
 
   return (
-    <section id="skills" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-[#0B1220]">
-      {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-blue-600/[0.03] rounded-full blur-[120px] pointer-events-none" />
+    <section id="skills" className="py-16 sm:py-20 md:py-28 relative overflow-hidden bg-white border-t border-slate-200/80">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-slate-100/60 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
+        
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 sm:mb-12 text-center max-w-3xl mx-auto"
-        >
-          <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">Competencies</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
-            Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Capabilities</span>
-          </h2>
-          <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
-            Structured skills directly matching project management, functional business analysis, full-stack software development, QA, and security.
-          </p>
-        </motion.div>
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-slate-100 border border-slate-200 rounded-full mb-4 shadow-2xs">
+              <Sparkles size={13} className="text-blue-600" />
+              <span className="text-[11px] font-bold text-slate-800 uppercase tracking-widest font-mono">
+                Technical Mastery &amp; Expertise
+              </span>
+            </div>
 
-        {/* Technical Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto mb-12 sm:mb-16">
-          {skillCategories.map((category, catIndex) => {
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-slate-950 mb-4 tracking-tight">
+              Skills &amp; Technical Capabilities
+            </h2>
+
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+              A comprehensive breakdown of enterprise architectures, full-stack engineering tools, and technical leadership methodologies applied in production environments.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* 6 Balanced Category Cards (3 cols x 2 rows, Zero Gaps) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto mb-16 sm:mb-20">
+          {categories.map((category, catIndex) => {
             const Icon = category.icon;
 
             return (
               <motion.div
                 key={category.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: catIndex * 0.08 }}
+                transition={{ duration: 0.5, delay: catIndex * 0.05 }}
                 className="h-full flex"
               >
-                <TiltCard className="bg-[#172033] rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 border border-[#263449] hover:border-blue-500/40 transition-all duration-500 group relative overflow-hidden flex flex-col justify-between w-full">
+                <TiltCard className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/90 hover:border-slate-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between w-full shadow-sm group">
                   <div>
-                    <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
-                      <div className="w-10 sm:w-12 h-10 sm:h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shrink-0">
-                        <Icon size={20} className="sm:size-[22px]" />
+                    {/* Header */}
+                    <div className="flex items-start gap-3.5 mb-5">
+                      <div className="w-12 h-12 bg-slate-100 border border-slate-200 rounded-xl flex items-center justify-center text-slate-800 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300 shrink-0 shadow-2xs">
+                        <Icon size={22} />
                       </div>
-                      <h3 className="text-sm sm:text-base font-black text-white uppercase tracking-tight">{category.title}</h3>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-base font-bold text-slate-950 leading-tight">
+                          {category.title}
+                        </h3>
+                        <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+                          {category.subtitle}
+                        </p>
+                      </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
-                      {category.skills.map((skill) => (
-                        <span 
-                          key={skill}
-                          className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-[#0B1220]/60 border border-[#263449] hover:border-blue-500/40 rounded-lg text-[11px] sm:text-xs font-semibold text-[#94A3B8] hover:text-white transition-colors"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                    {/* Skills Pills with Level Badges */}
+                    <div className="pt-4 border-t border-slate-100 space-y-2">
+                      <div className="flex flex-wrap gap-2">
+                        {category.skills.map((skill) => (
+                          <span 
+                            key={skill.name}
+                            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+                              skill.featured 
+                                ? 'bg-slate-900 text-white font-semibold shadow-2xs' 
+                                : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200/80'
+                            }`}
+                          >
+                            <span>{skill.name}</span>
+                            {skill.featured && (
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                            )}
+                          </span>
+                        ))}
+                      </div>
                     </div>
+                  </div>
+
+                  {/* Bottom Metric Note */}
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+                    <span>{category.skills.length} Capabilities Verified</span>
+                    <span className="text-slate-700 font-bold">Production Ready</span>
                   </div>
                 </TiltCard>
               </motion.div>
@@ -145,36 +223,38 @@ const Skills = () => {
           })}
         </div>
 
+        {/* Operational & Leadership Principles Bar */}
+        <div className="max-w-7xl mx-auto pt-10 border-t border-slate-200">
+          <div className="text-center mb-8">
+            <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-widest block mb-2">
+              Engineering Governance
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-950 font-display tracking-tight">
+              Strategic Principles &amp; Delivery DNA
+            </h3>
+          </div>
 
-        {/* Leadership & Operational Competencies */}
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-6 sm:mb-8"
-          >
-            <h3 className="text-base sm:text-lg md:text-xl font-black text-white uppercase tracking-[0.15em] mb-2">Management & Leadership Competencies</h3>
-            <p className="text-[#94A3B8] text-xs sm:text-sm">Key soft skills enabling smooth project delivery and cross-team alignment.</p>
-          </motion.div>
-
-          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
-            {leadershipQualities.map((item, index) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {leadershipPrinciples.map((item, index) => {
               const Icon = item.icon;
               return (
                 <motion.div
-                  key={item.name}
+                  key={item.title}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.05 * index }}
-                  whileHover={{ y: -3 }}
-                  className="flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-5 py-2.5 sm:py-3 bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-xl sm:rounded-2xl transition-all group"
+                  className="p-5 bg-slate-50 border border-slate-200/90 rounded-2xl hover:bg-white hover:border-slate-300 hover:shadow-md transition-all text-left"
                 >
-                  <Icon size={16} className="text-cyan-400 group-hover:text-blue-300 transition-colors shrink-0" />
-                  <span className="font-bold text-[10px] sm:text-xs uppercase tracking-wider text-[#F8FAFC] group-hover:text-white transition-colors">
-                    {item.name}
-                  </span>
+                  <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-800 mb-3.5 shadow-2xs">
+                    <Icon size={18} />
+                  </div>
+                  <h4 className="font-bold text-sm text-slate-950 mb-1.5">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </motion.div>
               );
             })}

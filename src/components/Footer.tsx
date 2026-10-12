@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
+import Link from 'next/link';
 import { Heart, ArrowUp, Github, Linkedin, Instagram, Mail } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 
@@ -19,13 +19,8 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-[#0B1220] border-t border-[#263449] relative overflow-hidden">
-            {/* Subtle ambient background glow */}
-            <div className="absolute inset-0 pointer-events-none opacity-40">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-blue-600/[0.05] rounded-full blur-[100px]" />
-            </div>
-
-            <div className="container mx-auto px-4 sm:px-6 py-12 relative z-10 max-w-7xl">
+        <footer className="bg-slate-50 border-t border-slate-200 relative overflow-hidden">
+            <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 relative z-10 max-w-7xl">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
                     
                     {/* Brand Overview */}
@@ -36,19 +31,24 @@ const Footer = () => {
                         transition={{ duration: 0.6 }}
                         className="md:col-span-6 lg:col-span-5"
                     >
-                        <h3 className="text-xl font-black text-white mb-3 font-display tracking-tight">
-                            SAYED SHAHLOOB P<span className="text-cyan-400">.</span>
-                        </h3>
-                        <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed mb-6 max-w-md">
-                            Software Developer, Technical Project Lead, and Business Analyst bridging client requirements with scalable enterprise software delivery.
+                        <div className="flex items-center gap-2.5 mb-3">
+                            <span className="w-8 h-8 rounded-lg bg-slate-900 text-white font-extrabold text-xs flex items-center justify-center tracking-tight">
+                                SS
+                            </span>
+                            <h3 className="text-lg font-black text-slate-950 font-display tracking-tight">
+                                SAYED SHAHLOOB P
+                            </h3>
+                        </div>
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 max-w-md">
+                            Software Developer, Technical Project Lead, and Enterprise Business Analyst specializing in scalable ERP/HRMS architecture, robust backend workflows, and cross-functional engineering execution.
                         </p>
 
                         {/* Social Links Row */}
                         <div>
-                            <span className="text-[10px] font-black uppercase tracking-widest text-cyan-400 block mb-3">
-                                Connect & Follow
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-2.5">
+                                Channels & Profiles
                             </span>
-                            <div className="flex gap-2.5 flex-wrap">
+                            <div className="flex gap-2 flex-wrap">
                                 {socialLinks.map((social, i) => (
                                     <a
                                         key={i}
@@ -56,9 +56,9 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         title={social.name}
-                                        className="p-2.5 bg-[#172033] border border-[#263449] rounded-xl text-[#94A3B8] hover:text-cyan-300 hover:border-blue-500/40 transition-all group min-h-[44px] min-w-[44px] flex items-center justify-center"
+                                        className="w-10 h-10 bg-white border border-slate-200 rounded-xl text-slate-700 hover:text-slate-950 hover:border-slate-900 hover:bg-slate-100 transition-all flex items-center justify-center shadow-2xs"
                                     >
-                                        <social.icon size={18} className="group-hover:scale-110 transition-transform" />
+                                        <social.icon size={16} />
                                     </a>
                                 ))}
                             </div>
@@ -70,31 +70,27 @@ const Footer = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.15 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
                         className="md:col-span-3 lg:col-span-3"
                     >
-                        <h4 className="text-cyan-400 text-xs uppercase tracking-[0.2em] font-black mb-4">
+                        <h4 className="text-slate-900 text-xs uppercase tracking-wider font-extrabold mb-4">
                             Navigation
                         </h4>
                         <div className="grid grid-cols-2 gap-2 text-xs">
                             {[
-                                { label: 'Home', href: '#home' },
-                                { label: 'About', href: '#about' },
-                                { label: 'What I Do', href: '#what-i-do' },
-                                { label: 'How I Work', href: '#how-i-work' },
-                                { label: 'Projects', href: '#projects' },
-                                { label: 'Experience', href: '#experience' },
-                                { label: 'Skills', href: '#skills' },
-                                { label: 'Leadership', href: '#leadership' },
-                                { label: 'Contact', href: '#contact' },
+                                { label: 'Home', href: '/' },
+                                { label: 'About', href: '/about' },
+                                { label: 'Services', href: '/services' },
+                                { label: 'Projects', href: '/projects' },
+                                { label: 'Contact', href: '/contact' },
                             ].map((link) => (
-                                <a
+                                <Link
                                     key={link.label}
                                     href={link.href}
-                                    className="text-[#94A3B8] hover:text-cyan-300 transition-colors py-1 block"
+                                    className="text-slate-600 hover:text-slate-950 font-medium transition-colors py-1 block"
                                 >
                                     {link.label}
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </motion.div>
@@ -104,62 +100,54 @@ const Footer = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
                         className="md:col-span-3 lg:col-span-4"
                     >
-                        <h4 className="text-cyan-400 text-xs uppercase tracking-[0.2em] font-black mb-4">
-                            Direct Contact
+                        <h4 className="text-slate-900 text-xs uppercase tracking-wider font-extrabold mb-4">
+                            Direct Inquiries
                         </h4>
-                        <div className="space-y-2 text-xs">
+                        <div className="space-y-2.5 text-xs">
                             <a
                                 href="mailto:sayedshahloobpofficial@gmail.com"
-                                className="block text-[#94A3B8] hover:text-white transition-colors truncate"
+                                className="block text-slate-600 hover:text-slate-950 font-medium transition-colors truncate"
                             >
                                 ✉️ sayedshahloobpofficial@gmail.com
                             </a>
                             <a
                                 href="tel:+919567220971"
-                                className="block text-[#94A3B8] hover:text-white transition-colors"
+                                className="block text-slate-600 hover:text-slate-950 font-medium transition-colors"
                             >
                                 📞 +91 9567220971
                             </a>
-                            <p className="text-[#94A3B8] pt-1">
-                                📍 Angadipuram, Malappuram, Kerala, India
+                            <p className="text-slate-500 pt-1">
+                                📍 Malappuram, Kerala, India (IST UTC+5:30)
                             </p>
                         </div>
                     </motion.div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-[#263449] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div className="flex items-center text-[#94A3B8] text-xs">
-                        <span>Crafted with</span>
-                        <motion.div
-                            animate={{ scale: [1, 1.25, 1] }}
-                            transition={{ duration: 1.8, repeat: Infinity }}
-                            className="mx-1.5"
-                        >
-                            <Heart className="text-cyan-400 fill-cyan-400/20" size={13} />
-                        </motion.div>
-                        <span>by</span>
-                        <span className="ml-1.5 text-white font-bold">
+                <div className="border-t border-slate-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center text-slate-500 text-xs font-medium">
+                        <span>Designed & Built with precision by</span>
+                        <span className="ml-1.5 text-slate-900 font-bold">
                             Sayed Shahloob P
                         </span>
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <span className="text-[#94A3B8] text-xs">
+                        <span className="text-slate-500 text-xs">
                             © 2026 All rights reserved.
                         </span>
 
                         <motion.button
                             onClick={scrollToTop}
-                            whileHover={{ y: -3 }}
-                            whileTap={{ scale: 0.9 }}
+                            whileHover={{ y: -2 }}
+                            whileTap={{ scale: 0.95 }}
                             aria-label="Scroll back to top"
-                            className="w-10 h-10 bg-[#172033] border border-[#263449] rounded-xl flex items-center justify-center text-cyan-300 hover:text-white hover:border-blue-400 transition-all min-h-[40px] min-w-[40px]"
+                            className="w-9 h-9 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-700 hover:text-slate-950 hover:border-slate-900 transition-all shadow-2xs"
                         >
-                            <ArrowUp size={16} />
+                            <ArrowUp size={15} />
                         </motion.button>
                     </div>
                 </div>

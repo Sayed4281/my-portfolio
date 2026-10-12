@@ -55,7 +55,7 @@ const CustomCursor = () => {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-7 h-7 rounded-full border border-cyan-400/50 pointer-events-none z-[9999] hidden lg:block"
+        className="fixed top-0 left-0 w-7 h-7 rounded-full border border-slate-900/30 pointer-events-none z-[9999] hidden lg:block"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -63,14 +63,14 @@ const CustomCursor = () => {
           translateY: '-50%',
         }}
         animate={{
-          scale: isHovering ? 2.2 : 1,
-          backgroundColor: isHovering ? 'rgba(6, 182, 212, 0.15)' : 'rgba(59, 130, 246, 0)',
-          borderColor: isHovering ? 'rgba(6, 182, 212, 0.8)' : 'rgba(59, 130, 246, 0.4)',
+          scale: isHovering ? 1.8 : 1,
+          backgroundColor: isHovering ? 'rgba(15, 23, 42, 0.05)' : 'rgba(15, 23, 42, 0)',
+          borderColor: isHovering ? 'rgba(15, 23, 42, 0.6)' : 'rgba(15, 23, 42, 0.25)',
         }}
         transition={{ type: 'spring', damping: 20, stiffness: 250 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-cyan-300 rounded-full pointer-events-none z-[9999] hidden lg:block shadow-[0_0_12px_rgba(6,182,212,0.9)]"
+        className="fixed top-0 left-0 w-2 h-2 bg-slate-900 rounded-full pointer-events-none z-[9999] hidden lg:block"
         style={{
           x: cursorX,
           y: cursorY,

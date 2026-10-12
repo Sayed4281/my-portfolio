@@ -5,48 +5,48 @@ import TiltCard from './TiltCard';
 
 const About = () => {
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-[#0B1220]">
-      {/* Background Decorative Element */}
-      <div className="absolute top-0 right-0 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-blue-600/[0.03] blur-[150px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2" />
+    <section id="about" className="py-16 sm:py-20 md:py-28 relative overflow-hidden bg-white">
+      {/* Background Decorative Mesh */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-100/70 blur-[130px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Side: Image with Stats */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <TiltCard className="relative aspect-[4/5] max-w-[260px] sm:max-w-[340px] md:max-w-[380px] mx-auto group rounded-[2.5rem] overflow-hidden border border-[#263449] p-3 bg-[#172033]">
-              <div className="w-full h-full rounded-[2rem] overflow-hidden relative bg-[#172033]">
+            <TiltCard className="relative aspect-[4/5] max-w-[280px] sm:max-w-[340px] md:max-w-[380px] mx-auto group rounded-[2.5rem] overflow-hidden border border-slate-200 p-3 bg-white shadow-xl">
+              <div className="w-full h-full rounded-[2rem] overflow-hidden relative bg-slate-100">
                 <img 
                   src="/sayed.png" 
                   alt="Sayed Shahloob P" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
 
-              {/* Stats Overlay - Premium Glass */}
+              {/* Stats Overlay - Clean Light Luxury */}
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.7 }}
-                className="absolute bottom-4 right-4 p-4 sm:p-5 backdrop-blur-2xl bg-[#172033]/95 border border-[#263449] rounded-[1.5rem] shadow-2xl z-20"
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="absolute bottom-4 right-4 p-4 sm:p-5 backdrop-blur-xl bg-white/95 border border-slate-200/90 rounded-[1.5rem] shadow-xl z-20"
               >
                 <div className="flex items-center gap-4 sm:gap-6">
                   <div>
-                    <h4 className="text-2xl sm:text-3xl font-black text-white font-display">2+</h4>
-                    <p className="text-[9px] sm:text-[10px] uppercase font-bold text-cyan-300 tracking-[0.15em]">Years Exp.</p>
+                    <h4 className="text-2xl sm:text-3xl font-bold text-slate-950 font-display">8.08</h4>
+                    <p className="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">CGPA · B.Tech</p>
                   </div>
-                  <div className="w-[1px] h-8 bg-[#263449]" />
+                  <div className="w-[1px] h-8 bg-slate-200" />
                   <div>
-                    <h4 className="text-2xl sm:text-3xl font-black text-white font-display">15+</h4>
-                    <p className="text-[9px] sm:text-[10px] uppercase font-bold text-cyan-300 tracking-[0.15em]">Projects</p>
+                    <h4 className="text-2xl sm:text-3xl font-bold text-slate-950 font-display">ERP/HRMS</h4>
+                    <p className="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">Engineering</p>
                   </div>
                 </div>
               </motion.div>
@@ -62,42 +62,45 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                <div className="w-8 sm:w-10 h-[1px] bg-blue-500" />
-                <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.3em] uppercase">Who I Am</span>
+                <div className="w-8 sm:w-10 h-[1.5px] bg-slate-900" />
+                <span className="text-slate-500 text-[11px] sm:text-xs font-mono font-semibold tracking-[0.2em] uppercase">Professional Introduction</span>
               </div>
               
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6 leading-[1.1] tracking-tight font-display uppercase">
-                Software Developer & <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Technical Lead</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-950 mb-4 sm:mb-6 leading-[1.15] tracking-tight font-display">
+                Connecting Business Goals with <br />
+                <span className="text-slate-600 font-medium">Reliable Production Software</span>
               </h2>
               
-              <div className="space-y-3.5 sm:space-y-5 text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed mb-6">
-                <p className="border-l-2 border-blue-500/50 pl-4 italic text-[#F8FAFC]">
-                  "I understand the client's business problem, convert it into a technical solution, coordinate the team, and help deliver the software."
+              <div className="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed mb-6 font-normal">
+                <p className="border-l-2 border-slate-900 pl-4 text-slate-900 font-medium">
+                  Software systems succeed when technical implementation strictly mirrors commercial and operational requirements.
                 </p>
 
-                <p className="pl-4 text-[#94A3B8]">
-                  I am a <span className="text-white font-semibold">Software Developer and Technical Project Lead</span> with hands-on experience across software development, business analysis, ERP/HRMS implementation, client management, and project delivery.
+                <p className="pl-4">
+                  My work spans the entire software delivery spectrum: uncovering root operational bottlenecks, translating client requirements into structured specifications, designing scalable schemas, and writing clean, maintainable code.
                 </p>
 
-                <p className="pl-4 text-[#94A3B8]">
-                  I work across the complete project lifecycle—from understanding client requirements and analyzing business processes to planning solutions, coordinating development, testing, deployment, and ongoing support.
+                <p className="pl-4">
+                  Through sprint planning, automated testing, user acceptance (UAT), and disciplined deployments, I ensure that software transitions smoothly from concept to production with predictable stability.
                 </p>
               </div>
 
-              {/* Core Philosophy Badges */}
-              <div className="flex flex-wrap gap-2 pl-4">
-                {['Business Analysis', 'ERP/HRMS Architecture', 'Team Coordination', 'Agile Delivery'].map((tag, idx) => (
-                  <motion.span 
-                    key={tag}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.1 * idx }}
-                    className="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full text-[10px] sm:text-xs font-bold text-cyan-300 uppercase tracking-wider"
+              {/* Core Delivery Lifecycle Flow */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pl-4 pt-2">
+                {[
+                  '1. Business Analysis', 
+                  '2. Requirements Specs', 
+                  '3. System Architecture', 
+                  '4. Full-Stack Dev', 
+                  '5. Testing & UAT', 
+                  '6. Production Support'
+                ].map((stage, idx) => (
+                  <span 
+                    key={stage}
+                    className="px-3 py-1.5 bg-slate-50 border border-slate-200/80 rounded-lg text-xs font-medium text-slate-700 font-mono"
                   >
-                    {tag}
-                  </motion.span>
+                    {stage}
+                  </span>
                 ))}
               </div>
             </motion.div>

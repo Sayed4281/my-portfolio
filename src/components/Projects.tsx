@@ -1,395 +1,547 @@
 'use client';
 
-import { useState, useRef, forwardRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import TiltCard from './TiltCard';
-
-import { ArrowRight, Github, ExternalLink, Sparkles, Layers, X, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Building2, 
+  Layers, 
+  Terminal, 
+  ShieldCheck, 
+  CheckCircle2, 
+  ArrowUpRight, 
+  Sparkles, 
+  Database, 
+  Cpu, 
+  Users, 
+  Clock, 
+  ExternalLink,
+  ChevronRight,
+  FolderGit2,
+  Code2,
+  Server,
+  Zap,
+  Globe,
+  Activity,
+  FileCode,
+  LayoutGrid
+} from 'lucide-react';
 
 interface Project {
+  id: string;
   title: string;
-  description: string;
-  longDescription?: string;
-  image: string;
-  technologies: string[];
-  modules?: string[];
-  status: string;
-  category: string;
-  link?: string;
-  isFeatured?: boolean;
+  tagline: string;
+  category: 'Enterprise ERP' | 'Web Systems' | 'AI & Research';
+  role: string;
+  period: string;
+  overview: string;
+  architectureDetails: string;
+  highlights: string[];
+  stack: string[];
+  metrics: { label: string; value: string }[];
+  liveUrl?: string;
+  githubUrl?: string;
+  accent: string;
 }
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeTab, setActiveTab] = useState<'All' | 'Enterprise ERP' | 'Web Systems' | 'AI & Research'>('All');
+  const [activeFlagshipModule, setActiveFlagshipModule] = useState(0);
+  const [activeFlagshipView, setActiveFlagshipView] = useState<'modules' | 'architecture' | 'security'>('modules');
 
-  const categories = ['All', 'Enterprise ERP & Systems', 'Web Applications', 'Mobile Apps', 'AI & Research'];
-
-  const projects: Project[] = [
+  const flagshipModules = [
     {
-      title: 'Hirush ERP — Enterprise Resource Planning System',
-      description: 'Comprehensive, modular Enterprise Resource Planning solution engineered for modern business operations. Led and contributed to the planning, development, testing, and implementation of HRMS, CRM, Finance, Payroll, Attendance, Project Management, Reporting, and RBAC security.',
-      longDescription: 'Hirush ERP is an end-to-end multi-tenant platform designed to streamline corporate workflows across organizational hierarchies. Featuring real-time payroll calculation, automated leave accrual, shift scheduling, financial ledger audit trails, project milestone velocity charts, and fine-grained Role-Based Access Control (RBAC).',
-      image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Next.js 15', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Prisma', 'Zustand', 'REST APIs', 'JWT RBAC'],
-      modules: ['HRMS', 'CRM', 'Finance', 'Payroll', 'Attendance', 'Project Management', 'Reporting', 'RBAC Security'],
-      status: 'Core Enterprise Product',
-      category: 'Enterprise ERP & Systems',
-      isFeatured: true
+      id: 'hrms',
+      name: 'HRMS & Shift Automation',
+      tag: 'Workforce Operations',
+      desc: 'Real-time staff time-tracking, multi-shift rostering, overtime tracking, automated leave accrual calculations, and hierarchical manager approval queues.',
+      tech: ['GPS Geofencing', 'Next.js Server Actions', 'PostgreSQL Cron', 'Prisma Schema'],
+      status: 'Implemented & Active',
+      statusBadge: 'Active'
     },
     {
-      title: 'Resort & Hostel Booking Management System',
-      description: 'Comprehensive hospitality management system with real-time room availability calendar, guest information gathering, multi-tier user role permissions, financial ledger tracking, and automated payment gateway processing.',
-      longDescription: 'Engineered to handle high-concurrency booking requests, seasonal pricing adjustments, multi-building room grid mapping, guest ID verification uploads, and automated invoice PDF generation with payment gateway webhooks.',
-      image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Razorpay API'],
-      modules: ['Booking Engine', 'Calendar Availability', 'Guest CRM', 'Financial Ledger', 'User Management', 'Payments'],
-      status: 'Completed',
-      category: 'Enterprise ERP & Systems',
+      id: 'payroll',
+      name: 'Automated Payroll Engine',
+      tag: 'Compensation Logic',
+      desc: 'Configurable compensation formula engine calculating base salary, deductions, allowances, statutory deductions, and generating PDF payslips.',
+      tech: ['Dynamic Calculation Formulas', 'Deterministic Tax Slabs', 'PDF Generation Stream', 'ACID Transactions'],
+      status: 'Development Phase',
+      statusBadge: 'In Development'
     },
     {
-      title: 'Attendance Management System (PWA)',
-      description: 'Dual-module Progressive Web Application with GPS-based geo-fencing check-in, shift management, real-time leave approvals, and automated reporting.',
-      longDescription: 'Offline-first PWA allowing remote and field employees to log attendance via biometric/GPS location validation. Includes geo-fence perimeter radius checking, supervisor push notifications, and exportable monthly payroll logs.',
-      image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React.js', 'Node.js', 'Firebase', 'PWA', 'GPS Geofencing', 'Service Workers'],
-      status: 'Deployed',
-      category: 'Enterprise ERP & Systems',
+      id: 'crm',
+      name: 'CRM & Milestone Pipelines',
+      tag: 'Revenue Cycles',
+      desc: 'Customer onboarding pipeline, deal progression tracking, deliverable milestone signoffs, and automated recurring billing invoices.',
+      tech: ['Kanban State Machine', 'Automated Invoicing', 'Client Milestone Signoff', 'Audit Logs'],
+      status: 'Implemented & Active',
+      statusBadge: 'Active'
     },
     {
-      title: 'Restaurant Order Flow System',
-      description: 'Real-time order management application streamlining kitchen workflows, table management, bill generation, and inventory synchronization.',
-      longDescription: 'Enables waitstaff to place instant POS orders synchronized with Kitchen Display System (KDS) screens. Features table status color maps, split-bill processing, and live stock depletion alerts.',
-      image: 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React.js', 'TypeScript', 'PostgreSQL', 'Redux Toolkit', 'WebSockets'],
-      status: 'Completed',
-      category: 'Enterprise ERP & Systems',
+      id: 'finance',
+      name: 'Finance & Audit Ledgers',
+      tag: 'Accounting & Compliance',
+      desc: 'Double-entry accounting ledgers, income and expense classification, immutable transaction audit trails, and financial reconciliation exports.',
+      tech: ['Double-Entry Accounting', 'Immutable Ledger Schema', 'CSV/Excel Exporters', 'Financial Reconciliation'],
+      status: 'Planned Architecture',
+      statusBadge: 'Planned'
     },
     {
-      title: 'NeuVitX - Health AI System',
-      description: 'Hardware-software AI system presented at ICETI4T 2025 international conference for real-time vitals monitoring and algorithmic diagnostics.',
-      longDescription: 'Published research project integrating wearable biometric sensors with a cross-platform mobile application for real-time pulse, ECG, and oxygen saturation anomaly detection.',
-      image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Flutter', 'IoT Hardware', 'Firebase', 'TensorFlow Lite', 'AI Diagnostics'],
-      status: 'Published Research',
-      category: 'AI & Research',
-    },
-    {
-      title: 'SEO Strategist Digital Portal',
-      description: 'Optimized digital portal built with advanced schema markup, Core Web Vitals optimizations, and automated metadata rendering.',
-      longDescription: 'Custom personal brand portal engineered for high search engine indexability, achieveing 98+ Google Lighthouse performance, accessibility, and SEO audit scores.',
-      image: '/haron.png',
-      technologies: ['React.js', 'Tailwind CSS', 'Technical SEO', 'Vite', 'Schema JSON-LD'],
-      status: 'Completed',
-      category: 'Web Applications',
-      link: 'https://haronsaeed.vercel.app/',
-    },
-    {
-      title: 'Visual Specialist Portfolio',
-      description: 'Immersive portfolio for a multimedia specialist showcasing video and 3D assets with fluid motion graphics and interaction design.',
-      longDescription: 'High-impact multimedia showcase incorporating fluid canvas webGL background shaders, custom video player modal lightbox, and smooth layout transitions.',
-      image: '/dilshad.png',
-      technologies: ['React.js', 'Framer Motion', 'Tailwind CSS', 'GSAP Animation'],
-      status: 'Completed',
-      category: 'Web Applications',
-      link: 'https://muhammed-dilshad-p.vercel.app/',
-    },
-    {
-      title: 'ShopSmart Analytics App',
-      description: 'Mobile expense tracking application with intelligent budget forecasting, categorized spending breakdown, and receipt processing.',
-      longDescription: 'Cross-platform mobile application providing intuitive personal financial analytics, monthly recurring bill reminders, exportable CSV reports, and cloud data synchronization.',
-      image: 'https://images.pexels.com/photos/3584994/pexels-photo-3584994.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Flutter', 'Dart', 'Firebase', 'Machine Learning API'],
-      status: 'Completed',
-      category: 'Mobile Apps',
-    },
-    {
-      title: 'Smart EMI & Financial Calculator',
-      description: 'Responsive financial calculator app featuring dynamic amortization schedules, interactive interest split charts, and PDF summary exports.',
-      longDescription: 'Comprehensive financial planning tool allowing users to calculate loan EMIs, compare tenure interest variations, view interactive breakdown pie charts, and download complete amortization schedules.',
-      image: 'https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Chart.js', 'jsPDF'],
-      status: 'Completed',
-      category: 'Web Applications',
-      link: 'https://smart-emi-calculator-theta.vercel.app/',
+      id: 'rbac',
+      name: 'Multi-Tenant RBAC Governance',
+      tag: 'Security & Access',
+      desc: 'Fine-grained permission matrices controlling view, create, edit, and approval privileges across corporate branches and departments.',
+      tech: ['JWT Claims & Session Guards', 'Row-Level Security (RLS)', 'Branch Scoping', 'Role Permission Matrix'],
+      status: 'Implemented & Active',
+      statusBadge: 'Active'
     }
   ];
 
-  const filteredProjects = activeCategory === 'All'
+  const projects: Project[] = [
+    {
+      id: 'resort-booking',
+      title: 'Hospitality & Dynamic Booking Engine',
+      tagline: 'High-concurrency room inventory, dynamic rate calendar, and automated invoicing.',
+      category: 'Enterprise ERP',
+      role: 'Full-Stack Developer',
+      period: 'Production Delivery',
+      overview: 'Engineered a modern web booking management system for luxury resort properties. Centralized live room availability, automated dynamic seasonal rate shifts, and eliminated manual paper booking registers.',
+      architectureDetails: 'Engineered with optimistic UI locking and ACID transaction boundaries to prevent double-booking across concurrent front-desk and online guest reservations.',
+      highlights: [
+        'Real-time room occupancy calendar with multi-building grid layout',
+        'Seasonal dynamic rate calculation engine with tax rules & discount coupons',
+        'Automated booking confirmation PDF generation & payment webhook integration',
+        'Front-desk check-in/check-out workflow with guest identity verification'
+      ],
+      stack: ['Next.js 14', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Prisma ORM', 'Payment Webhooks', 'Tailwind CSS'],
+      metrics: [
+        { label: 'Concurrency', value: 'Optimistic Locking' },
+        { label: 'Integrity', value: 'ACID Boundary' }
+      ],
+      accent: 'blue'
+    },
+    {
+      id: 'workforce-pwa',
+      title: 'Field Workforce Smart Attendance PWA',
+      tagline: 'Geofenced biometric check-in with offline sync and supervisor notification queues.',
+      category: 'Enterprise ERP',
+      role: 'Frontend & Mobile Engineer',
+      period: 'Production Deployment',
+      overview: 'Offline-first Progressive Web Application designed for distributed on-site field staff. Enforces GPS perimeter boundaries before allowing check-in, syncing automatically once internet connectivity is restored.',
+      architectureDetails: 'Leverages service worker background sync and IndexedDB offline persistence to guarantee attendance integrity even in zero-reception rural field areas.',
+      highlights: [
+        'GPS coordinates geofencing with adjustable meter radius verification',
+        'Offline-first IndexedDB cache syncing with backend upon network detection',
+        'Supervisor alert queue for late check-ins and unscheduled shift overrides'
+      ],
+      stack: ['React.js', 'TypeScript', 'PWA / Service Workers', 'IndexedDB', 'Firebase', 'GPS Geolocation API', 'Tailwind CSS'],
+      metrics: [
+        { label: 'Sync Architecture', value: 'Service Worker / IDB' },
+        { label: 'Verification', value: 'GPS Radius Check' }
+      ],
+      accent: 'emerald'
+    },
+    {
+      id: 'neuvitx-ai',
+      title: 'NeuVitX — AI Health Diagnostics System',
+      tagline: 'Hardware-software neural vitals classifier presented at ICETI4T 2025 conference.',
+      category: 'AI & Research',
+      role: 'Co-Author & Lead Developer',
+      period: 'Published Research',
+      overview: 'Peer-reviewed research presented at the ICETI4T 2025 international conference. Combines non-invasive biometric sensors with an edge machine learning classifier for real-time anomaly detection.',
+      architectureDetails: 'Low-latency edge inference pipeline that parses raw sensor telemetry on microcontrollers and streams classified vital abnormalities via WebSocket companion apps.',
+      highlights: [
+        'Published in peer-reviewed ICETI4T 2025 conference proceedings',
+        'Microcontroller hardware integration streaming live ECG, SpO2, and heart rate',
+        'Cross-platform Flutter companion application for clinical monitoring and alerting'
+      ],
+      stack: ['Flutter', 'Python', 'FastAPI', 'TensorFlow Lite', 'IoT Sensors', 'Firebase Cloud', 'WebSockets'],
+      metrics: [
+        { label: 'Conference', value: 'ICETI4T 2025' },
+        { label: 'Pipeline', value: 'Edge Telemetry' }
+      ],
+      accent: 'purple'
+    },
+    {
+      id: 'haron-seo',
+      title: 'SEO Strategist Digital Architecture Portal',
+      tagline: 'High-performance digital portal with automated JSON-LD schema and semantic structure.',
+      category: 'Web Systems',
+      role: 'Frontend Engineer',
+      period: 'Live Production',
+      overview: 'Custom digital portal engineered for search discoverability, semantic entity markup, and lightweight page delivery across international regions.',
+      architectureDetails: 'Pre-rendered static generation paired with edge caching and zero-layout-shift asset optimization to achieve near-instantaneous global TTFB.',
+      highlights: [
+        'Automated JSON-LD rich snippet schema integration',
+        'Semantic HTML5 hierarchy and strict accessibility standards',
+        'Responsive layout engineered with zero cumulative layout shifts'
+      ],
+      stack: ['React.js', 'TypeScript', 'Tailwind CSS', 'Vite', 'Technical SEO', 'Schema Markup'],
+      liveUrl: 'https://haronsaeed.vercel.app/',
+      metrics: [
+        { label: 'Architecture', value: 'SSG Pre-rendering' },
+        { label: 'Schema', value: 'JSON-LD Structured' }
+      ],
+      accent: 'indigo'
+    },
+    {
+      id: 'dilshad-multimedia',
+      title: 'Multimedia Specialist Web Platform',
+      tagline: 'Showcase featuring custom video streaming modal and hardware-accelerated transitions.',
+      category: 'Web Systems',
+      role: 'Frontend Developer',
+      period: 'Live Production',
+      overview: 'Multimedia showcase incorporating canvas background effects, custom video player modal lightbox, and smooth layout transitions.',
+      architectureDetails: 'Utilizes hardware-accelerated transforms and requestAnimationFrame throttling to ensure smooth transitions during video streaming.',
+      highlights: [
+        'Hardware-accelerated CSS and animation pipeline',
+        'Dynamic video lightbox with lazy video buffering',
+        'Minimalist editorial layout tailored for creative visual presentations'
+      ],
+      stack: ['React.js', 'Framer Motion', 'Tailwind CSS', 'GSAP', 'HTML5 Video'],
+      liveUrl: 'https://muhammed-dilshad-p.vercel.app/',
+      metrics: [
+        { label: 'Display Engine', value: 'Canvas / CSS GPU' },
+        { label: 'Media Strategy', value: 'Buffered Video Stream' }
+      ],
+      accent: 'cyan'
+    }
+  ];
+
+  const filteredProjects = activeTab === 'All'
     ? projects
-    : projects.filter(project => project.category === activeCategory);
+    : projects.filter(p => p.category === activeTab);
 
   return (
-    <section id="projects" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-[#0E1726]">
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
-        
+    <section id="projects" className="py-16 sm:py-20 md:py-28 relative bg-[#FAFAFB]">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+
         {/* Section Header */}
-        <div className="mb-8 sm:mb-12 flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8">
-
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="flex items-center gap-2 text-cyan-400 text-xs font-black tracking-[0.4em] uppercase mb-3 sm:mb-4">
-              <Sparkles size={14} />
-              Featured Deliverables
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-slate-100 border border-slate-200 rounded-full mb-4 shadow-2xs">
+            <Layers size={13} className="text-blue-600" />
+            <span className="text-[11px] font-bold text-slate-800 uppercase tracking-widest font-mono">
+              Engineering Case Studies &amp; Deployments
             </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black font-display text-white tracking-tight uppercase">
-              Project <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Portfolio</span>
-            </h2>
-          </motion.div>
+          </div>
 
-          {/* Categories Pill Bar - Fully responsive wrapping */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex items-center flex-wrap gap-2 max-w-full"
-          >
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`
-                  px-4 py-2 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider transition-all duration-300 border whitespace-nowrap shrink-0 min-h-[38px]
-                  ${activeCategory === category
-                    ? 'text-white bg-gradient-to-r from-blue-600 to-blue-500 border-blue-400 shadow-lg shadow-blue-500/25'
-                    : 'text-[#94A3B8] hover:text-white bg-[#172033] border-[#263449] hover:border-blue-500/40'}
-                `}
-              >
-                {category}
-              </button>
-            ))}
-          </motion.div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-slate-950 tracking-tight mb-4">
+            Architected &amp; Delivered Platforms
+          </h2>
+          <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+            Real-world enterprise systems, modular ERP architectures, and high-efficiency full-stack platforms engineered using cutting-edge technologies.
+          </p>
         </div>
 
+        {/* ========================================================================= */}
+        {/* 1. FLAGSHIP HERO PROJECT: HIRUSH ERP ARCHITECTURE CONSOLE */}
+        {/* ========================================================================= */}
+        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm mb-16 relative overflow-hidden">
+          
+          {/* Top Browser Bar Header */}
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-100">
+            <div className="flex items-center gap-3">
+              {/* Traffic Light Dots */}
+              <div className="flex items-center gap-1.5 mr-2">
+                <span className="w-3 h-3 rounded-full bg-red-400/80" />
+                <span className="w-3 h-3 rounded-full bg-amber-400/80" />
+                <span className="w-3 h-3 rounded-full bg-emerald-400/80" />
+              </div>
 
-        {/* Projects Grid */}
-        <motion.div
-          layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative"
-        >
-          <AnimatePresence mode='popLayout'>
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                layout
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.06 }}
-                onClick={() => setSelectedProject(project)}
-                className={`group relative h-full cursor-pointer ${project.isFeatured ? 'md:col-span-2 lg:col-span-3' : ''}`}
-              >
-                <TiltCard 
-                  className={`relative h-full border rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden transition-all duration-500 flex flex-col ${
-                    project.isFeatured 
-                      ? 'bg-gradient-to-b from-blue-600/20 via-[#172033] to-[#172033] border-blue-500/40 hover:border-blue-400/70 shadow-2xl shadow-blue-500/10' 
-                      : 'bg-[#172033] border-[#263449] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5'
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200/60 font-mono">
+                  Flagship Enterprise Architecture
+                </span>
+                <span className="text-xs text-slate-500 ml-2 font-medium">
+                  Production System (Active)
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-xs font-semibold text-slate-700 font-mono">
+              <span className="text-slate-400">Role:</span>
+              <span className="bg-slate-100 px-2.5 py-1 rounded-md text-slate-900">Full-Stack Developer &amp; Project Lead</span>
+            </div>
+          </div>
+
+          {/* Title & Narrative */}
+          <div className="py-6 space-y-3">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-950 tracking-tight font-display">
+              Hirush ERP — Modular Enterprise Operating System
+            </h3>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-4xl font-normal">
+              Architected to replace fragmented legacy business tools with a unified, high-performance web platform. Spearheaded the full-stack database modeling, automated payroll engines, GPS shift attendance, and multi-tenant RBAC governance.
+            </p>
+          </div>
+
+          {/* Architecture & Engineering Attributes Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 py-4 my-2 border-y border-slate-100">
+            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wide block mb-0.5 font-mono">
+                Architecture Pattern
+              </span>
+              <span className="text-sm sm:text-base font-extrabold text-slate-950">
+                Modular Monolith (Next.js)
+              </span>
+            </div>
+            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wide block mb-0.5 font-mono">
+                Persistence Tier
+              </span>
+              <span className="text-sm sm:text-base font-extrabold text-slate-950">
+                PostgreSQL + Prisma ORM
+              </span>
+            </div>
+            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wide block mb-0.5 font-mono">
+                Security &amp; Auth
+              </span>
+              <span className="text-sm sm:text-base font-extrabold text-slate-950">
+                Multi-Tenant JWT RBAC
+              </span>
+            </div>
+            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/70">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wide block mb-0.5 font-mono">
+                Codebase Integrity
+              </span>
+              <span className="text-sm sm:text-base font-extrabold text-slate-950">
+                Strict TypeScript + Zod
+              </span>
+            </div>
+          </div>
+
+          {/* Interactive Architectural Console (Modules Tabs) */}
+          <div className="pt-6">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5 font-mono">
+                <Terminal size={14} className="text-blue-600" />
+                Integrated Enterprise Modules (Click to Inspect)
+              </span>
+              <span className="text-[11px] text-slate-500 font-medium hidden sm:inline">
+                Active Module: 0{activeFlagshipModule + 1}
+              </span>
+            </div>
+
+            {/* Module Selector Buttons */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-5">
+              {flagshipModules.map((mod, idx) => (
+                <button
+                  key={mod.id}
+                  onClick={() => setActiveFlagshipModule(idx)}
+                  className={`p-3 text-left rounded-xl border transition-all text-xs font-bold ${
+                    activeFlagshipModule === idx
+                      ? 'bg-slate-950 text-white border-slate-950 shadow-sm'
+                      : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
                   }`}
                 >
-                  <div className={`${project.isFeatured ? 'grid lg:grid-cols-12 gap-6 lg:gap-8 items-center p-6 sm:p-8' : 'flex flex-col h-full'}`}>
-                    <div className={`relative overflow-hidden rounded-2xl ${project.isFeatured ? 'lg:col-span-6 h-56 sm:h-72 lg:h-96' : 'h-48 sm:h-60'}`}>
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#172033] via-transparent to-transparent opacity-85" />
-                      <div className="absolute top-4 left-4 sm:top-5 sm:left-5">
-                        <span className={`inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-widest border backdrop-blur-md ${project.isFeatured ? 'bg-blue-500/30 text-cyan-300 border-cyan-400/40 shadow-lg' : 'bg-[#0B1220]/80 text-[#F8FAFC] border-[#263449]'}`}>
-                          {project.status}
-                        </span>
-                      </div>
-                      <div className="absolute top-4 right-4 sm:top-5 sm:right-5">
-                        <span className="px-2.5 sm:px-3 py-1 bg-[#0B1220]/80 backdrop-blur-md border border-[#263449] rounded-full text-[9px] sm:text-[10px] text-[#94A3B8] font-bold uppercase tracking-wider">
-                          {project.category}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className={`${project.isFeatured ? 'lg:col-span-6 flex flex-col justify-between' : 'p-5 sm:p-7 flex flex-col flex-1'}`}>
-                      <div>
-                        {project.isFeatured && (
-                          <div className="flex items-center gap-2 text-[10px] sm:text-xs font-black uppercase tracking-widest text-cyan-400 mb-2 sm:mb-3">
-                            <Layers size={14} className="sm:size-[16px]" />
-                            Flagship Enterprise Platform (#1 Showcase)
-                          </div>
-                        )}
-                        <h3 className={`${project.isFeatured ? 'text-2xl sm:text-3xl lg:text-4xl' : 'text-lg sm:text-2xl'} font-bold text-white mb-2.5 sm:mb-4 group-hover:text-cyan-300 transition-colors font-display line-clamp-2`}>
-                          {project.title}
-                        </h3>
-                        <p className="text-[#94A3B8] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed line-clamp-3">
-                          {project.description}
-                        </p>
-                        {project.modules && project.modules.length > 0 && (
-                          <div className="mb-4 sm:mb-6">
-                            <span className="text-[9px] sm:text-[10px] uppercase font-bold text-[#94A3B8] tracking-widest block mb-2">Integrated Modules:</span>
-                            <div className="flex flex-wrap gap-1.5">
-                              {project.modules.map((mod) => (
-                                <span key={mod} className="px-2 sm:px-2.5 py-0.5 sm:py-1 text-[9px] sm:text-[10px] font-black text-cyan-300 bg-blue-500/10 border border-blue-500/20 rounded-md uppercase tracking-tight">
-                                  {mod}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-5 sm:mb-6">
-                          {project.technologies.slice(0, 5).map((tech: string) => (
-                            <span key={tech} className="px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-bold text-[#94A3B8] bg-[#0B1220]/60 border border-[#263449] rounded-full uppercase tracking-tight">
-                              {tech}
-                            </span>
-                          ))}
-                          {project.technologies.length > 5 && (
-                            <span className="px-2 sm:px-2.5 py-1 text-[9px] font-bold text-cyan-400 bg-blue-500/10 rounded-full">
-                              +{project.technologies.length - 5} more
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                      <div className="mt-auto pt-4 border-t border-[#263449] flex items-center justify-between">
-                        <span className="text-[11px] sm:text-xs font-bold text-cyan-400 group-hover:text-white transition-colors uppercase tracking-wider flex items-center gap-1">
-                          View Project Details
-                        </span>
-                        <div className="p-2 sm:p-2.5 bg-blue-500/10 rounded-full border border-blue-500/20 text-cyan-300 group-hover:text-white group-hover:bg-blue-600 transition-all">
-                          <ArrowRight size={16} className="sm:size-[18px] group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
-                    </div>
+                  <div className="flex items-center justify-between mb-0.5">
+                    <span className="text-[10px] opacity-70 font-mono">0{idx + 1}</span>
+                    <span className={`w-1.5 h-1.5 rounded-full ${
+                      mod.statusBadge === 'Active' ? 'bg-emerald-400' :
+                      mod.statusBadge === 'In Development' ? 'bg-amber-400' : 'bg-slate-400'
+                    }`} />
                   </div>
-                </TiltCard>
-              </motion.div>
-            ))}
-
-          </AnimatePresence>
-        </motion.div>
-
-        {/* View GitHub Link */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-12 sm:mt-16 flex justify-center"
-        >
-          <a
-            href="https://github.com/Sayed4281"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#172033] border border-[#263449] rounded-full text-white text-xs font-black uppercase tracking-widest hover:bg-blue-600 hover:border-blue-400 transition-all duration-300 shadow-lg min-h-[48px]"
-          >
-            <Github size={18} />
-            Explore Repositories on GitHub
-            <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-          </a>
-        </motion.div>
-      </div>
-
-      {/* Interactive Project Detail Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#0B1220]/80 backdrop-blur-xl overflow-y-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ duration: 0.3 }}
-              className="relative w-full max-w-3xl bg-[#172033] border border-[#263449] rounded-[2rem] overflow-hidden shadow-2xl my-8 max-h-[85vh] flex flex-col"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Header Image inside Modal */}
-              <div className="relative h-48 sm:h-64 overflow-hidden shrink-0">
-                <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#172033] via-[#172033]/40 to-transparent" />
-                
-                {/* Close Button */}
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 p-2 bg-[#0B1220]/80 border border-[#263449] text-white hover:text-cyan-300 rounded-full transition-all"
-                >
-                  <X size={20} />
+                  <span className="leading-tight line-clamp-1 block">{mod.name.split(' ')[0]} {mod.name.split(' ')[1] || ''}</span>
                 </button>
+              ))}
+            </div>
 
-                <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-wider">
-                    {selectedProject.status}
-                  </span>
-                  <span className="px-3 py-1 bg-[#0B1220]/90 text-cyan-300 rounded-full text-[10px] font-bold uppercase tracking-wider border border-cyan-500/30">
-                    {selectedProject.category}
+            {/* Active Module Details Card */}
+            <div className="p-6 bg-[#FAFAFB] border border-slate-200 rounded-2xl">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-blue-600 shrink-0" />
+                  <h4 className="text-base font-bold text-slate-950">
+                    {flagshipModules[activeFlagshipModule].name}
+                  </h4>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-mono text-slate-500">{flagshipModules[activeFlagshipModule].tag}</span>
+                  <span className={`px-2.5 py-0.5 text-[11px] font-bold rounded border ${
+                    flagshipModules[activeFlagshipModule].statusBadge === 'Active'
+                      ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                      : flagshipModules[activeFlagshipModule].statusBadge === 'In Development'
+                      ? 'bg-amber-50 text-amber-800 border-amber-200'
+                      : 'bg-slate-100 text-slate-700 border-slate-200'
+                  }`}>
+                    {flagshipModules[activeFlagshipModule].status}
                   </span>
                 </div>
               </div>
 
-              {/* Scrollable Content inside Modal */}
-              <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl mb-4 font-normal">
+                {flagshipModules[activeFlagshipModule].desc}
+              </p>
+
+              {/* Module Tech Sub-Pills */}
+              <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-200/60">
+                <span className="text-[11px] font-mono text-slate-500 uppercase font-semibold">Under the hood:</span>
+                {flagshipModules[activeFlagshipModule].tech.map((t) => (
+                  <span key={t} className="px-2 py-0.5 bg-white border border-slate-200 rounded text-[11px] font-mono text-slate-800">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Full Implementation Tech Stack */}
+          <div className="pt-6 mt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider mr-1 font-mono">
+                Technology Stack:
+              </span>
+              {['Next.js 15 (App Router)', 'React 19', 'TypeScript', 'Node.js', 'PostgreSQL', 'Prisma ORM', 'JWT RBAC', 'Tailwind CSS'].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-800 shadow-2xs"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        {/* ========================================================================= */}
+        {/* 2. CURATED PRODUCTION DEPLOYMENTS (High-Efficiency Latest Tech Grid) */}
+        {/* ========================================================================= */}
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight font-display">
+                Additional Production Deployments
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+                Specialized platforms engineered with modern frameworks, high concurrency, and performance optimization.
+              </p>
+            </div>
+
+            {/* Category Filter Pills */}
+            <div className="flex items-center gap-1.5 p-1 bg-white border border-slate-200 rounded-xl shadow-2xs overflow-x-auto">
+              {(['All', 'Enterprise ERP', 'Web Systems', 'AI & Research'] as const).map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveTab(cat)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
+                    activeTab === cat
+                      ? 'bg-slate-900 text-white shadow-2xs'
+                      : 'text-slate-600 hover:text-slate-950 hover:bg-slate-100'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Grid of Modern Projects */}
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-xs hover:shadow-lg hover:border-slate-300 transition-all flex flex-col justify-between group"
+              >
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-white font-display mb-3">
-                    {selectedProject.title}
-                  </h3>
-                  <p className="text-[#94A3B8] text-sm sm:text-base leading-relaxed">
-                    {selectedProject.longDescription || selectedProject.description}
+                  {/* Card Header with Traffic Light Simulation & Metadata */}
+                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
+                    <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1">
+                        <span className="w-2.5 h-2.5 rounded-full bg-slate-300 group-hover:bg-red-400 transition-colors" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-slate-300 group-hover:bg-amber-400 transition-colors" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-slate-300 group-hover:bg-emerald-400 transition-colors" />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded font-mono ml-1">
+                        {project.category}
+                      </span>
+                    </div>
+
+                    <span className="text-[11px] font-mono text-slate-500">
+                      {project.period}
+                    </span>
+                  </div>
+
+                  {/* Title & Tagline */}
+                  <h4 className="text-lg sm:text-xl font-bold text-slate-950 tracking-tight mb-2 font-display">
+                    {project.title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-normal">
+                    {project.overview}
                   </p>
+
+                  {/* Architecture Efficiency Note */}
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 mb-4 text-xs text-slate-700">
+                    <span className="font-semibold text-slate-900 block mb-0.5">Architecture &amp; Tech:</span>
+                    <span className="text-slate-600">{project.architectureDetails}</span>
+                  </div>
+
+                  {/* Key Highlights */}
+                  <ul className="space-y-1.5 mb-5 text-xs text-slate-600">
+                    {project.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-900 mt-1.5 shrink-0" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* Modules list if present */}
-                {selectedProject.modules && selectedProject.modules.length > 0 && (
-                  <div>
-                    <h4 className="text-xs font-black text-cyan-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-                      <CheckCircle2 size={16} /> Key System Modules
-                    </h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                      {selectedProject.modules.map((mod) => (
-                        <div key={mod} className="p-2.5 bg-[#0B1220] border border-[#263449] rounded-xl text-xs font-bold text-white flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
-                          <span className="truncate">{mod}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Tech Stack */}
+                {/* Bottom: Stack Badges & Live Links */}
                 <div>
-                  <h4 className="text-xs font-black text-[#94A3B8] uppercase tracking-widest mb-3">
-                    Technology Stack
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.technologies.map((tech) => (
-                      <span key={tech} className="px-3 py-1.5 bg-[#0B1220] border border-[#263449] rounded-lg text-xs font-semibold text-cyan-300">
-                        {tech}
-                      </span>
+                  {/* Metrics Badges */}
+                  <div className="grid grid-cols-2 gap-2 mb-4 pt-3 border-t border-slate-100">
+                    {project.metrics.map((m, idx) => (
+                      <div key={idx} className="p-2 rounded-lg bg-slate-50 border border-slate-100">
+                        <span className="text-[10px] text-slate-500 block uppercase font-mono">{m.label}</span>
+                        <span className="text-xs font-bold text-slate-900">{m.value}</span>
+                      </div>
                     ))}
                   </div>
-                </div>
 
-                {/* Footer Link if present */}
-                {selectedProject.link && (
-                  <div className="pt-4 border-t border-[#263449] flex justify-end">
-                    <a
-                      href={selectedProject.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-full text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all"
-                    >
-                      Visit Live Platform <ExternalLink size={14} />
-                    </a>
+                  {/* Tech Stack & Action */}
+                  <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.stack.slice(0, 4).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 bg-slate-50 border border-slate-200/80 rounded text-[11px] font-mono text-slate-700"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.stack.length > 4 && (
+                        <span className="px-1.5 py-0.5 text-[10px] text-slate-500 font-mono">
+                          +{project.stack.length - 4} more
+                        </span>
+                      )}
+                    </div>
+
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 hover:text-blue-600 transition-colors bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg shadow-2xs"
+                      >
+                        <span>Live Site</span>
+                        <ArrowUpRight size={13} />
+                      </a>
+                    )}
                   </div>
-                )}
-              </div>
-            </motion.div>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        )}
-      </AnimatePresence>
+
+        </div>
+
+      </div>
     </section>
   );
 };
 
 export default Projects;
-
