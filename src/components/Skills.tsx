@@ -8,20 +8,18 @@ import {
   Code2, 
   Database, 
   ShieldCheck, 
-  CheckCircle,
-  SearchCheck,
-  Target,
-  Users,
-  MessageSquare,
-  Brain,
-  Zap,
-  Lightbulb,
-  Compass
+  CheckCircle, 
+  SearchCheck, 
+  Target, 
+  Users, 
+  MessageSquare, 
+  Brain, 
+  Zap, 
+  Lightbulb, 
+  Compass 
 } from 'lucide-react';
 
-
 const Skills = () => {
-
   const skillCategories = [
     {
       title: 'Project Management & Business Analysis',
@@ -83,9 +81,9 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-[#0B1220]">
+    <section id="skills" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-slate-50/70 border-b border-slate-200/80">
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-blue-600/[0.03] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-blue-500/[0.04] rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         {/* Section Header */}
@@ -96,11 +94,11 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="mb-8 sm:mb-12 text-center max-w-3xl mx-auto"
         >
-          <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">Competencies</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
-            Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Capabilities</span>
+          <span className="text-blue-700 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">Competencies</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-slate-900 mb-3 sm:mb-4 uppercase tracking-tight">
+            Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600">Capabilities</span>
           </h2>
-          <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
             Structured skills directly matching project management, functional business analysis, full-stack software development, QA, and security.
           </p>
         </motion.div>
@@ -119,20 +117,20 @@ const Skills = () => {
                 transition={{ duration: 0.5, delay: catIndex * 0.08 }}
                 className="h-full flex"
               >
-                <TiltCard className="bg-[#172033] rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 border border-[#263449] hover:border-blue-500/40 transition-all duration-500 group relative overflow-hidden flex flex-col justify-between w-full">
+                <TiltCard className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 border border-slate-200/90 hover:border-blue-400 transition-all duration-500 group relative overflow-hidden flex flex-col justify-between w-full shadow-sm hover:shadow-xl">
                   <div>
                     <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
-                      <div className="w-10 sm:w-12 h-10 sm:h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shrink-0">
+                      <div className="w-10 sm:w-12 h-10 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl sm:rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shrink-0 shadow-sm">
                         <Icon size={20} className="sm:size-[22px]" />
                       </div>
-                      <h3 className="text-sm sm:text-base font-black text-white uppercase tracking-tight">{category.title}</h3>
+                      <h3 className="text-sm sm:text-base font-black text-slate-900 uppercase tracking-tight">{category.title}</h3>
                     </div>
 
                     <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
                       {category.skills.map((skill) => (
                         <span 
                           key={skill}
-                          className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-[#0B1220]/60 border border-[#263449] hover:border-blue-500/40 rounded-lg text-[11px] sm:text-xs font-semibold text-[#94A3B8] hover:text-white transition-colors"
+                          className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-slate-100 border border-slate-200 hover:border-blue-300 hover:bg-blue-50 rounded-lg text-[11px] sm:text-xs font-semibold text-slate-700 hover:text-blue-700 transition-colors"
                         >
                           {skill}
                         </span>
@@ -145,7 +143,6 @@ const Skills = () => {
           })}
         </div>
 
-
         {/* Leadership & Operational Competencies */}
         <div className="max-w-5xl mx-auto">
           <motion.div
@@ -154,8 +151,8 @@ const Skills = () => {
             viewport={{ once: true }}
             className="text-center mb-6 sm:mb-8"
           >
-            <h3 className="text-base sm:text-lg md:text-xl font-black text-white uppercase tracking-[0.15em] mb-2">Management & Leadership Competencies</h3>
-            <p className="text-[#94A3B8] text-xs sm:text-sm">Key soft skills enabling smooth project delivery and cross-team alignment.</p>
+            <h3 className="text-base sm:text-lg md:text-xl font-black text-slate-900 uppercase tracking-[0.15em] mb-2 font-display">Management & Leadership Competencies</h3>
+            <p className="text-slate-600 text-xs sm:text-sm">Key soft skills enabling smooth project delivery and cross-team alignment.</p>
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
@@ -169,10 +166,10 @@ const Skills = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.05 * index }}
                   whileHover={{ y: -3 }}
-                  className="flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-5 py-2.5 sm:py-3 bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-xl sm:rounded-2xl transition-all group"
+                  className="flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-5 py-2.5 sm:py-3 bg-white border border-slate-200/90 hover:border-blue-400 rounded-xl sm:rounded-2xl transition-all group shadow-sm hover:shadow-md"
                 >
-                  <Icon size={16} className="text-cyan-400 group-hover:text-blue-300 transition-colors shrink-0" />
-                  <span className="font-bold text-[10px] sm:text-xs uppercase tracking-wider text-[#F8FAFC] group-hover:text-white transition-colors">
+                  <Icon size={16} className="text-blue-600 group-hover:text-blue-700 transition-colors shrink-0" />
+                  <span className="font-bold text-[10px] sm:text-xs uppercase tracking-wider text-slate-800 group-hover:text-blue-700 transition-colors">
                     {item.name}
                   </span>
                 </motion.div>

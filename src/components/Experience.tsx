@@ -87,9 +87,9 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-12 sm:py-16 md:py-20 relative bg-[#0E1726] overflow-hidden">
+    <section id="experience" className="py-12 sm:py-16 md:py-20 relative bg-white border-b border-slate-200/80 overflow-hidden">
       {/* Ambient background light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         
@@ -101,11 +101,11 @@ const Experience = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-cyan-400 text-xs font-black tracking-[0.4em] sm:tracking-[0.5em] uppercase mb-3 sm:mb-4 block">
+            <span className="text-blue-700 text-xs font-black tracking-[0.4em] sm:tracking-[0.5em] uppercase mb-3 sm:mb-4 block">
               Professional Path
             </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white font-display uppercase tracking-tight">
-              Career <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Journey</span>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900 font-display uppercase tracking-tight">
+              Career <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600">Journey</span>
             </h2>
           </motion.div>
         </div>
@@ -114,12 +114,12 @@ const Experience = () => {
         <div ref={containerRef} className="max-w-5xl mx-auto relative">
           
           {/* Static Background Line Track */}
-          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-[#1E293B] -translate-x-1/2" />
+          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-200 -translate-x-1/2" />
 
           {/* Dynamic Scroll Progress Line Fill */}
           <motion.div
             style={{ scaleY, transformOrigin: 'top' }}
-            className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-500 via-cyan-400 to-blue-600 -translate-x-1/2 shadow-[0_0_15px_rgba(6,182,212,0.9)] z-10"
+            className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-600 via-indigo-500 to-blue-600 -translate-x-1/2 shadow-[0_0_10px_rgba(37,99,235,0.4)] z-10"
           />
 
           <div className="space-y-12 sm:space-y-20">
@@ -134,55 +134,55 @@ const Experience = () => {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: false, amount: 0.8 }}
                     transition={{ duration: 0.4 }}
-                    className="absolute left-4 sm:left-6 md:left-1/2 top-7 sm:top-8 w-5 sm:w-6 h-5 sm:h-6 bg-[#0E1726] rounded-full -translate-x-1/2 z-20 flex items-center justify-center border-2 border-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.9)]"
+                    className="absolute left-4 sm:left-6 md:left-1/2 top-7 sm:top-8 w-5 sm:w-6 h-5 sm:h-6 bg-white rounded-full -translate-x-1/2 z-20 flex items-center justify-center border-2 border-blue-600 shadow-md"
                   >
-                    <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 bg-cyan-300 rounded-full animate-pulse" />
+                    <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 bg-blue-600 rounded-full animate-pulse" />
                   </motion.div>
 
                   {/* Card Content Wrapper */}
                   <div className={`w-full md:w-1/2 pl-10 sm:pl-14 md:pl-0 ${isEven ? 'md:pr-10 lg:pr-12 md:text-right' : 'md:pl-10 lg:pl-12 md:ml-auto'}`}>
                     <motion.div
-                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.1 }}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.1 }}
+                      transition={{ duration: 0.5 }}
                       className="h-full"
                     >
-                      <TiltCard className="bg-[#172033] border border-[#263449] hover:border-blue-500/50 rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 transition-all duration-300 group shadow-xl">
+                      <TiltCard className="bg-white border border-slate-200/90 hover:border-blue-400 rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 transition-all duration-300 group shadow-sm hover:shadow-xl">
                         <div className={`flex flex-wrap items-center gap-2 sm:gap-3 mb-3 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
-                          <span className="px-2.5 sm:px-3 py-1 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest rounded-full shadow-md shadow-blue-500/20">
+                          <span className="px-2.5 sm:px-3 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-widest rounded-full shadow-sm">
                             {exp.period}
                           </span>
-                          <span className="px-2.5 sm:px-3 py-1 bg-blue-500/10 text-cyan-300 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider rounded-full border border-blue-500/20">
+                          <span className="px-2.5 sm:px-3 py-1 bg-blue-50 text-blue-700 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider rounded-full border border-blue-200">
                             {exp.type}
                           </span>
                         </div>
 
-                        <h3 className="text-lg sm:text-2xl font-black text-white uppercase tracking-tight mb-1.5 font-display">
+                        <h3 className="text-lg sm:text-2xl font-black text-slate-900 uppercase tracking-tight mb-1.5 font-display">
                           {exp.title}
                         </h3>
 
-                        <div className={`flex flex-wrap items-center gap-2 text-xs font-bold text-[#94A3B8] mb-3.5 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
+                        <div className={`flex flex-wrap items-center gap-2 text-xs font-bold text-slate-500 mb-3.5 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
                           <span className="inline-flex items-center gap-1">
-                            <Briefcase size={13} className="text-cyan-400 shrink-0" />
+                            <Briefcase size={13} className="text-blue-600 shrink-0" />
                             {exp.company}
                           </span>
                           <span>•</span>
                           <span className="inline-flex items-center gap-1">
-                            <MapPin size={13} className="text-cyan-400 shrink-0" />
+                            <MapPin size={13} className="text-blue-600 shrink-0" />
                             {exp.location}
                           </span>
                         </div>
 
-                        <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
                           {exp.description}
                         </p>
 
                         {/* Bullet Highlights */}
-                        <ul className="space-y-1.5 mb-5 sm:mb-6 text-xs text-[#F8FAFC]">
+                        <ul className="space-y-1.5 mb-5 sm:mb-6 text-xs text-slate-700">
                           {exp.highlights.map((h, i) => (
                             <li key={i} className={`flex items-start gap-2 text-left ${isEven ? 'md:flex-row-reverse md:text-right' : ''}`}>
-                              <span className="text-cyan-400 font-bold shrink-0">•</span>
+                              <span className="text-blue-600 font-bold shrink-0">•</span>
                               <span>{h}</span>
                             </li>
                           ))}
@@ -191,7 +191,7 @@ const Experience = () => {
                         {/* Skill Chips */}
                         <div className={`flex flex-wrap gap-1.5 ${isEven ? 'md:justify-end' : 'justify-start'}`}>
                           {exp.skills.map((skill) => (
-                            <span key={skill} className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[9px] font-bold text-cyan-300 bg-blue-500/10 border border-blue-500/20 rounded-md uppercase tracking-tight">
+                            <span key={skill} className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[9px] font-bold text-slate-700 bg-slate-100 border border-slate-200 rounded-md uppercase tracking-tight">
                               {skill}
                             </span>
                           ))}
@@ -212,5 +212,3 @@ const Experience = () => {
 };
 
 export default Experience;
-
-

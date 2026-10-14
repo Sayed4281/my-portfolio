@@ -1,137 +1,175 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import TiltCard from './TiltCard';
-
 import { 
-  FolderKanban, 
-  LineChart, 
   Boxes, 
-  Compass, 
-  Code2 
+  Code2, 
+  LineChart, 
+  FolderKanban, 
+  CheckCircle2,
+  Layers,
+  ArrowRight
 } from 'lucide-react';
-
+import Link from 'next/link';
 
 const WhatIDo = () => {
   const services = [
     {
-      title: 'Project Management',
-      icon: FolderKanban,
-      badge: 'Agile & Delivery',
-      description: 'End-to-end software project coordination, sprint planning, task assignment, and timely delivery across multi-disciplinary teams.',
-      bullets: ['Sprint & Task Planning', 'Resource & Scope Management', 'Milestone Delivery']
-    },
-    {
-      title: 'Business Analysis',
-      icon: LineChart,
-      badge: 'Strategy & Requirements',
-      description: 'Requirements gathering, business process analysis, workflow definition, and translating stakeholder vision into functional specs.',
-      bullets: ['Workflow Optimization', 'Functional Documentation', 'UAT & Stakeholder Sign-off']
-    },
-    {
-      title: 'ERP & HRMS Systems',
+      id: 'erp-hrms',
+      title: 'Enterprise ERP & HRMS Solutions',
       icon: Boxes,
-      badge: 'Enterprise Solutions',
-      description: 'Planning, development, testing, and implementation of enterprise systems covering HR, CRM, Finance, Payroll, Attendance, and reporting.',
-      bullets: ['HRMS & Attendance Modules', 'Payroll & Accounting Ledgers', 'RBAC & Multi-tenant Security']
+      badge: 'Core Specialization',
+      problem: 'Organizations face fragmented data, manual payroll errors, cumbersome attendance logging, and lack of role-based security across departments.',
+      solution: 'I architect, lead, and develop modular ERP systems that unify human resources, automated payroll computations, CRM pipelines, financial ledgers, and attendance into a single secure platform.',
+      deliverables: [
+        'Modular HRMS with employee records & onboarding',
+        'Automated payroll calculation with deduction rules',
+        'Biometric & GPS geo-fenced attendance tracking',
+        'Multi-tenant Role-Based Access Control (RBAC)',
+        'CRM lead management & pipeline tracking',
+        'Executive financial reporting & audit trails'
+      ],
+      technologies: ['Next.js 15', 'TypeScript', 'Node.js', 'PostgreSQL', 'Prisma', 'JWT RBAC', 'Zustand']
     },
     {
-      title: 'Technical Consulting',
-      icon: Compass,
-      badge: 'Solution Planning & Implementation',
-      description: 'Translating complex business requirements into practical technical solutions, functional workflow planning, and team coordination.',
-      bullets: ['Client Proposals & Quotations', 'Solution Planning & Workflow', 'Bridge Management & Devs']
-    },
-    {
-      title: 'Software Development',
+      id: 'web-engineering',
+      title: 'Full-Stack Web Development',
       icon: Code2,
-      badge: 'Full-Stack Web & Mobile',
-      description: 'Hands-on engineering using Next.js, React, TypeScript, Node.js, Flutter, PostgreSQL, and robust REST APIs.',
-      bullets: ['Scalable Frontend Architecture', 'REST & GraphQL APIs', 'Performance & SEO Optimization']
+      badge: 'Modern Web Engineering',
+      problem: 'Slow, unscalable web apps with poor state management, brittle APIs, and low search engine indexability fail to convert visitors.',
+      solution: 'I engineer fast, responsive, and maintainable web applications using Next.js, React, TypeScript, and relational databases adhering to modern web standards.',
+      deliverables: [
+        'Server-Side Rendered (SSR) & Static Next.js architectures',
+        'Type-safe REST & GraphQL API integrations',
+        'Responsive, accessible, mobile-first design systems',
+        'Secure authentication & session governance',
+        'Core Web Vitals & technical SEO optimization'
+      ],
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'REST APIs']
+    },
+    {
+      id: 'business-analysis',
+      title: 'Business Analysis & Requirements Engineering',
+      icon: LineChart,
+      badge: 'Strategy & Discovery',
+      problem: 'Development projects fail when business goals are vague, requirements are poorly documented, or clients and engineers misunderstand each other.',
+      solution: 'I deconstruct complex business workflows into clear functional specifications, define scope boundaries, author comprehensive proposals, and oversee client UAT.',
+      deliverables: [
+        'Business process mapping & workflow diagrams',
+        'Functional requirements & scope documentation (BRD/SRS)',
+        'Commercial proposals & milestone effort estimates',
+        'User Acceptance Testing (UAT) criteria & sign-off',
+        'Stakeholder feedback reviews & backlog prioritization'
+      ],
+      technologies: ['Workflow Mapping', 'Scope Analysis', 'Technical Proposals', 'UAT Validation', 'BRD/SRS']
+    },
+    {
+      id: 'project-leadership',
+      title: 'Technical Project Leadership & Coordination',
+      icon: FolderKanban,
+      badge: 'Sprint & Team Delivery',
+      problem: 'Engineering teams without technical direction experience scope creep, delayed sprints, uncoordinated tasks, and missed delivery deadlines.',
+      solution: 'I lead cross-functional development cycles, manage Jira backlogs, facilitate daily standups, review code, unblock developers, and guarantee milestone delivery.',
+      deliverables: [
+        'Agile / Scrum sprint planning & backlog grooming',
+        'Developer task allocation & daily blocker resolution',
+        'Code reviews for quality, security, and standards',
+        'Direct stakeholder communication & progress demos',
+        'Post-launch production support & rollout readiness'
+      ],
+      technologies: ['Agile / Scrum', 'Jira / Trello', 'Sprint Backlogs', 'Code Reviews', 'Stakeholder Demos']
     }
   ];
 
   return (
-    <section id="what-i-do" className="py-12 sm:py-16 md:py-20 relative bg-[#0E1726] overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-blue-600/[0.03] rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
+    <section id="services-list" className="py-16 sm:py-24 bg-slate-50/70 border-b border-slate-200/80">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">
-              Core Capabilities
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
-              What I <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Do</span>
-            </h2>
-            <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
-              Bridging business objectives and software execution through structured management, functional analysis, and full-stack engineering.
-            </p>
-          </motion.div>
+        <div className="max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-3">
+            <span>Core Capabilities</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-black font-display text-slate-900 tracking-tight mb-3">
+            What I Deliver to Businesses & Clients
+          </h2>
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
+            From strategic business discovery to technical architecture and production deployment, here are the core services I provide.
+          </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {services.map((item, index) => {
-            const Icon = item.icon;
-            const isFeatured = index === 2; // ERP Card visually highlighted
+        {/* Services Grid */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon;
 
             return (
               <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="h-full flex"
+                className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
               >
-                <TiltCard
-                  className={`group relative rounded-[2rem] p-6 sm:p-8 border transition-all duration-500 flex flex-col justify-between w-full ${
-                    isFeatured 
-                      ? 'bg-gradient-to-b from-blue-600/15 via-[#172033] to-[#172033] border-blue-500/50 shadow-2xl shadow-blue-500/10' 
-                      : 'bg-[#172033] border-[#263449] hover:border-blue-500/40'
-                  }`}
-                >
-                  <div>
-                    {/* Top Bar inside Card */}
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 text-cyan-300">
-                        <Icon size={24} className="transition-transform group-hover:scale-110" />
-                      </div>
-                      <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-[10px] text-cyan-300 font-bold uppercase tracking-wider">
-                        {item.badge}
-                      </span>
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="p-3.5 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 shadow-2xs">
+                      <Icon size={24} />
                     </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 px-3 py-1 rounded-full bg-blue-50 border border-blue-200">
+                      {service.badge}
+                    </span>
+                  </div>
 
-                    <h3 className="text-xl sm:text-2xl font-black text-white mb-3 font-display">
-                      {item.title}
-                    </h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 font-display">
+                    {service.title}
+                  </h3>
 
-                    <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed mb-6">
-                      {item.description}
+                  <div className="space-y-3 mb-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    <p>
+                      <strong className="text-slate-900">The Problem:</strong> {service.problem}
+                    </p>
+                    <p>
+                      <strong className="text-slate-900">My Solution:</strong> {service.solution}
                     </p>
                   </div>
 
-                  {/* Bullet Highlights */}
-                  <div className="pt-5 border-t border-[#263449]">
-                    <ul className="space-y-2">
-                      {item.bullets.map((bullet, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-xs font-semibold text-[#94A3B8]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:bg-blue-400 transition-colors" />
-                          {bullet}
-                        </li>
+                  <div className="mb-6">
+                    <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">
+                      Key Deliverables
+                    </h4>
+                    <div className="space-y-2">
+                      {service.deliverables.map((del, dIdx) => (
+                        <div key={dIdx} className="flex items-start gap-2.5 text-xs text-slate-700">
+                          <CheckCircle2 size={15} className="text-blue-600 shrink-0 mt-0.5" />
+                          <span>{del}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
-                </TiltCard>
+                </div>
+
+                <div>
+                  <div className="pt-4 border-t border-slate-100 mb-4">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-2">Technologies Involved</span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {service.technologies.map((t) => (
+                        <span key={t} className="text-[10px] font-semibold text-slate-700 px-2 py-0.5 rounded bg-slate-100 border border-slate-200">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700"
+                  >
+                    <span>Inquire about this service</span>
+                    <ArrowRight size={14} />
+                  </Link>
+                </div>
               </motion.div>
             );
           })}
@@ -143,4 +181,3 @@ const WhatIDo = () => {
 };
 
 export default WhatIDo;
-

@@ -37,7 +37,7 @@ const Achievements = () => {
   ];
 
   return (
-    <section id="achievements" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-[#0B1220]">
+    <section id="achievements" className="py-12 sm:py-16 md:py-20 relative overflow-hidden bg-slate-50/70 border-b border-slate-200/80">
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         {/* Section Header */}
         <motion.div
@@ -47,12 +47,12 @@ const Achievements = () => {
           transition={{ duration: 0.6 }}
           className="mb-8 sm:mb-12 flex flex-col items-center text-center"
         >
-          <span className="flex items-center gap-2 text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2">
+          <span className="flex items-center gap-2 text-blue-700 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2">
             <Sparkles size={14} />
             Milestones
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white tracking-tight uppercase">
-            Major <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Achievements</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-slate-900 tracking-tight uppercase">
+            Major <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600">Achievements</span>
           </h2>
         </motion.div>
 
@@ -66,23 +66,23 @@ const Achievements = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
               whileHover={{ y: -6 }}
-              className="relative group p-6 sm:p-8 bg-[#172033] rounded-[2rem] border border-[#263449] hover:border-blue-500/40 transition-all duration-500 cursor-default"
+              className="relative group p-6 sm:p-8 bg-white rounded-[2rem] border border-slate-200/90 hover:border-blue-400 transition-all duration-500 cursor-default shadow-sm hover:shadow-xl"
             >
               <div className="relative z-10">
-                <div className="w-14 h-14 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center mb-6 text-cyan-300 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                <div className="w-14 h-14 bg-blue-50 border border-blue-200 rounded-2xl flex items-center justify-center mb-6 text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-sm">
                   <item.icon size={26} />
                 </div>
                 
-                <h3 className="text-lg sm:text-xl font-black text-white mb-2 font-display leading-tight group-hover:text-cyan-300 transition-colors">
+                <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-2 font-display leading-tight group-hover:text-blue-600 transition-colors">
                   {item.title}
                 </h3>
                 
-                <p className="text-[#94A3B8] text-xs mb-5 font-medium leading-relaxed">
+                <p className="text-slate-600 text-xs mb-5 font-medium leading-relaxed">
                   {item.description}
                 </p>
                 
-                <div className="pt-4 border-t border-[#263449]">
-                  <span className="text-cyan-300 text-xs sm:text-sm font-black tracking-widest uppercase">
+                <div className="pt-4 border-t border-slate-100">
+                  <span className="text-blue-700 text-xs sm:text-sm font-black tracking-widest uppercase">
                     {item.detail}
                   </span>
                 </div>

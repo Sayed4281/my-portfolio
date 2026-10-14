@@ -8,9 +8,17 @@ const Preloader = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Respect user's reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setLoading(false);
+      return;
+    }
+
+    // Snappy, non-blocking introductory display
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2200);
+    }, 950);
     return () => clearTimeout(timer);
   }, []);
 
@@ -20,26 +28,27 @@ const Preloader = () => {
     <AnimatePresence>
       {loading && (
         <motion.div
+           initial={{ opacity: 1 }}
            exit={{ 
              opacity: 0,
-             transition: { duration: 0.8 }
+             transition: { duration: 0.35 }
            }}
-           className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0B1220] overflow-hidden"
+           className="fixed inset-0 z-[100] flex items-center justify-center bg-[#F8FAFC] overflow-hidden pointer-events-none"
         >
           {/* Fragmented Ambient Background Grid */}
-          <div className="absolute inset-0 grid grid-cols-5 grid-rows-4 opacity-10">
+          <div className="absolute inset-0 grid grid-cols-5 grid-rows-4 opacity-30">
             {gridItems.map((_, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 0.4, 0] }}
+                animate={{ opacity: [0, 0.6, 0] }}
                 transition={{ 
                   duration: 2, 
                   repeat: Infinity, 
                   delay: Math.random() * 1.5,
                   ease: "easeInOut"
                 }}
-                className="border-[0.5px] border-blue-500/20"
+                className="border-[0.5px] border-slate-200"
               />
             ))}
           </div>
@@ -52,7 +61,7 @@ const Preloader = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="mb-8 relative"
             >
-              <div className="w-24 h-24 sm:w-28 sm:h-28 border-2 border-[#263449] rounded-full p-1.5 bg-[#172033] shadow-2xl shadow-blue-500/20 relative z-10 overflow-hidden">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 border-2 border-slate-200 rounded-full p-1.5 bg-white shadow-2xl shadow-blue-500/15 relative z-10 overflow-hidden">
                 <motion.img 
                   src="/sayed.png"
                   alt="Sayed Shahloob P"
@@ -67,12 +76,12 @@ const Preloader = () => {
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-3 border border-blue-500/30 rounded-full border-t-cyan-400 border-r-transparent"
+                className="absolute -inset-3 border border-blue-500/30 rounded-full border-t-blue-600 border-r-transparent"
               />
               <motion.div 
                 animate={{ rotate: -360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-5 border border-cyan-500/20 rounded-full border-b-blue-400 border-l-transparent"
+                className="absolute -inset-5 border border-indigo-500/20 rounded-full border-b-indigo-600 border-l-transparent"
               />
             </motion.div>
 
@@ -88,7 +97,7 @@ const Preloader = () => {
                     duration: 0.4,
                     ease: "easeOut"
                   }}
-                  className={`text-sm sm:text-base md:text-lg font-black tracking-widest text-white uppercase ${char === " " ? "w-2 sm:w-3" : ""}`}
+                  className={`text-sm sm:text-base md:text-lg font-black tracking-widest text-slate-900 uppercase ${char === " " ? "w-2 sm:w-3" : ""}`}
                 >
                   {char}
                 </motion.span>
@@ -100,7 +109,7 @@ const Preloader = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9 }}
-              className="text-[10px] sm:text-xs font-bold text-cyan-400 tracking-[0.35em] uppercase mb-5"
+              className="text-[10px] sm:text-xs font-bold text-blue-600 tracking-[0.35em] uppercase mb-5"
             >
               Software Developer • Tech Lead • Business Analyst
             </motion.div>
@@ -110,7 +119,7 @@ const Preloader = () => {
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{ duration: 1.2, ease: "easeInOut", delay: 0.5 }}
-              className="h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent w-64 max-w-full"
+              className="h-[2px] bg-gradient-to-r from-transparent via-blue-600 to-transparent w-64 max-w-full"
             />
           </div>
         </motion.div>

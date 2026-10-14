@@ -10,6 +10,25 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/experience',
+        destination: '/about#experience',
+        permanent: true,
+      },
+      {
+        source: '/skills',
+        destination: '/services#technologies',
+        permanent: true,
+      },
+      {
+        source: '/what-i-do',
+        destination: '/services',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

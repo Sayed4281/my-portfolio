@@ -47,7 +47,7 @@ const LeadershipManagement = () => {
   ];
 
   return (
-    <section id="leadership" className="py-12 sm:py-16 md:py-20 relative bg-[#0B1220] overflow-hidden">
+    <section id="leadership" className="py-12 sm:py-16 md:py-20 relative bg-slate-50/70 border-b border-slate-200/80 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
         
         {/* Section Header */}
@@ -58,13 +58,13 @@ const LeadershipManagement = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">
+            <span className="text-blue-700 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">
               Cross-Functional Operations
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
-              Leadership & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Management</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-slate-900 mb-3 sm:mb-4 uppercase tracking-tight">
+              Leadership & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600">Management</span>
             </h2>
-            <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
+            <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
               Combining technical depth with operational management—driving team productivity, client alignment, and project execution.
             </p>
           </motion.div>
@@ -84,17 +84,17 @@ const LeadershipManagement = () => {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="h-full flex"
               >
-                <TiltCard className="bg-[#172033] border border-[#263449] hover:border-blue-500/40 rounded-[2rem] p-6 sm:p-8 transition-all duration-500 group w-full flex flex-col justify-between">
+                <TiltCard className="bg-white border border-slate-200/90 hover:border-blue-400 rounded-[2rem] p-6 sm:p-8 transition-all duration-500 group w-full flex flex-col justify-between shadow-sm hover:shadow-xl">
                   <div>
-                    <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-5 text-cyan-300 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center mb-5 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
                       <Icon size={22} className="sm:size-[24px]" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-2.5 font-display">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2.5 font-display">
                       {item.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -110,5 +110,3 @@ const LeadershipManagement = () => {
 };
 
 export default LeadershipManagement;
-
-
