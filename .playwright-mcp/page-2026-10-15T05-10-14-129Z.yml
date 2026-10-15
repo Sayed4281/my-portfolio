@@ -1,0 +1,95 @@
+- generic [active] [ref=f5e1]:
+  - generic [ref=f5e2]:
+    - complementary [ref=f5e3]:
+      - generic [ref=f5e9]:
+        - heading "Apex Motor" [level=1] [ref=f5e10]
+        - paragraph [ref=f5e11]: Renewal Management
+      - navigation [ref=f5e12]:
+        - link "Dashboard" [ref=f5e13] [cursor=pointer]:
+          - /url: /dashboard
+        - link "Clients" [ref=f5e21] [cursor=pointer]:
+          - /url: /clients
+        - link "Vehicles" [ref=f5e29] [cursor=pointer]:
+          - /url: /vehicles
+        - link "Tasks 1" [ref=f5e36] [cursor=pointer]:
+          - /url: /tasks
+          - generic [ref=f5e37]: Tasks
+          - generic [ref=f5e42]: "1"
+        - link "Agents" [ref=f5e43] [cursor=pointer]:
+          - /url: /agents
+        - link "Settings" [ref=f5e49] [cursor=pointer]:
+          - /url: /settings
+      - generic [ref=f5e55]:
+        - generic [ref=f5e56]:
+          - generic [ref=f5e57]:
+            - generic [ref=f5e58]: AN
+            - generic [ref=f5e59]:
+              - generic [ref=f5e60]: Anas (Admin)
+              - generic [ref=f5e61]: ADMIN
+          - button "Sign out of your session" [ref=f5e64] [cursor=pointer]
+        - button "Sign Out" [ref=f5e68] [cursor=pointer]
+    - generic [ref=f5e73]:
+      - banner [ref=f5e74]:
+        - button "Search vehicle (KL-10...), client... Ctrl+K" [ref=f5e76] [cursor=pointer]:
+          - generic [ref=f5e80]: Search vehicle (KL-10...), client...
+          - generic [ref=f5e81]: Ctrl+K
+        - generic [ref=f5e82]:
+          - button "Add Vehicle" [ref=f5e83] [cursor=pointer]
+          - button "Notifications" [ref=f5e90] [cursor=pointer]
+          - button "A Anas (Admin)" [ref=f5e95] [cursor=pointer]:
+            - generic [ref=f5e96]: A
+            - generic [ref=f5e97]: Anas (Admin)
+      - main [ref=f5e100]:
+        - generic [ref=f5e101]:
+          - generic [ref=f5e102]:
+            - generic [ref=f5e103]:
+              - heading "Operations & Renewal Tasks" [level=1] [ref=f5e104]
+              - paragraph [ref=f5e108]: Unified Kanban hub for all vehicle renewals, inspections, and client follow-ups.
+            - generic [ref=f5e109]:
+              - button "Add Task" [ref=f5e110] [cursor=pointer]
+              - generic [ref=f5e112]:
+                - button "Kanban Board" [ref=f5e113] [cursor=pointer]
+                - button "Table List" [ref=f5e120] [cursor=pointer]
+          - generic [ref=f5e123]:
+            - textbox "Search vehicle reg, client name, phone..." [ref=f5e128]
+            - generic [ref=f5e129]:
+              - combobox [ref=f5e130] [cursor=pointer]:
+                - option "All Compliance Types" [selected]
+                - option "Insurance Policies"
+                - option "Fitness Certificates"
+                - option "Pollution (PUCC)"
+                - option "Road Tax"
+                - option "Permit"
+              - combobox [ref=f5e131] [cursor=pointer]:
+                - option "All Priorities" [selected]
+                - option "High Priority"
+                - option "Normal Priority"
+                - option "Low Priority"
+              - combobox [ref=f5e132] [cursor=pointer]:
+                - option "All Staff Agents" [selected]
+                - option "Anas"
+                - option "Rahman"
+                - option "Suresh Kumar"
+          - generic [ref=f5e134]:
+            - generic [ref=f5e135]:
+              - generic [ref=f5e136]:
+                - heading "Pending / To-Do" [level=3] [ref=f5e139]
+                - generic [ref=f5e140]: "0"
+              - generic [ref=f5e142]:
+                - paragraph [ref=f5e146]: No pending tasks
+                - paragraph [ref=f5e147]: All renewals are up-to-date
+            - generic [ref=f5e148]:
+              - generic [ref=f5e149]:
+                - heading "In Progress / Processing" [level=3] [ref=f5e152]
+                - generic [ref=f5e153]: "0"
+              - generic [ref=f5e155]:
+                - paragraph [ref=f5e158]: No tasks currently in progress
+                - paragraph [ref=f5e159]: Click “Start” on any pending task to begin
+            - generic [ref=f5e160]:
+              - generic [ref=f5e161]:
+                - heading "Completed / Renewed" [level=3] [ref=f5e164]
+                - generic [ref=f5e165]: "0"
+              - generic [ref=f5e167]:
+                - paragraph [ref=f5e171]: No completed tasks yet
+                - paragraph [ref=f5e172]: Completed renewal tasks will appear here
+  - alert [ref=f5e173]

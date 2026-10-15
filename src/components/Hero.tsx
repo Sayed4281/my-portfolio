@@ -65,7 +65,7 @@ const Hero = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
               </span>
               <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-blue-700 truncate">
-                Tech Lead • Business Analyst • Dev
+                Tech Lead • Software Developer • SEO Analyst
               </span>
             </motion.div>
 

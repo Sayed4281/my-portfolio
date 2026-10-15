@@ -15,10 +15,10 @@ const Preloader = () => {
       return;
     }
 
-    // Snappy, non-blocking introductory display
+    // Allow complete elegant animation of avatar, name, subtitle, and progress bar
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 950);
+    }, 2400);
     return () => clearTimeout(timer);
   }, []);
 
@@ -31,7 +31,8 @@ const Preloader = () => {
            initial={{ opacity: 1 }}
            exit={{ 
              opacity: 0,
-             transition: { duration: 0.35 }
+             scale: 1.02,
+             transition: { duration: 0.5, ease: "easeInOut" }
            }}
            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#F8FAFC] overflow-hidden pointer-events-none"
         >
@@ -58,8 +59,8 @@ const Preloader = () => {
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="mb-8 relative"
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="mb-7 relative"
             >
               <div className="w-24 h-24 sm:w-28 sm:h-28 border-2 border-slate-200 rounded-full p-1.5 bg-white shadow-2xl shadow-blue-500/15 relative z-10 overflow-hidden">
                 <motion.img 
@@ -67,7 +68,7 @@ const Preloader = () => {
                   alt="Sayed Shahloob P"
                   initial={{ scale: 1.1, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
+                  transition={{ delay: 0.15, duration: 0.5 }}
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
@@ -86,15 +87,15 @@ const Preloader = () => {
             </motion.div>
 
             {/* Name Typography Animation */}
-            <div className="flex gap-[0.15em] sm:gap-[0.2em] mb-3 flex-wrap justify-center">
+            <div className="flex gap-[0.15em] sm:gap-[0.2em] mb-2.5 flex-wrap justify-center">
               {"SAYED SHAHLOOB P".split("").map((char, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ 
-                    delay: 0.3 + (i * 0.04),
-                    duration: 0.4,
+                    delay: 0.25 + (i * 0.035),
+                    duration: 0.35,
                     ease: "easeOut"
                   }}
                   className={`text-sm sm:text-base md:text-lg font-black tracking-widest text-slate-900 uppercase ${char === " " ? "w-2 sm:w-3" : ""}`}
@@ -104,21 +105,21 @@ const Preloader = () => {
               ))}
             </div>
 
-            {/* Subtitle */}
+            {/* Subtitle (Software Developer • Technical Lead • SEO Analyst) */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9 }}
-              className="text-[10px] sm:text-xs font-bold text-blue-600 tracking-[0.35em] uppercase mb-5"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.85, duration: 0.4 }}
+              className="text-[10px] sm:text-xs font-bold text-blue-600 tracking-[0.3em] uppercase mb-5"
             >
-              Software Developer • Tech Lead • Business Analyst
+              Software Developer • Technical Lead • SEO Analyst
             </motion.div>
 
             {/* Tactical Gradient Progress Line */}
             <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 1.2, ease: "easeInOut", delay: 0.5 }}
+              initial={{ width: 0, opacity: 0.4 }}
+              animate={{ width: "100%", opacity: 1 }}
+              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.3 }}
               className="h-[2px] bg-gradient-to-r from-transparent via-blue-600 to-transparent w-64 max-w-full"
             />
           </div>

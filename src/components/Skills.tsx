@@ -22,11 +22,11 @@ import {
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Project Management & Business Analysis',
+      title: 'Project Leadership & Technical SEO',
       icon: FolderKanban,
       skills: [
-        'Jira', 'Trello', 'Agile/Scrum', 'Requirements Analysis', 
-        'Business Process Analysis', 'Sprint Planning', 'UAT', 'Documentation', 'Client Coordination'
+        'Jira', 'Trello', 'Agile/Scrum', 'Technical SEO', 
+        'Schema JSON-LD', 'Sprint Planning', 'UAT Sign-off', 'Core Web Vitals', 'Client Coordination'
       ]
     },
     {
@@ -99,7 +99,7 @@ const Skills = () => {
             Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600">Capabilities</span>
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
-            Structured skills directly matching project management, functional business analysis, full-stack software development, QA, and security.
+            Structured skills directly matching technical project management, SEO analysis, full-stack software development, QA, and security.
           </p>
         </motion.div>
 

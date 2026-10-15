@@ -27,7 +27,7 @@ const AIChatBot = () => {
     }, [messages, isOpen]);
 
     const quickResponses: Record<string, string> = {
-        skills: "Sayed is proficient in Enterprise ERP architecture, Project Management (Agile, Jira, Scope), Business Analysis, React.js, Next.js 15, TypeScript, Flutter, Node.js, and PostgreSQL. See his tech stack overview on the Services page (/services#technologies).",
+        skills: "Sayed is proficient in Enterprise ERP architecture, Project Management (Agile, Jira, Scope), Technical SEO, React.js, Next.js 15, TypeScript, Flutter, Node.js, and PostgreSQL. See his tech stack overview on the Services page (/services#technologies).",
         experience: "Sayed is Software Developer & Technical Lead at Hirush Global LLP, Frontend Engineer at Pro26 LLP, and previously Application Manager at Eduthalim International. View his full career timeline on the About page (/about#experience).",
         projects: "Sayed's flagship system is Hirush ERP (HRMS, CRM, Finance, Payroll, Attendance, RBAC) and NeuVitX AI (ICETI4T 2025 research publication). View full case studies on the Projects page (/projects).",
         contact: "You can reach Sayed via email (sayedshahloobpofficial@gmail.com), phone/WhatsApp (+91 9567220971), or the Contact page (/contact).",

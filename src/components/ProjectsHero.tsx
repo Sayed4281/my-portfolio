@@ -8,8 +8,8 @@ import { Layers, ArrowDown, ArrowRight, CheckCircle2, Sparkles, Database, Shield
 export default function ProjectsHero() {
   const highlights = [
     'Hirush ERP & HRMS Suite',
-    'NeuVitX AI Health Platform (ICETI4T)',
-    'React Native & Flutter Mobile Apps',
+    'HMS Hotel & Resort Management',
+    'POS & Order Flow Architecture',
     '15+ Production-Proven Solutions',
   ];
 

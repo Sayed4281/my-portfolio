@@ -8,7 +8,7 @@ import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
   title: 'Services & Engineering Capabilities — Sayed Shahloob P',
-  description: 'Enterprise ERP/HRMS solutions, full-stack web development, business analysis, technical project leadership, and delivery lifecycle by Sayed Shahloob P.',
+  description: 'Enterprise ERP/HRMS solutions, full-stack web development, technical SEO, technical project leadership, and delivery lifecycle by Sayed Shahloob P.',
 };
 
 export default function ServicesPage() {

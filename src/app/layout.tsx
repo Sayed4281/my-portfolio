@@ -8,9 +8,9 @@ import CustomCursor from '@/components/CustomCursor';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sayedshahloob.me'),
-  title: 'Sayed Shahloob P — Software Developer | Technical Lead | Business Analyst',
-  description: 'Enterprise ERP, HRMS, Business Analysis, Technical Lead, and Full-Stack Software Engineering Portfolio of Sayed Shahloob P.',
-  keywords: ['Sayed Shahloob P', 'Software Developer', 'Technical Lead', 'Business Analyst', 'Next.js', 'React', 'Hirush ERP'],
+  title: 'Sayed Shahloob P — Software Developer | Technical Lead | SEO Analyst',
+  description: 'Enterprise ERP, HRMS, Technical SEO, Technical Lead, and Full-Stack Software Engineering Portfolio of Sayed Shahloob P.',
+  keywords: ['Sayed Shahloob P', 'Software Developer', 'Technical Lead', 'SEO Analyst', 'Next.js', 'React', 'Hirush ERP'],
   authors: [{ name: 'Sayed Shahloob P' }],
   icons: {
     icon: '/sayed.png',
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     apple: '/sayed.png',
   },
   openGraph: {
-    title: 'Sayed Shahloob P — Software Developer | Technical Lead | Business Analyst',
-    description: 'Enterprise ERP, HRMS, Business Analysis, Technical Lead, and Full-Stack Software Engineering Portfolio.',
+    title: 'Sayed Shahloob P — Software Developer | Technical Lead | SEO Analyst',
+    description: 'Enterprise ERP, HRMS, Technical SEO, Technical Lead, and Full-Stack Software Engineering Portfolio.',
     type: 'website',
     images: [{ url: '/sayed.png' }],
   },

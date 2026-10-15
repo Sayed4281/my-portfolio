@@ -77,17 +77,17 @@ const About = () => {
                 </p>
 
                 <p className="pl-4 text-slate-600">
-                  I am a <span className="text-slate-900 font-bold">Software Developer and Technical Project Lead</span> with hands-on experience across software development, business analysis, ERP/HRMS implementation, client management, and project delivery.
+                  I am a <span className="text-slate-900 font-bold">Software Developer, Technical Project Lead, and SEO Analyst</span> with hands-on experience across software development, technical SEO, ERP/HRMS implementation, client management, and project delivery.
                 </p>
 
                 <p className="pl-4 text-slate-600">
-                  I work across the complete project lifecycle—from understanding client requirements and analyzing business processes to planning solutions, coordinating development, testing, deployment, and ongoing support.
+                  I work across the complete project lifecycle—from understanding technical requirements and optimizing web performance to planning solutions, coordinating development, testing, and deployment.
                 </p>
               </div>
 
               {/* Core Philosophy Badges */}
               <div className="flex flex-wrap gap-2 pl-4">
-                {['Business Analysis', 'ERP/HRMS Architecture', 'Team Coordination', 'Agile Delivery'].map((tag, idx) => (
+                {['Technical SEO', 'ERP/HRMS Architecture', 'Team Coordination', 'Agile Delivery'].map((tag, idx) => (
                   <motion.span 
                     key={tag}
                     initial={{ opacity: 0, y: 15 }}

@@ -40,7 +40,7 @@ const Footer = () => {
                             SAYED SHAHLOOB P<span className="text-blue-600">.</span>
                         </h3>
                         <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 max-w-md">
-                            Software Developer, Technical Project Lead, and Business Analyst bridging client requirements with scalable enterprise software delivery.
+                            Software Developer, Technical Project Lead, and SEO Analyst bridging engineering excellence with scalable software delivery.
                         </p>
 
                         {/* Social Links Row */}

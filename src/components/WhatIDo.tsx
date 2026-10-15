@@ -48,20 +48,20 @@ const WhatIDo = () => {
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'REST APIs']
     },
     {
-      id: 'business-analysis',
-      title: 'Business Analysis & Requirements Engineering',
+      id: 'technical-seo',
+      title: 'Technical SEO & Performance Engineering',
       icon: LineChart,
-      badge: 'Strategy & Discovery',
-      problem: 'Development projects fail when business goals are vague, requirements are poorly documented, or clients and engineers misunderstand each other.',
-      solution: 'I deconstruct complex business workflows into clear functional specifications, define scope boundaries, author comprehensive proposals, and oversee client UAT.',
+      badge: 'Search & Performance',
+      problem: 'Web platforms fail to achieve organic traction when site architecture has crawl errors, slow Core Web Vitals, or missing schema taxonomy.',
+      solution: 'I conduct in-depth technical audits, implement JSON-LD microdata, optimize Largest Contentful Paint (LCP) and CLS, and analyze Search Console indexing.',
       deliverables: [
-        'Business process mapping & workflow diagrams',
-        'Functional requirements & scope documentation (BRD/SRS)',
-        'Commercial proposals & milestone effort estimates',
-        'User Acceptance Testing (UAT) criteria & sign-off',
-        'Stakeholder feedback reviews & backlog prioritization'
+        'Technical SEO audits & crawl budget optimization',
+        'JSON-LD structured schema markup implementation',
+        'Core Web Vitals & Google PageSpeed enhancement',
+        'Search Console indexing & sitemap governance',
+        'Keyword performance & organic visibility analysis'
       ],
-      technologies: ['Workflow Mapping', 'Scope Analysis', 'Technical Proposals', 'UAT Validation', 'BRD/SRS']
+      technologies: ['Technical SEO', 'Schema JSON-LD', 'Core Web Vitals', 'Google Search Console', 'Lighthouse 98+']
     },
     {
       id: 'project-leadership',

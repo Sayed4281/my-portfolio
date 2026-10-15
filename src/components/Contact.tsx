@@ -248,7 +248,7 @@ const Contact = () => {
                       <option value="Technical Project Lead Role">Technical Project Lead Role</option>
                       <option value="Software Developer / Full-Stack Position">Software Developer / Full-Stack Position</option>
                       <option value="Custom Web Application Development">Custom Web Application Development</option>
-                      <option value="Business Analysis & Architecture Consultation">Business Analysis & Architecture Consultation</option>
+                      <option value="Technical SEO & Architecture Consultation">Technical SEO & Architecture Consultation</option>
                       <option value="General Collaboration / Other">General Collaboration / Other</option>
                     </select>
                   </div>

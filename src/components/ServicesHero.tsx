@@ -9,7 +9,7 @@ export default function ServicesHero() {
   const highlights = [
     'Modular ERP & HRMS Systems',
     'Full-Stack Next.js & React Engineering',
-    'Business Analysis & Workflow Mapping',
+    'Technical SEO & Performance Audits',
     'Agile Sprint & Team Leadership',
   ];
 
