@@ -233,7 +233,7 @@ export default function HomeHeroClient({ personal }: HomeHeroClientProps) {
                     <FolderGit2 size={14} />
                   </div>
                   <div>
-                    <div className="font-heading font-extrabold text-sm text-[#101B3C] leading-none">5+</div>
+                    <div className="font-heading font-extrabold text-sm text-[#101B3C] leading-none">7+</div>
                     <div className="text-[10px] text-[#64748B] font-medium">Projects Completed</div>
                   </div>
                 </div>

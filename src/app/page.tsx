@@ -7,9 +7,6 @@ import {
   Lightbulb, 
   Users, 
   Github, 
-  FolderGit2,
-  Clock,
-  ShieldCheck,
   Palette,
   TrendingUp,
   Cpu,
@@ -27,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const { personal, credibilityStats, strengths, services, projects } = PORTFOLIO_DATA;
+  const { personal, strengths, services, projects } = PORTFOLIO_DATA;
   const featuredProjects = projects.slice(0, 3);
 
   return (
@@ -272,38 +269,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============================================================== */}
-      {/* 5. CREDIBILITY METRICS BAR                                     */}
-      {/* ============================================================== */}
-      <section className="py-10 bg-[#F7FAFF] border-y border-[#E4ECF7]">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
-          <ScrollReveal animation="fade-up">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {credibilityStats.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-white border border-[#E4ECF7]/80 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all duration-200"
-                >
-                  <div className="w-11 h-11 rounded-xl bg-[#EFF6FF] border border-blue-200/60 flex items-center justify-center text-[#1677FF] shrink-0">
-                    {i === 0 && <FolderGit2 size={20} />}
-                    {i === 1 && <Clock size={20} />}
-                    {i === 2 && <ShieldCheck size={20} />}
-                    {i === 3 && <Headphones size={20} />}
-                  </div>
-                  <div>
-                    <div className="font-heading font-extrabold text-2xl text-[#101B3C] leading-none mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-[#64748B] font-medium">
-                      {stat.label}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
 
       {/* ============================================================== */}
       {/* 6. COLLABORATION CTA                                           */}

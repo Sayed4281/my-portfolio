@@ -50,14 +50,14 @@ export interface EducationItem {
 export const PORTFOLIO_DATA = {
   personal: {
     name: 'Sayed Shahloob P',
-    brandName: 'Sayed',
+    brandName: 'Sayed Shahloob P',
     displayName: 'Sayed Shahloob P',
     title: 'Full Stack Developer & Problem Solver',
     roleTag: 'Software Developer, Technical Project Lead & SEO Analyst',
     email: 'sayedshahloobpofficial@gmail.com',
     secondaryEmail: 'sayed3309@gmail.com',
     phone: '+91 9567220971',
-    displayPhone: '+91 8309 123 456',
+    displayPhone: '+91 9567220971',
     location: 'Perinthalmanna, Malappuram District, Kerala, India',
     availability: 'Available for opportunities',
     resumeUrl: '/sayed_shahloob_p_resume.pdf',
@@ -75,7 +75,7 @@ export const PORTFOLIO_DATA = {
   },
 
   credibilityStats: [
-    { value: '5+', label: 'Projects Completed' },
+    { value: '7+', label: 'Projects Completed' },
     { value: '2+', label: 'Years Experience' },
     { value: '100%', label: 'Client Satisfaction' },
     { value: '24/7', label: 'Support & Communication' }

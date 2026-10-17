@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { 
   ArrowRight, 
   Download, 
-  Mail, 
-  MapPin, 
   Code, 
   Rocket, 
   Users, 
@@ -30,11 +28,11 @@ export default function AboutPage() {
       {/* ============================================================== */}
       {/* 1. ABOUT HERO SECTION                                          */}
       {/* ============================================================== */}
-      <section className="relative pt-8 sm:pt-14 pb-16 sm:pb-24 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <section className="relative pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-14 lg:pb-16 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white flex items-center min-h-[calc(100vh-4.5rem)]">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 relative z-10 py-2 sm:py-3">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-left">
               <ScrollReveal animation="fade-down" delay={0.05}>
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFF6FF] border border-blue-200/70 text-[#1677FF] text-xs font-bold tracking-wide shadow-2xs">
                   <span className="text-[10px]">◆</span>
@@ -43,7 +41,7 @@ export default function AboutPage() {
               </ScrollReveal>
 
               <ScrollReveal animation="fade-up" delay={0.15}>
-                <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-heading font-black text-[#101B3C] tracking-tight leading-[1.1]">
+                <h1 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[52px] font-heading font-black text-[#101B3C] tracking-tight leading-[1.12]">
                   Hi, I&apos;m <br />
                   <span className="text-[#101B3C]">Sayed</span>{' '}
                   <span className="text-brand-gradient">Shahloob P</span>
@@ -51,58 +49,36 @@ export default function AboutPage() {
               </ScrollReveal>
 
               <ScrollReveal animation="fade-up" delay={0.22}>
-                <h2 className="text-xl sm:text-2xl font-heading font-bold text-[#101B3C] tracking-tight">
+                <h2 className="text-lg sm:text-xl font-heading font-bold text-[#101B3C] tracking-tight">
                   Full Stack Developer &amp; Problem Solver
                 </h2>
               </ScrollReveal>
 
               <ScrollReveal animation="fade-up" delay={0.3}>
-                <p className="text-[#64748B] text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+                <p className="text-[#64748B] text-sm sm:text-base leading-relaxed max-w-xl font-normal">
                   {personal.bio}
                 </p>
               </ScrollReveal>
 
-              {/* Quick Contact Info Pills */}
-              <ScrollReveal animation="fade-up" delay={0.36}>
-                <div className="flex flex-wrap items-center gap-2.5 pt-1">
-                  <a
-                    href={`mailto:${personal.email}`}
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E4ECF7] text-xs font-semibold text-[#101B3C] hover:border-blue-400 hover:text-[#1677FF] hover:-translate-y-0.5 transition-all shadow-2xs"
-                  >
-                    <Mail size={13} className="text-[#1677FF]" />
-                    <span>{personal.secondaryEmail}</span>
-                  </a>
-
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E4ECF7] text-xs font-semibold text-[#101B3C] shadow-2xs">
-                    <MapPin size={13} className="text-[#1677FF]" />
-                    <span>{personal.location}</span>
-                  </div>
-
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-emerald-200 text-xs font-semibold text-emerald-700 shadow-2xs">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span>{personal.availability}</span>
-                  </div>
-                </div>
-              </ScrollReveal>
 
               {/* CTA Buttons */}
               <ScrollReveal animation="fade-up" delay={0.42}>
-                <div className="flex flex-wrap items-center gap-4 pt-2">
+                <div className="flex flex-wrap items-center gap-3.5 pt-1">
                   <a
                     href={personal.resumeUrl}
                     download
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold text-sm sm:text-base btn-gradient shadow-md shadow-blue-500/20 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold text-sm sm:text-base btn-gradient shadow-md shadow-blue-500/20 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                   >
                     <span>Download CV</span>
-                    <Download size={18} />
+                    <Download size={17} />
                   </a>
 
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white border border-[#E4ECF7] hover:border-blue-400 text-[#101B3C] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all group"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-[#E4ECF7] hover:border-blue-400 text-[#101B3C] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all group"
                   >
                     <span>Let&apos;s Work Together</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1.5 transition-transform text-[#1677FF] duration-200" />
+                    <ArrowRight size={17} className="group-hover:translate-x-1.5 transition-transform text-[#1677FF] duration-200" />
                   </Link>
                 </div>
               </ScrollReveal>
@@ -110,14 +86,14 @@ export default function AboutPage() {
 
             {/* Right: Profile Photo with Scale Reveal and Soft Shadow */}
             <div className="lg:col-span-5 relative flex items-center justify-center">
-              <ScrollReveal animation="scale-in" delay={0.25} className="w-full max-w-[360px] sm:max-w-[400px]">
+              <ScrollReveal animation="scale-in" delay={0.25} className="relative w-full max-w-[310px] sm:max-w-[340px] lg:max-w-[365px]">
                 <div className="relative w-full">
                   {/* Decorative Organic Backdrop */}
                   <div className="absolute -inset-4 bg-gradient-to-tr from-blue-400/20 via-indigo-300/15 to-purple-400/20 rounded-[2.5rem] blur-xl transform rotate-2" />
 
                   {/* Photo Frame */}
-                  <div className="relative rounded-[2.25rem] overflow-hidden border-2 border-white shadow-2xl bg-white">
-                    <div className="aspect-[4/5] w-full overflow-hidden relative">
+                  <div className="relative rounded-[2rem] overflow-hidden border-2 border-white shadow-xl bg-white">
+                    <div className="aspect-[4/4.6] sm:aspect-[4/4.3] w-full overflow-hidden relative">
                       <img
                         src={personal.photoUrl}
                         alt={personal.name}
@@ -127,10 +103,10 @@ export default function AboutPage() {
                   </div>
 
                   {/* Handwritten Annotation */}
-                  <div className="absolute -top-7 right-0 transform rotate-6 select-none pointer-events-none">
-                    <div className="font-handwritten text-xl sm:text-2xl text-[#1677FF] font-bold tracking-wide drop-shadow-sm flex items-center gap-1">
+                  <div className="absolute -top-6 right-0 transform rotate-6 select-none pointer-events-none">
+                    <div className="font-handwritten text-lg sm:text-xl text-[#1677FF] font-bold tracking-wide drop-shadow-sm flex items-center gap-1">
                       <span>Turning Ideas into Real Solutions</span>
-                      <span className="text-xl">↗</span>
+                      <span className="text-lg">↗</span>
                     </div>
                   </div>
                 </div>

@@ -51,7 +51,7 @@ export default function ProjectsPage() {
                       <Layers size={18} />
                     </div>
                     <div>
-                      <div className="font-heading font-extrabold text-lg text-[#101B3C] leading-none">5+</div>
+                      <div className="font-heading font-extrabold text-lg text-[#101B3C] leading-none">7+</div>
                       <div className="text-[11px] text-[#64748B] font-medium mt-0.5">Projects Completed</div>
                     </div>
                   </div>

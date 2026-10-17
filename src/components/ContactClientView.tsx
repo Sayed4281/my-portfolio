@@ -394,33 +394,42 @@ export default function ContactClientView() {
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <div className="rounded-[1.75rem] border border-[#E4ECF7] overflow-hidden bg-white shadow-sm grid lg:grid-cols-12">
             
-            {/* Left: Map Card matching reference */}
-            <div className="lg:col-span-5 relative bg-[#EBF3FF] p-6 sm:p-8 flex flex-col justify-between min-h-[300px]">
-              {/* Map Illustration Background */}
-              <div className="absolute inset-0 opacity-40 bg-[radial-gradient(#3B82F6_1px,transparent_1px)] [background-size:16px_16px]" />
+            {/* Left: Proper Interactive Google Map */}
+            <div className="lg:col-span-5 relative min-h-[320px] sm:min-h-[360px] overflow-hidden bg-slate-100 flex flex-col justify-between">
+              {/* Live Google Maps Iframe for Perinthalmanna, Malappuram, Kerala */}
+              <iframe
+                title="Sayed Location - Perinthalmanna, Malappuram, Kerala"
+                src="https://maps.google.com/maps?q=Perinthalmanna,%20Malappuram%20District,%20Kerala,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                className="absolute inset-0 w-full h-full border-0 filter saturate-[1.1] contrast-[1.02]"
+                loading="lazy"
+                allowFullScreen
+              />
 
-              {/* Pin Card Marker */}
-              <div className="relative z-10 self-center mt-6">
-                <div className="bg-white rounded-xl shadow-lg border border-blue-200 p-3 flex items-center gap-2 mb-2 animate-bounce">
-                  <MapPin size={16} className="text-[#1677FF]" />
+              {/* Floating Location Badge */}
+              <div className="relative z-10 p-4 pointer-events-none">
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md shadow-md border border-blue-200/80 pointer-events-auto">
+                  <div className="w-8 h-8 rounded-lg bg-[#EFF6FF] border border-blue-200 flex items-center justify-center text-[#1677FF] shrink-0">
+                    <MapPin size={16} />
+                  </div>
                   <div>
-                    <div className="text-xs font-bold text-[#101B3C]">Perinthalmanna, Malappuram District</div>
-                    <div className="text-[10px] text-slate-500">Kerala, India</div>
+                    <div className="text-xs font-bold text-[#101B3C]">Perinthalmanna, Malappuram</div>
+                    <div className="text-[10px] text-[#64748B] font-medium">Kerala, India</div>
                   </div>
                 </div>
-                <div className="w-3 h-3 bg-[#1677FF] rounded-full mx-auto ring-4 ring-blue-300" />
               </div>
 
-              {/* View Larger Map Action */}
-              <div className="relative z-10 pt-4">
+              {/* Open in Google Maps Link */}
+              <div className="relative z-10 p-4">
                 <a
-                  href="https://maps.google.com/?q=Perinthalmanna,Malappuram,Kerala"
+                  href="https://maps.google.com/?q=Perinthalmanna,Malappuram,Kerala,India"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#E4ECF7] text-xs font-bold text-[#1677FF] shadow-xs hover:border-blue-400 hover:shadow-sm transition-all"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#E4ECF7] text-xs font-bold text-[#1677FF] shadow-md hover:bg-white hover:border-blue-400 hover:shadow-lg transition-all group/btn"
                 >
-                  <span>View Larger Map</span>
-                  <ArrowRight size={13} />
+                  <span>Open in Google Maps</span>
+                  <ArrowRight size={13} className="group-hover/btn:translate-x-0.5 transition-transform" />
                 </a>
               </div>
             </div>
