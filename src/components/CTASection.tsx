@@ -31,11 +31,7 @@ export default function CTASection({
   secondaryBtnHref,
   secondaryBtnDownload,
   secondaryBtnIcon,
-  trustBadges = [
-    'Fast response within 24 hours',
-    'Enterprise ERP & Web Architecture',
-    'Open to global & remote opportunities',
-  ],
+  trustBadges,
 }: CTASectionProps) {
   return (
     <section className="py-8 sm:py-10 bg-gradient-to-b from-transparent to-slate-50/50 relative">

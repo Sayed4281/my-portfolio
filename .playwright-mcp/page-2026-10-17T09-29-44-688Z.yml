@@ -1,0 +1,250 @@
+- generic [active] [ref=f58e1]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - img "Sayed Shahloob P"
+      - generic:
+        - generic: S
+        - generic: A
+        - generic: "Y"
+        - generic: E
+        - generic: D
+        - generic: S
+        - generic: H
+        - generic: A
+        - generic: H
+        - generic: L
+        - generic: O
+        - generic: O
+        - generic: B
+        - generic: P
+      - generic: Software Developer • Technical Lead • SEO Analyst
+  - banner [ref=f58e2]:
+    - generic [ref=f58e3]:
+      - link "Sayed" [ref=f58e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=f58e11]:
+        - link "Home" [ref=f58e12] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f58e13] [cursor=pointer]:
+          - /url: /about
+        - link "Projects" [ref=f58e14] [cursor=pointer]:
+          - /url: /projects
+        - link "Services" [ref=f58e15] [cursor=pointer]:
+          - /url: /services
+        - link "Contact" [ref=f58e17] [cursor=pointer]:
+          - /url: /contact
+      - link "Get In Touch" [ref=f58e19] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=f58e23]:
+    - generic [ref=f58e24]:
+      - generic [ref=f58e27]:
+        - generic [ref=f58e28]:
+          - generic [ref=f58e30]:
+            - generic [ref=f58e31]: ◆
+            - generic [ref=f58e32]: My Services
+          - heading "Professional Services for Your Digital Growth" [level=1] [ref=f58e34]
+          - paragraph [ref=f58e36]: I offer modern web solutions, automation, and digital services to help businesses build, grow and stay ahead in the competitive online world. From full-stack development to SEO, I deliver reliable, scalable and future-ready solutions.
+          - generic [ref=f58e38]:
+            - generic [ref=f58e39]: Modern Technologies
+            - generic [ref=f58e44]: Clean & Scalable Code
+            - generic [ref=f58e49]: On-Time Delivery
+            - generic [ref=f58e54]: Client Satisfaction
+        - generic [ref=f58e59]:
+          - generic [ref=f58e61]:
+            - generic [ref=f58e62]: engineering-ecosystem.io
+            - img "Full-Stack Development & Software Engineering Ecosystem" [ref=f58e70]
+          - generic [ref=f58e71]: Web & Mobile
+          - generic [ref=f58e78]: API & Cloud
+          - generic [ref=f58e87]: Architecture
+          - generic:
+            - generic:
+              - generic: Turning Ideas into Digital Solutions
+              - generic: ↗
+      - generic [ref=f58e95]:
+        - generic [ref=f58e96]:
+          - generic [ref=f58e97]:
+            - generic [ref=f58e98]: ◆
+            - generic [ref=f58e99]: What I Offer
+          - heading "My Core Services" [level=2] [ref=f58e100]
+          - paragraph [ref=f58e101]: Comprehensive digital solutions tailored to your business needs.
+        - generic [ref=f58e102]:
+          - generic [ref=f58e103]:
+            - generic [ref=f58e104]:
+              - heading "Full Stack Web Development" [level=3] [ref=f58e109]
+              - paragraph [ref=f58e110]: Modern, scalable and high-performance web applications using React, Next.js, Node.js and more.
+              - list [ref=f58e111]:
+                - listitem [ref=f58e112]:
+                  - generic [ref=f58e116]: SPA & Progressive Web Apps
+                - listitem [ref=f58e117]:
+                  - generic [ref=f58e121]: REST APIs & Database Integration
+                - listitem [ref=f58e122]:
+                  - generic [ref=f58e126]: Clean & Maintainable Code
+            - button "Learn more about Full Stack Web Development" [ref=f58e128] [cursor=pointer]:
+              - generic [ref=f58e129]: Learn More
+          - generic [ref=f58e132]:
+            - generic [ref=f58e133]:
+              - heading "ERP / HRMS Solutions" [level=3] [ref=f58e138]
+              - paragraph [ref=f58e139]: Custom ERP and HR management systems to streamline your business operations and workforce.
+              - list [ref=f58e140]:
+                - listitem [ref=f58e141]:
+                  - generic [ref=f58e145]: Inventory & Stock Management
+                - listitem [ref=f58e146]:
+                  - generic [ref=f58e150]: Employee Management
+                - listitem [ref=f58e151]:
+                  - generic [ref=f58e155]: Reporting & Analytics
+            - button "Learn more about ERP / HRMS Solutions" [ref=f58e157] [cursor=pointer]:
+              - generic [ref=f58e158]: Learn More
+          - generic [ref=f58e161]:
+            - generic [ref=f58e162]:
+              - heading "SEO & Performance Optimization" [level=3] [ref=f58e167]
+              - paragraph [ref=f58e168]: Improve your website's visibility and performance with proven SEO strategies and technical optimization.
+              - list [ref=f58e169]:
+                - listitem [ref=f58e170]:
+                  - generic [ref=f58e174]: On-Page & Off-Page SEO
+                - listitem [ref=f58e175]:
+                  - generic [ref=f58e179]: Speed Optimization
+                - listitem [ref=f58e180]:
+                  - generic [ref=f58e184]: Technical SEO Audit
+            - button "Learn more about SEO & Performance Optimization" [ref=f58e186] [cursor=pointer]:
+              - generic [ref=f58e187]: Learn More
+          - generic [ref=f58e190]:
+            - generic [ref=f58e191]:
+              - heading "UI/UX Design" [level=3] [ref=f58e199]
+              - paragraph [ref=f58e200]: Modern and user-friendly designs that provide great user experiences and boost engagement.
+              - list [ref=f58e201]:
+                - listitem [ref=f58e202]:
+                  - generic [ref=f58e206]: Wireframes & Prototypes
+                - listitem [ref=f58e207]:
+                  - generic [ref=f58e211]: Responsive Design
+                - listitem [ref=f58e212]:
+                  - generic [ref=f58e216]: Branding & Visual Design
+            - button "Learn more about UI/UX Design" [ref=f58e218] [cursor=pointer]:
+              - generic [ref=f58e219]: Learn More
+          - generic [ref=f58e222]:
+            - generic [ref=f58e223]:
+              - heading "Web Applications" [level=3] [ref=f58e228]
+              - paragraph [ref=f58e229]: Custom web applications tailored to your unique business requirements.
+              - list [ref=f58e230]:
+                - listitem [ref=f58e231]:
+                  - generic [ref=f58e235]: Business Portals
+                - listitem [ref=f58e236]:
+                  - generic [ref=f58e240]: Management Systems
+                - listitem [ref=f58e241]:
+                  - generic [ref=f58e245]: API Integrations
+            - button "Learn more about Web Applications" [ref=f58e247] [cursor=pointer]:
+              - generic [ref=f58e248]: Learn More
+          - generic [ref=f58e251]:
+            - generic [ref=f58e252]:
+              - heading "AI & Automation" [level=3] [ref=f58e257]
+              - paragraph [ref=f58e258]: Leverage the power of AI and automation to save time, increase productivity and work smarter.
+              - list [ref=f58e259]:
+                - listitem [ref=f58e260]:
+                  - generic [ref=f58e264]: AI Chatbots & Assistants
+                - listitem [ref=f58e265]:
+                  - generic [ref=f58e269]: Workflow Automation
+                - listitem [ref=f58e270]:
+                  - generic [ref=f58e274]: Data Processing & Analytics
+            - button "Learn more about AI & Automation" [ref=f58e276] [cursor=pointer]:
+              - generic [ref=f58e277]: Learn More
+      - generic [ref=f58e283]:
+        - generic [ref=f58e284]:
+          - generic [ref=f58e285]:
+            - generic [ref=f58e286]: ◆
+            - generic [ref=f58e287]: Why Choose Me
+          - heading "Why Work With Me?" [level=2] [ref=f58e288]
+          - paragraph [ref=f58e289]: I focus on delivering high-quality solutions with clear communication, timely delivery and long-term support for your success.
+        - generic [ref=f58e290]:
+          - generic [ref=f58e291]:
+            - generic [ref=f58e298]: 5+
+            - generic [ref=f58e299]: Projects Completed
+          - generic [ref=f58e300]:
+            - generic [ref=f58e305]: 2+
+            - generic [ref=f58e306]: Years Experience
+          - generic [ref=f58e307]:
+            - generic [ref=f58e312]: 100%
+            - generic [ref=f58e313]: Client Satisfaction
+          - generic [ref=f58e314]:
+            - generic [ref=f58e318]: 24/7
+            - generic [ref=f58e319]: Support & Communication
+      - generic [ref=f58e321]:
+        - generic [ref=f58e323]:
+          - generic [ref=f58e324]:
+            - generic [ref=f58e325]:
+              - generic [ref=f58e326]: ◆
+              - generic [ref=f58e327]: My Process
+            - heading "How I Work" [level=2] [ref=f58e328]
+            - paragraph [ref=f58e329]: A simple and transparent process to deliver the best results.
+          - generic [ref=f58e330]: From Idea to Launch ↗
+        - generic [ref=f58e331]:
+          - generic [ref=f58e333]:
+            - generic [ref=f58e334]:
+              - generic [ref=f58e335]: "01"
+              - heading "1. Understand Your Needs" [level=3] [ref=f58e340]
+              - paragraph [ref=f58e341]: We discuss your goals, ideas and requirements in detail.
+            - generic: ➔
+          - generic [ref=f58e343]:
+            - generic [ref=f58e344]:
+              - generic [ref=f58e345]: "02"
+              - heading "2. Plan & Design" [level=3] [ref=f58e350]
+              - paragraph [ref=f58e351]: I create a clear plan and modern design for your project.
+            - generic: ➔
+          - generic [ref=f58e353]:
+            - generic [ref=f58e354]:
+              - generic [ref=f58e355]: "03"
+              - heading "3. Development" [level=3] [ref=f58e361]
+              - paragraph [ref=f58e362]: I build your solution using best practices and latest tech.
+            - generic: ➔
+          - generic [ref=f58e364]:
+            - generic [ref=f58e365]:
+              - generic [ref=f58e366]: "04"
+              - heading "4. Test & Review" [level=3] [ref=f58e372]
+              - paragraph [ref=f58e373]: We do thorough testing to ensure quality and performance.
+            - generic: ➔
+          - generic [ref=f58e376]:
+            - generic [ref=f58e377]: "05"
+            - heading "5. Launch & Support" [level=3] [ref=f58e385]
+            - paragraph [ref=f58e386]: We deploy your project and provide ongoing support.
+      - generic [ref=f58e390]:
+        - generic [ref=f58e391]:
+          - generic [ref=f58e392]:
+            - generic [ref=f58e393]: ◆
+            - generic [ref=f58e394]: LET'S WORK TOGETHER
+          - heading "Have a Project in Mind?" [level=2] [ref=f58e395]
+          - paragraph [ref=f58e396]: I'm always open to new opportunities, collaborations and interesting projects. Feel free to reach out!
+          - link "Get In Touch" [ref=f58e398] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f58e403]:
+          - generic:
+            - generic:
+              - generic: Let's Create Something Great!
+              - generic: ↗
+  - contentinfo [ref=f58e411]:
+    - generic [ref=f58e413]:
+      - generic [ref=f58e414]:
+        - link "Sayed" [ref=f58e415] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f58e422]: © 2026 Sayed. All rights reserved.
+      - generic [ref=f58e423]:
+        - navigation [ref=f58e424]:
+          - link "Home" [ref=f58e425] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=f58e426] [cursor=pointer]:
+            - /url: /about
+          - link "Projects" [ref=f58e427] [cursor=pointer]:
+            - /url: /projects
+          - link "Services" [ref=f58e428] [cursor=pointer]:
+            - /url: /services
+          - link "Contact" [ref=f58e429] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f58e430]:
+          - link "LinkedIn Profile" [ref=f58e431] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/er-sayed-shahloob-p/
+          - link "GitHub Profile" [ref=f58e436] [cursor=pointer]:
+            - /url: https://github.com/Sayed4281
+          - link "Twitter Profile" [ref=f58e440] [cursor=pointer]:
+            - /url: https://twitter.com
+          - link "Direct Email" [ref=f58e443] [cursor=pointer]:
+            - /url: mailto:sayedshahloobpofficial@gmail.com
+  - button "Toggle AI Virtual Assistant"

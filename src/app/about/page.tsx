@@ -1,170 +1,260 @@
 import type { Metadata } from 'next';
-import AboutHero from '@/components/AboutHero';
-import Experience from '@/components/Experience';
-import LeadershipManagement from '@/components/LeadershipManagement';
-import HowIWork from '@/components/HowIWork';
-import CTASection from '@/components/CTASection';
-import { Download, Mail, ArrowRight, Award, GraduationCap, CheckCircle2, HeartHandshake, Sparkles } from 'lucide-react';
 import Link from 'next/link';
+import { 
+  ArrowRight, 
+  Download, 
+  Mail, 
+  MapPin, 
+  Code, 
+  Rocket, 
+  Users, 
+  Quote,
+  TrendingUp
+} from 'lucide-react';
+import CollaborationCTA from '@/components/CollaborationCTA';
+import ScrollReveal from '@/components/ScrollReveal';
+import AboutTechStackClient from '@/components/AboutTechStackClient';
+import AboutTimelineClient from '@/components/AboutTimelineClient';
+import { PORTFOLIO_DATA } from '@/data/portfolioData';
 
 export const metadata: Metadata = {
-  title: 'About Me & Professional Experience — Sayed Shahloob P',
-  description: 'Comprehensive professional profile of Sayed Shahloob P: Software Developer, Technical Project Lead, and SEO Analyst. Career timeline, education, research, and leadership.',
+  title: 'About Me — Sayed Shahloob P | Software Developer & Technical Lead',
+  description: 'Detailed background, technical skills, professional experience timeline, and education of Sayed Shahloob P.',
 };
 
 export default function AboutPage() {
+  const { personal, strengths, techStack, workExperience, education } = PORTFOLIO_DATA;
+
   return (
-    <div className="min-h-screen">
-      {/* 1. Executive About Hero Section */}
-      <AboutHero />
-
-      <div className="relative">
-        {/* 2. Career Timeline */}
-        <Experience />
-
-        {/* 4. Education & Academic Distinction */}
-        <section id="education" className="py-16 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative">
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-4 w-fit">
-                <GraduationCap size={14} className="text-blue-600" />
-                <span>Academic Foundation</span>
-              </div>
-              <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight font-display mb-8">
-                Education & Qualifications
-              </h2>
-
-              <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3.5 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 shrink-0">
-                    <GraduationCap size={28} />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-blue-700">
-                      Bachelor of Technology (B.Tech)
-                    </span>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mt-0.5">
-                      Computer Science and Engineering
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                      MEA Engineering College · APJ Abdul Kalam Technological University (KTU)
-                    </p>
-                    <p className="text-xs text-slate-500 mt-2">
-                      Core Foundations: Data Structures, Algorithms, Database Management Systems, Software Engineering, Computer Networks, Operating Systems.
-                    </p>
-                  </div>
+    <div className="min-h-screen bg-white">
+      {/* ============================================================== */}
+      {/* 1. ABOUT HERO SECTION                                          */}
+      {/* ============================================================== */}
+      <section className="relative pt-8 sm:pt-14 pb-16 sm:pb-24 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <ScrollReveal animation="fade-down" delay={0.05}>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFF6FF] border border-blue-200/70 text-[#1677FF] text-xs font-bold tracking-wide shadow-2xs">
+                  <span className="text-[10px]">◆</span>
+                  <span>About Me</span>
                 </div>
+              </ScrollReveal>
 
-                <div className="sm:text-right shrink-0 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <span className="text-3xl font-black text-blue-600 font-display">8.08</span>
-                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Cumulative CGPA</p>
-                  <span className="inline-block mt-1 px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold">
-                    First Class with Distinction
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+              <ScrollReveal animation="fade-up" delay={0.15}>
+                <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-heading font-black text-[#101B3C] tracking-tight leading-[1.1]">
+                  Hi, I&apos;m <br />
+                  <span className="text-[#101B3C]">Sayed</span>{' '}
+                  <span className="text-brand-gradient">Shahloob P</span>
+                </h1>
+              </ScrollReveal>
 
-        {/* 5. Leadership & Team Coordination */}
-        <LeadershipManagement />
+              <ScrollReveal animation="fade-up" delay={0.22}>
+                <h2 className="text-xl sm:text-2xl font-heading font-bold text-[#101B3C] tracking-tight">
+                  Full Stack Developer &amp; Problem Solver
+                </h2>
+              </ScrollReveal>
 
-        {/* 6. How I Work: 4-Phase Delivery Methodology */}
-        <HowIWork />
+              <ScrollReveal animation="fade-up" delay={0.3}>
+                <p className="text-[#64748B] text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+                  {personal.bio}
+                </p>
+              </ScrollReveal>
 
-        {/* 7. Research, Publications & Community Leadership */}
-        <section id="research" className="py-16 sm:py-20 bg-slate-50/70 border-b border-slate-200/80 relative">
-          <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold mb-4 w-fit">
-                <Award size={14} className="text-indigo-600" />
-                <span>Publications & Impact</span>
-              </div>
-              <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight font-display mb-8">
-                Research & Selected Recognition
-              </h2>
-
-              <div className="space-y-6">
-                {/* Research Publication */}
-                <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3.5 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-600 shrink-0">
-                      <Award size={26} />
-                    </div>
-                    <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-700">
-                        International Conference Publication
-                      </span>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 mt-0.5">
-                        ICETI4T 2025: NeuVitX AI Health Monitoring System
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                        Peer-reviewed research presented at the International Conference on Emerging Trends in Industry 4.0 Technologies. Co-engineered an IoT biometric architecture with machine learning algorithms for real-time vitals anomaly detection.
-                      </p>
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        <span className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-[10px] font-semibold text-slate-700">
-                          IoT Biometrics
-                        </span>
-                        <span className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-[10px] font-semibold text-slate-700">
-                          Python & ML
-                        </span>
-                        <span className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-[10px] font-semibold text-slate-700">
-                          Flutter Mobile App
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <Link
-                    href="/projects"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 shrink-0 self-end md:self-center"
+              {/* Quick Contact Info Pills */}
+              <ScrollReveal animation="fade-up" delay={0.36}>
+                <div className="flex flex-wrap items-center gap-2.5 pt-1">
+                  <a
+                    href={`mailto:${personal.email}`}
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E4ECF7] text-xs font-semibold text-[#101B3C] hover:border-blue-400 hover:text-[#1677FF] hover:-translate-y-0.5 transition-all shadow-2xs"
                   >
-                    <span>View Project Case Study</span>
-                    <ArrowRight size={14} />
+                    <Mail size={13} className="text-[#1677FF]" />
+                    <span>{personal.secondaryEmail}</span>
+                  </a>
+
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E4ECF7] text-xs font-semibold text-[#101B3C] shadow-2xs">
+                    <MapPin size={13} className="text-[#1677FF]" />
+                    <span>{personal.location}</span>
+                  </div>
+
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-emerald-200 text-xs font-semibold text-emerald-700 shadow-2xs">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>{personal.availability}</span>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* CTA Buttons */}
+              <ScrollReveal animation="fade-up" delay={0.42}>
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <a
+                    href={personal.resumeUrl}
+                    download
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold text-sm sm:text-base btn-gradient shadow-md shadow-blue-500/20 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                  >
+                    <span>Download CV</span>
+                    <Download size={18} />
+                  </a>
+
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white border border-[#E4ECF7] hover:border-blue-400 text-[#101B3C] font-semibold text-sm sm:text-base shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all group"
+                  >
+                    <span>Let&apos;s Work Together</span>
+                    <ArrowRight size={18} className="group-hover:translate-x-1.5 transition-transform text-[#1677FF] duration-200" />
                   </Link>
                 </div>
+              </ScrollReveal>
+            </div>
 
-                {/* Community Leadership */}
-                <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xs flex items-start gap-4">
-                  <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 shrink-0">
-                    <HeartHandshake size={26} />
+            {/* Right: Profile Photo with Scale Reveal and Soft Shadow */}
+            <div className="lg:col-span-5 relative flex items-center justify-center">
+              <ScrollReveal animation="scale-in" delay={0.25} className="w-full max-w-[360px] sm:max-w-[400px]">
+                <div className="relative w-full">
+                  {/* Decorative Organic Backdrop */}
+                  <div className="absolute -inset-4 bg-gradient-to-tr from-blue-400/20 via-indigo-300/15 to-purple-400/20 rounded-[2.5rem] blur-xl transform rotate-2" />
+
+                  {/* Photo Frame */}
+                  <div className="relative rounded-[2.25rem] overflow-hidden border-2 border-white shadow-2xl bg-white">
+                    <div className="aspect-[4/5] w-full overflow-hidden relative">
+                      <img
+                        src={personal.photoUrl}
+                        alt={personal.name}
+                        className="w-full h-full object-cover object-top hover:scale-103 transition-transform duration-500"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700">
-                      Social Impact & Leadership
-                    </span>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mt-0.5">
-                      National Service Scheme (NSS) — Dream House Project Coordinator
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                      Coordinated volunteer teams, material logistics, and community stakeholders for the construction and handover of 5 residential houses for underprivileged families.
+
+                  {/* Handwritten Annotation */}
+                  <div className="absolute -top-7 right-0 transform rotate-6 select-none pointer-events-none">
+                    <div className="font-handwritten text-xl sm:text-2xl text-[#1677FF] font-bold tracking-wide drop-shadow-sm flex items-center gap-1">
+                      <span>Turning Ideas into Real Solutions</span>
+                      <span className="text-xl">↗</span>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================== */}
+      {/* 2. MY STORY & STRENGTHS SECTION                                */}
+      {/* ============================================================== */}
+      <section className="py-16 sm:py-20 bg-white border-y border-[#E4ECF7]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+          <ScrollReveal animation="fade-up">
+            <div className="mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] border border-blue-200 text-[#1677FF] text-xs font-bold tracking-wider uppercase mb-3">
+                <span>◆</span>
+                <span>My Story</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#101B3C] tracking-tight">
+                A Passion for Building <span className="text-[#1677FF]">Digital Solutions</span>
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          {/* Left Story from Left, Quote from Right (<=20px movement) */}
+          <div className="grid lg:grid-cols-12 gap-8 items-stretch mb-12">
+            <div className="lg:col-span-7">
+              <ScrollReveal animation="fade-right" delay={0.1}>
+                <div className="space-y-4 text-sm sm:text-base text-[#64748B] leading-relaxed pt-2">
+                  <p>{personal.story}</p>
+                  <p>
+                    With hands-on experience in full-stack engineering, enterprise ERP/HRMS architecture, and technical SEO, I bridge business workflows with scalable code. I focus on creating maintainable systems that empower users and solve tangible business challenges.
+                  </p>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            <div className="lg:col-span-5">
+              <ScrollReveal animation="fade-left" delay={0.2} className="h-full">
+                <div className="h-full rounded-2xl bg-gradient-to-br from-[#EFF6FF] to-[#F5F8FF] border border-[#DDE8F8] p-7 sm:p-8 flex flex-col justify-between shadow-2xs relative overflow-hidden">
+                  <Quote size={40} className="text-blue-500/20 absolute -top-1 -left-1" />
+                  <div className="relative z-10 pt-2">
+                    <p className="font-heading font-semibold text-lg sm:text-xl text-[#101B3C] italic leading-snug mb-4">
+                      &ldquo;Technology is best when it brings people together.&rdquo;
+                    </p>
+                    <p className="text-xs sm:text-sm font-bold text-[#1677FF]">
+                      — Matt Mullenweg
                     </p>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
-        </section>
 
-        {/* 8. Resume Download & Executive Contact CTA Card */}
-        <CTASection
-          badge="Executive Profile & Direct Contact"
-          title="Let's Build the Next"
-          highlightText="Milestone Together"
-          description="Available for technical leadership positions, enterprise system planning, or consulting on scalable software development."
-          primaryBtnText="Initiate Contact"
-          primaryBtnHref="/contact"
-          secondaryBtnText="Download Resume (PDF)"
-          secondaryBtnHref="/Sayed_Shahloob_P_.pdf"
-          secondaryBtnDownload="Sayed_Shahloob_P_Resume.pdf"
-          secondaryBtnIcon={<Download size={15} />}
-          trustBadges={[
-            'B.Tech CSE Distinction (8.08 CGPA)',
-            'Hirush Global LLP Tech Lead',
-            'Published Researcher ICETI4T 2025',
-          ]}
-        />
-      </div>
+          {/* 4 Professional Values Row with Staggered ScrollReveal */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {strengths.map((item, idx) => (
+              <ScrollReveal
+                key={item.title}
+                animation="fade-up"
+                delay={idx * 0.08}
+              >
+                <div className="ref-card p-5 sm:p-6 flex items-start gap-4 hover:border-blue-400 hover:shadow-md hover:-translate-y-1.5 transition-all duration-250 bg-white group cursor-default">
+                  <div className="w-11 h-11 rounded-xl bg-[#EFF6FF] border border-blue-200/60 flex items-center justify-center text-[#1677FF] shrink-0 group-hover:scale-110 group-hover:bg-[#1677FF] group-hover:text-white transition-all duration-200">
+                    {idx === 0 && <Code size={20} />}
+                    {idx === 1 && <Rocket size={20} />}
+                    {idx === 2 && <Users size={20} />}
+                    {idx === 3 && <TrendingUp size={20} />}
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-bold text-base text-[#101B3C] mb-1 group-hover:text-[#1677FF] transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-[#64748B] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================== */}
+      {/* 3. TECHNICAL SKILLS (Interactive Tabs Client View)             */}
+      {/* ============================================================== */}
+      <section id="skills" className="py-16 sm:py-24 bg-[#F7FAFF]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+          <ScrollReveal animation="fade-up">
+            <div className="text-left mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-blue-200 text-[#1677FF] text-xs font-bold tracking-wider uppercase mb-3 shadow-2xs">
+                <span>◆</span>
+                <span>Technical Skills</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#101B3C] tracking-tight">
+                My Tech <span className="text-[#1677FF]">Stack</span>
+              </h2>
+              <p className="text-[#64748B] text-sm sm:text-base mt-2 max-w-xl">
+                I work with modern technologies across the full stack to build powerful and scalable web applications.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Interactive Filterable Tech Stack */}
+          <AboutTechStackClient techStack={techStack} />
+        </div>
+      </section>
+
+      {/* ============================================================== */}
+      {/* 4. PROFESSIONAL EXPERIENCE & EDUCATION                         */}
+      {/* ============================================================== */}
+      <section id="experience" className="py-16 sm:py-24 bg-white border-t border-[#E4ECF7]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+          <AboutTimelineClient workExperience={workExperience} education={education} />
+        </div>
+      </section>
+
+      {/* ============================================================== */}
+      {/* 5. COLLABORATION CTA                                           */}
+      {/* ============================================================== */}
+      <CollaborationCTA />
     </div>
   );
 }

@@ -6,31 +6,22 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Plus Jakarta Sans', 'Outfit', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'Outfit', 'sans-serif'],
+        handwriting: ['Caveat', 'cursive'],
         mono: ['JetBrains Mono', 'monospace'],
-        display: ['Outfit', 'sans-serif'],
       },
       colors: {
-        // Pure dark theme
-        surface: {
-          950: '#000000',
-          900: '#050505',
-          800: '#0a0a0a',
-          700: '#111111',
-          600: '#1a1a1a',
-          500: '#222222',
-        },
-        // Monochromatic Stealth Theme - Silver/White Accents
-        accent: {
-          50: '#f9fafb',
-          100: '#f3f4f6',
-          200: '#e5e7eb',
-          300: '#d1d5db',
-          400: '#9ca3af',
-          500: '#ffffff', // Pure White for high impact
-          600: '#d1d5db',
-          700: '#9ca3af',
-          800: '#4b5563',
-          900: '#1f2937',
+        brand: {
+          blue: '#1677FF',
+          darkBlue: '#2563EB',
+          purple: '#6945FF',
+          navy: '#101B3C',
+          subtext: '#64748B',
+          border: '#E4ECF7',
+          lightBg: '#F7FAFF',
+          softBlue: '#EFF6FF',
+          success: '#16A34A',
         },
       },
       animation: {

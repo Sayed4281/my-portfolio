@@ -1,115 +1,226 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { 
-  FolderKanban, 
-  Code2, 
-  Database, 
-  ShieldCheck, 
-  CheckCircle, 
-  Smartphone,
-  Cpu
-} from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 
-const TechnologiesOverview = () => {
-  const domains = [
+export interface SkillItem {
+  name: string;
+  percentage: number;
+}
+
+export interface SkillGroup {
+  id: string;
+  title: string;
+  desc: string;
+  skills: SkillItem[];
+}
+
+export default function TechnologiesOverview() {
+  const shouldReduceMotion = useReducedMotion();
+
+  // Configurable skills dataset preserving all six categories, descriptions & skills
+  const skillGroups: SkillGroup[] = [
     {
+      id: 'enterprise-erp',
       title: 'Enterprise ERP & Governance',
-      icon: ShieldCheck,
-      desc: 'Architecting scalable business workflows, access security, and multi-tenant systems.',
-      skills: ['HRMS Modules', 'Automated Payroll', 'CRM Pipelines', 'RBAC Security', 'JWT Auth', 'Attendance Geo-fencing', 'Multi-tenant Schemas']
+      desc: 'Architecting multi-tenant business workflows, role-based access security, and corporate data pipelines.',
+      skills: [
+        { name: 'HRMS Modules', percentage: 95 },
+        { name: 'Automated Payroll Engine', percentage: 94 },
+        { name: 'CRM Pipelines', percentage: 90 },
+        { name: 'Multi-Tenant RBAC', percentage: 96 },
+        { name: 'JWT Authentication', percentage: 95 },
+        { name: 'Attendance Geo-Fencing', percentage: 92 },
+        { name: 'Financial Ledgers', percentage: 88 },
+      ],
     },
     {
-      title: 'Frontend Web Engineering',
-      icon: Code2,
-      desc: 'Building responsive, type-safe, and search-optimized user interfaces.',
-      skills: ['Next.js 15', 'React.js', 'TypeScript', 'JavaScript (ES6+)', 'Tailwind CSS', 'Framer Motion', 'HTML5 & Semantic SEO', 'State Management']
+      id: 'frontend-web',
+      title: 'Frontend & Modern Web',
+      desc: 'Engineering fast, accessible, and search-optimized user interfaces with fluid interaction design.',
+      skills: [
+        { name: 'Next.js 15 (App Router)', percentage: 96 },
+        { name: 'React.js', percentage: 95 },
+        { name: 'TypeScript', percentage: 94 },
+        { name: 'Tailwind CSS', percentage: 96 },
+        { name: 'Framer Motion', percentage: 88 },
+        { name: 'Responsive Architecture', percentage: 95 },
+        { name: 'State Management', percentage: 92 },
+      ],
     },
     {
+      id: 'backend-db',
       title: 'Backend & Database Systems',
-      icon: Database,
-      desc: 'Designing performant REST APIs and relational database architectures.',
-      skills: ['Node.js', 'PostgreSQL', 'Prisma ORM', 'MySQL', 'RESTful APIs', 'Supabase', 'Firebase', 'Data Modeling']
+      desc: 'Designing resilient REST microservices, transactional relational schemas, and secure API layers.',
+      skills: [
+        { name: 'Node.js', percentage: 92 },
+        { name: 'PostgreSQL', percentage: 94 },
+        { name: 'Prisma ORM', percentage: 92 },
+        { name: 'RESTful APIs', percentage: 96 },
+        { name: 'MySQL', percentage: 90 },
+        { name: 'Supabase', percentage: 88 },
+        { name: 'Row-Level Security', percentage: 92 },
+      ],
     },
     {
-      title: 'Project Management & Quality Assurance',
-      icon: FolderKanban,
-      desc: 'Coordinating delivery cycles, requirements engineering, and validation testing.',
-      skills: ['Jira', 'Trello', 'Agile / Scrum', 'Business Process Analysis', 'BRD/SRS Documentation', 'UAT Testing', 'Postman API Testing']
+      id: 'mobile-iot',
+      title: 'Mobile & IoT Telemetry',
+      desc: 'Building cross-platform mobile applications paired with real-time Bluetooth sensor telemetry.',
+      skills: [
+        { name: 'Flutter', percentage: 90 },
+        { name: 'Dart', percentage: 88 },
+        { name: 'Progressive Web Apps (PWA)', percentage: 92 },
+        { name: 'BLE Sensor Sync', percentage: 86 },
+        { name: 'IoT Telemetry', percentage: 88 },
+        { name: 'Firebase Cloud Messaging', percentage: 90 },
+      ],
     },
     {
-      title: 'Mobile & IoT Applications',
-      icon: Smartphone,
-      desc: 'Cross-platform mobile applications and hardware sensor integrations.',
-      skills: ['Flutter', 'Dart', 'Progressive Web Apps (PWA)', 'IoT Sensor Telemetry', 'Firebase Cloud Messaging', 'BLE Integration']
-    }
+      id: 'seo-perf',
+      title: 'Technical SEO & Performance',
+      desc: 'Optimizing crawl budgets, structured JSON-LD schema microdata, and achieving top Google PageSpeed.',
+      skills: [
+        { name: 'Google Lighthouse', percentage: 98 },
+        { name: 'JSON-LD Schema Markup', percentage: 96 },
+        { name: 'Core Web Vitals (LCP/CLS)', percentage: 94 },
+        { name: 'Crawl Budget Audits', percentage: 90 },
+        { name: 'Search Console Indexing', percentage: 95 },
+      ],
+    },
+    {
+      id: 'agile-delivery',
+      title: 'Agile Delivery & Leadership',
+      desc: 'Directing development cycles, sprint backlogs, code reviews, quality standards, and stakeholder demos.',
+      skills: [
+        { name: 'Agile / Scrum Sprints', percentage: 95 },
+        { name: 'Jira Backlog Grooming', percentage: 94 },
+        { name: 'Code Reviews & Standards', percentage: 95 },
+        { name: 'Sprint Retrospectives', percentage: 92 },
+        { name: 'Production Handover', percentage: 94 },
+      ],
+    },
   ];
 
+  // Balanced 2-column layout (3 groups per column on desktop/tablet)
+  const leftColumnGroups = skillGroups.slice(0, 3);
+  const rightColumnGroups = skillGroups.slice(3, 6);
+
   return (
-    <section id="technologies" className="py-16 sm:py-20 relative bg-white border-b border-slate-200/80">
-      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-        
-        {/* Section Header */}
-        <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-3">
-            <Cpu size={13} className="text-blue-600" />
-            <span>Technical Competencies</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-black font-display text-slate-900 tracking-tight mb-3">
-            Technologies & Frameworks Grouped by Service
+    <section id="technologies" className="py-20 sm:py-28 bg-white border-b border-slate-200/80 text-slate-900 relative overflow-hidden">
+      <div id="skills" className="sr-only" />
+
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-500/[0.03] rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
+        {/* Main Heading */}
+        <div className="text-center mb-16 sm:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight font-display">
+            Technical Skills
           </h2>
-          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
-            A comprehensive, verified overview of the programming languages, database architectures, and delivery tools I leverage daily.
+          {/* Subtle horizontal blue divider */}
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-4 mb-4 rounded-full" />
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+            A comprehensive, production-verified overview of core programming languages, database architectures, and engineering competencies.
           </p>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {domains.map((domain, index) => {
-            const Icon = domain.icon;
-
-            return (
-              <motion.div
-                key={domain.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="p-6 sm:p-7 rounded-3xl bg-slate-50 border border-slate-200 hover:border-blue-300 transition-all shadow-2xs hover:shadow-xs flex flex-col justify-between"
-              >
+        {/* Two Balanced Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-14 lg:gap-16 items-start">
+          {/* Left Column (Groups 1, 2, 3) */}
+          <div className="space-y-12 sm:space-y-14">
+            {leftColumnGroups.map((group) => (
+              <div key={group.id} className="space-y-5">
                 <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 rounded-xl bg-white border border-slate-200 text-blue-600 shadow-2xs">
-                      <Icon size={20} />
-                    </div>
-                    <h3 className="text-base font-bold text-slate-900 font-display">
-                      {domain.title}
-                    </h3>
-                  </div>
-
-                  <p className="text-xs text-slate-600 mb-5 leading-relaxed">
-                    {domain.desc}
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight font-display">
+                    {group.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+                    {group.desc}
                   </p>
-
-                  <div className="flex flex-wrap gap-1.5">
-                    {domain.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-2.5 py-1 bg-white border border-slate-200 text-slate-700 rounded-lg text-xs font-medium shadow-2xs"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
 
+                <div className="space-y-4 pt-1">
+                  {group.skills.map((skill) => (
+                    <div key={skill.name} className="space-y-1.5">
+                      <div className="flex justify-between items-center text-xs sm:text-sm">
+                        <span className="text-slate-800 font-semibold">{skill.name}</span>
+                        <span className="text-blue-600 font-bold tabular-nums">{skill.percentage}%</span>
+                      </div>
+                      <div
+                        className="w-full bg-slate-100 border border-slate-200/80 h-2 sm:h-2.5 rounded-full overflow-hidden"
+                        role="progressbar"
+                        aria-valuenow={skill.percentage}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-label={`${skill.name} proficiency: ${skill.percentage}%`}
+                      >
+                        <motion.div
+                          className="bg-gradient-to-r from-blue-600 to-indigo-600 h-full rounded-full"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.percentage}%` }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: shouldReduceMotion ? 0 : 1.0,
+                            ease: 'easeOut',
+                            delay: 0.1,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Column (Groups 4, 5, 6) */}
+          <div className="space-y-12 sm:space-y-14">
+            {rightColumnGroups.map((group) => (
+              <div key={group.id} className="space-y-5">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight font-display">
+                    {group.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+                    {group.desc}
+                  </p>
+                </div>
+
+                <div className="space-y-4 pt-1">
+                  {group.skills.map((skill) => (
+                    <div key={skill.name} className="space-y-1.5">
+                      <div className="flex justify-between items-center text-xs sm:text-sm">
+                        <span className="text-slate-800 font-semibold">{skill.name}</span>
+                        <span className="text-blue-600 font-bold tabular-nums">{skill.percentage}%</span>
+                      </div>
+                      <div
+                        className="w-full bg-slate-100 border border-slate-200/80 h-2 sm:h-2.5 rounded-full overflow-hidden"
+                        role="progressbar"
+                        aria-valuenow={skill.percentage}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-label={`${skill.name} proficiency: ${skill.percentage}%`}
+                      >
+                        <motion.div
+                          className="bg-gradient-to-r from-blue-600 to-indigo-600 h-full rounded-full"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.percentage}%` }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: shouldReduceMotion ? 0 : 1.0,
+                            ease: 'easeOut',
+                            delay: 0.1,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
-};
-
-export default TechnologiesOverview;
+}

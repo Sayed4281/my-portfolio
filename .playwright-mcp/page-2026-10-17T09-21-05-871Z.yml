@@ -1,0 +1,274 @@
+- generic [active] [ref=f55e1]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - img "Sayed Shahloob P"
+      - generic:
+        - generic: S
+        - generic: A
+        - generic: "Y"
+        - generic: E
+        - generic: D
+        - generic: S
+        - generic: H
+        - generic: A
+        - generic: H
+        - generic: L
+        - generic: O
+        - generic: O
+        - generic: B
+        - generic: P
+      - generic: Software Developer • Technical Lead • SEO Analyst
+  - banner [ref=f55e2]:
+    - generic [ref=f55e3]:
+      - link "Sayed" [ref=f55e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=f55e11]:
+        - link "Home" [ref=f55e12] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f55e14] [cursor=pointer]:
+          - /url: /about
+        - link "Projects" [ref=f55e15] [cursor=pointer]:
+          - /url: /projects
+        - link "Services" [ref=f55e16] [cursor=pointer]:
+          - /url: /services
+        - link "Contact" [ref=f55e17] [cursor=pointer]:
+          - /url: /contact
+      - link "Get In Touch" [ref=f55e19] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=f55e23]:
+    - generic [ref=f55e24]:
+      - generic [ref=f55e27]:
+        - generic [ref=f55e28]:
+          - generic [ref=f55e30]:
+            - generic [ref=f55e31]: ◆
+            - generic [ref=f55e32]: Full Stack Developer & Problem Solver
+          - heading "Hi, I'm Sayed Shahloob P" [level=1] [ref=f55e33]
+          - heading "Building Modern Web Experiences" [level=2] [ref=f55e34]
+          - paragraph [ref=f55e35]: I'm a passionate full-stack developer with a strong focus on building scalable, user-friendly, and high-performance web applications. I love turning ideas into real products with clean code and modern technologies.
+          - generic [ref=f55e36]:
+            - link "View My Projects" [ref=f55e37] [cursor=pointer]:
+              - /url: /projects
+            - link "Download CV" [ref=f55e41] [cursor=pointer]:
+              - /url: /sayed_shahloob_p_resume.pdf
+          - generic [ref=f55e47]:
+            - generic "React" [ref=f55e48]
+            - generic "Next.js" [ref=f55e52]
+            - generic "Node.js" [ref=f55e57]
+            - generic "MongoDB" [ref=f55e60]
+            - generic "Tailwind CSS" [ref=f55e63]
+            - generic "Git" [ref=f55e66]
+            - generic "PostgreSQL" [ref=f55e69]
+            - generic "TypeScript" [ref=f55e72]: TS
+        - generic [ref=f55e75]:
+          - img "Sayed Shahloob P" [ref=f55e79]
+          - generic [ref=f55e80]:
+            - generic [ref=f55e88]:
+              - generic [ref=f55e89]: 5+
+              - generic [ref=f55e90]: Projects Completed
+            - generic [ref=f55e96]:
+              - generic [ref=f55e97]: 1+
+              - generic [ref=f55e98]: Years Experience
+            - generic [ref=f55e104]:
+              - generic [ref=f55e105]: 100%
+              - generic [ref=f55e106]: Commitment
+          - generic:
+            - generic:
+              - generic: Code Build Improve
+              - generic: ↗
+      - generic [ref=f55e110]:
+        - generic [ref=f55e116]:
+          - heading "Clean Code" [level=3] [ref=f55e117]
+          - paragraph [ref=f55e118]: Write maintainable, scalable and efficient code.
+        - generic [ref=f55e126]:
+          - heading "Problem Solver" [level=3] [ref=f55e127]
+          - paragraph [ref=f55e128]: Find creative solutions to complex challenges.
+        - generic [ref=f55e133]:
+          - heading "Continuous Learner" [level=3] [ref=f55e134]
+          - paragraph [ref=f55e135]: Always exploring new technologies and trends.
+        - generic [ref=f55e143]:
+          - heading "Team Player" [level=3] [ref=f55e144]
+          - paragraph [ref=f55e145]: Collaborate and build better together.
+      - generic [ref=f55e147]:
+        - generic [ref=f55e149]:
+          - generic [ref=f55e150]:
+            - generic [ref=f55e151]:
+              - generic [ref=f55e152]: ◆
+              - generic [ref=f55e153]: FEATURED PROJECTS
+            - heading "My Latest Projects" [level=2] [ref=f55e154]
+            - paragraph [ref=f55e155]: Real-world projects built with modern technologies. Each project solves a specific problem and demonstrates my skills in full-stack development.
+          - link "View All Projects" [ref=f55e156] [cursor=pointer]:
+            - /url: /projects
+        - generic [ref=f55e160]:
+          - generic [ref=f55e162]:
+            - generic [ref=f55e163]:
+              - link "Hirush ERP — Enterprise Resource Planning ERP System Full Stack" [ref=f55e164] [cursor=pointer]:
+                - /url: /contact
+                - img "Hirush ERP — Enterprise Resource Planning" [ref=f55e165]
+                - generic [ref=f55e166]:
+                  - generic [ref=f55e167]: ERP System
+                  - generic [ref=f55e168]: Full Stack
+              - generic [ref=f55e169]:
+                - link [ref=f55e170] [cursor=pointer]:
+                  - /url: /contact
+                  - heading "Hirush ERP — Enterprise Resource Planning" [level=3] [ref=f55e171]
+                - paragraph [ref=f55e172]: Modular Enterprise Resource Planning system managing staff, automated multi-tier payroll, attendance, CRM pipelines, accounting ledgers, and multi-tenant RBAC governance.
+                - generic [ref=f55e173]:
+                  - generic [ref=f55e174]: Next.js 15
+                  - generic [ref=f55e175]: React
+                  - generic [ref=f55e176]: TypeScript
+                  - generic [ref=f55e177]: Node.js
+            - generic [ref=f55e178]:
+              - link "View Details" [ref=f55e179] [cursor=pointer]:
+                - /url: /contact
+              - link "Source Code" [ref=f55e183] [cursor=pointer]:
+                - /url: https://github.com/Sayed4281
+          - generic [ref=f55e189]:
+            - generic [ref=f55e190]:
+              - link "AI Website SEO Auditor SaaS AI SaaS Full Stack AI" [ref=f55e191] [cursor=pointer]:
+                - /url: /contact
+                - img "AI Website SEO Auditor SaaS" [ref=f55e192]
+                - generic [ref=f55e193]:
+                  - generic [ref=f55e194]: AI SaaS
+                  - generic [ref=f55e195]: Full Stack AI
+              - generic [ref=f55e196]:
+                - link [ref=f55e197] [cursor=pointer]:
+                  - /url: /contact
+                  - heading "AI Website SEO Auditor SaaS" [level=3] [ref=f55e198]
+                - paragraph [ref=f55e199]: Deterministic technical SEO auditing platform featuring real-time crawling, factual metric computations, SSRF protection, and grounded AI-generated executive remediation plans.
+                - generic [ref=f55e200]:
+                  - generic [ref=f55e201]: Next.js 14
+                  - generic [ref=f55e202]: TypeScript
+                  - generic [ref=f55e203]: Gemini AI
+                  - generic [ref=f55e204]: Tailwind CSS
+            - generic [ref=f55e205]:
+              - link "View Details" [ref=f55e206] [cursor=pointer]:
+                - /url: /contact
+              - link "Source Code" [ref=f55e210] [cursor=pointer]:
+                - /url: https://github.com/Sayed4281
+          - generic [ref=f55e216]:
+            - generic [ref=f55e217]:
+              - link "RTO FleetHub — Vehicle Documentation & Payment Management Fleet & RTO Enterprise System" [ref=f55e218] [cursor=pointer]:
+                - /url: /contact
+                - img "RTO FleetHub — Vehicle Documentation & Payment Management" [ref=f55e219]
+                - generic [ref=f55e220]:
+                  - generic [ref=f55e221]: Fleet & RTO
+                  - generic [ref=f55e222]: Enterprise System
+              - generic [ref=f55e223]:
+                - link [ref=f55e224] [cursor=pointer]:
+                  - /url: /contact
+                  - heading "RTO FleetHub — Vehicle Documentation & Payment Management" [level=3] [ref=f55e225]
+                - paragraph [ref=f55e226]: Specialized vehicle RTO compliance and payments platform tracking RC status, automated RTO tax deadlines, insurance renewals, permit verification, and payment ledgers.
+                - generic [ref=f55e227]:
+                  - generic [ref=f55e228]: React
+                  - generic [ref=f55e229]: TypeScript
+                  - generic [ref=f55e230]: Node.js
+                  - generic [ref=f55e231]: PostgreSQL
+            - generic [ref=f55e232]:
+              - link "View Details" [ref=f55e233] [cursor=pointer]:
+                - /url: /contact
+              - link "Source Code" [ref=f55e237] [cursor=pointer]:
+                - /url: https://github.com/Sayed4281
+      - generic [ref=f55e243]:
+        - generic [ref=f55e245]:
+          - generic [ref=f55e246]:
+            - generic [ref=f55e247]:
+              - generic [ref=f55e248]: ◆
+              - generic [ref=f55e249]: MY SERVICES
+            - heading "What I Offer" [level=2] [ref=f55e250]
+            - paragraph [ref=f55e251]: I provide end-to-end web development and digital solutions that help businesses grow and succeed online.
+          - link "Explore All Services" [ref=f55e252] [cursor=pointer]:
+            - /url: /services
+        - generic [ref=f55e256]:
+          - generic [ref=f55e258]:
+            - generic [ref=f55e259]:
+              - heading "Full Stack Web Development" [level=3] [ref=f55e264]
+              - paragraph [ref=f55e265]: Modern, scalable and high-performance web applications using React, Next.js, Node.js and more.
+            - link "Learn More" [ref=f55e267] [cursor=pointer]:
+              - /url: /services
+          - generic [ref=f55e272]:
+            - generic [ref=f55e273]:
+              - heading "ERP / HRMS Solutions" [level=3] [ref=f55e281]
+              - paragraph [ref=f55e282]: Custom ERP and HR management systems to streamline your business operations and workforce.
+            - link "Learn More" [ref=f55e284] [cursor=pointer]:
+              - /url: /services
+          - generic [ref=f55e289]:
+            - generic [ref=f55e290]:
+              - heading "SEO & Performance Optimization" [level=3] [ref=f55e295]
+              - paragraph [ref=f55e296]: Improve your website's visibility and performance with proven SEO strategies and technical optimization.
+            - link "Learn More" [ref=f55e298] [cursor=pointer]:
+              - /url: /services
+          - generic [ref=f55e303]:
+            - generic [ref=f55e304]:
+              - heading "UI/UX Design" [level=3] [ref=f55e309]
+              - paragraph [ref=f55e310]: Modern and user-friendly designs that provide great user experiences and boost engagement.
+            - link "Learn More" [ref=f55e312] [cursor=pointer]:
+              - /url: /services
+          - generic [ref=f55e317]:
+            - generic [ref=f55e318]:
+              - heading "Web Applications" [level=3] [ref=f55e323]
+              - paragraph [ref=f55e324]: Custom web applications tailored to your unique business requirements.
+            - link "Learn More" [ref=f55e326] [cursor=pointer]:
+              - /url: /services
+          - generic [ref=f55e331]:
+            - generic [ref=f55e332]:
+              - heading "AI & Automation" [level=3] [ref=f55e336]
+              - paragraph [ref=f55e337]: Leverage the power of AI and automation to save time, increase productivity and work smarter.
+            - link "Learn More" [ref=f55e339] [cursor=pointer]:
+              - /url: /services
+      - generic [ref=f55e346]:
+        - generic [ref=f55e354]:
+          - generic [ref=f55e355]: 5+
+          - generic [ref=f55e356]: Projects Completed
+        - generic [ref=f55e362]:
+          - generic [ref=f55e363]: 2+
+          - generic [ref=f55e364]: Years Experience
+        - generic [ref=f55e370]:
+          - generic [ref=f55e371]: 100%
+          - generic [ref=f55e372]: Client Satisfaction
+        - generic [ref=f55e377]:
+          - generic [ref=f55e378]: 24/7
+          - generic [ref=f55e379]: Support & Communication
+      - generic [ref=f55e383]:
+        - generic [ref=f55e384]:
+          - generic [ref=f55e385]:
+            - generic [ref=f55e386]: ◆
+            - generic [ref=f55e387]: LET'S WORK TOGETHER
+          - heading "Have a Project in Mind?" [level=2] [ref=f55e388]
+          - paragraph [ref=f55e389]: I'm always open to new opportunities, collaborations and interesting projects. Feel free to reach out!
+          - link "Get In Touch" [ref=f55e391] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f55e396]:
+          - generic:
+            - generic:
+              - generic: Let's Create Something Great!
+              - generic: ↗
+  - contentinfo [ref=f55e404]:
+    - generic [ref=f55e406]:
+      - generic [ref=f55e407]:
+        - link "Sayed" [ref=f55e408] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f55e415]: © 2026 Sayed. All rights reserved.
+      - generic [ref=f55e416]:
+        - navigation [ref=f55e417]:
+          - link "Home" [ref=f55e418] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=f55e419] [cursor=pointer]:
+            - /url: /about
+          - link "Projects" [ref=f55e420] [cursor=pointer]:
+            - /url: /projects
+          - link "Services" [ref=f55e421] [cursor=pointer]:
+            - /url: /services
+          - link "Contact" [ref=f55e422] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f55e423]:
+          - link "LinkedIn Profile" [ref=f55e424] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/er-sayed-shahloob-p/
+          - link "GitHub Profile" [ref=f55e429] [cursor=pointer]:
+            - /url: https://github.com/Sayed4281
+          - link "Twitter Profile" [ref=f55e433] [cursor=pointer]:
+            - /url: https://twitter.com
+          - link "Direct Email" [ref=f55e436] [cursor=pointer]:
+            - /url: mailto:sayedshahloobpofficial@gmail.com
+  - button "Toggle AI Virtual Assistant"

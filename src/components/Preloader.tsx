@@ -64,7 +64,7 @@ const Preloader = () => {
             >
               <div className="w-24 h-24 sm:w-28 sm:h-28 border-2 border-slate-200 rounded-full p-1.5 bg-white shadow-2xl shadow-blue-500/15 relative z-10 overflow-hidden">
                 <motion.img 
-                  src="/sayed.png"
+                  src="/IMG_0594.JPG.jpeg"
                   alt="Sayed Shahloob P"
                   initial={{ scale: 1.1, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}

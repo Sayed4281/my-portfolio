@@ -3,8 +3,9 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import AIChatBot from '@/components/AIChatBot';
+import BackToTop from '@/components/BackToTop';
 import Preloader from '@/components/Preloader';
-import CustomCursor from '@/components/CustomCursor';
+import ScrollProgressBar from '@/components/ScrollProgressBar';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sayedshahloob.me'),
@@ -32,25 +33,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-blue-500/20 selection:text-blue-700 font-sans antialiased overflow-x-hidden">
+      <body className="min-h-screen bg-white text-[#101B3C] font-sans antialiased overflow-x-hidden selection:bg-[#1677FF]/15 selection:text-[#1677FF]">
+        <ScrollProgressBar />
         <Preloader />
-        <CustomCursor />
         
-        {/* Ambient Ethereal Glow on Light Background */}
+        {/* Subtle Ethereal Ambient Glow */}
         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-1/3 w-[650px] h-[650px] bg-blue-500/[0.06] rounded-full blur-[140px] animate-glow" />
-          <div className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-cyan-400/[0.05] rounded-full blur-[130px] animate-glow animation-delay-2000" />
-          <div className="absolute inset-0 grid-pattern opacity-60" />
-          <div className="absolute inset-0 noise-overlay" />
+          <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-blue-500/[0.03] rounded-full blur-[140px]" />
+          <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-indigo-500/[0.03] rounded-full blur-[120px]" />
         </div>
 
         <Header />
 
-        <main className="relative z-10 bg-transparent min-h-screen">
+        <main className="relative z-10 min-h-screen">
           {children}
         </main>
 
         <Footer />
+        <BackToTop />
         <AIChatBot />
       </body>
     </html>

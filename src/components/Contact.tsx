@@ -70,8 +70,8 @@ const Contact = () => {
     {
       icon: MapPin,
       label: 'Location Base',
-      value: 'Malappuram, Kerala, India',
-      href: 'https://maps.google.com/?q=Malappuram,Kerala',
+      value: 'Perinthalmanna, Malappuram District, Kerala, India',
+      href: 'https://maps.google.com/?q=Perinthalmanna,Malappuram,Kerala',
       subtext: 'Open to Remote, Hybrid, & Relocation roles'
     }
   ];

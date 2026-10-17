@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sayed Portfolio — Light-Theme Redesign Showcase</title>
+  <style>
+    :root {
+      --bg: #F7FAFF;
+      --card-bg: #FFFFFF;
+      --border: #E4ECF7;
+      --text: #101B3C;
+      --subtext: #64748B;
+      --accent: #1677FF;
+      --purple: #6945FF;
+      --shadow: 0 10px 30px -4px rgba(22, 119, 255, 0.08);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 24px 80px;
+    }
+    header {
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+    header h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    header h1 span {
+      background: linear-gradient(110deg, #1677FF 0%, #6945FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header p {
+      color: var(--subtext);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 28px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #BFDBFE;
+      box-shadow: 0 16px 36px -4px rgba(22, 119, 255, 0.14);
+    }
+    .preview-box {
+      width: 100%;
+      height: 270px;
+      overflow: hidden;
+      background: #FAFAFA;
+      position: relative;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border);
+    }
+    .preview-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .preview-box img {
+      transform: scale(1.03);
+    }
+    .preview-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: 1px solid #BFDBFE;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
+    }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .card-route {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-family: monospace;
+      font-weight: 600;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--subtext);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .card-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(110deg, #1677FF 0%, #6945FF 100%);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 12px rgba(22, 119, 255, 0.3);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 6px 18px rgba(105, 69, 255, 0.4);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: #F7FAFF;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: #EFF6FF;
+      border-color: #BFDBFE;
+    }
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(16, 27, 60, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      max-width: 95vw;
+      max-height: 92vh;
+      overflow-y: auto;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .close-btn {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text);
+      border: 1px solid #CBD5E1;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .close-btn:hover {
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">◆ 100% Reference-Matched Redesign</div>
+    <h1>Sayed Portfolio — <span>Light-Theme Showcase</span></h1>
+    <p>High-resolution captures of all five pages redesigned to strictly match the approved SaaS references while preserving all real projects, experience, and functionality.</p>
+  </header>
+
+  <div class="grid">
+    <!-- Home -->
+    <div class="card">
+      <div class="preview-box" onclick="openModal('01_home_redesigned.png')">
+        <img src="01_home_redesigned.png" alt="Home Page">
+        <span class="preview-badge">Full Page</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">01. Home Page</h2>
+        <div class="card-route">/</div>
+        <p class="card-desc">Two-column Hero with Sayed's photograph, floating metric card, handwritten "Code Build Improve ↗" accent, tech stack bar, 4 strengths, latest projects, services preview, credibility panel, and paper plane collaboration CTA.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary" onclick="openModal('01_home_redesigned.png')">View Full Size</button>
+          <a class="btn btn-secondary" href="01_home_redesigned.png" download>Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="card">
+      <div class="preview-box" onclick="openModal('02_about_redesigned.png')">
+        <img src="02_about_redesigned.png" alt="About Page">
+        <span class="preview-badge">Full Page</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">02. About Page</h2>
+        <div class="card-route">/about</div>
+        <p class="card-desc">Hero with quick info pills and handwritten "Turning Ideas into Real Solutions ↗", personal story, Matt Mullenweg quote card, 15-pill tech stack, vertical career journey timeline, and education cards.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary" onclick="openModal('02_about_redesigned.png')">View Full Size</button>
+          <a class="btn btn-secondary" href="02_about_redesigned.png" download>Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="card">
+      <div class="preview-box" onclick="openModal('03_projects_redesigned.png')">
+        <img src="03_projects_redesigned.png" alt="Projects Page">
+        <span class="preview-badge">Full Page</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">03. Projects Showcase</h2>
+        <div class="card-route">/projects</div>
+        <p class="card-desc">Hero with metrics and laptop visual, interactive client-side category filters (All, Web Applications, ERP Systems, Mobile Apps, Others), project cards with real screenshots and tech badges, and in-depth case study modal.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary" onclick="openModal('03_projects_redesigned.png')">View Full Size</button>
+          <a class="btn btn-secondary" href="03_projects_redesigned.png" download>Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="card">
+      <div class="preview-box" onclick="openModal('04_services_redesigned.png')">
+        <img src="04_services_redesigned.png" alt="Services Page">
+        <span class="preview-badge">Full Page</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">04. Services Page</h2>
+        <div class="card-route">/services</div>
+        <p class="card-desc">Hero with 4 value indicators and modern dashboard visual, 6 core service cards with checkmark deliverables and interactive "Learn More" modal, "Why Work With Me" panel, and 5-step workflow process.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary" onclick="openModal('04_services_redesigned.png')">View Full Size</button>
+          <a class="btn btn-secondary" href="04_services_redesigned.png" download>Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="card">
+      <div class="preview-box" onclick="openModal('05_contact_redesigned.png')">
+        <img src="05_contact_redesigned.png" alt="Contact Page">
+        <span class="preview-badge">Full Page</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">05. Contact Page</h2>
+        <div class="card-route">/contact</div>
+        <p class="card-desc">Hero with 3 benefit badges and workspace visual, working contact form linked to /api/contact, direct contact channels (email, phone, location, availability), social hubs, and Malappuram location map card.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary" onclick="openModal('05_contact_redesigned.png')">View Full Size</button>
+          <a class="btn btn-secondary" href="05_contact_redesigned.png" download>Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Modal -->
+  <div class="modal" id="imageModal" onclick="closeModal(event)">
+    <button class="close-btn" onclick="closeModal(event)">&times;</button>
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <img id="modalImg" src="" alt="Full view">
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+
+    function openModal(src) {
+      modalImg.src = src;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(e) {
+      modal.classList.remove('active');
+      modalImg.src = '';
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

@@ -7,7 +7,6 @@ import {
   LineChart, 
   FolderKanban, 
   CheckCircle2,
-  Layers,
   ArrowRight
 } from 'lucide-react';
 import Link from 'next/link';
@@ -19,65 +18,52 @@ const WhatIDo = () => {
       title: 'Enterprise ERP & HRMS Solutions',
       icon: Boxes,
       badge: 'Core Specialization',
-      problem: 'Organizations face fragmented data, manual payroll errors, cumbersome attendance logging, and lack of role-based security across departments.',
-      solution: 'I architect, lead, and develop modular ERP systems that unify human resources, automated payroll computations, CRM pipelines, financial ledgers, and attendance into a single secure platform.',
+      description: 'Architecting modular corporate systems that unify employee records, automated payroll calculation, multi-branch attendance, and role-based access.',
       deliverables: [
-        'Modular HRMS with employee records & onboarding',
-        'Automated payroll calculation with deduction rules',
-        'Biometric & GPS geo-fenced attendance tracking',
-        'Multi-tenant Role-Based Access Control (RBAC)',
-        'CRM lead management & pipeline tracking',
-        'Executive financial reporting & audit trails'
+        'Automated Payroll & HRMS Engine',
+        'GPS & Biometric Attendance Tracking',
+        'Multi-Tenant Role-Based Access (RBAC)',
       ],
-      technologies: ['Next.js 15', 'TypeScript', 'Node.js', 'PostgreSQL', 'Prisma', 'JWT RBAC', 'Zustand']
+      technologies: ['Next.js 15', 'TypeScript', 'PostgreSQL', 'Prisma']
     },
     {
       id: 'web-engineering',
       title: 'Full-Stack Web Development',
       icon: Code2,
       badge: 'Modern Web Engineering',
-      problem: 'Slow, unscalable web apps with poor state management, brittle APIs, and low search engine indexability fail to convert visitors.',
-      solution: 'I engineer fast, responsive, and maintainable web applications using Next.js, React, TypeScript, and relational databases adhering to modern web standards.',
+      description: 'Engineering fast, responsive, and maintainable cloud applications with type-safe APIs, modern state management, and relational database schemas.',
       deliverables: [
-        'Server-Side Rendered (SSR) & Static Next.js architectures',
-        'Type-safe REST & GraphQL API integrations',
-        'Responsive, accessible, mobile-first design systems',
-        'Secure authentication & session governance',
-        'Core Web Vitals & technical SEO optimization'
+        'Server-Side Rendered (SSR) Next.js Systems',
+        'Type-Safe REST & GraphQL APIs',
+        'Responsive, Mobile-First Design Systems',
       ],
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'REST APIs']
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS']
     },
     {
       id: 'technical-seo',
       title: 'Technical SEO & Performance Engineering',
       icon: LineChart,
       badge: 'Search & Performance',
-      problem: 'Web platforms fail to achieve organic traction when site architecture has crawl errors, slow Core Web Vitals, or missing schema taxonomy.',
-      solution: 'I conduct in-depth technical audits, implement JSON-LD microdata, optimize Largest Contentful Paint (LCP) and CLS, and analyze Search Console indexing.',
+      description: 'Maximizing organic visibility through in-depth technical audits, rich JSON-LD structured schema markup, and sub-second Core Web Vitals optimization.',
       deliverables: [
-        'Technical SEO audits & crawl budget optimization',
-        'JSON-LD structured schema markup implementation',
-        'Core Web Vitals & Google PageSpeed enhancement',
-        'Search Console indexing & sitemap governance',
-        'Keyword performance & organic visibility analysis'
+        '98+ Google Lighthouse & Core Web Vitals',
+        'JSON-LD Structured Schema Microdata',
+        'Search Console & Crawl Budget Optimization',
       ],
-      technologies: ['Technical SEO', 'Schema JSON-LD', 'Core Web Vitals', 'Google Search Console', 'Lighthouse 98+']
+      technologies: ['Technical SEO', 'Schema JSON-LD', 'Core Web Vitals']
     },
     {
       id: 'project-leadership',
-      title: 'Technical Project Leadership & Coordination',
+      title: 'Technical Project Leadership & Delivery',
       icon: FolderKanban,
       badge: 'Sprint & Team Delivery',
-      problem: 'Engineering teams without technical direction experience scope creep, delayed sprints, uncoordinated tasks, and missed delivery deadlines.',
-      solution: 'I lead cross-functional development cycles, manage Jira backlogs, facilitate daily standups, review code, unblock developers, and guarantee milestone delivery.',
+      description: 'Leading engineering cycles through structured 2-week Agile sprints, architectural code reviews, daily unblocking, and guaranteed milestone delivery.',
       deliverables: [
-        'Agile / Scrum sprint planning & backlog grooming',
-        'Developer task allocation & daily blocker resolution',
-        'Code reviews for quality, security, and standards',
-        'Direct stakeholder communication & progress demos',
-        'Post-launch production support & rollout readiness'
+        'Agile / Scrum Sprint & Backlog Planning',
+        'Code Reviews, Security & Quality Standards',
+        'Direct Stakeholder Demos & Production Handover',
       ],
-      technologies: ['Agile / Scrum', 'Jira / Trello', 'Sprint Backlogs', 'Code Reviews', 'Stakeholder Demos']
+      technologies: ['Agile / Scrum', 'Jira Backlogs', 'Sprint Milestones']
     }
   ];
 
@@ -86,20 +72,20 @@ const WhatIDo = () => {
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14">
+        <div className="max-w-2xl mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-3">
             <span>Core Capabilities</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-black font-display text-slate-900 tracking-tight mb-3">
-            What I Deliver to Businesses & Clients
+            What I Deliver to Businesses &amp; Clients
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
-            From strategic business discovery to technical architecture and production deployment, here are the core services I provide.
+            From strategic technical discovery to modular architecture and production deployment.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        {/* Minimal Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -109,65 +95,57 @@ const WhatIDo = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="p-3.5 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 shadow-2xs">
-                      <Icon size={24} />
+                  {/* Card Header with Icon & Badge */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="p-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors shadow-2xs">
+                      <Icon size={22} />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 px-3 py-1 rounded-full bg-blue-50 border border-blue-200">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 px-3 py-1 rounded-full bg-blue-50/80 border border-blue-200/80">
                       {service.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 font-display">
+                  {/* Title */}
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5 font-display group-hover:text-blue-600 transition-colors">
                     {service.title}
                   </h3>
 
-                  <div className="space-y-3 mb-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    <p>
-                      <strong className="text-slate-900">The Problem:</strong> {service.problem}
-                    </p>
-                    <p>
-                      <strong className="text-slate-900">My Solution:</strong> {service.solution}
-                    </p>
-                  </div>
+                  {/* Concise Description */}
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
 
-                  <div className="mb-6">
-                    <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">
-                      Key Deliverables
-                    </h4>
-                    <div className="space-y-2">
-                      {service.deliverables.map((del, dIdx) => (
-                        <div key={dIdx} className="flex items-start gap-2.5 text-xs text-slate-700">
-                          <CheckCircle2 size={15} className="text-blue-600 shrink-0 mt-0.5" />
-                          <span>{del}</span>
-                        </div>
-                      ))}
-                    </div>
+                  {/* 3 Sharp Deliverables */}
+                  <div className="space-y-2.5 mb-6">
+                    {service.deliverables.map((del, dIdx) => (
+                      <div key={dIdx} className="flex items-center gap-2.5 text-xs text-slate-700 font-medium">
+                        <CheckCircle2 size={15} className="text-emerald-500 shrink-0" />
+                        <span>{del}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                <div>
-                  <div className="pt-4 border-t border-slate-100 mb-4">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-2">Technologies Involved</span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {service.technologies.map((t) => (
-                        <span key={t} className="text-[10px] font-semibold text-slate-700 px-2 py-0.5 rounded bg-slate-100 border border-slate-200">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                {/* Footer with Minimal Tech Chips & Inquiry Link */}
+                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex flex-wrap gap-1.5">
+                    {service.technologies.map((t) => (
+                      <span key={t} className="text-[10px] font-semibold text-slate-600 px-2.5 py-0.5 rounded-md bg-slate-100 border border-slate-200/80">
+                        {t}
+                      </span>
+                    ))}
                   </div>
 
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors group/link shrink-0"
                   >
-                    <span>Inquire about this service</span>
-                    <ArrowRight size={14} />
+                    <span>Inquire</span>
+                    <ArrowRight size={13} className="group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </motion.div>
@@ -181,3 +159,4 @@ const WhatIDo = () => {
 };
 
 export default WhatIDo;
+

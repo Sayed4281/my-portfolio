@@ -165,7 +165,7 @@ const DEFAULT_PROJECTS: GalleryProject[] = [
 
 export default function GalleryRing3D() {
   const [selectedProject, setSelectedProject] = useState<GalleryProject | null>(null);
-  const projects = DEFAULT_PROJECTS;
+  const projects = DEFAULT_PROJECTS.slice(0, 3);
 
   return (
     <section className="py-14 sm:py-20 bg-gradient-to-b from-white via-slate-50/50 to-white relative overflow-hidden">
