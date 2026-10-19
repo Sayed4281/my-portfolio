@@ -87,7 +87,7 @@ export default function ContactClientView() {
       {/* ============================================================== */}
       {/* 2. CONTACT FORM & DIRECT CONTACT (2 COLUMNS)                  */}
       {/* ============================================================== */}
-      <section className="py-16 sm:py-24 bg-[#F7FAFF] border-y border-[#E4ECF7]">
+      <section className="py-10 sm:py-14 lg:py-16 bg-[#F7FAFF] border-y border-[#E4ECF7]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             
@@ -390,7 +390,7 @@ export default function ContactClientView() {
       {/* ============================================================== */}
       {/* 3. LOCATION MAP & PROJECT CTA (2 COLUMNS)                     */}
       {/* ============================================================== */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-10 sm:py-14 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <div className="rounded-[1.75rem] border border-[#E4ECF7] overflow-hidden bg-white shadow-sm grid lg:grid-cols-12">
             

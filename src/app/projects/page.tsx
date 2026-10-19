@@ -18,9 +18,9 @@ export default function ProjectsPage() {
       {/* ============================================================== */}
       {/* 1. PROJECTS HERO SECTION matching reference                   */}
       {/* ============================================================== */}
-      <section className="relative pt-8 sm:pt-14 pb-12 sm:pb-20 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white">
+      <section className="relative pt-6 sm:pt-10 lg:pt-12 pb-8 sm:pb-12 lg:pb-14 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <ScrollReveal animation="fade-down" delay={0.05}>

@@ -39,11 +39,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-[#F7FAFF] to-white border-t border-[#E4ECF7] pt-14 sm:pt-16 pb-8">
+    <footer className="bg-gradient-to-b from-[#F7FAFF] to-white border-t border-[#E4ECF7] pt-10 sm:pt-12 pb-6">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         
         {/* Top 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 sm:pb-14 border-b border-[#E4ECF7]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-8 sm:pb-10 border-b border-[#E4ECF7]">
           
           {/* Column 1: Brand, Full Name, Role & Availability (5 Cols) */}
           <div className="lg:col-span-5 space-y-4">

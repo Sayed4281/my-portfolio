@@ -60,10 +60,10 @@ export default function ServicesClientView({ services }: ServicesClientViewProps
       {/* ============================================================== */}
       {/* 2. CORE SERVICES 6-CARD GRID                                   */}
       {/* ============================================================== */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-10 sm:py-14 lg:py-16 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <div className="mb-14">
+          <div className="mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] border border-blue-200 text-[#1677FF] text-xs font-bold tracking-wider uppercase mb-3">
               <span>◆</span>
               <span>What I Offer</span>

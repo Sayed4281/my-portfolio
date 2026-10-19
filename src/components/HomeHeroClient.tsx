@@ -111,13 +111,13 @@ export default function HomeHeroClient({ personal }: HomeHeroClientProps) {
   };
 
   return (
-    <section className="relative pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-14 lg:pb-16 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white flex items-center min-h-[calc(100vh-4.5rem)]">
+    <section className="relative pt-6 sm:pt-10 lg:pt-12 pb-8 sm:pb-12 lg:pb-14 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white flex items-center">
       {/* Decorative ambient blobs */}
       <div className="absolute top-0 right-1/4 w-[450px] h-[450px] bg-blue-500/[0.04] rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/3 left-10 w-[350px] h-[350px] bg-indigo-500/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 relative z-10 py-2 sm:py-3">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+      <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           {/* Left Column: Sequenced Narrative & Actions */}
           <motion.div
             variants={containerVariants}

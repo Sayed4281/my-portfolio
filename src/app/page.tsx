@@ -37,7 +37,7 @@ export default function HomePage() {
       {/* ============================================================== */}
       {/* 2. PROFESSIONAL STRENGTHS ROW                                  */}
       {/* ============================================================== */}
-      <section className="py-8 sm:py-12 bg-white border-y border-[#E4ECF7]/70">
+      <section className="py-6 sm:py-8 bg-white border-y border-[#E4ECF7]/70">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <ScrollReveal animation="fade-up" delay={0.1}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -70,11 +70,11 @@ export default function HomePage() {
       {/* ============================================================== */}
       {/* 3. FEATURED PROJECTS SECTION                                   */}
       {/* ============================================================== */}
-      <section className="py-16 sm:py-24 bg-[#F7FAFF]">
+      <section className="py-10 sm:py-14 lg:py-16 bg-[#F7FAFF]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <ScrollReveal animation="fade-up">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-blue-200 text-[#1677FF] text-xs font-bold tracking-wider uppercase mb-3 shadow-2xs">
                   <span>◆</span>
@@ -141,7 +141,7 @@ export default function HomePage() {
                       </p>
 
                       {/* Tech Badges */}
-                      <div className="flex flex-wrap gap-1.5 mb-6">
+                      <div className="flex flex-wrap gap-1.5 mb-4">
                         {project.technologies.slice(0, 4).map((tech) => (
                           <span
                             key={tech}
@@ -196,11 +196,11 @@ export default function HomePage() {
       {/* ============================================================== */}
       {/* 4. SERVICES PREVIEW (WHAT I OFFER)                             */}
       {/* ============================================================== */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-10 sm:py-14 lg:py-16 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <ScrollReveal animation="fade-up">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] border border-blue-200 text-[#1677FF] text-xs font-bold tracking-wider uppercase mb-3 shadow-2xs">
                   <span>◆</span>

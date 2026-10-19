@@ -29,9 +29,9 @@ export default function ServicesPage() {
       {/* ============================================================== */}
       {/* 1. SERVICES HERO SECTION                                       */}
       {/* ============================================================== */}
-      <section className="relative pt-8 sm:pt-14 pb-16 sm:pb-24 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white">
+      <section className="relative pt-6 sm:pt-10 lg:pt-12 pb-8 sm:pb-12 lg:pb-14 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <ScrollReveal animation="fade-down" delay={0.05}>
@@ -157,7 +157,7 @@ export default function ServicesPage() {
       {/* ============================================================== */}
       {/* 3. WHY WORK WITH ME? PANEL                                     */}
       {/* ============================================================== */}
-      <section className="py-14 bg-[#F7FAFF] border-y border-[#E4ECF7]">
+      <section className="py-10 sm:py-12 bg-[#F7FAFF] border-y border-[#E4ECF7]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <ScrollReveal animation="fade-up">
             <div className="grid lg:grid-cols-12 gap-8 items-center">
@@ -205,11 +205,11 @@ export default function ServicesPage() {
       {/* ============================================================== */}
       {/* 4. HOW I WORK (5-STEP PROCESS)                                 */}
       {/* ============================================================== */}
-      <section className="py-16 sm:py-24 bg-white relative">
+      <section className="py-10 sm:py-14 lg:py-16 bg-white relative">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           {/* Header */}
           <ScrollReveal animation="fade-up">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] border border-blue-200 text-[#1677FF] text-xs font-bold tracking-wider uppercase mb-3">
                   <span>◆</span>

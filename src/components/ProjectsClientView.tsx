@@ -38,7 +38,7 @@ export default function ProjectsClientView({ initialProjects }: ProjectsClientVi
       {/* ============================================================== */}
       {/* 2. PROJECT FILTERS BAR                                         */}
       {/* ============================================================== */}
-      <section className="py-6 sm:py-8 bg-white border-b border-[#E4ECF7]/60">
+      <section className="py-4 sm:py-6 bg-white border-b border-[#E4ECF7]/60">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <div className="flex items-center flex-wrap gap-2.5 sm:gap-3">
             {filterTabs.map((tab) => {
@@ -64,10 +64,10 @@ export default function ProjectsClientView({ initialProjects }: ProjectsClientVi
       {/* ============================================================== */}
       {/* 3. PROJECT GRID — DIRECT INQUIRY VIA CONTACT FORM              */}
       {/* ============================================================== */}
-      <section className="py-8 sm:py-16 bg-[#F7FAFF] min-h-[500px]">
+      <section className="py-8 sm:py-12 bg-[#F7FAFF]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           {filteredProjects.length === 0 ? (
-            <div className="text-center py-16 bg-white rounded-2xl border border-[#E4ECF7] p-8">
+            <div className="text-center py-10 bg-white rounded-2xl border border-[#E4ECF7] p-8">
               <Layers size={40} className="mx-auto text-slate-400 mb-3" />
               <h3 className="font-heading font-bold text-lg text-[#101B3C]">
                 No projects found in this category

@@ -20,14 +20,14 @@ export default function CollaborationCTA({
   buttonHref = "/contact",
 }: CollaborationCTAProps) {
   return (
-    <section className="py-12 sm:py-16 bg-white relative">
+    <section className="py-8 sm:py-12 bg-white relative">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-r from-[#EFF6FF] via-[#F5F9FF] to-[#EBF3FF] border border-[#DDE8F8] p-8 sm:p-12 lg:p-14 shadow-[0_10px_35px_-8px_rgba(22,119,255,0.08)]"
+          className="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-r from-[#EFF6FF] via-[#F5F9FF] to-[#EBF3FF] border border-[#DDE8F8] p-6 sm:p-10 lg:p-12 shadow-[0_10px_35px_-8px_rgba(22,119,255,0.08)]"
         >
           {/* Subtle Ambient Decorative Circles */}
           <div className="absolute -top-16 -right-16 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />

@@ -28,9 +28,9 @@ export default function AboutPage() {
       {/* ============================================================== */}
       {/* 1. ABOUT HERO SECTION                                          */}
       {/* ============================================================== */}
-      <section className="relative pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-14 lg:pb-16 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white flex items-center min-h-[calc(100vh-4.5rem)]">
-        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 relative z-10 py-2 sm:py-3">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+      <section className="relative pt-6 sm:pt-10 lg:pt-12 pb-8 sm:pb-12 lg:pb-14 overflow-hidden bg-gradient-to-b from-[#F7FAFF] via-white to-white flex items-center">
+        <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-left">
               <ScrollReveal animation="fade-down" delay={0.05}>
@@ -119,7 +119,7 @@ export default function AboutPage() {
       {/* ============================================================== */}
       {/* 2. MY STORY & STRENGTHS SECTION                                */}
       {/* ============================================================== */}
-      <section className="py-16 sm:py-20 bg-white border-y border-[#E4ECF7]">
+      <section className="py-10 sm:py-14 bg-white border-y border-[#E4ECF7]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <ScrollReveal animation="fade-up">
             <div className="mb-4">
@@ -134,7 +134,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           {/* Left Story from Left, Quote from Right (<=20px movement) */}
-          <div className="grid lg:grid-cols-12 gap-8 items-stretch mb-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-stretch mb-8 sm:mb-10">
             <div className="lg:col-span-7">
               <ScrollReveal animation="fade-right" delay={0.1}>
                 <div className="space-y-4 text-sm sm:text-base text-[#64748B] leading-relaxed pt-2">
@@ -196,10 +196,10 @@ export default function AboutPage() {
       {/* ============================================================== */}
       {/* 3. TECHNICAL SKILLS (Interactive Tabs Client View)             */}
       {/* ============================================================== */}
-      <section id="skills" className="py-16 sm:py-24 bg-[#F7FAFF]">
+      <section id="skills" className="py-10 sm:py-14 lg:py-16 bg-[#F7FAFF]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <ScrollReveal animation="fade-up">
-            <div className="text-left mb-8">
+            <div className="text-left mb-6 sm:mb-8">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-blue-200 text-[#1677FF] text-xs font-bold tracking-wider uppercase mb-3 shadow-2xs">
                 <span>◆</span>
                 <span>Technical Skills</span>
@@ -221,7 +221,7 @@ export default function AboutPage() {
       {/* ============================================================== */}
       {/* 4. PROFESSIONAL EXPERIENCE & EDUCATION                         */}
       {/* ============================================================== */}
-      <section id="experience" className="py-16 sm:py-24 bg-white border-t border-[#E4ECF7]">
+      <section id="experience" className="py-10 sm:py-14 lg:py-16 bg-white border-t border-[#E4ECF7]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
           <AboutTimelineClient workExperience={workExperience} education={education} />
         </div>
