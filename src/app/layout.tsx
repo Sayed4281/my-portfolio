@@ -3,7 +3,6 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import AIChatBot from '@/components/AIChatBot';
-import BackToTop from '@/components/BackToTop';
 import Preloader from '@/components/Preloader';
 import ScrollProgressBar from '@/components/ScrollProgressBar';
 
@@ -50,7 +49,6 @@ export default function RootLayout({
         </main>
 
         <Footer />
-        <BackToTop />
         <AIChatBot />
       </body>
     </html>
