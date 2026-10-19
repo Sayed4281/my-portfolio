@@ -187,13 +187,7 @@ export default function Footer() {
             © {currentYear} <span className="font-bold text-[#101B3C]">Sayed Shahloob P</span>. All rights reserved. Built with Next.js 14, TypeScript &amp; Tailwind CSS.
           </div>
 
-          <button
-            onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#E4ECF7] text-xs font-semibold text-[#101B3C] hover:text-[#1677FF] hover:border-blue-300 transition-all shadow-2xs group cursor-pointer"
-          >
-            <span>Back to top</span>
-            <ArrowUp size={12} className="group-hover:-translate-y-0.5 transition-transform text-[#1677FF]" />
-          </button>
+          
         </div>
 
       </div>

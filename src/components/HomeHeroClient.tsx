@@ -2,7 +2,18 @@
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Download, FolderGit2, Clock, ShieldCheck } from 'lucide-react';
+import { 
+  ArrowRight, 
+  Download, 
+  FolderGit2, 
+  Clock, 
+  ShieldCheck, 
+  Github, 
+  Linkedin, 
+  Instagram, 
+  Mail
+} from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface HomeHeroClientProps {
   personal: {
@@ -11,79 +22,49 @@ interface HomeHeroClientProps {
     bio: string;
     resumeUrl: string;
     photoUrl: string;
+    socials?: {
+      github?: string;
+      linkedin?: string;
+      instagram?: string;
+      whatsapp?: string;
+      email?: string;
+    };
   };
 }
 
 export default function HomeHeroClient({ personal }: HomeHeroClientProps) {
   const shouldReduceMotion = useReducedMotion();
 
-  const techLogos = [
+  const socialLinks = [
     {
-      name: 'React',
-      svg: (
-        <svg className="w-5 h-5" viewBox="0 0 115.3 100" fill="#0284C7">
-          <path d="M57.7 0C25.8 0 0 22.4 0 50s25.8 50 57.7 50 57.7-22.4 57.7-50S89.5 0 57.7 0zm0 88.5c-21.2 0-38.5-17.2-38.5-38.5S36.5 11.5 57.7 11.5 96.2 28.8 96.2 50 78.9 88.5 57.7 88.5z" />
-          <circle cx="57.7" cy="50" r="14" fill="#0284C7" />
-        </svg>
-      ),
+      name: 'LinkedIn',
+      href: personal.socials?.linkedin || 'https://www.linkedin.com/in/er-sayed-shahloob-p/',
+      icon: <Linkedin size={18} />,
+      hoverClass: 'hover:border-[#0A66C2] hover:text-[#0A66C2] hover:bg-[#0A66C2]/5',
     },
     {
-      name: 'Next.js',
-      svg: (
-        <svg className="w-5 h-5" viewBox="0 0 180 180" fill="none">
-          <circle cx="90" cy="90" r="90" fill="#000000" />
-          <path d="M149.508 157.08L69.142 54H54V125.842H66.697V68.796L139.73 162.774C143.123 161.047 146.393 159.138 149.508 157.08Z" fill="white" />
-          <path d="M115.258 54H127.955V107.083L115.258 90.963V54Z" fill="white" />
-        </svg>
-      ),
+      name: 'GitHub',
+      href: personal.socials?.github || 'https://github.com/Sayed4281',
+      icon: <Github size={18} />,
+      hoverClass: 'hover:border-[#101B3C] hover:text-[#101B3C] hover:bg-slate-50',
     },
     {
-      name: 'Node.js',
-      svg: (
-        <svg className="w-5 h-5" viewBox="0 0 256 289" fill="#16A34A">
-          <path d="M128 0L256 73.9V215.1L128 289L0 215.1V73.9L128 0Z" />
-        </svg>
-      ),
+      name: 'Instagram',
+      href: personal.socials?.instagram || 'https://www.instagram.com/_sayed_4281_?utm_source=qr&igsi=MTA2dW5nZDhyeHN1Yg==',
+      icon: <Instagram size={18} />,
+      hoverClass: 'hover:border-[#E4405F] hover:text-[#E4405F] hover:bg-[#E4405F]/5',
     },
     {
-      name: 'MongoDB',
-      svg: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#15803D">
-          <path d="M12 2C12 2 6 7 6 13C6 16.31 8.69 19 12 19C15.31 19 18 16.31 18 13C18 7 12 2 12 2Z" />
-        </svg>
-      ),
+      name: 'WhatsApp',
+      href: personal.socials?.whatsapp || 'https://wa.me/919567220971',
+      icon: <WhatsAppIcon size={18} className="transition-colors" />,
+      hoverClass: 'hover:border-[#25D366] hover:text-[#25D366] hover:bg-[#25D366]/5',
     },
     {
-      name: 'Tailwind CSS',
-      svg: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#06B6D4">
-          <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
-        </svg>
-      ),
-    },
-    {
-      name: 'Git',
-      svg: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#EA580C">
-          <path d="M2.59,10.59L10.59,2.59C11.37,1.81 12.63,1.81 13.41,2.59L21.41,10.59C22.19,11.37 22.19,12.63 21.41,13.41L13.41,21.41C12.63,22.19 11.37,22.19 10.59,21.41L2.59,13.41C1.81,12.63 1.81,11.37 2.59,10.59Z" />
-        </svg>
-      ),
-    },
-    {
-      name: 'PostgreSQL',
-      svg: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#2563EB">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-        </svg>
-      ),
-    },
-    {
-      name: 'TypeScript',
-      svg: (
-        <div className="w-5 h-5 rounded bg-[#3178C6] text-white font-bold text-[10px] flex items-center justify-center">
-          TS
-        </div>
-      ),
+      name: 'Email',
+      href: personal.socials?.email || 'mailto:sayedshahloobpofficial@gmail.com',
+      icon: <Mail size={18} />,
+      hoverClass: 'hover:border-[#1677FF] hover:text-[#1677FF] hover:bg-[#1677FF]/5',
     },
   ];
 
@@ -182,18 +163,21 @@ export default function HomeHeroClient({ personal }: HomeHeroClientProps) {
               </a>
             </motion.div>
 
-            {/* 6. Tech Stack Horizontal Row with Stagger & Tooltip */}
+            {/* 6. Social Media Accounts Horizontal Row with Stagger & Tooltip */}
             <motion.div variants={itemVariants} className="pt-2">
               <div className="flex items-center gap-2.5 flex-wrap">
-                {techLogos.map((tech) => (
-                  <div
-                    key={tech.name}
-                    title={tech.name}
-                    aria-label={tech.name}
-                    className="w-10 h-10 rounded-xl bg-white border border-[#E4ECF7] flex items-center justify-center shadow-xs hover:shadow-md hover:border-blue-300 hover:-translate-y-1 transition-all duration-200 cursor-default"
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={social.name}
+                    aria-label={social.name}
+                    className={`w-10 h-10 rounded-xl bg-white border border-[#E4ECF7] flex items-center justify-center shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-200 text-[#64748B] ${social.hoverClass}`}
                   >
-                    {tech.svg}
-                  </div>
+                    {social.icon}
+                  </a>
                 ))}
               </div>
             </motion.div>
