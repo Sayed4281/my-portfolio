@@ -1,0 +1,340 @@
+- generic [active] [ref=f17e1]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - img "Sayed Shahloob P"
+      - generic:
+        - generic: S
+        - generic: A
+        - generic: "Y"
+        - generic: E
+        - generic: D
+        - generic: S
+        - generic: H
+        - generic: A
+        - generic: H
+        - generic: L
+        - generic: O
+        - generic: O
+        - generic: B
+        - generic: P
+      - generic: Software Developer • Technical Lead • SEO Analyst
+  - banner [ref=f17e2]:
+    - generic [ref=f17e4]:
+      - link "S Sayed Shahloob P Available Software Developer · Technical Project Lead" [ref=f17e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f17e6]: S
+        - generic [ref=f17e10]:
+          - generic [ref=f17e11]:
+            - generic [ref=f17e12]: Sayed Shahloob P
+            - generic [ref=f17e13]: Available
+          - generic [ref=f17e15]: Software Developer · Technical Project Lead
+      - navigation [ref=f17e16]:
+        - link "Home" [ref=f17e17] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f17e22] [cursor=pointer]:
+          - /url: /about
+        - link "Projects" [ref=f17e28] [cursor=pointer]:
+          - /url: /projects
+        - link "Services" [ref=f17e34] [cursor=pointer]:
+          - /url: /services
+        - link "Contact" [ref=f17e39] [cursor=pointer]:
+          - /url: /contact
+      - link "Resume PDF" [ref=f17e45] [cursor=pointer]:
+        - /url: /Sayed_Shahloob_P_.pdf
+        - generic [ref=f17e49]: Resume
+        - generic [ref=f17e50]: PDF
+  - main [ref=f17e51]:
+    - generic [ref=f17e52]:
+      - generic [ref=f17e56]:
+        - generic [ref=f17e57]: Executive Profile & Background
+        - heading "Engineering Precision Meets Business Vision" [level=1] [ref=f17e62]
+        - paragraph [ref=f17e63]:
+          - text: I am
+          - strong [ref=f17e64]: Sayed Shahloob P
+          - text: — Software Developer, Technical Project Lead, and SEO Analyst. I specialize in architecting modular enterprise ERP systems, optimizing high-performance web systems, and coordinating high-velocity development teams.
+        - generic [ref=f17e65]:
+          - link "Download Executive CV" [ref=f17e66] [cursor=pointer]:
+            - /url: /Sayed_Shahloob_P_.pdf
+          - link "Explore Projects" [ref=f17e71] [cursor=pointer]:
+            - /url: /projects
+      - generic [ref=f17e75]:
+        - generic [ref=f17e77]:
+          - generic [ref=f17e79]:
+            - generic [ref=f17e80]: Career Journey & Milestones
+            - heading "Professional Experience" [level=2] [ref=f17e85]
+            - paragraph [ref=f17e86]: Proven track record in technical leadership, full-stack software development, sprint coordination, and enterprise ERP systems.
+          - generic [ref=f17e87]:
+            - generic [ref=f17e91]:
+              - generic [ref=f17e93]:
+                - generic [ref=f17e94]:
+                  - heading "Jr. Software Engineer" [level=3] [ref=f17e95]
+                  - generic [ref=f17e96]:
+                    - generic [ref=f17e97]: Hirush Global LLP
+                    - generic [ref=f17e103]: •
+                    - generic [ref=f17e104]: Malappuram, Kerala
+                - generic [ref=f17e109]:
+                  - generic [ref=f17e110]: Nov 2025 – Present
+                  - generic [ref=f17e114]: Full-time
+              - paragraph [ref=f17e115]: Leading and contributing to the technical planning, architecture, development, and implementation of Hirush ERP system modules. Coordinating sprint backlogs, leading code reviews, and managing stakeholder delivery.
+              - generic [ref=f17e116]:
+                - generic [ref=f17e117]: Key Deliverables & Achievements
+                - generic [ref=f17e118]:
+                  - generic [ref=f17e119]: "Architected & delivered core Hirush ERP modules: HRMS, automated payroll, CRM pipelines, attendance, and multi-tenant RBAC"
+                  - generic [ref=f17e124]: Managing dev team tasks, sprint backlogs, daily standups, and code quality audits
+                  - generic [ref=f17e129]: Bridging stakeholder business workflows with technical execution and UAT release sign-offs
+              - generic [ref=f17e134]:
+                - generic [ref=f17e135]: Technologies & Domain Expertise
+                - generic [ref=f17e136]:
+                  - generic [ref=f17e137]: Next.js
+                  - generic [ref=f17e138]: React
+                  - generic [ref=f17e139]: TypeScript
+                  - generic [ref=f17e140]: Node.js
+                  - generic [ref=f17e141]: PostgreSQL
+                  - generic [ref=f17e142]: Prisma
+                  - generic [ref=f17e143]: Sprint Leadership
+                  - generic [ref=f17e144]: RBAC Security
+            - generic [ref=f17e148]:
+              - generic [ref=f17e150]:
+                - generic [ref=f17e151]:
+                  - heading "Software Developer" [level=3] [ref=f17e152]
+                  - generic [ref=f17e153]:
+                    - generic [ref=f17e154]: Pro26 LLP
+                    - generic [ref=f17e160]: •
+                    - generic [ref=f17e161]: Remote
+                - generic [ref=f17e166]:
+                  - generic [ref=f17e167]: May 2025 – Present
+                  - generic [ref=f17e171]: Part-time
+              - paragraph [ref=f17e172]: Developing high-performance responsive web applications and cross-platform mobile apps with Flutter. Optimizing frontend state management, design systems, and backend API integration layers.
+              - generic [ref=f17e173]:
+                - generic [ref=f17e174]: Key Deliverables & Achievements
+                - generic [ref=f17e175]:
+                  - generic [ref=f17e176]: Engineered responsive, fluid component systems and cross-platform Flutter layouts
+                  - generic [ref=f17e181]: Integrated real-time Firebase backend services, authentication flows, and RESTful APIs
+              - generic [ref=f17e186]:
+                - generic [ref=f17e187]: Technologies & Domain Expertise
+                - generic [ref=f17e188]:
+                  - generic [ref=f17e189]: React.js
+                  - generic [ref=f17e190]: Flutter
+                  - generic [ref=f17e191]: TypeScript
+                  - generic [ref=f17e192]: Firebase
+                  - generic [ref=f17e193]: State Management
+                  - generic [ref=f17e194]: REST APIs
+            - generic [ref=f17e198]:
+              - generic [ref=f17e200]:
+                - generic [ref=f17e201]:
+                  - heading "SEO Analyst" [level=3] [ref=f17e202]
+                  - generic [ref=f17e203]:
+                    - generic [ref=f17e204]: Hirush Global LLP
+                    - generic [ref=f17e210]: •
+                    - generic [ref=f17e211]: Malappuram, Kerala
+                - generic [ref=f17e216]:
+                  - generic [ref=f17e217]: Feb 2025 – Nov 2025
+                  - generic [ref=f17e221]: Full-time / Strategy
+              - paragraph [ref=f17e222]: Executed technical SEO audits, search engine indexability strategies, structured JSON-LD schema markup, keyword architecture, and Core Web Vitals optimization.
+              - generic [ref=f17e223]:
+                - generic [ref=f17e224]: Key Deliverables & Achievements
+                - generic [ref=f17e225]:
+                  - generic [ref=f17e226]: Boosted organic search indexability and Core Web Vitals scores across production web systems
+                  - generic [ref=f17e231]: Engineered rich JSON-LD microdata schemas and optimized sub-second Largest Contentful Paint (LCP)
+              - generic [ref=f17e236]:
+                - generic [ref=f17e237]: Technologies & Domain Expertise
+                - generic [ref=f17e238]:
+                  - generic [ref=f17e239]: Technical SEO
+                  - generic [ref=f17e240]: Schema JSON-LD
+                  - generic [ref=f17e241]: Google Search Console
+                  - generic [ref=f17e242]: Core Web Vitals
+                  - generic [ref=f17e243]: Lighthouse 98+
+            - generic [ref=f17e247]:
+              - generic [ref=f17e249]:
+                - generic [ref=f17e250]:
+                  - heading "Application Manager" [level=3] [ref=f17e251]
+                  - generic [ref=f17e252]:
+                    - generic [ref=f17e253]: Eduthalim International Educational Consultancy
+                    - generic [ref=f17e259]: •
+                    - generic [ref=f17e260]: Manjeri, Kerala
+                - generic [ref=f17e265]:
+                  - generic [ref=f17e266]: Aug 2025 – Oct 2025
+                  - generic [ref=f17e270]: Contract / Full-time
+              - paragraph [ref=f17e271]: Supervised software application deployments, performed functional requirements gathering, and bridged communication between engineering teams and operational stakeholders.
+              - generic [ref=f17e272]:
+                - generic [ref=f17e273]: Key Deliverables & Achievements
+                - generic [ref=f17e274]:
+                  - generic [ref=f17e275]: Managed application deployment schedules, stakeholder feedback, and change requests
+                  - generic [ref=f17e280]: Facilitated User Acceptance Testing (UAT) sessions and system readiness checks before go-live
+              - generic [ref=f17e285]:
+                - generic [ref=f17e286]: Technologies & Domain Expertise
+                - generic [ref=f17e287]:
+                  - generic [ref=f17e288]: Application Management
+                  - generic [ref=f17e289]: Requirements Gathering
+                  - generic [ref=f17e290]: Stakeholder Coordination
+                  - generic [ref=f17e291]: UAT Testing
+        - generic [ref=f17e293]:
+          - generic [ref=f17e294]:
+            - generic [ref=f17e295]: Academic Foundation, Research & Qualifications
+            - heading "Education, Research & Qualifications" [level=2] [ref=f17e300]
+            - paragraph [ref=f17e301]: Formal Computer Science Engineering education grounding full-stack systems in algorithmic rigor, system architecture, database theory, and peer-reviewed IoT/AI research.
+          - generic [ref=f17e302]:
+            - generic [ref=f17e303]:
+              - generic [ref=f17e305]:
+                - generic [ref=f17e311]:
+                  - text: "8.08"
+                  - generic [ref=f17e312]: CGPA
+                - generic [ref=f17e313]:
+                  - generic [ref=f17e314]: B.Tech Degree
+                  - generic [ref=f17e315]: Distinction
+                - heading "Computer Science & Engineering" [level=3] [ref=f17e316]
+                - paragraph [ref=f17e317]: MEA Engineering College · KTU University
+                - generic [ref=f17e318]:
+                  - generic [ref=f17e319]: Core Foundations
+                  - generic [ref=f17e320]: Data Structures & Algorithms
+                  - generic [ref=f17e325]: Database Systems & Architecture
+                  - generic [ref=f17e330]: Software Engineering & UAT
+                  - generic [ref=f17e335]: Computer Networks & Protocols
+              - generic [ref=f17e340]:
+                - generic [ref=f17e341]: APJ Abdul Kalam Tech Univ
+                - generic [ref=f17e342]: Graduated
+            - generic [ref=f17e343]:
+              - generic [ref=f17e345]:
+                - generic [ref=f17e346]: ICETI4T 2025
+                - generic [ref=f17e352]:
+                  - generic [ref=f17e353]: Conference Paper
+                  - generic [ref=f17e354]: Peer-Reviewed
+                - 'heading "NeuVitX: AI Health Telemetry" [level=3] [ref=f17e355]'
+                - paragraph [ref=f17e356]: Emerging Trends in Industry 4.0 Technologies
+                - paragraph [ref=f17e357]: Co-engineered an IoT biometric sensor architecture with machine learning algorithms for real-time vitals anomaly detection and emergency telemetry.
+                - generic [ref=f17e358]:
+                  - generic [ref=f17e359]: Key Contributions
+                  - generic [ref=f17e360]: Biometric Sensor Array Integration
+                  - generic [ref=f17e365]: ML Vitals Anomaly Detection Model
+                  - generic [ref=f17e370]: Real-Time Flutter Telemetry Sync
+                - generic [ref=f17e375]:
+                  - generic [ref=f17e376]: IoT Biometrics
+                  - generic [ref=f17e377]: Python & ML
+                  - generic [ref=f17e378]: Flutter Mobile
+                  - generic [ref=f17e379]: Real-time Telemetry
+              - generic [ref=f17e380]:
+                - generic [ref=f17e381]: ICETI4T Proceedings
+                - generic [ref=f17e382]: Published
+            - generic [ref=f17e383]:
+              - generic [ref=f17e385]:
+                - generic [ref=f17e386]: 5 Homes Built
+                - generic [ref=f17e394]:
+                  - generic [ref=f17e395]: Community Leadership
+                  - generic [ref=f17e396]: Social Impact
+                - heading "National Service Scheme (NSS)" [level=3] [ref=f17e397]
+                - paragraph [ref=f17e398]: Dream House Project Coordinator
+                - paragraph [ref=f17e399]: Coordinated volunteer teams, material logistics, contractor workflows, and community stakeholders for the construction and successful handover of 5 residential houses.
+                - generic [ref=f17e400]:
+                  - generic [ref=f17e401]: Leadership Scope
+                  - generic [ref=f17e402]: 5 Residential Homes Delivered
+                  - generic [ref=f17e407]: Volunteer Logistics & Allocation
+                  - generic [ref=f17e412]: Community Stakeholder Handover
+              - generic [ref=f17e417]:
+                - generic [ref=f17e418]: NSS Chapter Lead
+                - generic [ref=f17e419]: Completed
+        - generic [ref=f17e421]:
+          - generic [ref=f17e423]:
+            - generic [ref=f17e424]: Cross-Functional Operations
+            - heading "Leadership & Management" [level=2] [ref=f17e425]
+            - paragraph [ref=f17e426]: Combining technical depth with operational management—driving team productivity, client alignment, and project execution.
+          - generic [ref=f17e427]:
+            - generic [ref=f17e430]:
+              - heading "Dev Team Management" [level=3] [ref=f17e436]
+              - paragraph [ref=f17e437]: Supervising frontend and backend developers, facilitating daily standups, removing technical blockers, and code reviews.
+            - generic [ref=f17e440]:
+              - heading "SEO Team Coordination" [level=3] [ref=f17e446]
+              - paragraph [ref=f17e447]: Orchestrating technical SEO audits, site architecture optimizations, schema markup strategy, and performance metrics tracking.
+            - generic [ref=f17e450]:
+              - heading "Client Communication & Proposals" [level=3] [ref=f17e455]
+              - paragraph [ref=f17e456]: Conducting discovery calls, gathering client needs, presenting technical strategies, and drafting comprehensive project proposals.
+            - generic [ref=f17e459]:
+              - heading "Quotations & Commercial Estimates" [level=3] [ref=f17e464]
+              - paragraph [ref=f17e465]: Estimating development effort, creating structured cost breakups, defining milestone deliverables, and budget negotiations.
+            - generic [ref=f17e468]:
+              - heading "Work Allocation & Monitoring" [level=3] [ref=f17e473]
+              - paragraph [ref=f17e474]: Assigning Jira/Trello tasks, monitoring velocity and sprint progress, ensuring quality compliance before UAT releases.
+            - generic [ref=f17e477]:
+              - heading "Cross-Department Bridge" [level=3] [ref=f17e483]
+              - paragraph [ref=f17e484]: Serving as the single point of contact bridging executive leadership, external clients, and internal development teams.
+        - generic [ref=f17e486]:
+          - generic [ref=f17e488]:
+            - generic [ref=f17e489]: Execution Methodology
+            - heading "How I Work" [level=2] [ref=f17e490]
+            - paragraph [ref=f17e491]: A structured 4-phase methodology connecting business discovery to software delivery.
+          - generic [ref=f17e492]:
+            - generic [ref=f17e495]:
+              - generic [ref=f17e496]: "01"
+              - heading "Discovery & Requirements" [level=3] [ref=f17e501]
+              - paragraph [ref=f17e502]: Understand business goals, map stakeholder processes, identify operational bottlenecks, and document functional requirements.
+            - generic [ref=f17e505]:
+              - generic [ref=f17e506]: "02"
+              - heading "Planning & Architecture" [level=3] [ref=f17e513]
+              - paragraph [ref=f17e514]: Formulate system architecture, database schemas, RBAC permission models, sprint milestones, and development timelines.
+            - generic [ref=f17e517]:
+              - generic [ref=f17e518]: "03"
+              - heading "Development & QA" [level=3] [ref=f17e524]
+              - paragraph [ref=f17e525]: Lead sprint execution, engineer full-stack features, conduct code reviews, and perform user acceptance testing (UAT).
+            - generic [ref=f17e528]:
+              - generic [ref=f17e529]: "04"
+              - heading "Deployment & Review" [level=3] [ref=f17e537]
+              - paragraph [ref=f17e538]: Oversee production rollout, conduct stakeholder walkthroughs, ensure operational readiness, and deliver ongoing maintenance.
+        - generic [ref=f17e543]:
+          - generic [ref=f17e544]: Open for Technical Leadership Roles & Enterprise Consulting
+          - heading "Ready to Build Something Exceptional Together?" [level=2] [ref=f17e548]
+          - paragraph [ref=f17e549]: Whether you need a dedicated Technical Project Lead to drive your engineering roadmap or an experienced software developer to architect your next enterprise ERP/web system, let's start the conversation.
+          - link "Initiate Discussion" [ref=f17e551] [cursor=pointer]:
+            - /url: /contact
+  - contentinfo [ref=f17e555]:
+    - generic [ref=f17e556]:
+      - generic [ref=f17e557]:
+        - generic [ref=f17e558]:
+          - heading "SAYED SHAHLOOB P." [level=3] [ref=f17e559]
+          - paragraph [ref=f17e560]: Software Developer, Technical Project Lead, and SEO Analyst bridging engineering excellence with scalable software delivery.
+          - generic [ref=f17e561]:
+            - generic [ref=f17e562]: Connect & Follow
+            - generic [ref=f17e563]:
+              - link "GitHub" [ref=f17e564] [cursor=pointer]:
+                - /url: https://github.com/Sayed4281
+              - link "LinkedIn" [ref=f17e568] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/er-sayed-shahloob-p/
+              - link "Instagram" [ref=f17e573] [cursor=pointer]:
+                - /url: https://www.instagram.com/_sayed_4281_?utm_source=qr&igsi=MTA2dW5nZDhyeHN1Yg==
+              - link "WhatsApp" [ref=f17e577] [cursor=pointer]:
+                - /url: https://wa.me/919567220971
+              - link "Email" [ref=f17e580] [cursor=pointer]:
+                - /url: mailto:sayedshahloobpofficial@gmail.com
+        - generic [ref=f17e584]:
+          - heading "Navigation" [level=4] [ref=f17e585]
+          - generic [ref=f17e586]:
+            - link "Home" [ref=f17e587] [cursor=pointer]:
+              - /url: /
+            - link "About" [ref=f17e588] [cursor=pointer]:
+              - /url: /about
+            - link "Projects" [ref=f17e589] [cursor=pointer]:
+              - /url: /projects
+            - link "Services" [ref=f17e590] [cursor=pointer]:
+              - /url: /services
+            - link "Contact" [ref=f17e591] [cursor=pointer]:
+              - /url: /contact
+            - link "Career Timeline" [ref=f17e592] [cursor=pointer]:
+              - /url: /about#experience
+            - link "How I Work" [ref=f17e593] [cursor=pointer]:
+              - /url: /about#how-i-work
+            - link "Technologies" [ref=f17e594] [cursor=pointer]:
+              - /url: /services#technologies
+        - generic [ref=f17e595]:
+          - heading "Direct Contact" [level=4] [ref=f17e596]
+          - generic [ref=f17e597]:
+            - link "✉️ sayedshahloobpofficial@gmail.com" [ref=f17e598] [cursor=pointer]:
+              - /url: mailto:sayedshahloobpofficial@gmail.com
+            - link "📞 +91 9567220971" [ref=f17e599] [cursor=pointer]:
+              - /url: tel:+919567220971
+            - paragraph [ref=f17e600]: 📍 Angadipuram, Malappuram, Kerala, India
+      - generic [ref=f17e601]:
+        - generic [ref=f17e602]:
+          - generic [ref=f17e603]: Crafted with
+          - generic [ref=f17e607]: by Sayed Shahloob P · © 2026
+        - button "Back to top" [ref=f17e608] [cursor=pointer]
+  - button "Toggle AI Virtual Assistant"

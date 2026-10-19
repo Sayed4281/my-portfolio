@@ -1,0 +1,346 @@
+- generic [active] [ref=f8e1]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - img "Sayed Shahloob P"
+      - generic:
+        - generic: S
+        - generic: A
+        - generic: "Y"
+        - generic: E
+        - generic: D
+        - generic: S
+        - generic: H
+        - generic: A
+        - generic: H
+        - generic: L
+        - generic: O
+        - generic: O
+        - generic: B
+        - generic: P
+      - generic: Software Developer • Technical Lead • SEO Analyst
+  - banner [ref=f8e2]:
+    - generic [ref=f8e4]:
+      - link "S Sayed Shahloob P Available Software Developer · Technical Project Lead" [ref=f8e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f8e6]: S
+        - generic [ref=f8e10]:
+          - generic [ref=f8e11]:
+            - generic [ref=f8e12]: Sayed Shahloob P
+            - generic [ref=f8e13]: Available
+          - generic [ref=f8e15]: Software Developer · Technical Project Lead
+      - navigation [ref=f8e16]:
+        - link "Home" [ref=f8e17] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f8e23] [cursor=pointer]:
+          - /url: /about
+        - link "Projects" [ref=f8e28] [cursor=pointer]:
+          - /url: /projects
+        - link "Services" [ref=f8e34] [cursor=pointer]:
+          - /url: /services
+        - link "Contact" [ref=f8e39] [cursor=pointer]:
+          - /url: /contact
+      - link "Resume PDF" [ref=f8e45] [cursor=pointer]:
+        - /url: /Sayed_Shahloob_P_.pdf
+        - generic [ref=f8e49]: Resume
+        - generic [ref=f8e50]: PDF
+  - main [ref=f8e51]:
+    - generic [ref=f8e52]:
+      - generic [ref=f8e54]:
+        - generic [ref=f8e55]:
+          - generic [ref=f8e56]:
+            - generic [ref=f8e57]: Tech Lead • Software Developer • SEO Analyst
+            - heading "Sayed Shahloob P" [level=1] [ref=f8e62]
+            - paragraph [ref=f8e63]: I bridge business requirements and technology by managing software projects, analyzing workflows, coordinating development teams, and contributing to full-stack enterprise applications.
+            - paragraph [ref=f8e64]: Building and delivering business-driven software solutions across ERP, HRMS, web applications, and enterprise systems.
+            - generic [ref=f8e65]:
+              - link "View Projects" [ref=f8e66] [cursor=pointer]:
+                - /url: /projects
+              - link "Download CV" [ref=f8e70] [cursor=pointer]:
+                - /url: /Sayed_Shahloob_P_.pdf
+              - link "Contact Me" [ref=f8e74] [cursor=pointer]:
+                - /url: /contact
+            - generic [ref=f8e77]:
+              - generic [ref=f8e78]: "Connect:"
+              - generic [ref=f8e79]:
+                - link "GitHub" [ref=f8e80] [cursor=pointer]:
+                  - /url: https://github.com/Sayed4281
+                - link "LinkedIn" [ref=f8e84] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/in/er-sayed-shahloob-p/
+                - link "Instagram" [ref=f8e89] [cursor=pointer]:
+                  - /url: https://www.instagram.com/_sayed_4281_?utm_source=qr&igsi=MTA2dW5nZDhyeHN1Yg==
+                - link "WhatsApp" [ref=f8e93] [cursor=pointer]:
+                  - /url: https://wa.me/919567220971
+                - link "Email" [ref=f8e96] [cursor=pointer]:
+                  - /url: mailto:sayedshahloobpofficial@gmail.com
+          - img "Sayed Shahloob P" [ref=f8e103]
+        - generic: Scroll
+      - generic [ref=f8e107]:
+        - generic [ref=f8e108]:
+          - generic [ref=f8e110]: Active Tech Lead
+          - generic [ref=f8e120]:
+            - generic [ref=f8e121]:
+              - generic [ref=f8e122]: "0"
+              - generic [ref=f8e123]: +
+            - heading "Years Experience" [level=4] [ref=f8e124]
+            - paragraph [ref=f8e125]: Leading ERP & full-stack development
+        - generic [ref=f8e126]:
+          - generic [ref=f8e128]: Production Systems
+          - generic [ref=f8e138]:
+            - generic [ref=f8e139]:
+              - generic [ref=f8e140]: "0"
+              - generic [ref=f8e141]: +
+            - heading "Projects Delivered" [level=4] [ref=f8e142]
+            - paragraph [ref=f8e143]: Enterprise ERP, SaaS & web portals
+        - generic [ref=f8e144]:
+          - generic [ref=f8e146]: Distinction · KTU
+          - generic [ref=f8e156]:
+            - generic [ref=f8e157]: "0.00"
+            - heading "B.Tech CSE CGPA" [level=4] [ref=f8e159]
+            - paragraph [ref=f8e160]: MEA Engineering College · Research author
+        - generic [ref=f8e161]:
+          - generic [ref=f8e163]: SLA Guaranteed
+          - generic [ref=f8e173]:
+            - generic [ref=f8e174]:
+              - generic [ref=f8e175]: "0"
+              - generic [ref=f8e176]: "%"
+            - heading "Delivery Focus" [level=4] [ref=f8e177]
+            - paragraph [ref=f8e178]: Milestone execution & clean architecture
+      - generic [ref=f8e180]:
+        - generic [ref=f8e181]:
+          - generic [ref=f8e182]:
+            - generic [ref=f8e183]: Featured Systems & Engineering Deliverables
+            - heading "Key Engineering & Enterprise Platforms" [level=2] [ref=f8e189]
+            - paragraph [ref=f8e190]: Explore flagship enterprise ERP, automated payroll engines, hospitality portals, and real-time systems. Click any card to inspect full technical specifications.
+          - link "Explore All 15+ Verified Systems" [ref=f8e191] [cursor=pointer]:
+            - /url: /projects
+        - generic [ref=f8e195]:
+          - generic [ref=f8e196] [cursor=pointer]:
+            - generic [ref=f8e197]:
+              - img "Hirush ERP — Enterprise Resource Planning" [ref=f8e198]
+              - generic [ref=f8e200]:
+                - generic [ref=f8e201]: Multi-Tenant
+                - generic [ref=f8e207]: Role-Based RBAC
+            - generic [ref=f8e212]:
+              - generic [ref=f8e213]:
+                - generic [ref=f8e214]:
+                  - generic [ref=f8e215]: Enterprise Architecture
+                  - generic [ref=f8e216]: Flagship Platform
+                - heading "Hirush ERP — Enterprise Resource Planning" [level=3] [ref=f8e217]
+                - paragraph [ref=f8e218]: Modular multi-tenant corporate platform centralizing HRMS, automated payroll, CRM pipelines, financial ledger tracking, and Role-Based Access Control.
+                - generic [ref=f8e219]:
+                  - generic [ref=f8e220]: Next.js 15
+                  - generic [ref=f8e221]: TypeScript
+                  - generic [ref=f8e222]: Node.js
+                  - generic [ref=f8e223]: PostgreSQL
+                  - generic [ref=f8e224]: "+2"
+              - generic [ref=f8e225]: View Specifications & Architecture
+          - generic [ref=f8e229] [cursor=pointer]:
+            - generic [ref=f8e230]:
+              - img "Enterprise HRMS & Automated Payroll Engine" [ref=f8e231]
+              - generic [ref=f8e233]:
+                - generic [ref=f8e234]: 100% Automated
+                - generic [ref=f8e240]: GPS Geofencing
+            - generic [ref=f8e245]:
+              - generic [ref=f8e246]:
+                - generic [ref=f8e247]:
+                  - generic [ref=f8e248]: Workforce Operations
+                  - generic [ref=f8e249]: Payroll Engine
+                - heading "Enterprise HRMS & Automated Payroll Engine" [level=3] [ref=f8e250]
+                - paragraph [ref=f8e251]: Full-lifecycle workforce management suite featuring automated salary compilation, dynamic deduction formulas, leave approval pipelines, and GPS attendance sync.
+                - generic [ref=f8e252]:
+                  - generic [ref=f8e253]: Next.js
+                  - generic [ref=f8e254]: TypeScript
+                  - generic [ref=f8e255]: Node.js
+                  - generic [ref=f8e256]: PostgreSQL
+                  - generic [ref=f8e257]: "+2"
+              - generic [ref=f8e258]: View Specifications & Architecture
+          - generic [ref=f8e262] [cursor=pointer]:
+            - generic [ref=f8e263]:
+              - img "HMS — Hotel & Resort Booking Management Suite" [ref=f8e264]
+              - generic [ref=f8e266]:
+                - generic [ref=f8e267]: Live Room Matrix
+                - generic [ref=f8e273]: Zero Double-Booking
+            - generic [ref=f8e278]:
+              - generic [ref=f8e279]:
+                - generic [ref=f8e280]:
+                  - generic [ref=f8e281]: Hospitality Operations
+                  - generic [ref=f8e282]: Hospitality System
+                - heading "HMS — Hotel & Resort Booking Management Suite" [level=3] [ref=f8e283]
+                - paragraph [ref=f8e284]: Enterprise hospitality portal with interactive room availability calendar, guest KYC gathering, multi-tier staff permissions, and automated GST invoice PDF generation.
+                - generic [ref=f8e285]:
+                  - generic [ref=f8e286]: Next.js
+                  - generic [ref=f8e287]: React
+                  - generic [ref=f8e288]: TypeScript
+                  - generic [ref=f8e289]: PostgreSQL
+                  - generic [ref=f8e290]: "+2"
+              - generic [ref=f8e291]: View Specifications & Architecture
+      - generic [ref=f8e296]:
+        - generic [ref=f8e297]:
+          - generic [ref=f8e298]:
+            - generic [ref=f8e299]: Core Capabilities & Value
+            - heading "Engineered for Enterprise Impact" [level=2] [ref=f8e304]
+            - paragraph [ref=f8e305]: Strategic technical capabilities delivering reliable architecture, streamlined processes, and production-grade software.
+          - link "6-Step Delivery Process & Specs" [ref=f8e306] [cursor=pointer]:
+            - /url: /services
+        - generic [ref=f8e310]:
+          - generic [ref=f8e311]:
+            - generic [ref=f8e313]:
+              - generic [ref=f8e314]: Enterprise Architecture
+              - heading "Enterprise ERP / HRMS" [level=3] [ref=f8e327]
+              - paragraph [ref=f8e328]: End-to-end planning, development, and deployment of modular ERP systems covering HRMS, payroll, attendance, CRM, finance, and role-based security.
+              - generic [ref=f8e329]:
+                - generic [ref=f8e330]: Payroll Engines
+                - generic [ref=f8e333]: Multi-Tenant RBAC
+                - generic [ref=f8e336]: Biometric / GPS Sync
+            - link "View deliverables" [ref=f8e339] [cursor=pointer]:
+              - /url: /services
+          - generic [ref=f8e343]:
+            - generic [ref=f8e345]:
+              - generic [ref=f8e346]: Web Engineering
+              - heading "Full-Stack Web Apps" [level=3] [ref=f8e353]
+              - paragraph [ref=f8e354]: Responsive, accessible, production-grade applications using Next.js 15, TypeScript, Node.js, and relational databases engineered for speed.
+              - generic [ref=f8e355]:
+                - generic [ref=f8e356]: Next.js SSR / SSG
+                - generic [ref=f8e359]: RESTful Endpoints
+                - generic [ref=f8e362]: Core Web Vitals
+            - link "View deliverables" [ref=f8e365] [cursor=pointer]:
+              - /url: /services
+          - generic [ref=f8e369]:
+            - generic [ref=f8e371]:
+              - generic [ref=f8e372]: Search & Speed
+              - heading "Technical SEO & Analytics" [level=3] [ref=f8e378]
+              - paragraph [ref=f8e379]: Technical site audits, Core Web Vitals optimization, JSON-LD schema markup, search indexability, and Google Search Console performance tracking.
+              - generic [ref=f8e380]:
+                - generic [ref=f8e381]: Core Web Vitals
+                - generic [ref=f8e384]: Schema JSON-LD
+                - generic [ref=f8e387]: Search Console Audits
+            - link "View deliverables" [ref=f8e390] [cursor=pointer]:
+              - /url: /services
+          - generic [ref=f8e394]:
+            - generic [ref=f8e396]:
+              - generic [ref=f8e397]: Sprint Governance
+              - heading "Technical Project Lead" [level=3] [ref=f8e402]
+              - paragraph [ref=f8e403]: Leading developer sprint cycles, backlog grooming, milestone tracking, code reviews, and serving as the direct bridge between clients and engineering.
+              - generic [ref=f8e404]:
+                - generic [ref=f8e405]: Agile Backlogs
+                - generic [ref=f8e408]: Milestone Demos
+                - generic [ref=f8e411]: Code Reviews
+            - link "View deliverables" [ref=f8e414] [cursor=pointer]:
+              - /url: /services
+      - generic [ref=f8e419]:
+        - generic [ref=f8e420]:
+          - generic [ref=f8e421]: Career & Academic Foundations
+          - heading "Professional Leadership & Academic Excellence" [level=2] [ref=f8e425]
+          - paragraph [ref=f8e426]: Combining active enterprise software leadership with formal computer science scholarship and published research.
+        - generic [ref=f8e427]:
+          - generic [ref=f8e428]:
+            - generic [ref=f8e430]:
+              - generic [ref=f8e431]:
+                - generic [ref=f8e432]: Current Active Role
+                - generic [ref=f8e435]: Nov 2025 – Present
+              - heading "Jr. Software Engineer" [level=3] [ref=f8e436]
+              - paragraph [ref=f8e437]: Hirush Global LLP · Malappuram, Kerala
+              - paragraph [ref=f8e438]: Spearheading architectural design and module implementation for enterprise ERP products (HRMS, CRM, Finance, Payroll, and Attendance). Coordinating dev sprint backlogs, running UAT cycles, and translating corporate client objectives into scalable technical releases.
+              - generic [ref=f8e439]:
+                - generic [ref=f8e444]:
+                  - strong [ref=f8e445]: "Enterprise Architecture:"
+                  - text: Modular Next.js 15, PostgreSQL & RBAC security
+                - generic [ref=f8e450]:
+                  - strong [ref=f8e451]: "Sprint Governance:"
+                  - text: Agile backlog grooming, sprint cadence & team code reviews
+                - generic [ref=f8e456]:
+                  - strong [ref=f8e457]: "Client Discovery:"
+                  - text: Technical SRS roadmaps & stakeholder UAT sign-offs
+              - generic [ref=f8e458]:
+                - generic [ref=f8e459]: Sprint Leadership
+                - generic [ref=f8e460]: ERP Architecture
+                - generic [ref=f8e461]: Code Review
+                - generic [ref=f8e462]: Stakeholder UAT
+                - generic [ref=f8e463]: Next.js 15
+                - generic [ref=f8e464]: PostgreSQL
+            - generic [ref=f8e465]:
+              - generic [ref=f8e466]: Full employment history on About profile
+              - link "Explore Career Timeline" [ref=f8e467] [cursor=pointer]:
+                - /url: /about#experience
+          - generic [ref=f8e471]:
+            - generic [ref=f8e473]:
+              - generic [ref=f8e474]:
+                - generic [ref=f8e475]: Academic & Research Honors
+                - generic [ref=f8e480]: 2021 – 2025
+              - heading "B.Tech in Computer Science & Engineering" [level=3] [ref=f8e481]
+              - paragraph [ref=f8e482]: "MEA Engineering College · KTU (CGPA: 8.08 / Distinction)"
+              - paragraph [ref=f8e483]: Distinction graduate in Computer Science. Strong foundational mastery in algorithms, distributed systems, relational schema design, and production software lifecycle.
+              - generic [ref=f8e484]:
+                - generic [ref=f8e485]: ICETI4T 2025 International Conference Publication
+                - paragraph [ref=f8e490]: Co-authored & presented peer-reviewed research on AI-driven health telemetry and biometric anomaly detection. Integrated IoT sensor arrays with cross-platform mobile diagnostics workflows.
+              - generic [ref=f8e491]:
+                - generic [ref=f8e492]: Algorithms
+                - generic [ref=f8e493]: Data Structures
+                - generic [ref=f8e494]: Database Systems
+                - generic [ref=f8e495]: AI Telemetry
+                - generic [ref=f8e496]: Conference Paper
+                - generic [ref=f8e497]: Distinction
+            - generic [ref=f8e498]:
+              - generic [ref=f8e499]: Read research papers & honors
+              - link "View Academic Details" [ref=f8e500] [cursor=pointer]:
+                - /url: /about#education
+      - generic [ref=f8e508]:
+        - generic [ref=f8e509]: Open for Technical Leadership Roles & Enterprise Consulting
+        - heading "Ready to Build Something Exceptional Together?" [level=2] [ref=f8e513]
+        - paragraph [ref=f8e514]: Whether you need a dedicated Technical Project Lead to drive your engineering roadmap or an experienced software developer to architect your next enterprise ERP/web system, let's start the conversation.
+        - link "Initiate Discussion" [ref=f8e516] [cursor=pointer]:
+          - /url: /contact
+  - contentinfo [ref=f8e520]:
+    - generic [ref=f8e521]:
+      - generic [ref=f8e522]:
+        - generic [ref=f8e523]:
+          - heading "SAYED SHAHLOOB P." [level=3] [ref=f8e524]
+          - paragraph [ref=f8e525]: Software Developer, Technical Project Lead, and SEO Analyst bridging engineering excellence with scalable software delivery.
+          - generic [ref=f8e526]:
+            - generic [ref=f8e527]: Connect & Follow
+            - generic [ref=f8e528]:
+              - link "GitHub" [ref=f8e529] [cursor=pointer]:
+                - /url: https://github.com/Sayed4281
+              - link "LinkedIn" [ref=f8e533] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/er-sayed-shahloob-p/
+              - link "Instagram" [ref=f8e538] [cursor=pointer]:
+                - /url: https://www.instagram.com/_sayed_4281_?utm_source=qr&igsi=MTA2dW5nZDhyeHN1Yg==
+              - link "WhatsApp" [ref=f8e542] [cursor=pointer]:
+                - /url: https://wa.me/919567220971
+              - link "Email" [ref=f8e545] [cursor=pointer]:
+                - /url: mailto:sayedshahloobpofficial@gmail.com
+        - generic [ref=f8e549]:
+          - heading "Navigation" [level=4] [ref=f8e550]
+          - generic [ref=f8e551]:
+            - link "Home" [ref=f8e552] [cursor=pointer]:
+              - /url: /
+            - link "About" [ref=f8e553] [cursor=pointer]:
+              - /url: /about
+            - link "Projects" [ref=f8e554] [cursor=pointer]:
+              - /url: /projects
+            - link "Services" [ref=f8e555] [cursor=pointer]:
+              - /url: /services
+            - link "Contact" [ref=f8e556] [cursor=pointer]:
+              - /url: /contact
+            - link "Career Timeline" [ref=f8e557] [cursor=pointer]:
+              - /url: /about#experience
+            - link "How I Work" [ref=f8e558] [cursor=pointer]:
+              - /url: /about#how-i-work
+            - link "Technologies" [ref=f8e559] [cursor=pointer]:
+              - /url: /services#technologies
+        - generic [ref=f8e560]:
+          - heading "Direct Contact" [level=4] [ref=f8e561]
+          - generic [ref=f8e562]:
+            - link "✉️ sayedshahloobpofficial@gmail.com" [ref=f8e563] [cursor=pointer]:
+              - /url: mailto:sayedshahloobpofficial@gmail.com
+            - link "📞 +91 9567220971" [ref=f8e564] [cursor=pointer]:
+              - /url: tel:+919567220971
+            - paragraph [ref=f8e565]: 📍 Angadipuram, Malappuram, Kerala, India
+      - generic [ref=f8e566]:
+        - generic [ref=f8e567]:
+          - generic [ref=f8e568]: Crafted with
+          - generic [ref=f8e572]: by Sayed Shahloob P · © 2026
+        - button "Back to top" [ref=f8e573] [cursor=pointer]
+  - button "Toggle AI Virtual Assistant"

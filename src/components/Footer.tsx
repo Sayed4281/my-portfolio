@@ -1,171 +1,202 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { 
+  Linkedin, 
+  Github, 
+  Mail, 
+  MapPin, 
+  Phone, 
+  ArrowUp, 
+  ArrowRight,
+  MessageCircle
+} from 'lucide-react';
+import BrandLogo from './BrandLogo';
+import { PORTFOLIO_DATA } from '@/data/portfolioData';
 
-import { Heart, ArrowUp, Github, Linkedin, Instagram, Mail } from 'lucide-react';
-import { WhatsAppIcon } from './WhatsAppIcon';
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+  const { personal } = PORTFOLIO_DATA;
 
-const Footer = () => {
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'About Me', href: '/about' },
+    { name: 'Featured Projects', href: '/projects' },
+    { name: 'Services & Solutions', href: '/services' },
+    { name: 'Contact & Hire', href: '/contact' },
+  ];
 
-    const socialLinks = [
-        { name: "GitHub", icon: Github, href: "https://github.com/Sayed4281" },
-        { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/er-sayed-shahloob-p/" },
-        { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/_sayed_4281_?utm_source=qr&igsi=MTA2dW5nZDhyeHN1Yg==" },
-        { name: "WhatsApp", icon: WhatsAppIcon, href: "https://wa.me/919567220971" },
-        { name: "Email", icon: Mail, href: "mailto:sayedshahloobpofficial@gmail.com" }
-    ];
+  const servicesList = [
+    'Enterprise ERP Systems',
+    'Full-Stack Web Applications',
+    'Technical SEO & Audits',
+    'Google Business Optimization',
+    'Database & Cloud Engineering',
+  ];
 
-    return (
-        <footer className="bg-[#0B1220] border-t border-[#263449] relative overflow-hidden">
-            {/* Subtle ambient background glow */}
-            <div className="absolute inset-0 pointer-events-none opacity-40">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-blue-600/[0.05] rounded-full blur-[100px]" />
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <footer className="bg-gradient-to-b from-[#F7FAFF] to-white border-t border-[#E4ECF7] pt-10 sm:pt-12 pb-6">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+        
+        {/* Top 4-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-8 sm:pb-10 border-b border-[#E4ECF7]">
+          
+          {/* Column 1: Brand, Full Name, Role & Availability (5 Cols) */}
+          <div className="lg:col-span-5 space-y-4">
+            <BrandLogo />
+            
+            <p className="text-sm text-[#64748B] leading-relaxed max-w-sm font-normal">
+              Full-Stack Software Developer, Technical Project Lead, and SEO Analyst engineering scalable enterprise systems, modern web apps, and high-performance digital experiences.
+            </p>
+
+            <div className="space-y-2 pt-1">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#101B3C]">
+                <MapPin size={14} className="text-[#1677FF] shrink-0" />
+                <span>{personal.location}</span>
+              </div>
+
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-semibold text-emerald-700">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Available for freelance &amp; full-time opportunities</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 2: Navigation Links (2 Cols) */}
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="font-heading font-bold text-sm text-[#101B3C] tracking-wide uppercase">
+              Navigation
+            </h4>
+            <ul className="space-y-2.5">
+              {navLinks.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-xs sm:text-sm text-[#64748B] hover:text-[#1677FF] transition-colors inline-flex items-center gap-1.5 group font-medium"
+                  >
+                    <ArrowRight size={12} className="text-slate-300 group-hover:text-[#1677FF] group-hover:translate-x-0.5 transition-all" />
+                    <span>{item.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Services & Stack (2 Cols) */}
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="font-heading font-bold text-sm text-[#101B3C] tracking-wide uppercase">
+              Expertise
+            </h4>
+            <ul className="space-y-2.5">
+              {servicesList.map((service) => (
+                <li key={service} className="text-xs sm:text-sm text-[#64748B] flex items-center gap-1.5 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
+                  <span>{service}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Direct Contact & Socials (3 Cols) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="font-heading font-bold text-sm text-[#101B3C] tracking-wide uppercase">
+              Get In Touch
+            </h4>
+            
+            <div className="space-y-2.5">
+              <a
+                href={`mailto:${personal.email}`}
+                className="flex items-center gap-2.5 text-xs sm:text-sm text-[#64748B] hover:text-[#1677FF] transition-colors group"
+              >
+                <div className="w-7 h-7 rounded-lg bg-[#EFF6FF] border border-blue-200/60 flex items-center justify-center text-[#1677FF] shrink-0 group-hover:bg-[#1677FF] group-hover:text-white transition-all">
+                  <Mail size={13} />
+                </div>
+                <span className="truncate">{personal.email}</span>
+              </a>
+
+              <a
+                href={`tel:${personal.phone}`}
+                className="flex items-center gap-2.5 text-xs sm:text-sm text-[#64748B] hover:text-[#1677FF] transition-colors group"
+              >
+                <div className="w-7 h-7 rounded-lg bg-[#EFF6FF] border border-blue-200/60 flex items-center justify-center text-[#1677FF] shrink-0 group-hover:bg-[#1677FF] group-hover:text-white transition-all">
+                  <Phone size={13} />
+                </div>
+                <span>{personal.phone}</span>
+              </a>
             </div>
 
-            <div className="container mx-auto px-4 sm:px-6 py-12 relative z-10 max-w-7xl">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
-                    
-                    {/* Brand Overview */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="md:col-span-6 lg:col-span-5"
-                    >
-                        <h3 className="text-xl font-black text-white mb-3 font-display tracking-tight">
-                            SAYED SHAHLOOB P<span className="text-cyan-400">.</span>
-                        </h3>
-                        <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed mb-6 max-w-md">
-                            Software Developer, Technical Project Lead, and Business Analyst bridging client requirements with scalable enterprise software delivery.
-                        </p>
+            {/* Social Icons */}
+            <div className="pt-2">
+              <div className="text-xs font-semibold text-[#101B3C] mb-2.5">Connect Online</div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <a
+                  href={personal.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
+                  className="w-9 h-9 rounded-xl bg-white border border-[#E4ECF7] flex items-center justify-center text-[#64748B] hover:text-[#1677FF] hover:border-blue-400 hover:shadow-xs transition-all"
+                >
+                  <Linkedin size={16} />
+                </a>
 
-                        {/* Social Links Row */}
-                        <div>
-                            <span className="text-[10px] font-black uppercase tracking-widest text-cyan-400 block mb-3">
-                                Connect & Follow
-                            </span>
-                            <div className="flex gap-2.5 flex-wrap">
-                                {socialLinks.map((social, i) => (
-                                    <a
-                                        key={i}
-                                        href={social.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        title={social.name}
-                                        className="p-2.5 bg-[#172033] border border-[#263449] rounded-xl text-[#94A3B8] hover:text-cyan-300 hover:border-blue-500/40 transition-all group min-h-[44px] min-w-[44px] flex items-center justify-center"
-                                    >
-                                        <social.icon size={18} className="group-hover:scale-110 transition-transform" />
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    </motion.div>
+                <a
+                  href={personal.socials.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  title="GitHub"
+                  className="w-9 h-9 rounded-xl bg-white border border-[#E4ECF7] flex items-center justify-center text-[#64748B] hover:text-[#101B3C] hover:border-slate-400 hover:shadow-xs transition-all"
+                >
+                  <Github size={16} />
+                </a>
 
-                    {/* Quick Navigation Links */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.15 }}
-                        className="md:col-span-3 lg:col-span-3"
-                    >
-                        <h4 className="text-cyan-400 text-xs uppercase tracking-[0.2em] font-black mb-4">
-                            Navigation
-                        </h4>
-                        <div className="grid grid-cols-2 gap-2 text-xs">
-                            {[
-                                { label: 'Home', href: '#home' },
-                                { label: 'About', href: '#about' },
-                                { label: 'What I Do', href: '#what-i-do' },
-                                { label: 'How I Work', href: '#how-i-work' },
-                                { label: 'Projects', href: '#projects' },
-                                { label: 'Experience', href: '#experience' },
-                                { label: 'Skills', href: '#skills' },
-                                { label: 'Leadership', href: '#leadership' },
-                                { label: 'Contact', href: '#contact' },
-                            ].map((link) => (
-                                <a
-                                    key={link.label}
-                                    href={link.href}
-                                    className="text-[#94A3B8] hover:text-cyan-300 transition-colors py-1 block"
-                                >
-                                    {link.label}
-                                </a>
-                            ))}
-                        </div>
-                    </motion.div>
+                <a
+                  href={personal.socials.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  title="WhatsApp"
+                  className="w-9 h-9 rounded-xl bg-white border border-[#E4ECF7] flex items-center justify-center text-[#64748B] hover:text-emerald-600 hover:border-emerald-400 hover:shadow-xs transition-all"
+                >
+                  <MessageCircle size={16} />
+                </a>
 
-                    {/* Direct Contact Info */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="md:col-span-3 lg:col-span-4"
-                    >
-                        <h4 className="text-cyan-400 text-xs uppercase tracking-[0.2em] font-black mb-4">
-                            Direct Contact
-                        </h4>
-                        <div className="space-y-2 text-xs">
-                            <a
-                                href="mailto:sayedshahloobpofficial@gmail.com"
-                                className="block text-[#94A3B8] hover:text-white transition-colors truncate"
-                            >
-                                ✉️ sayedshahloobpofficial@gmail.com
-                            </a>
-                            <a
-                                href="tel:+919567220971"
-                                className="block text-[#94A3B8] hover:text-white transition-colors"
-                            >
-                                📞 +91 9567220971
-                            </a>
-                            <p className="text-[#94A3B8] pt-1">
-                                📍 Angadipuram, Malappuram, Kerala, India
-                            </p>
-                        </div>
-                    </motion.div>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="border-t border-[#263449] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div className="flex items-center text-[#94A3B8] text-xs">
-                        <span>Crafted with</span>
-                        <motion.div
-                            animate={{ scale: [1, 1.25, 1] }}
-                            transition={{ duration: 1.8, repeat: Infinity }}
-                            className="mx-1.5"
-                        >
-                            <Heart className="text-cyan-400 fill-cyan-400/20" size={13} />
-                        </motion.div>
-                        <span>by</span>
-                        <span className="ml-1.5 text-white font-bold">
-                            Sayed Shahloob P
-                        </span>
-                    </div>
-
-                    <div className="flex items-center gap-4">
-                        <span className="text-[#94A3B8] text-xs">
-                            © 2026 All rights reserved.
-                        </span>
-
-                        <motion.button
-                            onClick={scrollToTop}
-                            whileHover={{ y: -3 }}
-                            whileTap={{ scale: 0.9 }}
-                            aria-label="Scroll back to top"
-                            className="w-10 h-10 bg-[#172033] border border-[#263449] rounded-xl flex items-center justify-center text-cyan-300 hover:text-white hover:border-blue-400 transition-all min-h-[40px] min-w-[40px]"
-                        >
-                            <ArrowUp size={16} />
-                        </motion.button>
-                    </div>
-                </div>
+                <a
+                  href={personal.socials.email}
+                  aria-label="Email"
+                  title="Direct Email"
+                  className="w-9 h-9 rounded-xl bg-white border border-[#E4ECF7] flex items-center justify-center text-[#64748B] hover:text-[#1677FF] hover:border-blue-400 hover:shadow-xs transition-all"
+                >
+                  <Mail size={16} />
+                </a>
+              </div>
             </div>
-        </footer>
-    );
-};
+          </div>
+        </div>
 
-export default Footer;
+        {/* Bottom Bar: Full Name Copyright & Quick Back to Top */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="text-xs text-[#64748B]">
+            © {currentYear} <span className="font-bold text-[#101B3C]">Sayed Shahloob P</span>. All rights reserved. Built with Next.js 14, TypeScript &amp; Tailwind CSS.
+          </div>
+
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#E4ECF7] text-xs font-semibold text-[#101B3C] hover:text-[#1677FF] hover:border-blue-300 transition-all shadow-2xs group cursor-pointer"
+          >
+            <span>Back to top</span>
+            <ArrowUp size={12} className="group-hover:-translate-y-0.5 transition-transform text-[#1677FF]" />
+          </button>
+        </div>
+
+      </div>
+    </footer>
+  );
+}

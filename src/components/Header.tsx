@@ -1,464 +1,157 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Home,
-  User,
-  Briefcase,
-  Workflow,
-  Layers,
-  Clock,
-  Sparkles,
-  Users,
-  Mail,
-  Download,
-  Menu,
-  X,
-  ChevronRight,
-  ChevronDown,
-  Github,
-  Linkedin,
-  MessageSquare
-} from 'lucide-react';
-import { WhatsAppIcon } from './WhatsAppIcon';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
-const Header = () => {
+export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMoreOpen, setIsMoreOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const moreDropdownRef = useRef<HTMLDivElement>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-  // Primary navigation displayed on compact desktop (lg)
-  const primaryNavItems = [
-    { name: 'Home', href: '#home', id: 'home', icon: Home },
-    { name: 'About', href: '#about', id: 'about', icon: User },
-    { name: 'What I Do', href: '#what-i-do', id: 'what-i-do', icon: Briefcase },
-    { name: 'Projects', href: '#projects', id: 'projects', icon: Layers },
-    { name: 'Experience', href: '#experience', id: 'experience', icon: Clock },
-    { name: 'Skills', href: '#skills', id: 'skills', icon: Sparkles },
-    { name: 'Contact', href: '#contact', id: 'contact', icon: Mail },
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Services', href: '/services' },
+    { name: 'Contact', href: '/contact' },
   ];
 
-  // Secondary items tucked into "More" on lg, shown inline on xl+
-  const secondaryNavItems = [
-    { name: 'How I Work', href: '#how-i-work', id: 'how-i-work', icon: Workflow, desc: 'Agile execution & delivery lifecycle' },
-    { name: 'Leadership', href: '#leadership', id: 'leadership', icon: Users, desc: 'Team leadership & business analysis' },
-  ];
-
-  // Complete list for wide screens & mobile menu
-  const allNavItems = [
-    { name: 'Home', href: '#home', id: 'home', icon: Home },
-    { name: 'About', href: '#about', id: 'about', icon: User },
-    { name: 'What I Do', href: '#what-i-do', id: 'what-i-do', icon: Briefcase },
-    { name: 'How I Work', href: '#how-i-work', id: 'how-i-work', icon: Workflow },
-    { name: 'Projects', href: '#projects', id: 'projects', icon: Layers },
-    { name: 'Experience', href: '#experience', id: 'experience', icon: Clock },
-    { name: 'Skills', href: '#skills', id: 'skills', icon: Sparkles },
-    { name: 'Leadership', href: '#leadership', id: 'leadership', icon: Users },
-    { name: 'Contact', href: '#contact', id: 'contact', icon: Mail },
-  ];
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname === href || pathname.startsWith(href + '/');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setIsScrolled(scrollY > 20);
-
-      // Scroll progress
-      const winScroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-      setScrollProgress(scrolled);
-
-      // Section spy
-      const sections = allNavItems.map(item => document.getElementById(item.id));
-      const scrollPosition = scrollY + 160;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(allNavItems[i].id);
-          break;
-        }
-      }
+      setIsScrolled(window.scrollY > 20);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdown on outside click
+  // Close mobile menu on route change
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (moreDropdownRef.current && !moreDropdownRef.current.contains(event.target as Node)) {
-        setIsMoreOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
-  // Lock body scroll when mobile menu is open
+  // Prevent background scroll when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
+    if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isMobileMenuOpen]);
-
-  const isSecondaryActive = secondaryNavItems.some(item => item.id === activeSection);
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
 
   return (
-    <>
-      {/* Floating Island Header */}
-      <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8 pt-3 sm:pt-4 pointer-events-none"
-      >
-        <div
-          className={`max-w-[1440px] mx-auto pointer-events-auto relative transition-all duration-300 rounded-2xl lg:rounded-full ${
-            isScrolled
-              ? 'bg-[#0B1220]/85 backdrop-blur-2xl border border-white/[0.12] shadow-[0_12px_40px_rgba(0,0,0,0.65)] py-2 sm:py-2.5 px-3.5 sm:px-5 lg:px-6'
-              : 'bg-[#0B1220]/55 backdrop-blur-xl border border-white/[0.07] shadow-[0_8px_32px_rgba(0,0,0,0.25)] py-3 sm:py-3.5 px-3.5 sm:px-5 lg:px-6'
-          }`}
-        >
-          {/* Subtle specular top highlight */}
-          <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/25 to-transparent pointer-events-none" />
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/90 backdrop-blur-md shadow-[0_4px_20px_rgba(16,27,60,0.06)] border-b border-[#E4ECF7]'
+          : 'bg-white/70 backdrop-blur-sm border-b border-[#E4ECF7]/60'
+      }`}
+    >
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 h-[72px] sm:h-[80px] flex items-center justify-between">
+        {/* Left: Brand Logo */}
+        <BrandLogo />
 
-          {/* Integrated laser progress bar at bottom */}
-          <div className="absolute bottom-0 left-6 right-6 h-[1.5px] overflow-hidden rounded-full pointer-events-none opacity-80">
-            <div
-              className="h-full bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-400 transition-all duration-150 shadow-[0_0_10px_rgba(56,189,248,0.7)]"
-              style={{ width: `${scrollProgress}%` }}
-            />
-          </div>
-
-          <div className="flex items-center justify-between gap-3 sm:gap-4">
-            
-            {/* Brand Logo & Monogram */}
-            <motion.a
-              href="#home"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {/* Monogram Icon */}
-              <div className="relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 rounded-xl blur-[3px] opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0d1629] border border-white/10 group-hover:border-cyan-400/50 flex items-center justify-center font-display font-black text-white text-base tracking-wider shadow-inner transition-colors">
-                  <span className="bg-gradient-to-br from-white via-cyan-200 to-blue-400 bg-clip-text text-transparent">
-                    S
-                  </span>
-                  {/* Glowing availability pulse on badge */}
-                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#0B1220]" />
-                </div>
-              </div>
-
-              {/* Title & Tagline */}
-              <div className="flex flex-col">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-xs sm:text-sm tracking-tight text-white group-hover:text-cyan-300 transition-colors">
-                    Sayed Shahloob P
-                  </span>
-                  <span className="hidden 2xl:inline-flex items-center gap-1 px-1.5 py-0.2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[9px] font-semibold text-emerald-400">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Available
-                  </span>
-                </div>
-                <span className="text-[10px] sm:text-[11px] font-medium text-slate-400 tracking-wide">
-                  Tech Lead · Business Analyst
-                </span>
-              </div>
-            </motion.a>
-
-            {/* Desktop Navigation (XL+: Full list of 9 items) */}
-            <nav className="hidden xl:flex items-center p-1 rounded-full bg-white/[0.03] border border-white/[0.06] backdrop-blur-md">
-              {allNavItems.map((item) => {
-                const isActive = activeSection === item.id;
-                return (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={`relative px-2.5 2xl:px-3 py-1.5 text-[12px] 2xl:text-[13px] font-medium transition-colors duration-200 whitespace-nowrap rounded-full ${
-                      isActive ? 'text-white' : 'text-slate-400 hover:text-white'
-                    }`}
-                  >
-                    <span className="relative z-10">{item.name}</span>
-                    {isActive && (
-                      <motion.div
-                        layoutId="activePillXl"
-                        className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/35 via-cyan-500/25 to-blue-600/35 border border-cyan-400/40 shadow-[0_0_15px_rgba(56,189,248,0.25)]"
-                        transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                      />
-                    )}
-                  </a>
-                );
-              })}
-            </nav>
-
-            {/* Compact Desktop Navigation (LG to XL: 7 items + More dropdown) */}
-            <nav className="hidden lg:flex xl:hidden items-center p-1 rounded-full bg-white/[0.03] border border-white/[0.06] backdrop-blur-md">
-              {primaryNavItems.map((item) => {
-                const isActive = activeSection === item.id;
-                return (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={`relative px-2.5 py-1.5 text-xs font-medium transition-colors duration-200 whitespace-nowrap rounded-full ${
-                      isActive ? 'text-white' : 'text-slate-400 hover:text-white'
-                    }`}
-                  >
-                    <span className="relative z-10">{item.name}</span>
-                    {isActive && (
-                      <motion.div
-                        layoutId="activePillLg"
-                        className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/35 via-cyan-500/25 to-blue-600/35 border border-cyan-400/40 shadow-[0_0_15px_rgba(56,189,248,0.25)]"
-                        transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                      />
-                    )}
-                  </a>
-                );
-              })}
-
-              {/* More Dropdown */}
-              <div className="relative" ref={moreDropdownRef}>
-                <button
-                  onClick={() => setIsMoreOpen(!isMoreOpen)}
-                  className={`relative flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-full transition-colors ${
-                    isSecondaryActive || isMoreOpen ? 'text-white' : 'text-slate-400 hover:text-white'
-                  }`}
-                  aria-expanded={isMoreOpen}
-                >
-                  <span className="relative z-10">More</span>
-                  <ChevronDown size={13} className={`relative z-10 transition-transform ${isMoreOpen ? 'rotate-180 text-cyan-300' : ''}`} />
-                  {isSecondaryActive && (
-                    <motion.div
-                      layoutId="activePillLg"
-                      className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/35 via-cyan-500/25 to-blue-600/35 border border-cyan-400/40"
-                      transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                    />
-                  )}
-                </button>
-
-                <AnimatePresence>
-                  {isMoreOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2 w-64 p-2 bg-[#0d1629]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl z-50 space-y-1"
-                    >
-                      {secondaryNavItems.map((item) => {
-                        const Icon = item.icon;
-                        const isActive = activeSection === item.id;
-                        return (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            onClick={() => setIsMoreOpen(false)}
-                            className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                              isActive
-                                ? 'bg-blue-600/20 text-cyan-300 border border-cyan-400/30'
-                                : 'text-slate-300 hover:text-white hover:bg-white/[0.06]'
-                            }`}
-                          >
-                            <div className={`p-1.5 rounded-lg shrink-0 mt-0.5 ${isActive ? 'bg-cyan-500/20 text-cyan-300' : 'bg-white/[0.05] text-slate-400'}`}>
-                              <Icon size={14} />
-                            </div>
-                            <div className="flex flex-col">
-                              <span className="text-xs font-semibold">{item.name}</span>
-                              <span className="text-[10px] text-slate-400 leading-tight">{item.desc}</span>
-                            </div>
-                          </a>
-                        );
-                      })}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </nav>
-
-            {/* Actions: Contact link, Resume CTA & Mobile Toggle */}
-            <div className="flex items-center gap-2 sm:gap-2.5">
-              
-              {/* Quick Contact Shortcut (visible md+) */}
-              <a
-                href="#contact"
-                className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] rounded-full transition-all border border-transparent hover:border-white/10"
+        {/* Center: Desktop Navigation Links */}
+        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+          {navLinks.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`relative py-2 text-sm sm:text-[15px] font-semibold transition-colors duration-200 ${
+                  active ? 'text-[#1677FF]' : 'text-[#101B3C] hover:text-[#1677FF]'
+                }`}
               >
-                <Mail size={13} className="text-cyan-400" />
-                <span>Let&apos;s Talk</span>
-              </a>
+                <span>{item.name}</span>
+                {active && (
+                  <motion.div
+                    layoutId="activeNavIndicator"
+                    className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#1677FF] rounded-full"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </Link>
+            );
+          })}
+        </nav>
 
-              {/* Elevated Resume Download Button */}
-              <motion.a
-                href="/Sayed_Shahloob_P_.pdf"
-                target="_blank"
-                download="Sayed_Shahloob_P_Resume.pdf"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.96 }}
-                className="relative group inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold text-xs text-white overflow-hidden shadow-lg shadow-blue-500/20"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-400 to-indigo-600 rounded-full opacity-80 group-hover:opacity-100 transition-opacity" />
-                <span className="absolute inset-[1px] bg-[#0c1427]/85 backdrop-blur-md rounded-full transition-colors group-hover:bg-[#0c1427]/60" />
-                
-                <span className="relative z-10 flex items-center gap-1.5">
-                  <Download size={13} className="text-cyan-400 group-hover:-translate-y-0.5 transition-transform" />
-                  <span className="tracking-wide">Resume</span>
-                  <span className="text-[9px] font-black uppercase tracking-wider px-1 py-0.5 rounded bg-blue-500/20 text-cyan-300 border border-blue-400/30">
-                    PDF
-                  </span>
-                </span>
-              </motion.a>
-
-              {/* Mobile Hamburger Toggle */}
-              <button
-                className="lg:hidden relative p-2 text-slate-300 hover:text-white rounded-xl bg-white/[0.05] border border-white/10 hover:border-cyan-400/40 active:scale-95 transition-all min-h-[40px] min-w-[40px] flex items-center justify-center"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label="Toggle navigation menu"
-              >
-                {isMobileMenuOpen ? <X size={20} className="text-cyan-300" /> : <Menu size={20} />}
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </motion.header>
-
-      {/* Modern Mobile Navigation Drawer */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 lg:hidden bg-[#070b14]/85 backdrop-blur-2xl flex flex-col pt-20 pb-6 px-4 overflow-y-auto"
-            onClick={() => setIsMobileMenuOpen(false)}
+        {/* Right: CTA Button */}
+        <div className="hidden md:flex items-center">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-white font-semibold text-sm btn-gradient group"
           >
-            <motion.div
-              initial={{ scale: 0.95, y: -20, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.95, y: -20, opacity: 0 }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#0e1628] border border-white/10 rounded-3xl p-5 shadow-2xl space-y-4 max-w-md mx-auto w-full my-auto"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Header inside drawer */}
-              <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center font-bold text-white text-sm">
-                    S
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs font-bold text-white">Sayed Shahloob P</span>
-                    <span className="text-[10px] text-emerald-400 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Available for projects
-                    </span>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10"
+            <span>Get In Touch</span>
+            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          className="md:hidden p-2 rounded-xl text-[#101B3C] hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-[#1677FF]"
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden bg-white border-b border-[#E4ECF7] shadow-xl overflow-hidden"
+          >
+            <div className="px-5 py-6 space-y-4">
+              {navLinks.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-base font-semibold transition-colors ${
+                      active
+                        ? 'bg-[#EFF6FF] text-[#1677FF]'
+                        : 'text-[#101B3C] hover:bg-slate-50'
+                    }`}
+                  >
+                    <span>{item.name}</span>
+                    {active && <span className="w-2 h-2 rounded-full bg-[#1677FF]" />}
+                  </Link>
+                );
+              })}
+
+              <div className="pt-2 border-t border-slate-100">
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-full text-white font-semibold text-sm btn-gradient"
                 >
-                  <X size={18} />
-                </button>
+                  <span>Get In Touch</span>
+                  <ArrowRight size={16} />
+                </Link>
               </div>
-
-              {/* Navigation links with icons */}
-              <div className="grid grid-cols-1 gap-1 max-h-[50vh] overflow-y-auto pr-1">
-                {allNavItems.map((item) => {
-                  const Icon = item.icon;
-                  const isActive = activeSection === item.id;
-                  return (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
-                        isActive
-                          ? 'bg-blue-600/25 text-cyan-300 border border-cyan-400/30 shadow-[0_0_15px_rgba(56,189,248,0.15)]'
-                          : 'text-slate-300 hover:text-white hover:bg-white/[0.05]'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <div className={`p-1.5 rounded-lg ${isActive ? 'bg-cyan-500/20 text-cyan-300' : 'bg-white/[0.05] text-slate-400'}`}>
-                          <Icon size={14} />
-                        </div>
-                        <span>{item.name}</span>
-                      </div>
-                      <ChevronRight size={14} className={isActive ? 'text-cyan-300' : 'text-slate-600'} />
-                    </a>
-                  );
-                })}
-              </div>
-
-              {/* Mobile CTA: Download Resume */}
-              <div className="pt-2 border-t border-white/[0.08] space-y-3">
-                <a
-                  href="/Sayed_Shahloob_P_.pdf"
-                  target="_blank"
-                  download="Sayed_Shahloob_P_Resume.pdf"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider rounded-xl shadow-lg shadow-blue-500/25 transition-all"
-                >
-                  <Download size={15} />
-                  <span>Download Resume (PDF)</span>
-                </a>
-
-                {/* Direct quick-connect bar */}
-                <div className="flex items-center justify-center gap-2 pt-1">
-                  <a
-                    href="https://github.com/Sayed4281"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-white/[0.05] border border-white/10 text-slate-400 hover:text-cyan-300 hover:border-cyan-400/30 transition-colors"
-                    title="GitHub"
-                  >
-                    <Github size={16} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/er-sayed-shahloob-p/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-white/[0.05] border border-white/10 text-slate-400 hover:text-cyan-300 hover:border-cyan-400/30 transition-colors"
-                    title="LinkedIn"
-                  >
-                    <Linkedin size={16} />
-                  </a>
-                  <a
-                    href="https://wa.me/919567220971"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-white/[0.05] border border-white/10 text-slate-400 hover:text-cyan-300 hover:border-cyan-400/30 transition-colors"
-                    title="WhatsApp"
-                  >
-                    <WhatsAppIcon className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="mailto:sayedshahloobpofficial@gmail.com"
-                    className="p-2 rounded-lg bg-white/[0.05] border border-white/10 text-slate-400 hover:text-cyan-300 hover:border-cyan-400/30 transition-colors"
-                    title="Email"
-                  >
-                    <Mail size={16} />
-                  </a>
-                </div>
-              </div>
-
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </header>
   );
-};
-
-export default Header;
+}

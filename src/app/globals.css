@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,83 +11,87 @@
   }
 
   body {
-    @apply antialiased text-[#F8FAFC] bg-[#0B1220] overflow-x-hidden;
+    @apply antialiased text-[#101B3C] bg-white overflow-x-hidden;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
-  ::selection {
-    @apply bg-blue-500/30 text-cyan-300;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    letter-spacing: -0.025em;
   }
 
-  /* Custom corporate scrollbar */
+  ::selection {
+    background-color: rgba(22, 119, 255, 0.15);
+    color: #1677FF;
+  }
+
+  /* Custom Light Theme Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-[#0B1220];
+    background: #F1F5F9;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-[#263449] rounded-full;
+    background: #CBD5E1;
+    border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-blue-500/50;
+    background: #1677FF;
   }
 }
 
 @layer components {
-
-  /* Corporate Glass card */
-  .glass-card {
-    @apply bg-[#172033]/90 backdrop-blur-xl border border-[#263449] shadow-xl;
+  /* Primary Button Gradient */
+  .btn-gradient {
+    background: linear-gradient(110deg, #1677FF 0%, #6945FF 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 14px 0 rgba(22, 119, 255, 0.35);
+    transition: all 0.25s ease;
   }
 
-  .glass-card-hover {
-    @apply transition-all duration-500 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10;
+  .btn-gradient:hover {
+    box-shadow: 0 6px 20px 0 rgba(105, 69, 255, 0.45);
+    transform: translateY(-2px);
   }
 
-  /* Text gradient - Corporate Blue to Cyan */
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-white;
+  /* Subtle Card & Borders matching the reference images */
+  .ref-card {
+    background: #FFFFFF;
+    border: 1px solid #E4ECF7;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 20px -2px rgba(16, 27, 60, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Section divider line */
-  .section-line {
-    @apply w-16 h-[2px] bg-gradient-to-r from-blue-500 to-transparent;
+  .ref-card:hover {
+    border-color: #BFDBFE;
+    box-shadow: 0 12px 32px -4px rgba(22, 119, 255, 0.08);
+    transform: translateY(-4px);
   }
 
-  /* Subtle grid pattern overlay */
-  .grid-pattern {
-    background-image:
-      linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
+  /* Text gradient for accent heading words */
+  .text-brand-gradient {
+    background: linear-gradient(110deg, #1677FF 0%, #6945FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  /* Noise texture overlay */
-  .noise-overlay {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
-  }
-
-  /* Hide scrollbar for clean horizontal scroll on mobile */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  /* Subtle background pattern */
+  .bg-subtle-mesh {
+    background-color: #FFFFFF;
+    background-image: radial-gradient(at 0% 0%, rgba(22, 119, 255, 0.04) 0px, transparent 50%),
+                      radial-gradient(at 100% 0%, rgba(105, 69, 255, 0.03) 0px, transparent 50%),
+                      radial-gradient(at 100% 100%, rgba(22, 119, 255, 0.03) 0px, transparent 50%);
   }
 }
 
 @layer utilities {
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-
-  .animation-delay-4000 {
-    animation-delay: 4s;
+  .font-handwritten {
+    font-family: 'Caveat', cursive;
   }
 }

@@ -1,0 +1,187 @@
+- generic [active] [ref=f59e1]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - img "Sayed Shahloob P"
+      - generic:
+        - generic: S
+        - generic: A
+        - generic: "Y"
+        - generic: E
+        - generic: D
+        - generic: S
+        - generic: H
+        - generic: A
+        - generic: H
+        - generic: L
+        - generic: O
+        - generic: O
+        - generic: B
+        - generic: P
+      - generic: Software Developer • Technical Lead • SEO Analyst
+  - banner [ref=f59e2]:
+    - generic [ref=f59e3]:
+      - link "Sayed" [ref=f59e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=f59e11]:
+        - link "Home" [ref=f59e12] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f59e13] [cursor=pointer]:
+          - /url: /about
+        - link "Projects" [ref=f59e14] [cursor=pointer]:
+          - /url: /projects
+        - link "Services" [ref=f59e15] [cursor=pointer]:
+          - /url: /services
+        - link "Contact" [ref=f59e16] [cursor=pointer]:
+          - /url: /contact
+      - link "Get In Touch" [ref=f59e19] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=f59e23]:
+    - generic [ref=f59e24]:
+      - generic [ref=f59e27]:
+        - generic [ref=f59e28]:
+          - generic [ref=f59e30]:
+            - generic [ref=f59e31]: ◆
+            - generic [ref=f59e32]: Let's Connect
+          - heading "Get In Touch Let's Build Something Great" [level=1] [ref=f59e34]
+          - paragraph [ref=f59e36]: Have a project in mind, a collaboration opportunity, or just want to say hello? I'd love to hear from you. Feel free to reach out using the form or directly through the contact details below.
+          - generic [ref=f59e38]:
+            - generic [ref=f59e39]:
+              - generic [ref=f59e43]: Fast Response
+              - generic [ref=f59e44]: Usually within 24 hours
+            - generic [ref=f59e45]:
+              - generic [ref=f59e52]: Open to Opportunities
+              - generic [ref=f59e53]: Freelance & Full-time
+            - generic [ref=f59e54]:
+              - generic [ref=f59e58]: Collaboration
+              - generic [ref=f59e59]: Let's create something amazing
+        - generic [ref=f59e61]:
+          - generic [ref=f59e63]:
+            - generic [ref=f59e64]: collaboration-hub.online
+            - img "Sayed Shahloob P Developer Workspace and Collaboration Hub" [ref=f59e72]
+          - generic [ref=f59e73]: Online & Active
+          - generic [ref=f59e76]: Fast Response
+          - generic:
+            - generic:
+              - generic: Feel free to reach out!
+              - generic: ↗
+      - generic [ref=f59e81]:
+        - generic [ref=f59e82]:
+          - generic [ref=f59e83]:
+            - generic [ref=f59e84]:
+              - generic [ref=f59e85]: ◆
+              - generic [ref=f59e86]: Send a Message
+            - heading "Contact Form" [level=2] [ref=f59e87]
+            - paragraph [ref=f59e88]: Fill out the form below and I'll get back to you as soon as possible.
+          - generic [ref=f59e89]:
+            - generic [ref=f59e90]:
+              - generic [ref=f59e91]:
+                - generic [ref=f59e92]: Full Name *
+                - textbox "Your name" [ref=f59e94]
+              - generic [ref=f59e95]:
+                - generic [ref=f59e96]: Email Address *
+                - textbox "you@example.com" [ref=f59e98]
+            - generic [ref=f59e99]:
+              - generic [ref=f59e100]: Subject *
+              - combobox [ref=f59e101]:
+                - option "Select a subject" [disabled] [selected]
+                - option "Enterprise ERP / HRMS System"
+                - option "Full-Stack Web Application"
+                - option "Technical SEO & Performance Audit"
+                - option "UI/UX Design & Frontend"
+                - option "Consulting & Technical Leadership"
+                - option "Just Saying Hello"
+            - generic [ref=f59e102]:
+              - generic [ref=f59e103]: Message *
+              - textbox "Tell me about your project, idea or just say hello..." [ref=f59e105]
+            - button "Send Message" [ref=f59e107] [cursor=pointer]
+        - generic [ref=f59e114]:
+          - generic [ref=f59e115]:
+            - generic [ref=f59e116]:
+              - generic [ref=f59e117]: ◆
+              - generic [ref=f59e118]: Direct Contact
+            - heading "Get in Touch Directly" [level=2] [ref=f59e119]
+            - paragraph [ref=f59e120]: You can also reach me through the following channels. I'm always open to new opportunities and exciting projects.
+          - generic [ref=f59e121]:
+            - link "Email sayed3309@gmail.com" [ref=f59e122] [cursor=pointer]:
+              - /url: mailto:sayedshahloobpofficial@gmail.com
+              - generic [ref=f59e128]:
+                - generic [ref=f59e129]: Email
+                - generic [ref=f59e130]: sayed3309@gmail.com
+            - link "Phone +91 8309 123 456" [ref=f59e133] [cursor=pointer]:
+              - /url: tel:+91 9567220971
+              - generic [ref=f59e138]:
+                - generic [ref=f59e139]: Phone
+                - generic [ref=f59e140]: +91 8309 123 456
+            - link "Location Malappuram, Kerala, India" [ref=f59e143] [cursor=pointer]:
+              - /url: https://maps.google.com/?q=Malappuram,Kerala
+              - generic [ref=f59e149]:
+                - generic [ref=f59e150]: Location
+                - generic [ref=f59e151]: Malappuram, Kerala, India
+            - generic [ref=f59e160]:
+              - generic [ref=f59e161]: Availability
+              - generic [ref=f59e162]: Available for freelance & full-time
+          - generic [ref=f59e167]:
+            - generic [ref=f59e168]:
+              - generic [ref=f59e169]: Follow Me
+              - generic [ref=f59e170]: Let's connect! ↗
+            - generic [ref=f59e171]:
+              - link "LinkedIn Profile" [ref=f59e172] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/er-sayed-shahloob-p/
+              - link "GitHub Profile" [ref=f59e177] [cursor=pointer]:
+                - /url: https://github.com/Sayed4281
+              - link "Twitter Profile" [ref=f59e181] [cursor=pointer]:
+                - /url: https://twitter.com
+              - link "Instagram Profile" [ref=f59e184] [cursor=pointer]:
+                - /url: https://www.instagram.com/_sayed_4281_?utm_source=qr&igsi=MTA2dW5nZDhyeHN1Yg==
+              - link "YouTube Channel" [ref=f59e188] [cursor=pointer]:
+                - /url: https://youtube.com
+      - generic [ref=f59e194]:
+        - generic [ref=f59e195]:
+          - generic [ref=f59e202]:
+            - generic [ref=f59e203]: Malappuram, Kerala
+            - generic [ref=f59e204]: India
+          - link "View Larger Map" [ref=f59e207] [cursor=pointer]:
+            - /url: https://maps.google.com/?q=Malappuram,Kerala
+        - generic [ref=f59e211]:
+          - generic [ref=f59e212]:
+            - generic [ref=f59e213]:
+              - generic [ref=f59e214]: ◆
+              - generic [ref=f59e215]: Start a Conversation
+            - heading "Have a Project in Mind?" [level=3] [ref=f59e216]
+            - paragraph [ref=f59e217]: I'm always open to new opportunities, collaborations and interesting projects. Let's build something great together!
+            - generic [ref=f59e218]:
+              - generic [ref=f59e219]: Web Applications
+              - generic [ref=f59e220]: ERP Systems
+              - generic [ref=f59e221]: Mobile Apps
+              - generic [ref=f59e222]: Consulting
+          - button "Get In Touch" [ref=f59e224] [cursor=pointer]
+  - contentinfo [ref=f59e228]:
+    - generic [ref=f59e230]:
+      - generic [ref=f59e231]:
+        - link "Sayed" [ref=f59e232] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f59e239]: © 2026 Sayed. All rights reserved.
+      - generic [ref=f59e240]:
+        - navigation [ref=f59e241]:
+          - link "Home" [ref=f59e242] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=f59e243] [cursor=pointer]:
+            - /url: /about
+          - link "Projects" [ref=f59e244] [cursor=pointer]:
+            - /url: /projects
+          - link "Services" [ref=f59e245] [cursor=pointer]:
+            - /url: /services
+          - link "Contact" [ref=f59e246] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f59e247]:
+          - link "LinkedIn Profile" [ref=f59e248] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/er-sayed-shahloob-p/
+          - link "GitHub Profile" [ref=f59e253] [cursor=pointer]:
+            - /url: https://github.com/Sayed4281
+          - link "Twitter Profile" [ref=f59e257] [cursor=pointer]:
+            - /url: https://twitter.com
+          - link "Direct Email" [ref=f59e260] [cursor=pointer]:
+            - /url: mailto:sayedshahloobpofficial@gmail.com
+  - button "Toggle AI Virtual Assistant"

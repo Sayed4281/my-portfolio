@@ -1,0 +1,358 @@
+- generic [active] [ref=f61e1]:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - img "Sayed Shahloob P"
+      - generic:
+        - generic: S
+        - generic: A
+        - generic: "Y"
+        - generic: E
+        - generic: D
+        - generic: S
+        - generic: H
+        - generic: A
+        - generic: H
+        - generic: L
+        - generic: O
+        - generic: O
+        - generic: B
+        - generic: P
+      - generic: Software Developer • Technical Lead • SEO Analyst
+  - banner [ref=f61e2]:
+    - generic [ref=f61e3]:
+      - link "Sayed" [ref=f61e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=f61e11]:
+        - link "Home" [ref=f61e12] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f61e13] [cursor=pointer]:
+          - /url: /about
+        - link "Projects" [ref=f61e15] [cursor=pointer]:
+          - /url: /projects
+        - link "Services" [ref=f61e16] [cursor=pointer]:
+          - /url: /services
+        - link "Contact" [ref=f61e17] [cursor=pointer]:
+          - /url: /contact
+      - link "Get In Touch" [ref=f61e19] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=f61e23]:
+    - generic [ref=f61e24]:
+      - generic [ref=f61e27]:
+        - generic [ref=f61e28]:
+          - generic [ref=f61e30]:
+            - generic [ref=f61e31]: ◆
+            - generic [ref=f61e32]: About Me
+          - heading "Hi, I'm Sayed Shahloob P" [level=1] [ref=f61e34]
+          - heading "Full Stack Developer & Problem Solver" [level=2] [ref=f61e36]
+          - paragraph [ref=f61e38]: I'm a passionate full-stack developer with a strong focus on building scalable, user-friendly, and high-performance web applications. I love turning ideas into real products with clean code and modern technologies.
+          - generic [ref=f61e40]:
+            - link "sayed3309@gmail.com" [ref=f61e41] [cursor=pointer]:
+              - /url: mailto:sayedshahloobpofficial@gmail.com
+            - generic [ref=f61e46]: Perinthalmanna, Malappuram District, Kerala, India
+            - generic [ref=f61e51]: Available for opportunities
+          - generic [ref=f61e55]:
+            - link "Download CV" [ref=f61e56] [cursor=pointer]:
+              - /url: /sayed_shahloob_p_resume.pdf
+            - link "Let's Work Together" [ref=f61e61] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=f61e67]:
+          - img "Sayed Shahloob P" [ref=f61e71]
+          - generic:
+            - generic:
+              - generic: Turning Ideas into Real Solutions
+              - generic: ↗
+      - generic [ref=f61e73]:
+        - generic [ref=f61e75]:
+          - generic [ref=f61e76]:
+            - generic [ref=f61e77]: ◆
+            - generic [ref=f61e78]: My Story
+          - heading "A Passion for Building Digital Solutions" [level=2] [ref=f61e79]
+        - generic [ref=f61e80]:
+          - generic [ref=f61e83]:
+            - paragraph [ref=f61e84]: I'm a dedicated full-stack developer who loves creating scalable, efficient, and user-friendly web applications. My journey in tech started with curiosity and a passion for problem-solving, which eventually turned into a profession. I enjoy working with modern technologies, learning new skills, and growing as a developer and as a person.
+            - paragraph [ref=f61e85]: With hands-on experience in full-stack engineering, enterprise ERP/HRMS architecture, and technical SEO, I bridge business workflows with scalable code. I focus on creating maintainable systems that empower users and solve tangible business challenges.
+          - generic [ref=f61e92]:
+            - paragraph [ref=f61e93]: “Technology is best when it brings people together.”
+            - paragraph [ref=f61e94]: — Matt Mullenweg
+        - generic [ref=f61e95]:
+          - generic [ref=f61e102]:
+            - heading "Clean Code" [level=3] [ref=f61e103]
+            - paragraph [ref=f61e104]: Write maintainable, scalable and efficient code.
+          - generic [ref=f61e113]:
+            - heading "Problem Solver" [level=3] [ref=f61e114]
+            - paragraph [ref=f61e115]: Find creative solutions to complex challenges.
+          - generic [ref=f61e124]:
+            - heading "Continuous Learner" [level=3] [ref=f61e125]
+            - paragraph [ref=f61e126]: Always exploring new technologies and trends.
+          - generic [ref=f61e133]:
+            - heading "Team Player" [level=3] [ref=f61e134]
+            - paragraph [ref=f61e135]: Collaborate and build better together.
+      - generic [ref=f61e137]:
+        - generic [ref=f61e139]:
+          - generic [ref=f61e140]:
+            - generic [ref=f61e141]: ◆
+            - generic [ref=f61e142]: Technical Skills
+          - heading "My Tech Stack" [level=2] [ref=f61e143]
+          - paragraph [ref=f61e144]: I work with modern technologies across the full stack to build powerful and scalable web applications.
+        - generic [ref=f61e145]:
+          - generic [ref=f61e146]:
+            - button "All 19" [ref=f61e147] [cursor=pointer]:
+              - generic [ref=f61e148]: All
+              - generic [ref=f61e149]: "19"
+            - button "Frontend 5" [ref=f61e150] [cursor=pointer]:
+              - generic [ref=f61e151]: Frontend
+              - generic [ref=f61e152]: "5"
+            - button "Backend 4" [ref=f61e153] [cursor=pointer]:
+              - generic [ref=f61e154]: Backend
+              - generic [ref=f61e155]: "4"
+            - button "Databases 3" [ref=f61e156] [cursor=pointer]:
+              - generic [ref=f61e157]: Databases
+              - generic [ref=f61e158]: "3"
+            - button "SEO & Optimization 3" [ref=f61e159] [cursor=pointer]:
+              - generic [ref=f61e160]: SEO & Optimization
+              - generic [ref=f61e161]: "3"
+            - button "Tools 2" [ref=f61e162] [cursor=pointer]:
+              - generic [ref=f61e163]: Tools
+              - generic [ref=f61e164]: "2"
+            - button "Cloud & Deployment 2" [ref=f61e165] [cursor=pointer]:
+              - generic [ref=f61e166]: Cloud & Deployment
+              - generic [ref=f61e167]: "2"
+          - generic [ref=f61e168]:
+            - generic "React — Frontend" [ref=f61e169]:
+              - generic [ref=f61e175]:
+                - generic [ref=f61e176]: React
+                - generic [ref=f61e177]: Frontend
+            - generic "Next.js — Frontend" [ref=f61e178]:
+              - generic [ref=f61e185]:
+                - generic [ref=f61e186]: Next.js
+                - generic [ref=f61e187]: Frontend
+            - generic "TypeScript — Frontend" [ref=f61e188]:
+              - generic [ref=f61e189]: TS
+              - generic [ref=f61e192]:
+                - generic [ref=f61e193]: TypeScript
+                - generic [ref=f61e194]: Frontend
+            - generic "Tailwind CSS — Frontend" [ref=f61e195]:
+              - generic [ref=f61e200]:
+                - generic [ref=f61e201]: Tailwind CSS
+                - generic [ref=f61e202]: Frontend
+            - generic "JavaScript — Frontend" [ref=f61e203]:
+              - generic [ref=f61e204]: JS
+              - generic [ref=f61e207]:
+                - generic [ref=f61e208]: JavaScript
+                - generic [ref=f61e209]: Frontend
+            - generic "Node.js — Backend" [ref=f61e210]:
+              - generic [ref=f61e215]:
+                - generic [ref=f61e216]: Node.js
+                - generic [ref=f61e217]: Backend
+            - generic "Express.js — Backend" [ref=f61e218]:
+              - generic [ref=f61e219]: ex
+              - generic [ref=f61e222]:
+                - generic [ref=f61e223]: Express.js
+                - generic [ref=f61e224]: Backend
+            - generic "Python — Backend" [ref=f61e225]:
+              - generic [ref=f61e231]:
+                - generic [ref=f61e232]: Python
+                - generic [ref=f61e233]: Backend
+            - generic "Firebase — Backend" [ref=f61e234]:
+              - generic [ref=f61e239]:
+                - generic [ref=f61e240]: Firebase
+                - generic [ref=f61e241]: Backend
+            - generic "PostgreSQL — Databases" [ref=f61e242]:
+              - generic [ref=f61e247]:
+                - generic [ref=f61e248]: PostgreSQL
+                - generic [ref=f61e249]: Databases
+            - generic "MongoDB — Databases" [ref=f61e250]:
+              - generic [ref=f61e255]:
+                - generic [ref=f61e256]: MongoDB
+                - generic [ref=f61e257]: Databases
+            - generic "Supabase — Databases" [ref=f61e258]:
+              - generic [ref=f61e263]:
+                - generic [ref=f61e264]: Supabase
+                - generic [ref=f61e265]: Databases
+            - generic "Technical SEO — SEO & Optimization" [ref=f61e266]:
+              - generic [ref=f61e273]:
+                - generic [ref=f61e274]: Technical SEO
+                - generic [ref=f61e275]: SEO & Optimization
+            - generic "Google Search Console — SEO & Optimization" [ref=f61e276]:
+              - generic [ref=f61e282]:
+                - generic [ref=f61e283]: Google Search Console
+                - generic [ref=f61e284]: SEO & Optimization
+            - generic "Google Business Profile — SEO & Optimization" [ref=f61e285]:
+              - generic [ref=f61e291]:
+                - generic [ref=f61e292]: Google Business Profile
+                - generic [ref=f61e293]: SEO & Optimization
+            - generic "Git — Tools" [ref=f61e294]:
+              - generic [ref=f61e299]:
+                - generic [ref=f61e300]: Git
+                - generic [ref=f61e301]: Tools
+            - generic "Figma — Tools" [ref=f61e302]:
+              - generic [ref=f61e311]:
+                - generic [ref=f61e312]: Figma
+                - generic [ref=f61e313]: Tools
+            - generic "Docker — Cloud & Deployment" [ref=f61e314]:
+              - generic [ref=f61e319]:
+                - generic [ref=f61e320]: Docker
+                - generic [ref=f61e321]: Cloud & Deployment
+            - generic "Vercel — Cloud & Deployment" [ref=f61e322]:
+              - generic [ref=f61e327]:
+                - generic [ref=f61e328]: Vercel
+                - generic [ref=f61e329]: Cloud & Deployment
+      - generic [ref=f61e332]:
+        - generic [ref=f61e333]:
+          - generic [ref=f61e334]:
+            - generic [ref=f61e335]:
+              - generic [ref=f61e336]: ◆
+              - generic [ref=f61e337]: Professional Experience
+            - heading "My Journey" [level=2] [ref=f61e338]
+            - paragraph [ref=f61e339]: A timeline of my professional journey, key roles and achievements that shaped my growth as a developer.
+          - generic [ref=f61e340]:
+            - generic [ref=f61e343]:
+              - generic [ref=f61e344]:
+                - heading "Jr. Software Engineer" [level=3] [ref=f61e345]
+                - generic [ref=f61e346]: Nov 2025 – Present
+              - generic [ref=f61e347]: Hirush Global LLP • Malappuram, Kerala
+              - list [ref=f61e348]:
+                - listitem [ref=f61e349]:
+                  - generic [ref=f61e350]: •
+                  - generic [ref=f61e351]: "Architected & delivered core Hirush ERP modules: HRMS, automated payroll, CRM pipelines, attendance, and multi-tenant RBAC."
+                - listitem [ref=f61e352]:
+                  - generic [ref=f61e353]: •
+                  - generic [ref=f61e354]: Managing dev team sprint backlogs, daily standups, code reviews, and quality audits.
+                - listitem [ref=f61e355]:
+                  - generic [ref=f61e356]: •
+                  - generic [ref=f61e357]: Bridging stakeholder business workflows with technical execution and UAT release sign-offs.
+              - generic [ref=f61e358]:
+                - generic [ref=f61e359]: Next.js
+                - generic [ref=f61e360]: React
+                - generic [ref=f61e361]: TypeScript
+                - generic [ref=f61e362]: Node.js
+                - generic [ref=f61e363]: PostgreSQL
+                - generic [ref=f61e364]: Prisma
+                - generic [ref=f61e365]: Sprint Leadership
+                - generic [ref=f61e366]: RBAC Security
+            - generic [ref=f61e369]:
+              - generic [ref=f61e370]:
+                - heading "Software Developer" [level=3] [ref=f61e371]
+                - generic [ref=f61e372]: May 2025 – Present
+              - generic [ref=f61e373]: Pro26 LLP • Remote
+              - list [ref=f61e374]:
+                - listitem [ref=f61e375]:
+                  - generic [ref=f61e376]: •
+                  - generic [ref=f61e377]: Engineered responsive, fluid component systems and cross-platform Flutter layouts.
+                - listitem [ref=f61e378]:
+                  - generic [ref=f61e379]: •
+                  - generic [ref=f61e380]: Integrated real-time Firebase backend services, authentication flows, and RESTful APIs.
+              - generic [ref=f61e381]:
+                - generic [ref=f61e382]: React.js
+                - generic [ref=f61e383]: Flutter
+                - generic [ref=f61e384]: TypeScript
+                - generic [ref=f61e385]: Firebase
+                - generic [ref=f61e386]: State Management
+                - generic [ref=f61e387]: REST APIs
+            - generic [ref=f61e390]:
+              - generic [ref=f61e391]:
+                - heading "SEO Analyst" [level=3] [ref=f61e392]
+                - generic [ref=f61e393]: Feb 2025 – Nov 2025
+              - generic [ref=f61e394]: Hirush Global LLP • Malappuram, Kerala
+              - list [ref=f61e395]:
+                - listitem [ref=f61e396]:
+                  - generic [ref=f61e397]: •
+                  - generic [ref=f61e398]: Boosted organic search indexability and Core Web Vitals scores across production web systems.
+                - listitem [ref=f61e399]:
+                  - generic [ref=f61e400]: •
+                  - generic [ref=f61e401]: Engineered rich JSON-LD microdata schemas and optimized sub-second Largest Contentful Paint (LCP).
+              - generic [ref=f61e402]:
+                - generic [ref=f61e403]: Technical SEO
+                - generic [ref=f61e404]: Schema JSON-LD
+                - generic [ref=f61e405]: Google Search Console
+                - generic [ref=f61e406]: Core Web Vitals
+                - generic [ref=f61e407]: Lighthouse 98+
+            - generic [ref=f61e410]:
+              - generic [ref=f61e411]:
+                - heading "Application Manager" [level=3] [ref=f61e412]
+                - generic [ref=f61e413]: Aug 2025 – Oct 2025
+              - generic [ref=f61e414]: Eduthalim International Educational Consultancy • Manjeri, Kerala
+              - list [ref=f61e415]:
+                - listitem [ref=f61e416]:
+                  - generic [ref=f61e417]: •
+                  - generic [ref=f61e418]: Managed application deployment schedules, stakeholder feedback, and change requests.
+                - listitem [ref=f61e419]:
+                  - generic [ref=f61e420]: •
+                  - generic [ref=f61e421]: Facilitated User Acceptance Testing (UAT) sessions and system readiness checks before go-live.
+              - generic [ref=f61e422]:
+                - generic [ref=f61e423]: Application Management
+                - generic [ref=f61e424]: Requirements Gathering
+                - generic [ref=f61e425]: Stakeholder Coordination
+                - generic [ref=f61e426]: UAT Testing
+        - generic [ref=f61e427]:
+          - generic [ref=f61e428]:
+            - generic [ref=f61e429]:
+              - generic [ref=f61e430]: ◆
+              - generic [ref=f61e431]: Education
+            - heading "My Education" [level=2] [ref=f61e432]
+          - generic [ref=f61e433]:
+            - generic [ref=f61e434]:
+              - heading "B.Tech in Computer Science & Engineering" [level=3] [ref=f61e436]
+              - paragraph [ref=f61e437]: MEA Engineering College, Kerala
+              - generic [ref=f61e438]:
+                - generic [ref=f61e439]: 2021 – 2025
+                - generic [ref=f61e440]: "CGPA: 8.08 / 10"
+              - paragraph [ref=f61e441]: Comprehensive study in algorithms, data structures, DBMS, system architecture, and software engineering.
+            - generic [ref=f61e442]:
+              - heading "Higher Secondary Education" [level=3] [ref=f61e444]
+              - paragraph [ref=f61e445]: Govt. Higher Secondary School, Kerala
+              - generic [ref=f61e446]:
+                - generic [ref=f61e447]: 2019 – 2021
+                - generic [ref=f61e448]: "Percentage: 92%"
+              - paragraph [ref=f61e449]: Major in Physics, Chemistry, Mathematics, and Computer Science.
+            - generic [ref=f61e450]:
+              - heading "SSLC (Secondary School Leaving Certificate)" [level=3] [ref=f61e452]
+              - paragraph [ref=f61e453]: Govt. High School, Kerala
+              - generic [ref=f61e454]:
+                - generic [ref=f61e455]: "2019"
+                - generic [ref=f61e456]: "Percentage: 90%"
+              - paragraph [ref=f61e457]: Foundational academic honors with high distinction.
+      - generic [ref=f61e461]:
+        - generic [ref=f61e462]:
+          - generic [ref=f61e463]:
+            - generic [ref=f61e464]: ◆
+            - generic [ref=f61e465]: LET'S WORK TOGETHER
+          - heading "Have a Project in Mind?" [level=2] [ref=f61e466]
+          - paragraph [ref=f61e467]: I'm always open to new opportunities, collaborations and interesting projects. Feel free to reach out!
+          - link "Get In Touch" [ref=f61e469] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f61e474]:
+          - generic:
+            - generic:
+              - generic: Let's Create Something Great!
+              - generic: ↗
+  - contentinfo [ref=f61e482]:
+    - generic [ref=f61e484]:
+      - generic [ref=f61e485]:
+        - link "Sayed" [ref=f61e486] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f61e493]: © 2026 Sayed. All rights reserved.
+      - generic [ref=f61e494]:
+        - navigation [ref=f61e495]:
+          - link "Home" [ref=f61e496] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=f61e497] [cursor=pointer]:
+            - /url: /about
+          - link "Projects" [ref=f61e498] [cursor=pointer]:
+            - /url: /projects
+          - link "Services" [ref=f61e499] [cursor=pointer]:
+            - /url: /services
+          - link "Contact" [ref=f61e500] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=f61e501]:
+          - link "LinkedIn Profile" [ref=f61e502] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/er-sayed-shahloob-p/
+          - link "GitHub Profile" [ref=f61e507] [cursor=pointer]:
+            - /url: https://github.com/Sayed4281
+          - link "Twitter Profile" [ref=f61e511] [cursor=pointer]:
+            - /url: https://twitter.com
+          - link "Direct Email" [ref=f61e514] [cursor=pointer]:
+            - /url: mailto:sayedshahloobpofficial@gmail.com
+  - button "Toggle AI Virtual Assistant"

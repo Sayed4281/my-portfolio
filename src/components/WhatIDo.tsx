@@ -1,137 +1,153 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import TiltCard from './TiltCard';
-
 import { 
-  FolderKanban, 
-  LineChart, 
   Boxes, 
-  Compass, 
-  Code2 
+  Code2, 
+  LineChart, 
+  FolderKanban, 
+  CheckCircle2,
+  ArrowRight
 } from 'lucide-react';
-
+import Link from 'next/link';
 
 const WhatIDo = () => {
   const services = [
     {
-      title: 'Project Management',
-      icon: FolderKanban,
-      badge: 'Agile & Delivery',
-      description: 'End-to-end software project coordination, sprint planning, task assignment, and timely delivery across multi-disciplinary teams.',
-      bullets: ['Sprint & Task Planning', 'Resource & Scope Management', 'Milestone Delivery']
-    },
-    {
-      title: 'Business Analysis',
-      icon: LineChart,
-      badge: 'Strategy & Requirements',
-      description: 'Requirements gathering, business process analysis, workflow definition, and translating stakeholder vision into functional specs.',
-      bullets: ['Workflow Optimization', 'Functional Documentation', 'UAT & Stakeholder Sign-off']
-    },
-    {
-      title: 'ERP & HRMS Systems',
+      id: 'erp-hrms',
+      title: 'Enterprise ERP & HRMS Solutions',
       icon: Boxes,
-      badge: 'Enterprise Solutions',
-      description: 'Planning, development, testing, and implementation of enterprise systems covering HR, CRM, Finance, Payroll, Attendance, and reporting.',
-      bullets: ['HRMS & Attendance Modules', 'Payroll & Accounting Ledgers', 'RBAC & Multi-tenant Security']
+      badge: 'Core Specialization',
+      description: 'Architecting modular corporate systems that unify employee records, automated payroll calculation, multi-branch attendance, and role-based access.',
+      deliverables: [
+        'Automated Payroll & HRMS Engine',
+        'GPS & Biometric Attendance Tracking',
+        'Multi-Tenant Role-Based Access (RBAC)',
+      ],
+      technologies: ['Next.js 15', 'TypeScript', 'PostgreSQL', 'Prisma']
     },
     {
-      title: 'Technical Consulting',
-      icon: Compass,
-      badge: 'Solution Planning & Implementation',
-      description: 'Translating complex business requirements into practical technical solutions, functional workflow planning, and team coordination.',
-      bullets: ['Client Proposals & Quotations', 'Solution Planning & Workflow', 'Bridge Management & Devs']
-    },
-    {
-      title: 'Software Development',
+      id: 'web-engineering',
+      title: 'Full-Stack Web Development',
       icon: Code2,
-      badge: 'Full-Stack Web & Mobile',
-      description: 'Hands-on engineering using Next.js, React, TypeScript, Node.js, Flutter, PostgreSQL, and robust REST APIs.',
-      bullets: ['Scalable Frontend Architecture', 'REST & GraphQL APIs', 'Performance & SEO Optimization']
+      badge: 'Modern Web Engineering',
+      description: 'Engineering fast, responsive, and maintainable cloud applications with type-safe APIs, modern state management, and relational database schemas.',
+      deliverables: [
+        'Server-Side Rendered (SSR) Next.js Systems',
+        'Type-Safe REST & GraphQL APIs',
+        'Responsive, Mobile-First Design Systems',
+      ],
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS']
+    },
+    {
+      id: 'technical-seo',
+      title: 'Technical SEO & Performance Engineering',
+      icon: LineChart,
+      badge: 'Search & Performance',
+      description: 'Maximizing organic visibility through in-depth technical audits, rich JSON-LD structured schema markup, and sub-second Core Web Vitals optimization.',
+      deliverables: [
+        '98+ Google Lighthouse & Core Web Vitals',
+        'JSON-LD Structured Schema Microdata',
+        'Search Console & Crawl Budget Optimization',
+      ],
+      technologies: ['Technical SEO', 'Schema JSON-LD', 'Core Web Vitals']
+    },
+    {
+      id: 'project-leadership',
+      title: 'Technical Project Leadership & Delivery',
+      icon: FolderKanban,
+      badge: 'Sprint & Team Delivery',
+      description: 'Leading engineering cycles through structured 2-week Agile sprints, architectural code reviews, daily unblocking, and guaranteed milestone delivery.',
+      deliverables: [
+        'Agile / Scrum Sprint & Backlog Planning',
+        'Code Reviews, Security & Quality Standards',
+        'Direct Stakeholder Demos & Production Handover',
+      ],
+      technologies: ['Agile / Scrum', 'Jira Backlogs', 'Sprint Milestones']
     }
   ];
 
   return (
-    <section id="what-i-do" className="py-12 sm:py-16 md:py-20 relative bg-[#0E1726] overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-blue-600/[0.03] rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
+    <section id="services-list" className="py-16 sm:py-24 bg-slate-50/70 border-b border-slate-200/80">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-cyan-400 text-[11px] sm:text-xs font-black tracking-[0.4em] uppercase mb-2 block">
-              Core Capabilities
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-white mb-3 sm:mb-4 uppercase tracking-tight">
-              What I <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-white">Do</span>
-            </h2>
-            <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base leading-relaxed">
-              Bridging business objectives and software execution through structured management, functional analysis, and full-stack engineering.
-            </p>
-          </motion.div>
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-3">
+            <span>Core Capabilities</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-black font-display text-slate-900 tracking-tight mb-3">
+            What I Deliver to Businesses &amp; Clients
+          </h2>
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
+            From strategic technical discovery to modular architecture and production deployment.
+          </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {services.map((item, index) => {
-            const Icon = item.icon;
-            const isFeatured = index === 2; // ERP Card visually highlighted
+        {/* Minimal Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon;
 
             return (
               <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="h-full flex"
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group"
               >
-                <TiltCard
-                  className={`group relative rounded-[2rem] p-6 sm:p-8 border transition-all duration-500 flex flex-col justify-between w-full ${
-                    isFeatured 
-                      ? 'bg-gradient-to-b from-blue-600/15 via-[#172033] to-[#172033] border-blue-500/50 shadow-2xl shadow-blue-500/10' 
-                      : 'bg-[#172033] border-[#263449] hover:border-blue-500/40'
-                  }`}
-                >
-                  <div>
-                    {/* Top Bar inside Card */}
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 text-cyan-300">
-                        <Icon size={24} className="transition-transform group-hover:scale-110" />
-                      </div>
-                      <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-[10px] text-cyan-300 font-bold uppercase tracking-wider">
-                        {item.badge}
-                      </span>
+                <div>
+                  {/* Card Header with Icon & Badge */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="p-3 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors shadow-2xs">
+                      <Icon size={22} />
                     </div>
-
-                    <h3 className="text-xl sm:text-2xl font-black text-white mb-3 font-display">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed mb-6">
-                      {item.description}
-                    </p>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 px-3 py-1 rounded-full bg-blue-50/80 border border-blue-200/80">
+                      {service.badge}
+                    </span>
                   </div>
 
-                  {/* Bullet Highlights */}
-                  <div className="pt-5 border-t border-[#263449]">
-                    <ul className="space-y-2">
-                      {item.bullets.map((bullet, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-xs font-semibold text-[#94A3B8]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:bg-blue-400 transition-colors" />
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Title */}
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2.5 font-display group-hover:text-blue-600 transition-colors">
+                    {service.title}
+                  </h3>
+
+                  {/* Concise Description */}
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+
+                  {/* 3 Sharp Deliverables */}
+                  <div className="space-y-2.5 mb-6">
+                    {service.deliverables.map((del, dIdx) => (
+                      <div key={dIdx} className="flex items-center gap-2.5 text-xs text-slate-700 font-medium">
+                        <CheckCircle2 size={15} className="text-emerald-500 shrink-0" />
+                        <span>{del}</span>
+                      </div>
+                    ))}
                   </div>
-                </TiltCard>
+                </div>
+
+                {/* Footer with Minimal Tech Chips & Inquiry Link */}
+                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex flex-wrap gap-1.5">
+                    {service.technologies.map((t) => (
+                      <span key={t} className="text-[10px] font-semibold text-slate-600 px-2.5 py-0.5 rounded-md bg-slate-100 border border-slate-200/80">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors group/link shrink-0"
+                  >
+                    <span>Inquire</span>
+                    <ArrowRight size={13} className="group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
               </motion.div>
             );
           })}
